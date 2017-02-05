@@ -33,7 +33,6 @@ public class Main extends Application{
         for(int i = 0; i < btns.length; i++) {
             for (int j = 0; j < btns[i].length; j++) {
                 GridPane.setMargin(btns[i][j], new Insets(5));
-                btns[i][j].setShape(new Circle(3.5));
                 btns[i][j].setStyle(" -fx-background-color: #000000, linear-gradient(#7ebcea, #2f4b8f), linear-gradient(#426ab7, #263e75), linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30;");
             }
         }
