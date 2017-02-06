@@ -14,6 +14,8 @@ public class MainConsole {
         DotsConsole dotsGame = new DotsConsole();
         SpelerConsole speler = new SpelerConsole();
         Scanner k = new Scanner(System.in);
+        String index;
+
 
         System.out.println("Wat is je naam? ");
         speler.setNaam(k.nextLine());
@@ -21,5 +23,11 @@ public class MainConsole {
 
 
         dotsGame.printveld();
+
+        System.out.println();
+        System.out.println("Geef index van dot [colom][rij]: ");
+        index = k.nextLine();
+
+
     }
 }
