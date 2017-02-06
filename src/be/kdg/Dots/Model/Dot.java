@@ -12,7 +12,7 @@ public class Dot {
     private Kleuren color;
     private int rijIndex; //bepaalt colomindex in array of buttons;
     private int kolomIndex; //bepaalt rijindex in array of buttons;
-    Circle shape;
+    private Circle shape;
     //nog niet zeker over die kolom en rijindex
 
 
@@ -24,5 +24,7 @@ public class Dot {
 
     }
 
-
+    Kleuren getColor() {
+        return color;
+    }
 }
