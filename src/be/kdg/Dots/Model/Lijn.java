@@ -10,7 +10,7 @@ import java.util.Set;
  * @version 1.0 5/02/2017 14:51
  */
 public class Lijn {
-    private Set<Dot> lijn = new LinkedHashSet<>();
+    private List<Dot> lijn = new ArrayList<>();
     private int aantalDots;
     private Kleuren color;
 
@@ -31,14 +31,14 @@ public class Lijn {
     }
 
     public void addDot(Dot dot) {
-        if (lijn.size() == 0) {
+        if (lijn.isEmpty()) {
             this.color = dot.getColor();
         }
         lijn.add(dot);
     }
 
     public void removeDot() {
-
+        lijn.remove(lijn.size()-1);
     }
 
 }
