@@ -35,10 +35,12 @@ public class Lijn {
             this.color = dot.getColor();
         }
         lijn.add(dot);
+        this.aantalDots++;
     }
 
     public void removeDot() {
         lijn.remove(lijn.size()-1);
+        this.aantalDots--;
     }
 
 }
