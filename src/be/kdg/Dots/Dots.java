@@ -7,4 +7,5 @@ package be.kdg.Dots;
 public class Dots {
 
 
+
 }

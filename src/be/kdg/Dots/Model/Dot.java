@@ -25,4 +25,21 @@ public class Dot {
     public Kleuren getColor() {
         return color;
     }
+
+    public int getKolomIndex() {
+        return kolomIndex;
+    }
+
+    public int getRijIndex() {
+        return rijIndex;
+    }
+
+    public boolean isAangrenzend(Dot dot2) {
+        if ((this.kolomIndex-1 == dot2.getKolomIndex()) || (this.kolomIndex == dot2.getKolomIndex()) || (this.kolomIndex+1 == dot2.getKolomIndex())) {
+            if ((this.rijIndex-1 == dot2.getRijIndex()) || (this.rijIndex == dot2.getRijIndex()) || (this.rijIndex+1 == dot2.getRijIndex())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
