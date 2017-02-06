@@ -31,8 +31,6 @@ public class Main extends Application{
                 DotsConsole dotsConsole = new DotsConsole();
 
 
-
-
                 break;
             case 2:
                 Dots dotsGrafic = new Dots();
@@ -43,7 +41,6 @@ public class Main extends Application{
                 System.out.println("Foute invoer, als straf krijg je de console versie 3:)");
 
         }
-        System.exit(0);
 
 
         /*

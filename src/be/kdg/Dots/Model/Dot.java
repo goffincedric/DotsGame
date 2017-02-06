@@ -18,8 +18,9 @@ public class Dot {
 
     public Dot(int kolomIndex, int rijIndex) {
         shape=new Circle();
-        //rijindex en kolomindex in array bepalen
-        ///color bepalen random
+        this.kolomIndex = kolomIndex;
+        this.rijIndex = rijIndex;
+        this.rijIndex = rijIndex;
     }
 
     public Kleuren getColor() {
