@@ -20,7 +20,6 @@ public class Dot {
         shape=new Circle();
         //rijindex en kolomindex in array bepalen
         ///color bepalen random
-
     }
 
     public Kleuren getColor() {
