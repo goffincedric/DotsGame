@@ -16,11 +16,10 @@ public class Dot {
     //nog niet zeker over die kolom en rijindex
 
 
-    public Dot() {
+    public Dot(int kolomIndex, int rijIndex) {
         shape=new Circle();
         //rijindex en kolomindex in array bepalen
         ///color bepalen random
-
 
     }
 
