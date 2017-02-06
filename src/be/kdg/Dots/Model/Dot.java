@@ -24,7 +24,7 @@ public class Dot {
 
     }
 
-    Kleuren getColor() {
+    public Kleuren getColor() {
         return color;
     }
 }
