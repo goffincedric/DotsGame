@@ -42,20 +42,18 @@ public class Main extends Application{
 
         }
 
-
         /*
             Dots rooster opbouw code
          */
 
+    }
+/*
         initBtnsArray();
         Group root = new Group();
         root.getChildren().add(getGrid());
         Scene scene = new Scene(root, 800, 600);
         primaryStage.setTitle("Dots");
         primaryStage.setScene(scene);
-
-
-
 
 
         for(int i = 0; i < btns.length; i++) {
@@ -88,7 +86,7 @@ public class Main extends Application{
             }
 
         }
-    }
+    }*/
 
     public static void main(String[] args) {
         Application.launch(args);
