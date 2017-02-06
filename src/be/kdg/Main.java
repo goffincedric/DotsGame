@@ -2,6 +2,7 @@ package be.kdg;
 
 import be.kdg.Dots.Dots;
 import be.kdg.DotsConsole.DotsConsole;
+import be.kdg.DotsConsole.MainConsole;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.geometry.Insets;
@@ -28,7 +29,7 @@ public class Main extends Application{
 
         switch (k.nextInt()) {
             case 1:
-                DotsConsole dotsConsole = new DotsConsole();
+                MainConsole dotsConsole = new MainConsole();
 
 
                 break;
