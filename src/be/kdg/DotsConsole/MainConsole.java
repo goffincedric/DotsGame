@@ -1,4 +1,4 @@
-package be.kdg;
+package be.kdg.DotsConsole;
 
 import be.kdg.Dots.Dots;
 import be.kdg.DotsConsole.DotsConsole;
