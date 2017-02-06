@@ -17,7 +17,7 @@ public enum Kleuren {
         this.color = color;
     }
 
-    public Color getKleur() {
+    public Color getColor() {
         return color;
     }
 
