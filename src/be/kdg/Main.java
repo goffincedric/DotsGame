@@ -1,5 +1,7 @@
 package be.kdg;
 
+import be.kdg.Dots.Dots;
+import be.kdg.DotsConsole.DotsConsole;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.geometry.Insets;
@@ -10,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
+import java.util.Scanner;
+
 /**
  * @author Cédric Goffin
  * @version 1.0 5/02/2017 14:36
@@ -19,6 +23,33 @@ public class Main extends Application{
 
     @Override
     public void start(Stage primaryStage) {
+        Scanner k = new Scanner(System.in);
+        System.out.printf("Kies een versie:\nConsole: 1\nGrafisch: 2\n\nGeef uw keuze in: ");
+
+        switch (k.nextInt()) {
+            case 1:
+                DotsConsole dotsConsole = new DotsConsole();
+
+
+
+
+                break;
+            case 2:
+                Dots dotsGrafic = new Dots();
+
+
+                break;
+            default:
+                System.out.println("Foute invoer, als straf krijg je de console versie 3:)");
+
+        }
+        System.exit(0);
+
+
+        /*
+            Dots rooster opbouw code
+         */
+
         initBtnsArray();
         Group root = new Group();
         root.getChildren().add(getGrid());
