@@ -7,8 +7,8 @@ package be.kdg.DotsConsole;
 public class SpelerConsole {
     private String naam;
 
-    public SpelerConsole(String naam) {
-        this.naam = naam;
+    public SpelerConsole() {
+
     }
 
     public String getNaam() {
