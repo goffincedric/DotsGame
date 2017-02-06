@@ -6,14 +6,5 @@ package be.kdg.Dots;
  */
 public class Dots {
 
-    ///constructor met model en view als parameter
-
-    private void addEventHandlers(){
-
-    }
-
-    private void updateView() {
-
-    }
 
 }
