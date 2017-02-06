@@ -5,7 +5,7 @@ package be.kdg.Dots.Model;
  * @version 1.0 5/02/2017 14:56
  */
 public class Speler {
-    //speler attributen: Naam,
+    //speler attributen: Naam
 
 
     private String naam;

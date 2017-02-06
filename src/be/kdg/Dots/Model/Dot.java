@@ -5,4 +5,5 @@ package be.kdg.Dots.Model;
  * @version 1.0 5/02/2017 14:50
  */
 public class Dot {
+
 }
