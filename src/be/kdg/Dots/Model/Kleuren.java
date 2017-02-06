@@ -27,4 +27,6 @@ public enum Kleuren {
                 "color=" + color +
                 '}';
     }
+
+    //kleuren random kiezen door ordinalen te gebruiken
 }
