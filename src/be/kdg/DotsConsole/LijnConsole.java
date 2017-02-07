@@ -21,6 +21,12 @@ public class LijnConsole {
 
     public void addDot(int kolom, int rij){
         //lijn.add(aantalDots, );
+
+        lijn.add(aantalDots,consoleList.getDotUitSpeelveld(kolom,rij));
         aantalDots++;
+    }
+
+    public List<DotConsole> getLijn() {
+        return lijn;
     }
 }

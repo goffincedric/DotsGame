@@ -20,7 +20,7 @@ public class Dot {
         shape=new Circle();
         this.kolomIndex = kolomIndex;
         this.rijIndex = rijIndex;
-        this.rijIndex = rijIndex;
+
     }
 
     public Kleuren getColor() {
