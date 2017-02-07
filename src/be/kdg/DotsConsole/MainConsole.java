@@ -1,5 +1,6 @@
 package be.kdg.DotsConsole;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -23,15 +24,17 @@ public class MainConsole {
 
 
         dotsGame.printveld();
-
+        do{
         System.out.println();
         System.out.println("Geef index van dot [colom]:  ");
         colom = k.nextInt();
         System.out.println("Geef index van dot [rij]:  ");
         rij = k.nextInt();
-
         lijn.addDot(rij, colom);
         System.out.print(lijn.printList());
+
+        System.out.println();
+        }while(true);
 
 
 
