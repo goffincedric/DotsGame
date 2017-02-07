@@ -2,12 +2,13 @@ package be.kdg.Dots.View.End;
 
 import be.kdg.Dots.Model.Dots;
 import be.kdg.Dots.View.End.EndView;
+import be.kdg.Dots.View.Presenter;
 
 /**
  * @author Cédric Goffin
  * @version 1.0 6/02/2017 22:21
  */
-public class EndViewPresenter {
+public class EndViewPresenter extends Presenter{
     private Dots model;
     private EndView view;
 

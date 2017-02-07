@@ -1,37 +1,37 @@
 package be.kdg.Dots.View.Start;
 
+import be.kdg.Dots.View.View;
 import javafx.scene.control.Button;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 
 /**
  * @author Cédric Goffin
  * @version 1.0 6/02/2017 13:41
  */
-public class StartView extends BorderPane {
+public class StartView extends View {
     private Button btnStart;
-    private ToggleButton tbtnStart;
     private Image imgStart;
     private ImageView imageView;
 
 
     public StartView() {
-        this.initialiseNodes();
-        this.layoutNodes();
+        initialiseNodes();
+        layoutNodes();
     }
 
     private void initialiseNodes(){
-        this.imgStart = new Image("be/kdg/Dots/View/Images/Start/Play.png");
+        imgStart = new Image("be/kdg/Dots/View/Images/Start/Play.png");
         imageView = new ImageView(imgStart);
-        this.btnStart = new Button("");
+        btnStart = new Button("", imageView);
     }
 
     private void layoutNodes(){
-        imageView.fitWidthProperty().bind(btnStart.widthProperty());
-        this.btnStart.setGraphic(imageView);
-        this.setCenter(btnStart);
+        imageView.setFitHeight(100);
+        imageView.setFitWidth(100);
+        imageView.setPreserveRatio(true);
+
+        setCenter(btnStart);
     }
 
     public Button getStartButton() {
