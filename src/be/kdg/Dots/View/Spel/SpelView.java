@@ -1,4 +1,4 @@
-package be.kdg.Dots.View;
+package be.kdg.Dots.View.Spel;
 
 import javafx.geometry.Insets;
 import javafx.scene.Group;
@@ -25,17 +25,15 @@ public class SpelView extends BorderPane {
         Group root = new Group();
         root.getChildren().add(getGrid());
         Scene scene = new Scene(root, 800, 600);
-
-        for(int i = 0; i < btns.length; i++) {
-            for (int j = 0; j < btns[i].length; j++) {
-                GridPane.setMargin(btns[i][j], new Insets(5));
-                btns[i][j].setStyle(" -fx-background-color: #000000, linear-gradient(#7ebcea, #2f4b8f), linear-gradient(#426ab7, #263e75), linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30;");
-            }
-        }
     }
 
     private void layoutNodes(){
-
+        for(int i = 0; i < btns.length; i++) {
+            for (int j = 0; j < btns[i].length; j++) {
+                GridPane.setMargin(btns[i][j], new Insets(5));
+                /*btns[i][j].setStyle(" -fx-background-color: #000000, linear-gradient(#7ebcea, #2f4b8f), linear-gradient(#426ab7, #263e75), linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30;");*/
+            }
+        }
     }
 
     private Pane getGrid() {
