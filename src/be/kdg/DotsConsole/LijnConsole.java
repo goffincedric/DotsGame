@@ -9,7 +9,7 @@ import java.util.List;
  * @author Thomas Verhoeven
  * @version 1.0 6/02/2017 22:01
  */
-public class LijnConsole extends DotsConsole{
+public class LijnConsole extends DotsConsole {
 
     //vraag user naar kolom en rij
     //blijf dit doen in een loop
@@ -21,41 +21,50 @@ public class LijnConsole extends DotsConsole{
 
 
     public LijnConsole() {
-        lijn= new ArrayList<>();
-        this.aantalDots = 0;
+        lijn = new ArrayList<>();
+        this.aantalDots = -1;
     }
 
     public List<DotConsole> getLijn() {
         return lijn;
     }
 
-    public void addDot(int  rij, int kolom) {
+    public int getAantalDots() {
+        return aantalDots;
+    }
+
+    public void setAantalDots(int aantalDots) {
+        this.aantalDots = aantalDots;
+    }
+
+    public void addDot(int rij, int kolom) {
 
         DotConsole andereDot = this.getDotUitSpeelveld(rij, kolom);
 
-        if (aantalDots == 0) {
-            lijn.add(0,andereDot);
-            aantalDots++;
+        if (this.getAantalDots() == -1) {
+            lijn.add(andereDot);
+            setAantalDots(getAantalDots() + 1);
 
 
         } else {
-            if (lijn.get(aantalDots-1).getKleur().equals(andereDot.getKleur())) {
-                if ((lijn.get(aantalDots-1).getKolomIndex() - 1 == andereDot.getKolomIndex()) || (lijn.get(aantalDots-1).getKolomIndex() == andereDot.getKolomIndex()) || (lijn.get(aantalDots-1).getKolomIndex() + 1 == andereDot.getKolomIndex())) {
-                    if ((lijn.get(aantalDots-1).getRijIndex() - 1 == andereDot.getRijIndex()) || (lijn.get(aantalDots-1).getRijIndex() == andereDot.getRijIndex()) || (lijn.get(aantalDots-1).getRijIndex() + 1 == andereDot.getRijIndex())) {
+            System.out.println(lijn.get(this.aantalDots).getKleur());
+            if (lijn.get(this.aantalDots ).getKleur().equals(andereDot.getKleur())) {
+                if ((lijn.get(this.aantalDots).getKolomIndex() - 1 == andereDot.getKolomIndex()) || (lijn.get(this.aantalDots).getKolomIndex() == andereDot.getKolomIndex()) || (lijn.get(this.aantalDots ).getKolomIndex() + 1 == andereDot.getKolomIndex())) {
+                    if ((lijn.get(this.aantalDots).getRijIndex() - 1 == andereDot.getRijIndex()) || (lijn.get(this.aantalDots).getRijIndex() == andereDot.getRijIndex()) || (lijn.get(this.aantalDots).getRijIndex() + 1 == andereDot.getRijIndex())) {
 
-                        lijn.add(aantalDots+1,andereDot);
-                        aantalDots++;
+                        lijn.add(andereDot);
+                        setAantalDots(getAantalDots() + 1);
 
                     }
-                } else {
-                    System.out.println("Bollen hebben niet dezelfde kleur of liggen niet naast elkaar");
                 }
+            } else {
+                System.out.println("Bollen hebben niet dezelfde kleur of liggen niet naast elkaar");
             }
-
         }
 
-    }
 
+
+    }
 
 
 

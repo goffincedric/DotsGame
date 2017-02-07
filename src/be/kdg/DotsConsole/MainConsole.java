@@ -32,7 +32,7 @@ public class MainConsole {
         rij = k.nextInt();
         lijn.addDot(rij, colom);
         System.out.print(lijn.printList());
-
+        System.out.println("\n" + lijn.getAantalDots());
         System.out.println();
         }while(true);
 
