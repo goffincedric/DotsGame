@@ -31,9 +31,5 @@ public class MainConsole {
         rij = k.nextInt();
 
         lijn.addDot(rij, colom);
-        System.out.print(lijn.printList());
-
-
-
-    }
+        System.out.print(lijn.printList());    }
 }

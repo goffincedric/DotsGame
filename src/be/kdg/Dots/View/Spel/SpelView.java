@@ -1,8 +1,6 @@
 package be.kdg.Dots.View.Spel;
 
 import javafx.geometry.Insets;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -13,8 +11,8 @@ import javafx.scene.layout.Pane;
  * @version 1.0 6/02/2017 13:40
  */
 public class SpelView extends BorderPane {
-
     private Button[][] btns = new Button[7][7];
+    private BorderPane bottomPane;
 
     public SpelView() {
         this.initialiseNodes();
@@ -23,7 +21,10 @@ public class SpelView extends BorderPane {
 
     private void initialiseNodes(){
         initBtnsArray();
-        this.getChildren().add(getGrid());
+
+        this.bottomPane = new BorderPane();
+        this.setBottom(bottomPane);
+        bottomPane.setLeft(getGrid());
     }
 
     private void layoutNodes(){
@@ -36,14 +37,11 @@ public class SpelView extends BorderPane {
     }
 
     private Pane getGrid() {
-
-
         GridPane gridPane = new GridPane();
         for(int i = 0; i < btns.length; i++) {
             for(int j= 0; j < btns[i].length;j++){
                 gridPane.add(btns[i][j],i,j);
             }
-
         }
         return gridPane;
     }

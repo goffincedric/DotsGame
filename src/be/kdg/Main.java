@@ -3,6 +3,8 @@ package be.kdg;
 import be.kdg.Dots.Model.Dots;
 import be.kdg.Dots.View.Spel.SpelViewPresenter;
 import be.kdg.Dots.View.Spel.SpelView;
+import be.kdg.Dots.View.Start.StartView;
+import be.kdg.Dots.View.Start.StartViewPresenter;
 import be.kdg.DotsConsole.MainConsole;
 import javafx.application.Application;
 import javafx.scene.Scene;

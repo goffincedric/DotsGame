@@ -2,6 +2,7 @@ package be.kdg.Dots.View.Start;
 
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -19,7 +20,7 @@ public class StartView extends BorderPane {
     }
 
     private void initialiseNodes(){
-
+        this.startButton = new Button("", new ImageView(new Image("be/kdg/Dots/View/Images/Start/Play.png")));
     }
 
     private void layoutNodes(){
