@@ -1,6 +1,7 @@
 package be.kdg;
 
 import be.kdg.Dots.Model.Dots;
+import be.kdg.Dots.View.SpelView;
 import be.kdg.Dots.View.StartView;
 import be.kdg.DotsConsole.MainConsole;
 import javafx.application.Application;
@@ -15,7 +16,7 @@ import java.util.Scanner;
  */
 public class Main extends Application{
     private Dots model;
-    private StartView view;
+    private SpelView view;
 
     @Override
     public void start(Stage primaryStage) {
