@@ -1,4 +1,4 @@
-package be.kdg.Dots;
+package be.kdg.Dots.Model;
 
 /**
  * @author Cédric Goffin

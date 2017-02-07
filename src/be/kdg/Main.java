@@ -1,20 +1,9 @@
 package be.kdg;
 
-import be.kdg.Dots.Dots;
-import be.kdg.DotsConsole.DotsConsole;
+import be.kdg.Dots.Model.Dots;
 import be.kdg.DotsConsole.MainConsole;
-import com.sun.org.apache.xpath.internal.Arg;
-import com.sun.tracing.dtrace.ArgsAttributes;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import javafx.geometry.Insets;
-import javafx.scene.Group;
-import javafx.scene.control.Button;
-import javafx.scene.shape.Circle;
-import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import jdk.nashorn.internal.runtime.regexp.joni.constants.Arguments;
 
 import java.util.Scanner;
 
@@ -23,7 +12,6 @@ import java.util.Scanner;
  * @version 1.0 5/02/2017 14:36
  */
 public class Main extends Application{
-    private Button[][] btns = new Button[7][7];
 
     @Override
     public void start(Stage primaryStage) {
