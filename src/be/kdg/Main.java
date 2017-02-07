@@ -1,8 +1,8 @@
 package be.kdg;
 
 import be.kdg.Dots.Model.Dots;
+import be.kdg.Dots.View.DotsPresenter;
 import be.kdg.Dots.View.SpelView;
-import be.kdg.Dots.View.StartView;
 import be.kdg.DotsConsole.MainConsole;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -15,8 +15,6 @@ import java.util.Scanner;
  * @version 1.0 5/02/2017 14:36
  */
 public class Main extends Application{
-    private Dots model;
-    private SpelView view;
 
     @Override
     public void start(Stage primaryStage) {
@@ -31,9 +29,13 @@ public class Main extends Application{
 
                 break;
             case 2:
-                primaryStage.setTitle("Dots");
-                primaryStage.setScene(new Scene(view));
+                Dots model = new Dots();
+                SpelView spelView = new SpelView();
 
+                new DotsPresenter(model, spelView);
+
+                primaryStage.setTitle("Dots");
+                primaryStage.setScene(new Scene(spelView));
                 primaryStage.show();
                 break;
             default:
