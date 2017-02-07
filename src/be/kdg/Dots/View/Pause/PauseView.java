@@ -1,4 +1,4 @@
-package be.kdg.Dots.View;
+package be.kdg.Dots.View.Pause;
 
 import javafx.scene.layout.BorderPane;
 
@@ -6,9 +6,9 @@ import javafx.scene.layout.BorderPane;
  * @author Cédric Goffin
  * @version 1.0 6/02/2017 13:41
  */
-public class EndView extends BorderPane {
+public class PauseView extends BorderPane {
 
-    public EndView() {
+    public PauseView() {
         this.initialiseNodes();
         this.layoutNodes();
     }

@@ -1,4 +1,4 @@
-package be.kdg.Dots.View;
+package be.kdg.Dots.View.Start;
 
 import javafx.scene.layout.BorderPane;
 

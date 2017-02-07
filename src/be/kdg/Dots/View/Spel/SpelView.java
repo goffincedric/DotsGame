@@ -1,4 +1,4 @@
-package be.kdg.Dots.View;
+package be.kdg.Dots.View.Spel;
 
 import javafx.geometry.Insets;
 import javafx.scene.Group;
