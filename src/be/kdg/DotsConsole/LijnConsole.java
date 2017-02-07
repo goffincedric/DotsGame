@@ -47,7 +47,7 @@ public class LijnConsole extends DotsConsole {
 
 
         } else {
-            System.out.println(lijn.get(this.aantalDots).getKleur());
+
             if (lijn.get(this.aantalDots ).getKleur().equals(andereDot.getKleur())) {
                 if ((lijn.get(this.aantalDots).getKolomIndex() - 1 == andereDot.getKolomIndex()) || (lijn.get(this.aantalDots).getKolomIndex() == andereDot.getKolomIndex()) || (lijn.get(this.aantalDots ).getKolomIndex() + 1 == andereDot.getKolomIndex())) {
                     if ((lijn.get(this.aantalDots).getRijIndex() - 1 == andereDot.getRijIndex()) || (lijn.get(this.aantalDots).getRijIndex() == andereDot.getRijIndex()) || (lijn.get(this.aantalDots).getRijIndex() + 1 == andereDot.getRijIndex())) {
