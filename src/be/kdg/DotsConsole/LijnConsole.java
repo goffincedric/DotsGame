@@ -62,7 +62,7 @@ public class LijnConsole extends DotsConsole{
 
     public String printList() {
         for (DotConsole dotConsole : lijn) {
-            return String.format("Kleur: " + dotConsole.getKleur() + "\nIndex[Rij|Kolom]: " + dotConsole.getKolomIndex() + dotConsole.getRijIndex());
+            return String.format("Kleur: " + dotConsole.getKleur() + "\nIndex [Rij|Kolom]: " + dotConsole.getKolomIndex() + dotConsole.getRijIndex());
 
         }
         return "";
