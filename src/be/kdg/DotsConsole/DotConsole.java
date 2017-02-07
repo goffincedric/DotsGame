@@ -9,19 +9,27 @@ import java.util.Random;
 public class DotConsole {
     private String kleur;
     private int rijIndex;
-    private int komomIndex;
+    private int kolomIndex;
     Random r = new Random();
     private String kleuren[]={"G","B","P","R"};
 
 
 
-    public DotConsole(int rijIndex, int komomIndex) {
+    public DotConsole(int rijIndex, int kolomIndex) {
         this.kleur = kleuren[r.nextInt(4)].toString();
         this.rijIndex = rijIndex;
-        this.komomIndex = komomIndex;
+        this.kolomIndex = kolomIndex;
     }
 
     public String getKleur() {
         return kleur;
+    }
+
+    public int getRijIndex() {
+        return rijIndex;
+    }
+
+    public int getKolomIndex() {
+        return kolomIndex;
     }
 }

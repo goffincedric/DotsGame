@@ -46,8 +46,11 @@ public class DotsConsole {
     }
 
 
+    public DotConsole[][] getSpeelveld() {
+        return speelveld;
+    }
 
-    public DotConsole getDotUitSpeelveld(int kolom, int rij){
-        return speelveld[kolom][rij];
+    public DotConsole getDotUitSpeelveld(int rij, int kolom){
+        return speelveld[rij][kolom];
     }
 }

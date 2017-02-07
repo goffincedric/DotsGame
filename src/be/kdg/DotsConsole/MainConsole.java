@@ -30,8 +30,8 @@ public class MainConsole {
         System.out.println("Geef index van dot [rij]:  ");
         rij = k.nextInt();
 
-        lijn.addDot(colom, rij);
-        System.out.println(lijn.getLijn());
+        lijn.addDot(rij, colom);
+        System.out.print(lijn.printList());
 
 
 
