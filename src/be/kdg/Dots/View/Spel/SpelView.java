@@ -1,5 +1,6 @@
 package be.kdg.Dots.View.Spel;
 
+import be.kdg.Dots.View.View;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -10,7 +11,7 @@ import javafx.scene.layout.Pane;
  * @author Cédric Goffin
  * @version 1.0 6/02/2017 13:40
  */
-public class SpelView extends BorderPane {
+public class SpelView extends View {
     private Button[][] btns = new Button[7][7];
     private BorderPane bottomPane;
 
