@@ -10,6 +10,10 @@ public class Speler extends Dots {
 
     private String naam;
 
+    public Speler(){
+
+    }
+
     public Speler(String naam) {
         this.naam = naam;
     }
