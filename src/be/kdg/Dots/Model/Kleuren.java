@@ -25,6 +25,7 @@ public enum Kleuren {
 
     private Color color;
 
+
     Kleuren(Color color) {
         this.color = color;
     }
