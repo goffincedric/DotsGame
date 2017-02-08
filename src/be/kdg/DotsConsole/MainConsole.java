@@ -24,9 +24,13 @@ public class MainConsole {
 
 
         dotsGame.printveld();
+        System.out.println(dotsGame.getDotUitSpeelveld(0,0).toString());
+        System.out.println(dotsGame.getDotUitSpeelveld(0,6).toString());
+        System.out.println(dotsGame.getDotUitSpeelveld(6,0).toString());
+        System.out.println(dotsGame.getDotUitSpeelveld(6,6).toString());
         do{
         System.out.println();
-        System.out.println("Geef index van dot [colom]:  ");
+        System.out.println("Geef index van dot [kolom]:  ");
         colom = k.nextInt();
         System.out.println("Geef index van dot [rij]:  ");
         rij = k.nextInt();

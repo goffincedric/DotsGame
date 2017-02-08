@@ -39,7 +39,7 @@ public class LijnConsole extends DotsConsole {
 
     public void addDot(int rij, int kolom) {
 
-        DotConsole andereDot = this.getDotUitSpeelveld(rij, kolom);
+        DotConsole andereDot = getDotUitSpeelveld(rij, kolom);
 
         if (this.getAantalDots() == -1) {
             lijn.add(andereDot);
@@ -70,8 +70,9 @@ public class LijnConsole extends DotsConsole {
 
 
     public String printList() {
+
         for (DotConsole dotConsole : lijn) {
-            return String.format("Kleur: " + dotConsole.getKleur() + "\nIndex [Rij|Kolom]: " + dotConsole.getKolomIndex() + dotConsole.getRijIndex());
+            return String.format("Kleur: " + dotConsole.getKleur() + "\nIndex [Rij|Kolom]: " + dotConsole.getRijIndex()) + dotConsole.getKolomIndex();
 
         }
         return "";
