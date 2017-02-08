@@ -9,6 +9,7 @@ public class test {
     public static void main(String[] args) {
         Dot dot1 = new Dot(1,1);
         Dot dot2 = new Dot(1,3);
+
         //System.out.println(dot1.toString());
         //System.out.println(dot2.toString());
     }
