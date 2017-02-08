@@ -3,6 +3,7 @@ package be.kdg.Dots.Model;
 import javafx.scene.shape.Circle;
 
 import java.awt.*;
+import java.util.Random;
 
 /**
  * @author Cédric Goffin
@@ -15,12 +16,20 @@ public class Dot {
     private Circle shape;
     //nog niet zeker over die kolom en rijindex
 
+    private static final Kleuren[] VALUES = Kleuren.values();
+    private static final int SIZE = VALUES.length;
+    private static Random random = new Random();
 
     public Dot(int kolomIndex, int rijIndex) {
         shape=new Circle();
         this.kolomIndex = kolomIndex;
         this.rijIndex = rijIndex;
 
+
+    }
+
+    public static Kleuren getRandomKleur(){
+        return VALUES[random.nextInt(SIZE)];
     }
 
     public Kleuren getColor() {
@@ -45,5 +54,14 @@ public class Dot {
             }
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Dot{" +
+                "color=" + color +
+                ", rijIndex=" + rijIndex +
+                ", kolomIndex=" + kolomIndex +
+                '}';
     }
 }

@@ -36,6 +36,7 @@ public class MainConsole {
         rij = k.nextInt();
         lijn.addDot(dotsGame.getDotUitSpeelveld(rij,colom));
         System.out.print(lijn.printList());
+            System.out.println(lijn.getLijn().size());
 
         System.out.println();
         }while(true);
