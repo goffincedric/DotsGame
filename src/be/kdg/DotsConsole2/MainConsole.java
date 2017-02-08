@@ -16,7 +16,7 @@ public class MainConsole {
         int kolom;
         int rij;
 
-        System.out.println("Wat is je naam? ");
+        System.out.print("Wat is je naam? ");
         speler.setNaam(k.nextLine());
         System.out.println("Welkom speler: " + speler.getNaam() + "\n");
 
@@ -29,7 +29,7 @@ public class MainConsole {
         do{
         System.out.println();
         System.out.println("Geef index van dot [kolom]:  ");
-            kolom = k.nextInt();
+        kolom = k.nextInt();
         System.out.println("Geef index van dot [rij]:  ");
         rij = k.nextInt();
         lijn.addDot(dotsConsole.getDotUitSpeelveld(rij,kolom));
