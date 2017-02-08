@@ -25,10 +25,11 @@ public class test {
 
         Level level = new Level();
         System.out.println(level.toString());
-        level.nextLevel();
-        System.out.println(level.toString());
-        level.nextLevel();
-        System.out.println(level.toString());
+
+        for (int i = 0; i < 20; i++) {
+            level.nextLevel();
+            System.out.println(level.toString());
+        }
     }
 
 

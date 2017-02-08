@@ -27,7 +27,6 @@ public class LijnConsole extends DotsConsole {
         return lijn;
     }
 
-
     public void addDot(DotConsole andereDot) {
         if (lijn.isEmpty()) {
             lijn.add(0,andereDot);
@@ -38,17 +37,16 @@ public class LijnConsole extends DotsConsole {
                         lijn.add(lijn.size(),andereDot);
                     }
                 }
+                System.out.println("Bollen liggen niet naast elkaar; Dot 1: ");
             } else {
-                System.out.println("Bollen hebben niet dezelfde kleur of liggen niet naast elkaar");
+                System.out.println("Bollen hebben niet dezelfde kleur");
             }
         }
-
-
-
     }
 
-
-
+    public DotConsole getVoorlaatseDot() {
+        return lijn.get(lijn.size()-1);
+    }
 
     public String printList() {
 
