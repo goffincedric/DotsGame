@@ -7,6 +7,7 @@ package be.kdg.Dots.Model;
 public class test {
 
     public static void main(String[] args) {
+        Dots game = new Dots();
         Dot dot1 = new Dot(1,1);
         Dot dot2 = new Dot(1,3);
 

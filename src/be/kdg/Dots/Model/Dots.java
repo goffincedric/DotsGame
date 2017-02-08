@@ -9,19 +9,31 @@ public class Dots {
     Speler speler;
     Level level;
     Lijn lijn;
-
+    private final int MAXRIJ = 7;
+    private final int MAXKOLOM = 7;
+    private Dot[][] speelveld;
 
     public Dots(){
         speler = new Speler();
         level = new Level();
         lijn = new Lijn();
         this.gehaaldeScore = 0;
+
+        speelveld = new Dot[MAXRIJ][MAXKOLOM];
+        for (int rij = 0; rij < MAXRIJ; rij++) {
+            for (int kolom = 0; kolom < MAXKOLOM; kolom++) {
+                speelveld[rij][kolom] = new Dot(rij, kolom);
+            }
+        }
     }
 
+    ///Waarom score weten in deze klasse??
 
     public int getGehaaldeScore() {
         return lijn.bepaalScore();
     }
 
+
+    //Methode maken die een lijn die ingediend wordt vult met nieuwe dots
 }
 
