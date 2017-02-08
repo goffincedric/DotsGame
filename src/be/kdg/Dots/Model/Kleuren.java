@@ -34,6 +34,18 @@ public enum Kleuren {
         return color;
     }
 
+    public int getRed() {
+        return (int)Math.round(this.getColor().getRed()*255);
+    }
+
+    public int getGreen() {
+        return  (int)Math.round(this.getColor().getGreen()*255);
+    }
+
+    public int getBlue() {
+        return  (int)Math.round(this.getColor().getBlue()*255);
+    }
+
     @Override
     public String toString() {
         return "Kleuren{" +

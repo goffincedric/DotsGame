@@ -11,7 +11,7 @@ public class test {
         Dot dot2 = new Dot(1,3);
 
         for (Kleuren kleur : Kleuren.values()) {
-            System.out.println(kleur.name() + "    R: " + Math.round(kleur.getColor().getRed()*255) + " G: " + Math.round(kleur.getColor().getGreen()*255) + " B: " + Math.round(kleur.getColor().getBlue()*255));
+            System.out.println(kleur.name() + "    R: " + kleur.getRed() + " G: " + kleur.getGreen() + " B: " + kleur.getBlue());
         }
 
         /*System.out.println(java.util.Arrays.asList(Kleuren.values().toString()));
