@@ -48,7 +48,7 @@ public class Main extends Application{
         Application.launch(args);
     }
 
-    public void navigateToStart() {
+    public void navigateTo() {
 
     }
 
