@@ -16,7 +16,6 @@ public class MainConsole {
         int kolom;
         int rij;
 
-
         System.out.println("Wat is je naam? ");
         speler.setNaam(k.nextLine());
         System.out.println("Welkom speler: " + speler.getNaam() + "\n");

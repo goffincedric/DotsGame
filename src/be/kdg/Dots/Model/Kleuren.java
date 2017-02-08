@@ -1,11 +1,12 @@
 package be.kdg.Dots.Model;
 
-import java.awt.*;
 import javafx.scene.paint.Color;
+
 /**
  * @author Cédric Goffin
  * @version 1.0 5/02/2017 14:50
  */
+
 public enum Kleuren {
     Grijs(Color.rgb(229, 17, 73)),
     Wit(Color.rgb(226, 7, 100)),

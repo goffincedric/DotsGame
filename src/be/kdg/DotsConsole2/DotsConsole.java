@@ -17,7 +17,6 @@ public class DotsConsole {
            for (int kolom = 0; kolom < MAXKOLOM; kolom++){
                speelveld[rij][kolom] = new DotConsole(rij,kolom);
            }
-
        }
     }
 
@@ -25,11 +24,8 @@ public class DotsConsole {
         for(int k=0; k <7; k++){
             System.out.print(" "+ k + "\t");
         }
-        System.out.println();
-        System.out.println();
-
+        System.out.printf("\n\n");
         for (int i = 0; i < speelveld.length; i++) {
-
             for (int j = 0; j < speelveld[i].length; j++) {
 
                 System.out.print("*" + speelveld[i][j].getKleur() + "\t");

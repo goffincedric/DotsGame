@@ -10,10 +10,16 @@ public class test {
         Dot dot1 = new Dot(1,1);
         Dot dot2 = new Dot(1,3);
 
-        System.out.println(java.util.Arrays.asList(Kleuren.values().toString()));
+        for (Kleuren kleur : Kleuren.values()) {
+            System.out.println(kleur.name() + "    R: " + Math.round(kleur.getColor().getRed()*255) + " G: " + Math.round(kleur.getColor().getGreen()*255) + " B: " + Math.round(kleur.getColor().getBlue()*255));
+        }
+
+        /*System.out.println(java.util.Arrays.asList(Kleuren.values().toString()));
+
+
 
         System.out.println(dot1.toString());
-        System.out.println(dot2.toString());
+        System.out.println(dot2.toString());*/
     }
 
 
