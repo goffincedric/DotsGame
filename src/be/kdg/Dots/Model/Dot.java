@@ -9,14 +9,14 @@ import java.awt.*;
  * @version 1.0 5/02/2017 14:50
  */
 public class Dot {
-    private Kleuren color;
+    private Kleuren kleur;
     private int rijIndex; //bepaalt colomindex in array of buttons;
     private int kolomIndex; //bepaalt rijindex in array of buttons;
     private Circle shape;
     //nog niet zeker over die kolom en rijindex
 
 
-    public Dot(int kolomIndex, int rijIndex) {
+    public Dot(int kolomIndex, int rijIndex, Kleuren kleur) {
         shape=new Circle();
         this.kolomIndex = kolomIndex;
         this.rijIndex = rijIndex;
@@ -24,7 +24,7 @@ public class Dot {
     }
 
     public Kleuren getColor() {
-        return color;
+        return kleur;
     }
 
     public int getKolomIndex() {
@@ -36,7 +36,7 @@ public class Dot {
     }
 
     public boolean isAangrenzend(Dot dot2) {
-        if (!this.color.name().equals(dot2.getColor().name())) {
+        if (!this.kleur.name().equals(dot2.getColor().name())) {
             return false;
         }
         if ((this.kolomIndex-1 == dot2.getKolomIndex()) || (this.kolomIndex == dot2.getKolomIndex()) || (this.kolomIndex+1 == dot2.getKolomIndex())) {
