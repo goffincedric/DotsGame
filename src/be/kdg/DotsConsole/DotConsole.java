@@ -33,6 +33,18 @@ public class DotConsole {
         return kolomIndex;
     }
 
+    public boolean isAangrenzend(DotConsole dotConsole2) {
+        if (!this.kleur.equals(dotConsole2.getKleur())) {
+            return false;
+        }
+        if ((this.kolomIndex-1 == dotConsole2.getKolomIndex()) || (this.kolomIndex == dotConsole2.getKolomIndex()) || (this.kolomIndex+1 == dotConsole2.getKolomIndex())) {
+            if ((this.rijIndex-1 == dotConsole2.getRijIndex()) || (this.rijIndex == dotConsole2.getRijIndex()) || (this.rijIndex+1 == dotConsole2.getRijIndex())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         return "DotConsole{" +

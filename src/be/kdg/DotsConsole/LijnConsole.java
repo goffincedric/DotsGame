@@ -1,7 +1,5 @@
 package be.kdg.DotsConsole;
 
-import be.kdg.Dots.Model.Dot;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,43 +27,39 @@ public class LijnConsole extends DotsConsole {
         return lijn;
     }
 
-
-    public void addDot(DotConsole andereDot) {
-
-
-        if (lijn.size() == 0) {
-            lijn.add(0,andereDot);
-
-
-
+    public void addDot(DotConsole nieuweDot) {
+        if (lijn.isEmpty()) {
+            lijn.add(0,nieuweDot);
         } else {
+            DotConsole laatsteDot = getLaatsteDot();
 
-            if (lijn.get(lijn.size()-1).getKleur().equals(andereDot.getKleur())) {
-                if ((lijn.get(lijn.size()-1).getKolomIndex() - 1 == andereDot.getKolomIndex()) || (lijn.get(lijn.size()-1).getKolomIndex() == andereDot.getKolomIndex()) || (lijn.get(lijn.size()-1 ).getKolomIndex() + 1 == andereDot.getKolomIndex())) {
-                    if ((lijn.get(lijn.size()-1).getRijIndex() - 1 == andereDot.getRijIndex()) || (lijn.get(lijn.size()-1).getRijIndex() == andereDot.getRijIndex()) || (lijn.get(lijn.size()-1).getRijIndex() + 1 == andereDot.getRijIndex())) {
-
-                        lijn.add(lijn.size(),andereDot);
-
-
+            if (laatsteDot.getKleur().equals(nieuweDot.getKleur())) {
+                if ((laatsteDot.getKolomIndex() - 1 == nieuweDot.getKolomIndex()) || (laatsteDot.getKolomIndex() == nieuweDot.getKolomIndex()) ||
+                        (lijn.get(lijn.size()-1 ).getKolomIndex() + 1 == nieuweDot.getKolomIndex())) {
+                    if ((laatsteDot.getRijIndex() - 1 == nieuweDot.getRijIndex()) || (laatsteDot.getRijIndex() == nieuweDot.getRijIndex()) ||
+                            (laatsteDot.getRijIndex() + 1 == nieuweDot.getRijIndex())) {
+                        lijn.add(lijn.size(),nieuweDot);
+                    } else {
+                        System.out.println("Bollen liggen niet naast elkaar; Dot 1: (" + laatsteDot.getKolomIndex() + ", " + laatsteDot.getRijIndex() + "); Dot 2: (" +
+                                nieuweDot.getKolomIndex() + ", " + nieuweDot.getRijIndex() + ")");
                     }
+                } else {
+                    System.out.println("Bollen liggen niet naast elkaar; Dot 1: (" + laatsteDot.getKolomIndex() + ", " + laatsteDot.getRijIndex() + "); Dot 2: (" +
+                            nieuweDot.getKolomIndex() + ", " + nieuweDot.getRijIndex() + ")");
                 }
             } else {
-                System.out.println("Bollen hebben niet dezelfde kleur of liggen niet naast elkaar");
+                System.out.println("Bollen hebben niet dezelfde kleur; Dot 1: " + laatsteDot.getKleur() + "; Dot 2: " + nieuweDot.getKleur());
             }
         }
-
-
-
     }
 
-
-
+    public DotConsole getLaatsteDot() {
+        return lijn.get(lijn.size()-1);
+    }
 
     public String printList() {
-
         for (DotConsole dotConsole : lijn) {
             return String.format("Kleur: " + dotConsole.getKleur() + "\nIndex [Kolom|Rij]: " + dotConsole.getKolomIndex()) + dotConsole.getRijIndex();
-
         }
         return "";
     }
