@@ -13,17 +13,15 @@ public class DotsConsole {
     public DotsConsole() {
         speelveld = new DotConsole[MAXRIJ][MAXKOLOM];
 
-       for(int i = 0; i < speelveld.length ;i++){
-           for (int j = 0; j < speelveld[i].length; j++){
-               speelveld[i][j] = new DotConsole(i,j);
+       for(int rij = 0; rij < MAXRIJ ;rij++){
+           for (int kolom = 0; kolom < MAXKOLOM; kolom++){
+               speelveld[rij][kolom] = new DotConsole(rij,kolom);
            }
 
        }
     }
 
     public void printveld() {
-
-
         for(int k=0; k <7; k++){
             System.out.print(" "+ k + "\t");
         }
