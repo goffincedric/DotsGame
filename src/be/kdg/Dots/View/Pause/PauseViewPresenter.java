@@ -1,14 +1,13 @@
 package be.kdg.Dots.View.Pause;
 
 import be.kdg.Dots.Model.Dots;
-import be.kdg.Dots.View.Pause.PauseView;
-import be.kdg.Dots.View.Presenter;
+import javafx.scene.layout.BorderPane;
 
 /**
  * @author Cédric Goffin
  * @version 1.0 6/02/2017 22:21
  */
-public class PauseViewPresenter extends Presenter{
+public class PauseViewPresenter {
     private Dots model;
     private PauseView view;
 

@@ -1,14 +1,12 @@
 package be.kdg.Dots.View.Spel;
 
 import be.kdg.Dots.Model.Dots;
-import be.kdg.Dots.View.Presenter;
-import be.kdg.Dots.View.Spel.SpelView;
 
 /**
  * @author Cédric Goffin
  * @version 1.0 6/02/2017 22:21
  */
-public class SpelViewPresenter extends Presenter{
+public class SpelViewPresenter {
     private Dots model;
     private SpelView view;
 

@@ -1,12 +1,8 @@
 package be.kdg;
 
 import be.kdg.Dots.Model.Dots;
-import be.kdg.Dots.View.Presenter;
-import be.kdg.Dots.View.Spel.SpelViewPresenter;
-import be.kdg.Dots.View.Spel.SpelView;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
-import be.kdg.Dots.View.View;
 import be.kdg.DotsConsole.MainConsole;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -33,12 +29,12 @@ public class Main extends Application{
                 break;
             case 2:
                 Dots model = new Dots();
-                StartView spelView = new StartView();
+                StartView view = new StartView();
 
-                StartViewPresenter presenter = new StartViewPresenter(model, spelView);
+                StartViewPresenter presenter = new StartViewPresenter(model, view);
 
                 primaryStage.setTitle("Dots");
-                primaryStage.setScene(new Scene(spelView));
+                primaryStage.setScene(new Scene(view));
                 primaryStage.show();
                 break;
             default:
@@ -52,7 +48,7 @@ public class Main extends Application{
         Application.launch(args);
     }
 
-    public void navigateTo(Presenter presenter, View view) {
+    public void navigateToStart() {
 
     }
 
