@@ -20,10 +20,11 @@ public class Dot {
     private static final int SIZE = VALUES.length;
     private static Random random = new Random();
 
-    public Dot(int kolomIndex, int rijIndex, Kleuren kleur) {
+    public Dot(int kolomIndex, int rijIndex) {
         shape=new Circle();
         this.kolomIndex = kolomIndex;
         this.rijIndex = rijIndex;
+        this.kleur = getRandomKleur();
 
 
     }
@@ -59,7 +60,7 @@ public class Dot {
     @Override
     public String toString() {
         return "Dot{" +
-                "color=" + color +
+                "kleur=" + kleur +
                 ", rijIndex=" + rijIndex +
                 ", kolomIndex=" + kolomIndex +
                 '}';

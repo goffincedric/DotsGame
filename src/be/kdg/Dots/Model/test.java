@@ -10,9 +10,10 @@ public class test {
         Dot dot1 = new Dot(1,1);
         Dot dot2 = new Dot(1,3);
 
+        System.out.println(java.util.Arrays.asList(Kleuren.values().toString()));
 
-        //System.out.println(dot1.toString());
-        //System.out.println(dot2.toString());
+        System.out.println(dot1.toString());
+        System.out.println(dot2.toString());
     }
 
 
