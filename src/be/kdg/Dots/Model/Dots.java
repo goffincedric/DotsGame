@@ -8,7 +8,9 @@ public class Dots {
     private int gehaaldeScore;
     Speler speler;
 
-    public Dots() {
+    public Dots(){
+
+
     }
 }
 
