@@ -22,38 +22,31 @@ public class LijnConsole extends DotsConsole {
 
     public LijnConsole() {
         lijn = new ArrayList<>();
-        this.aantalDots = -1;
+        this.aantalDots = 0;
     }
 
     public List<DotConsole> getLijn() {
         return lijn;
     }
 
-    public int getAantalDots() {
-        return aantalDots;
-    }
 
-    public void setAantalDots(int aantalDots) {
-        this.aantalDots = aantalDots;
-    }
+    public void addDot(DotConsole andereDot) {
 
-    public void addDot(int rij, int kolom) {
 
-        DotConsole andereDot = this.getDotUitSpeelveld(rij, kolom);
 
-        if (this.getAantalDots() == -1) {
-            lijn.add(andereDot);
-            setAantalDots(getAantalDots() + 1);
+        if (lijn.size() == 0) {
+            lijn.add(0,andereDot);
+
 
 
         } else {
 
-            if (lijn.get(this.aantalDots ).getKleur().equals(andereDot.getKleur())) {
-                if ((lijn.get(this.aantalDots).getKolomIndex() - 1 == andereDot.getKolomIndex()) || (lijn.get(this.aantalDots).getKolomIndex() == andereDot.getKolomIndex()) || (lijn.get(this.aantalDots ).getKolomIndex() + 1 == andereDot.getKolomIndex())) {
-                    if ((lijn.get(this.aantalDots).getRijIndex() - 1 == andereDot.getRijIndex()) || (lijn.get(this.aantalDots).getRijIndex() == andereDot.getRijIndex()) || (lijn.get(this.aantalDots).getRijIndex() + 1 == andereDot.getRijIndex())) {
+            if (lijn.get(lijn.size()-1).getKleur().equals(andereDot.getKleur())) {
+                if ((lijn.get(lijn.size()-1).getKolomIndex() - 1 == andereDot.getKolomIndex()) || (lijn.get(lijn.size()-1).getKolomIndex() == andereDot.getKolomIndex()) || (lijn.get(lijn.size()-1 ).getKolomIndex() + 1 == andereDot.getKolomIndex())) {
+                    if ((lijn.get(lijn.size()-1).getRijIndex() - 1 == andereDot.getRijIndex()) || (lijn.get(lijn.size()-1).getRijIndex() == andereDot.getRijIndex()) || (lijn.get(lijn.size()-1).getRijIndex() + 1 == andereDot.getRijIndex())) {
 
-                        lijn.add(andereDot);
-                        setAantalDots(getAantalDots() + 1);
+                        lijn.add(lijn.size(),andereDot);
+
 
                     }
                 }
@@ -70,8 +63,9 @@ public class LijnConsole extends DotsConsole {
 
 
     public String printList() {
+
         for (DotConsole dotConsole : lijn) {
-            return String.format("Kleur: " + dotConsole.getKleur() + "\nIndex [Rij|Kolom]: " + dotConsole.getKolomIndex() + dotConsole.getRijIndex());
+            return String.format("Kleur: " + dotConsole.getKleur() + "\nIndex [Rij|Kolom]: " + dotConsole.getRijIndex()) + dotConsole.getKolomIndex();
 
         }
         return "";

@@ -32,4 +32,13 @@ public class DotConsole {
     public int getKolomIndex() {
         return kolomIndex;
     }
+
+    @Override
+    public String toString() {
+        return "DotConsole{" +
+                "kleur='" + kleur + '\'' +
+                ", rijIndex=" + rijIndex +
+                ", kolomIndex=" + kolomIndex +
+                '}';
+    }
 }
