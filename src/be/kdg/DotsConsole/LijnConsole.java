@@ -33,7 +33,6 @@ public class LijnConsole extends DotsConsole {
     public void addDot(DotConsole andereDot) {
 
 
-
         if (lijn.size() == 0) {
             lijn.add(0,andereDot);
 

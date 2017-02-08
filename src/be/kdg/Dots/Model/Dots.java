@@ -5,7 +5,7 @@ package be.kdg.Dots.Model;
  * @version 1.0 5/02/2017 14:32
  */
 public class Dots {
-
-
+    private int gehaaldeScore;
 
 }
+

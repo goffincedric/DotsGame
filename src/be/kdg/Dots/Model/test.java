@@ -20,7 +20,18 @@ public class test {
 
         System.out.println(dot1.toString());
         System.out.println(dot2.toString());*/
+
+        System.out.println();
+
+        Level level = new Level();
+        System.out.println(level.toString());
+        level.nextLevel();
+        System.out.println(level.toString());
+        level.nextLevel();
+        System.out.println(level.toString());
     }
+
+
 
 
 }
