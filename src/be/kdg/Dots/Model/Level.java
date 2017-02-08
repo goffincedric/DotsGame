@@ -6,13 +6,17 @@ package be.kdg.Dots.Model;
  */
 public class Level {
     private int tijd; //in seconden
-    private int targetScore;
+    private int targetScore=75;
     private int level = 1;
+    private Moeilijkheid moeilijkheidsgraad;
 
     public Level() {
         this.tijd = 45;
-        this.targetScore = 75;
+        this.moeilijkheidsgraad = Moeilijkheid.NORMAL;
+        this.targetScore = moeilijkheidsgraad.getStartScore();
+
     }
+
 
     public int getTargetScore() {
         return targetScore;
@@ -26,10 +30,13 @@ public class Level {
         return level;
     }
 
+    public Moeilijkheid getMoeilijkheidsgraad() {
+        return moeilijkheidsgraad;
+    }
 
     public void nextLevel(){
         ++level;
-        targetScore = (int)Math.round(75*Math.pow((double)level, ((double)level / 18)));
+        targetScore = (int)((Math.round(75*Math.pow((double)level, ((double)level / getMoeilijkheidsgraad().getMoeilijkheid())))));
         while ((targetScore%5) != 0) {
             targetScore++;
         }
