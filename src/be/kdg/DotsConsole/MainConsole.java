@@ -34,7 +34,7 @@ public class MainConsole {
         colom = k.nextInt();
         System.out.println("Geef index van dot [rij]:  ");
         rij = k.nextInt();
-        lijn.addDot(rij, colom);
+        lijn.addDot(dotsGame.getDotUitSpeelveld(rij,colom));
         System.out.print(lijn.printList());
 
         System.out.println();
