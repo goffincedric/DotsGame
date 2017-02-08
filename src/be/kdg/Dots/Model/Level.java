@@ -12,7 +12,7 @@ public class Level {
     public Level() {
 
         this.tijd = 45;
-        this.targetScore = Math.pow((75 * level),(level/21));
+        this.targetScore = 75*(Math.pow((level),(level/21)));
 
     }
 
@@ -35,7 +35,7 @@ public class Level {
 
     public void nextLevel(){
         level++;
-        setTargetScore(Math.pow((75 * level),(level/21)));
+        setTargetScore(75*(Math.pow((level),(level/21))));
 
     }
 
