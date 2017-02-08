@@ -8,7 +8,7 @@ import java.util.List;
  * @version 1.0 5/02/2017 14:51
  */
 
-public class Lijn {
+public class Lijn extends Dots {
     private List<Dot> lijn = new ArrayList<>();
     private int aantalDots;
     private Kleuren color;
@@ -40,6 +40,14 @@ public class Lijn {
     public void removeDot() {
         lijn.remove(lijn.size()-1);
         this.aantalDots--;
+    }
+
+    public int bepaalScore(){
+        int ScorePerBol = 1;
+        return getAantalDots() * ScorePerBol;
+
+
+
     }
 
 }

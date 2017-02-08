@@ -4,15 +4,15 @@ package be.kdg.Dots.Model;
  * @author Cédric Goffin
  * @version 1.0 5/02/2017 14:50
  */
-public class Level {
+public class Level extends Dots {
     private int tijd; //in seconden
-    private int targetScore=75;
+    private int targetScore;
     private int level = 1;
     private Moeilijkheid moeilijkheidsgraad;
 
     public Level() {
         this.tijd = 45;
-        this.moeilijkheidsgraad = Moeilijkheid.NORMAL;
+        this.moeilijkheidsgraad = Moeilijkheid.EASY;
         this.targetScore = moeilijkheidsgraad.getStartScore();
 
     }
@@ -36,7 +36,7 @@ public class Level {
 
     public void nextLevel(){
         ++level;
-        targetScore = (int)((Math.round(75*Math.pow((double)level, ((double)level / getMoeilijkheidsgraad().getMoeilijkheid())))));
+        targetScore = (int)((Math.round(moeilijkheidsgraad.getStartScore()*Math.pow((double)level, ((double)level / getMoeilijkheidsgraad().getMoeilijkheid())))));
         while ((targetScore%5) != 0) {
             targetScore++;
         }
