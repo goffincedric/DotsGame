@@ -6,36 +6,36 @@ package be.kdg.Dots.Model;
  */
 public class Level {
     private int tijd; //in seconden
-    private double targetScore;
-    private int level = 1;
+    private int targetScore;
+    private double level = 1;
 
     public Level() {
 
         this.tijd = 45;
-        this.targetScore = 75*(Math.pow((level),(level/21)));
+        this.targetScore = (int) (75*(Math.pow((level),(level/21))));
 
     }
 
-    public double getTargetScore() {
-        return targetScore;
+    public int getTargetScore() {
+        return (Math.round(targetScore));
     }
 
     public int getTijd() {
         return tijd;
     }
 
-    public void setTargetScore(double targetScore) {
+    public void setTargetScore(int targetScore) {
         this.targetScore = targetScore;
     }
 
-    public int getLevel() {
+    public double getLevel() {
         return level;
     }
 
 
     public void nextLevel(){
         level++;
-        setTargetScore(75*(Math.pow((level),(level/21))));
+        setTargetScore((int)(75*(Math.pow((level),(level/21)))));
 
     }
 
