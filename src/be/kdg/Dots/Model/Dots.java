@@ -7,5 +7,8 @@ package be.kdg.Dots.Model;
 public class Dots {
     private int gehaaldeScore;
     Speler speler;
+
+    public Dots() {
+    }
 }
 
