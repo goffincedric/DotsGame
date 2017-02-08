@@ -29,23 +29,13 @@ public class LijnConsole extends DotsConsole {
 
 
     public void addDot(DotConsole andereDot) {
-
-
-
-        if (lijn.size() == 0) {
+        if (lijn.isEmpty()) {
             lijn.add(0,andereDot);
-
-
-
         } else {
-
             if (lijn.get(lijn.size()-1).getKleur().equals(andereDot.getKleur())) {
                 if ((lijn.get(lijn.size()-1).getKolomIndex() - 1 == andereDot.getKolomIndex()) || (lijn.get(lijn.size()-1).getKolomIndex() == andereDot.getKolomIndex()) || (lijn.get(lijn.size()-1 ).getKolomIndex() + 1 == andereDot.getKolomIndex())) {
                     if ((lijn.get(lijn.size()-1).getRijIndex() - 1 == andereDot.getRijIndex()) || (lijn.get(lijn.size()-1).getRijIndex() == andereDot.getRijIndex()) || (lijn.get(lijn.size()-1).getRijIndex() + 1 == andereDot.getRijIndex())) {
-
                         lijn.add(lijn.size(),andereDot);
-
-
                     }
                 }
             } else {

@@ -6,23 +6,23 @@ package be.kdg.DotsConsole2;
  * @version 1.0 5/02/2017 14:58
  */
 public class DotsConsole {
-   private final int MAXRIJ = 7;
-   private final int MAXKOLOM = 7;
-   private DotConsole[][] speelveld;
+    private final int MAXRIJ = 7;
+    private final int MAXKOLOM = 7;
+    private DotConsole[][] speelveld;
 
     public DotsConsole() {
         speelveld = new DotConsole[MAXRIJ][MAXKOLOM];
 
-       for(int rij = 0; rij < MAXRIJ ;rij++){
-           for (int kolom = 0; kolom < MAXKOLOM; kolom++){
-               speelveld[rij][kolom] = new DotConsole(rij,kolom);
-           }
-       }
+        for (int rij = 0; rij < MAXRIJ; rij++) {
+            for (int kolom = 0; kolom < MAXKOLOM; kolom++) {
+                speelveld[rij][kolom] = new DotConsole(rij, kolom);
+            }
+        }
     }
 
     public void printveld() {
-        for(int k=0; k <7; k++){
-            System.out.print(" "+ k + "\t");
+        for (int k = 0; k < 7; k++) {
+            System.out.print(" " + k + "\t");
         }
         System.out.printf("\n\n");
         for (int i = 0; i < speelveld.length; i++) {
@@ -42,7 +42,7 @@ public class DotsConsole {
         return speelveld;
     }
 
-    public DotConsole getDotUitSpeelveld(int rij, int kolom){
+    public DotConsole getDotUitSpeelveld(int rij, int kolom) {
         return speelveld[rij][kolom];
     }
 }
