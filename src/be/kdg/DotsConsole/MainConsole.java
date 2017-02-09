@@ -35,10 +35,12 @@ public class MainConsole {
                 lijn.addDot(dotsConsole.getDotUitSpeelveld(rij, kolom));
                 System.out.print(lijn.printList());
 
-                System.out.println();
-            }while(!stopBeurt);
+                System.out.printf("\n ");
+            } while(!stopBeurt);
 
-            /*verwijder gebruikte dots*/
+            /* verwijder gebruikte dots*/
+
+            /* vervang verwijderde dots */
 
             /* bereken score*/
 

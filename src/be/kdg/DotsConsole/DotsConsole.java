@@ -43,4 +43,9 @@ public class DotsConsole {
     public DotConsole getDotUitSpeelveld(int rij, int kolom) {
         return speelveld[rij][kolom];
     }
+
+    public void verwijderGebruikteDots(DotConsole[] gebruikteDots) {
+        for (DotConsole dot : gebruikteDots) {
+        }
+    }
 }

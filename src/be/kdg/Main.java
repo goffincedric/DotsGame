@@ -3,6 +3,7 @@ package be.kdg;
 import be.kdg.Dots.Model.Dots;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
+import be.kdg.DotsConsole.MainConsole;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -24,7 +25,6 @@ public class Main extends Application{
                 MainConsole dotsConsole = new MainConsole();
 
                 dotsConsole.main(new String[] {""});
-
                 break;
             case 2:
                 Dots model = new Dots();
@@ -38,6 +38,7 @@ public class Main extends Application{
                 break;
             default:
                 System.out.println("Foute invoer, als straf krijg je de console versie 3:)");
+                break;
 
         }
 

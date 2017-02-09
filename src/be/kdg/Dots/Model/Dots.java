@@ -27,7 +27,9 @@ public class Dots {
         }
     }
 
+
     ///Waarom score weten in deze klasse??
+    // dat kan ook in speler gezet worden indien nodig, maar dan moet dat opgehaald worden met super.lijn.bepaalScore();
 
     public int getGehaaldeScore() {
         return lijn.bepaalScore();
