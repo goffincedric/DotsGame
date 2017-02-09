@@ -15,6 +15,7 @@ public class MainConsole {
         Scanner k = new Scanner(System.in);
 
         boolean stopBeurt;
+        String antwoord = "";
         int kolom;
         int rij;
 
@@ -36,7 +37,7 @@ public class MainConsole {
                 System.out.print(lijn.printList());
 
                 System.out.printf("\n Nog een dot verbinden? (j/n)");
-
+                /*antwoord = (String)k.nextLine().charAt(0);*/
             } while(!stopBeurt);
 
             /* verwijder gebruikte dots*/
