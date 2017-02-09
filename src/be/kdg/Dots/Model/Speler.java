@@ -22,4 +22,6 @@ public class Speler extends Dots {
     public void setNaam(String naam) {
         this.naam = naam;
     }
+
+
 }

@@ -24,7 +24,6 @@ public class Dots {
         this.lijn = lijn;
     }
 
-
     //Methode maken die een lijn die ingediend wordt vult met nieuwe dots
 }
 
