@@ -27,6 +27,18 @@ public class Dots {
         }
     }
 
+    public Speler getSpeler() {
+        return speler;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public Lijn getLijn() {
+        return lijn;
+    }
+
     ///Waarom score weten in deze klasse??
 
     public int getGehaaldeScore() {

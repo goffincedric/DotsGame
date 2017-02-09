@@ -8,8 +8,7 @@ public class test {
 
     public static void main(String[] args) {
         Dots game = new Dots();
-        Dot dot1 = new Dot(1,1);
-        Dot dot2 = new Dot(1,3);
+
 
         for (Kleuren kleur : Kleuren.values()) {
             System.out.println(kleur.name() + "    R: " + kleur.getRed() + " G: " + kleur.getGreen() + " B: " + kleur.getBlue());
@@ -24,12 +23,12 @@ public class test {
 
         System.out.println();
 
-        Level level = new Level();
-        System.out.println(level.toString());
+
+        System.out.println(game.getLevel().toString());
 
         for (int i = 0; i < 20; i++) {
-            level.nextLevel();
-            System.out.println(level.toString());
+            game.getLevel().nextLevel();
+            System.out.println(game.getLevel().toString());
         }
     }
 
