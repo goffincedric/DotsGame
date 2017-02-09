@@ -1,6 +1,11 @@
 package be.kdg;
 
 import be.kdg.Dots.Model.Dots;
+import be.kdg.Dots.Model.Level;
+import be.kdg.Dots.Model.Lijn;
+import be.kdg.Dots.Model.Speler;
+import be.kdg.Dots.View.Spel.SpelView;
+import be.kdg.Dots.View.Spel.SpelViewPresenter;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
 import be.kdg.DotsConsole.MainConsole;
@@ -27,10 +32,15 @@ public class Main extends Application{
                 dotsConsole.main(new String[] {""});
                 break;
             case 2:
-                Dots model = new Dots();
-                StartView view = new StartView();
+                Speler speler = new Speler();
+                Level level = new Level();
+                Lijn lijn = new Lijn();
 
-                StartViewPresenter presenter = new StartViewPresenter(model, view);
+                Dots model = new Dots(speler, level, lijn);
+
+                SpelView view = new SpelView();
+
+                SpelViewPresenter presenter = new SpelViewPresenter(model, view);
 
                 primaryStage.setTitle("Dots");
                 primaryStage.setScene(new Scene(view));

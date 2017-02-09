@@ -36,7 +36,7 @@ public class MainConsole {
                 System.out.print(lijn.printList());
 
                 System.out.printf("\n Nog een dot verbinden? (j/n)");
-                //k.
+
             } while(!stopBeurt);
 
             /* verwijder gebruikte dots*/

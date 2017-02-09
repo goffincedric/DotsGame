@@ -12,6 +12,8 @@ public class test {
         Lijn lijn = new Lijn();
 
 
+        Dots dotsGame = new Dots(speler, level, lijn);
+
 
         for (Kleuren kleur : Kleuren.values()) {
             System.out.println(kleur.name() + "    R: " + kleur.getRed() + " G: " + kleur.getGreen() + " B: " + kleur.getBlue());

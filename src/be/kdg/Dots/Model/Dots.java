@@ -10,14 +10,18 @@ public class Dots {
     private final int MAXKOLOM = 7;
     private Dot[][] speelveld = new Dot[MAXRIJ][MAXKOLOM];
 
+    Speler speler;
+    Level level;
+    Lijn lijn;
 
     public Dots() {
-        this.gehaaldeScore = 0;
-        for (int rij = 0; rij < MAXRIJ; rij++) {
-            for (int kolom = 0; kolom < MAXKOLOM; kolom++) {
-                speelveld[rij][kolom] = new Dot(rij, kolom);
-            }
-        }
+
+    }
+
+    public Dots(Speler speler, Level level, Lijn lijn) {
+        this.speler = speler;
+        this.level = level;
+        this.lijn = lijn;
     }
 
 

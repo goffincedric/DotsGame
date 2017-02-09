@@ -10,7 +10,7 @@ public class Score extends Speler {
 
     //list van HighScores (soort van hashmap met speler als key en de Score als value)
 
-    private Integer Score;
+    /*private Integer Score;
     private HashMap<String, Integer> Highscores;
     //Deze map moet worden opgeslagen
 
@@ -24,7 +24,7 @@ public class Score extends Speler {
         return Score;
     }
 
-    /*public void nieuweHighscore() {
+    public void nieuweHighscore() {
 
         if(!Highscores.containsKey(speler.getNaam().toLowerCase())){
             Highscores.put(speler.getNaam().toLowerCase(),speler.getGehaaldeScore());
