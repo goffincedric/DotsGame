@@ -2,6 +2,7 @@ package be.kdg.Dots.View.Spel;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -12,7 +13,19 @@ import javafx.scene.layout.Pane;
  */
 public class SpelView extends BorderPane {
     private Button[][] btns = new Button[7][7];
-    private BorderPane bottomPane;
+    private BorderPane veld;
+    private BorderPane dotsfield;
+    private BorderPane links;
+    private BorderPane rechts;
+    private Label scoreTekst;
+    private Label score;
+    private Label targetScoreTekst;
+    private Label targetScore;
+    private Label levelTekst;
+    private Label Level;
+    private Label timerTekst;
+    private Label timer;
+    private Button pause;
 
     public SpelView() {
         this.initialiseNodes();
@@ -22,9 +35,17 @@ public class SpelView extends BorderPane {
     private void initialiseNodes() {
         initBtnsArray();
 
-        this.bottomPane = new BorderPane();
-        this.setBottom(bottomPane);
-        bottomPane.setLeft(getGrid());
+        this.veld = new BorderPane();
+        dotsfield = new BorderPane();
+        links = new BorderPane();
+        rechts = new BorderPane();
+
+        //this.veld.setLeft(links);
+        //this.veld.setRight(rechts);
+        this.setBottom(dotsfield);
+
+        //this.setBottom(dotsfield);
+       dotsfield.setCenter(getGrid());
     }
 
     private void layoutNodes() {
