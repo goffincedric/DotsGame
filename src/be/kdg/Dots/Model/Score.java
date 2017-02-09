@@ -16,7 +16,7 @@ public class Score extends Speler {
 
 
     public Score() {
-        Highscores = new HashMap<String,Integer>();
+        Highscores = new HashMap<String, Integer>();
 
     }
 
@@ -26,8 +26,8 @@ public class Score extends Speler {
 
     public void nieuweHighscore() {
 
-        if(!Highscores.containsKey(speler.getNaam().toLowerCase())){
-            Highscores.put(speler.getNaam().toLowerCase(),super.lijn.bepaalScore());
+        if (!Highscores.containsKey(speler.getNaam().toLowerCase())) {
+            Highscores.put(speler.getNaam().toLowerCase(), super.lijn.bepaalScore());
         }
         if (Highscores.get(speler.getNaam().toLowerCase()) < (super.lijn.bepaalScore())) {
 

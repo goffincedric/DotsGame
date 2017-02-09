@@ -19,7 +19,7 @@ public enum Kleuren {
     Cyaan(Color.rgb(12, 211, 210)),
     LichtBlauw(Color.rgb(83, 166, 214)),
     Blauw(Color.rgb(0, 135, 214)),
-   // Paars(Color.rgb(280, 71, 98)),
+    // Paars(Color.rgb(280, 71, 98)),
     Beige(Color.rgb(46, 37, 76)),
     Bruin(Color.rgb(12, 69, 40));
 
@@ -36,15 +36,15 @@ public enum Kleuren {
     }
 
     public int getRed() {
-        return (int)Math.round(this.getColor().getRed()*255);
+        return (int) Math.round(this.getColor().getRed() * 255);
     }
 
     public int getGreen() {
-        return  (int)Math.round(this.getColor().getGreen()*255);
+        return (int) Math.round(this.getColor().getGreen() * 255);
     }
 
     public int getBlue() {
-        return  (int)Math.round(this.getColor().getBlue()*255);
+        return (int) Math.round(this.getColor().getBlue() * 255);
     }
 
     @Override

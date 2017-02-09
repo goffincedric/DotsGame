@@ -26,7 +26,7 @@ public class MainConsole {
             stopBeurt = false;
 
             dotsConsole.printveld();
-            do{
+            do {
                 System.out.println();
                 System.out.println("Geef index van dot [kolom]:  ");
                 kolom = k.nextInt();
@@ -37,7 +37,7 @@ public class MainConsole {
 
                 System.out.printf("\n Nog een dot verbinden? (j/n)");
 
-            } while(!stopBeurt);
+            } while (!stopBeurt);
 
             /* verwijder gebruikte dots*/
 

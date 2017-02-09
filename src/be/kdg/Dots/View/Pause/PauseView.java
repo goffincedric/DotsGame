@@ -13,11 +13,11 @@ public class PauseView extends BorderPane {
         this.layoutNodes();
     }
 
-    private void initialiseNodes(){
+    private void initialiseNodes() {
 
     }
 
-    private void layoutNodes(){
+    private void layoutNodes() {
 
     }
 }

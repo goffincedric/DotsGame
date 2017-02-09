@@ -20,13 +20,13 @@ public class StartView extends BorderPane {
         layoutNodes();
     }
 
-    private void initialiseNodes(){
+    private void initialiseNodes() {
         imgStart = new Image("be/kdg/Dots/View/Images/Start/Play.png");
         imageView = new ImageView(imgStart);
         btnStart = new Button("", imageView);
     }
 
-    private void layoutNodes(){
+    private void layoutNodes() {
         imageView.setFitHeight(100);
         imageView.setFitWidth(100);
         imageView.setPreserveRatio(true);

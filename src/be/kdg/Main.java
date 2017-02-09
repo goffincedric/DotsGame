@@ -19,7 +19,7 @@ import java.util.Scanner;
  * @author Cédric Goffin
  * @version 1.0 5/02/2017 14:36
  */
-public class Main extends Application{
+public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         Scanner k = new Scanner(System.in);
@@ -29,7 +29,7 @@ public class Main extends Application{
             case 1:
                 MainConsole dotsConsole = new MainConsole();
 
-                dotsConsole.main(new String[] {""});
+                dotsConsole.main(new String[]{""});
                 break;
             case 2:
                 Speler speler = new Speler();
@@ -37,9 +37,7 @@ public class Main extends Application{
                 Lijn lijn = new Lijn();
 
                 Dots model = new Dots(speler, level, lijn);
-
                 SpelView view = new SpelView();
-
                 SpelViewPresenter presenter = new SpelViewPresenter(model, view);
 
                 primaryStage.setTitle("Dots");
