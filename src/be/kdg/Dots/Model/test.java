@@ -10,6 +10,7 @@ public class test {
         Dots game = new Dots();
 
 
+
         for (Kleuren kleur : Kleuren.values()) {
             System.out.println(kleur.name() + "    R: " + kleur.getRed() + " G: " + kleur.getGreen() + " B: " + kleur.getBlue());
         }
@@ -24,12 +25,12 @@ public class test {
         System.out.println();
 
 
-        System.out.println(game.getLevel().toString());
+       // System.out.println(game.getLevel().toString());
 
-        for (int i = 0; i < 20; i++) {
+        /*for (int i = 0; i < 20; i++) {
             game.getLevel().nextLevel();
             System.out.println(game.getLevel().toString());
-        }
+        }*/
     }
 
 
