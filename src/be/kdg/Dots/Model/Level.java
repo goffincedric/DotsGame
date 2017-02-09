@@ -7,7 +7,7 @@ package be.kdg.Dots.Model;
 public class Level extends Dots {
     private int tijd; //in seconden
     private int targetScore;
-    private int level = 1;
+    private int gamelevel = 1;
     private Moeilijkheid moeilijkheidsgraad;
 
     public Level() {
@@ -26,8 +26,8 @@ public class Level extends Dots {
         return tijd;
     }
 
-    public int getLevel() {
-        return level;
+    public int getGamelevel() {
+        return gamelevel;
     }
 
     public Moeilijkheid getMoeilijkheidsgraad() {
@@ -35,8 +35,8 @@ public class Level extends Dots {
     }
 
     public void nextLevel(){
-        ++level;
-        targetScore = (int)((Math.round(moeilijkheidsgraad.getStartScore()*Math.pow((double)level, ((double)level / getMoeilijkheidsgraad().getMoeilijkheid())))));
+        ++gamelevel;
+        targetScore = (int)((Math.round(moeilijkheidsgraad.getStartScore()*Math.pow((double)gamelevel, ((double)gamelevel / getMoeilijkheidsgraad().getMoeilijkheid())))));
         while ((targetScore%5) != 0) {
             targetScore++;
         }
