@@ -9,7 +9,7 @@ import java.util.Random;
  * @author Cédric Goffin
  * @version 1.0 5/02/2017 14:50
  */
-public class Dot extends Dots{
+public class Dot {
     private Kleuren kleur;
     private int rijIndex; //bepaalt colomindex in array of buttons;
     private int kolomIndex; //bepaalt rijindex in array of buttons;
@@ -25,8 +25,6 @@ public class Dot extends Dots{
         this.kolomIndex = kolomIndex;
         this.rijIndex = rijIndex;
         this.kleur = getRandomKleur();
-
-
     }
 
     public static Kleuren getRandomKleur(){

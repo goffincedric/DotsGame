@@ -6,7 +6,7 @@ import java.util.Random;
  * @author Thomas Verhoeven
  * @version 1.0 6/02/2017 21:32
  */
-public class DotConsole extends DotsConsole{
+public class DotConsole{
     private String kleur;
     private int rijIndex;
     private int kolomIndex;

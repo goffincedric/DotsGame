@@ -44,6 +44,6 @@ public class Level extends Dots {
 
     @Override
     public String toString() {
-        return "Level: " + getLevel() + "\t" + "Tijd: " + getTijd() + "\t" + "Targetscore: " + getTargetScore();
+        return "Level: " + getGamelevel() + "\t" + "Tijd: " + getTijd() + "\t" + "Targetscore: " + getTargetScore();
     }
 }

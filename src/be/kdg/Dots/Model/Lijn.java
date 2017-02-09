@@ -45,9 +45,6 @@ public class Lijn extends Dots {
     public int bepaalScore(){
         int ScorePerBol = 1;
         return getAantalDots() * ScorePerBol;
-
-
-
     }
 
 }

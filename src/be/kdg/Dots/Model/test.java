@@ -7,7 +7,9 @@ package be.kdg.Dots.Model;
 public class test {
 
     public static void main(String[] args) {
-        Dots game = new Dots();
+        Speler speler = new Speler();
+        Level level = new Level();
+        Lijn lijn = new Lijn();
 
 
 

@@ -35,7 +35,8 @@ public class MainConsole {
                 lijn.addDot(dotsConsole.getDotUitSpeelveld(rij, kolom));
                 System.out.print(lijn.printList());
 
-                System.out.printf("\n ");
+                System.out.printf("\n Nog een dot verbinden? (j/n)");
+                //k.
             } while(!stopBeurt);
 
             /* verwijder gebruikte dots*/

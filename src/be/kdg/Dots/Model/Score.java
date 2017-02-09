@@ -24,7 +24,7 @@ public class Score extends Speler {
         return Score;
     }
 
-    public void nieuweHighscore() {
+    /*public void nieuweHighscore() {
 
         if(!Highscores.containsKey(speler.getNaam().toLowerCase())){
             Highscores.put(speler.getNaam().toLowerCase(),speler.getGehaaldeScore());
@@ -34,5 +34,5 @@ public class Score extends Speler {
             Highscores.put(speler.getNaam().toLowerCase(), speler.getGehaaldeScore());
         }
 
-    }
+    }*/
 }
