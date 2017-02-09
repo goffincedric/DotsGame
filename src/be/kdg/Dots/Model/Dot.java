@@ -2,7 +2,7 @@ package be.kdg.Dots.Model;
 
 import javafx.scene.shape.Circle;
 
-import java.awt.*;
+
 import java.util.Random;
 
 /**
