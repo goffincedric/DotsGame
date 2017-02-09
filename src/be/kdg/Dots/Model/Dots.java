@@ -27,9 +27,19 @@ public class Dots {
         }
     }
 
+    public Speler getSpeler() {
+        return speler;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public Lijn getLijn() {
+        return lijn;
+    }
 
     ///Waarom score weten in deze klasse??
-    // dat kan ook in speler gezet worden indien nodig, maar dan moet dat opgehaald worden met super.lijn.bepaalScore();
 
     public int getGehaaldeScore() {
         return lijn.bepaalScore();
