@@ -13,11 +13,11 @@ public class EndView extends BorderPane {
         this.layoutNodes();
     }
 
-    private void initialiseNodes(){
+    private void initialiseNodes() {
 
     }
 
-    private void layoutNodes(){
+    private void layoutNodes() {
 
     }
 }

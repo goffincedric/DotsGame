@@ -29,16 +29,16 @@ public class LijnConsole extends DotsConsole {
 
     public void addDot(DotConsole nieuweDot) {
         if (lijn.isEmpty()) {
-            lijn.add(0,nieuweDot);
+            lijn.add(0, nieuweDot);
         } else {
             DotConsole laatsteDot = getLaatsteDot();
 
             if (laatsteDot.getKleur().equals(nieuweDot.getKleur())) {
                 if ((laatsteDot.getKolomIndex() - 1 == nieuweDot.getKolomIndex()) || (laatsteDot.getKolomIndex() == nieuweDot.getKolomIndex()) ||
-                        (lijn.get(lijn.size()-1 ).getKolomIndex() + 1 == nieuweDot.getKolomIndex())) {
+                        (lijn.get(lijn.size() - 1).getKolomIndex() + 1 == nieuweDot.getKolomIndex())) {
                     if ((laatsteDot.getRijIndex() - 1 == nieuweDot.getRijIndex()) || (laatsteDot.getRijIndex() == nieuweDot.getRijIndex()) ||
                             (laatsteDot.getRijIndex() + 1 == nieuweDot.getRijIndex())) {
-                        lijn.add(lijn.size(),nieuweDot);
+                        lijn.add(lijn.size(), nieuweDot);
                     } else {
                         System.out.println("Bollen liggen niet naast elkaar; Dot 1: (" + laatsteDot.getKolomIndex() + ", " + laatsteDot.getRijIndex() + "); Dot 2: (" +
                                 nieuweDot.getKolomIndex() + ", " + nieuweDot.getRijIndex() + ")");
@@ -54,7 +54,7 @@ public class LijnConsole extends DotsConsole {
     }
 
     public DotConsole getLaatsteDot() {
-        return lijn.get(lijn.size()-1);
+        return lijn.get(lijn.size() - 1);
     }
 
     public String printList() {

@@ -10,7 +10,9 @@ public class Level extends Dots {
     private int gamelevel = 1;
     private Moeilijkheid moeilijkheidsgraad;
 
+
     public Level() {
+
         this.tijd = 45;
         this.moeilijkheidsgraad = Moeilijkheid.EASY;
         this.targetScore = moeilijkheidsgraad.getStartScore();
@@ -34,10 +36,10 @@ public class Level extends Dots {
         return moeilijkheidsgraad;
     }
 
-    public void nextLevel(){
+    public void nextLevel() {
         ++gamelevel;
-        targetScore = (int)((Math.round(moeilijkheidsgraad.getStartScore()*Math.pow((double)gamelevel, ((double)gamelevel / getMoeilijkheidsgraad().getMoeilijkheid())))));
-        while ((targetScore%5) != 0) {
+        targetScore = (int) ((Math.round(moeilijkheidsgraad.getStartScore() * Math.pow((double) gamelevel, ((double) gamelevel / getMoeilijkheidsgraad().getMoeilijkheid())))));
+        while ((targetScore % 5) != 0) {
             targetScore++;
         }
     }

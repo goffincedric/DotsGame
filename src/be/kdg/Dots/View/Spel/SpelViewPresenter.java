@@ -13,7 +13,6 @@ public class SpelViewPresenter {
     public SpelViewPresenter(Dots model, SpelView view) {
         this.model = model;
         this.view = view;
-
         addEventHandlers();
         updateView();
     }
@@ -23,6 +22,10 @@ public class SpelViewPresenter {
     }
 
     private void updateView() {
+
+    }
+
+    public void addWindowEventHandlers() {
 
     }
 }

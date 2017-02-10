@@ -29,15 +29,13 @@ public class test {
         System.out.println();
 
 
-       // System.out.println(game.getLevel().toString());
+        // System.out.println(game.getLevel().toString());
 
         /*for (int i = 0; i < 20; i++) {
             game.getLevel().nextLevel();
             System.out.println(game.getLevel().toString());
         }*/
     }
-
-
 
 
 }

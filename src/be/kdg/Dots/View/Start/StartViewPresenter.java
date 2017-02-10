@@ -32,4 +32,8 @@ public class StartViewPresenter{
     private void updateView() {
 
     }
+
+    public void addWindowEventHandlers() {
+
+    }
 }

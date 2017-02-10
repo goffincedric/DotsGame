@@ -7,7 +7,7 @@ package be.kdg.Dots.Model;
 public class Speler extends Dots {
     private String naam;
 
-    public Speler(){
+    public Speler() {
 
     }
 

@@ -9,7 +9,7 @@ import java.util.Random;
  * @author Cédric Goffin
  * @version 1.0 5/02/2017 14:50
  */
-public class Dot extends Dots{
+public class Dot extends Dots {
     private Kleuren kleur;
     private int rijIndex; //bepaalt colomindex in array of buttons;
     private int kolomIndex; //bepaalt rijindex in array of buttons;
@@ -21,13 +21,13 @@ public class Dot extends Dots{
     private static Random random = new Random();
 
     public Dot(int kolomIndex, int rijIndex) {
-        shape=new Circle();
+        shape = new Circle();
         this.kolomIndex = kolomIndex;
         this.rijIndex = rijIndex;
         this.kleur = getRandomKleur();
     }
 
-    public static Kleuren getRandomKleur(){
+    public static Kleuren getRandomKleur() {
         return VALUES[random.nextInt(SIZE)];
     }
 
@@ -47,8 +47,8 @@ public class Dot extends Dots{
         if (!this.kleur.name().equals(dot2.getColor().name())) {
             return false;
         }
-        if ((this.kolomIndex-1 == dot2.getKolomIndex()) || (this.kolomIndex == dot2.getKolomIndex()) || (this.kolomIndex+1 == dot2.getKolomIndex())) {
-            if ((this.rijIndex-1 == dot2.getRijIndex()) || (this.rijIndex == dot2.getRijIndex()) || (this.rijIndex+1 == dot2.getRijIndex())) {
+        if ((this.kolomIndex - 1 == dot2.getKolomIndex()) || (this.kolomIndex == dot2.getKolomIndex()) || (this.kolomIndex + 1 == dot2.getKolomIndex())) {
+            if ((this.rijIndex - 1 == dot2.getRijIndex()) || (this.rijIndex == dot2.getRijIndex()) || (this.rijIndex + 1 == dot2.getRijIndex())) {
                 return true;
             }
         }

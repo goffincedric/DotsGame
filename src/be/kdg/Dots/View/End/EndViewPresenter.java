@@ -18,11 +18,15 @@ public class EndViewPresenter {
         updateView();
     }
 
-    private void addEventHandlers(){
+    private void addEventHandlers() {
 
     }
 
     private void updateView() {
+
+    }
+
+    public void addWindowEventHandlers() {
 
     }
 }

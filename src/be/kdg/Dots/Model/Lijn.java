@@ -15,6 +15,7 @@ public class Lijn extends Dots {
 
     public Lijn() {
 
+
     }
 
     public int getAantalDots() {
@@ -38,11 +39,11 @@ public class Lijn extends Dots {
     }
 
     public void removeDot() {
-        lijn.remove(lijn.size()-1);
+        lijn.remove(lijn.size() - 1);
         this.aantalDots--;
     }
 
-    public int bepaalScore(){
+    public int bepaalScore() {
         int ScorePerBol = 1;
         return getAantalDots() * ScorePerBol;
     }
