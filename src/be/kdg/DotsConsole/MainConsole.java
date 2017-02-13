@@ -37,15 +37,15 @@ public class MainConsole {
                 System.out.print(lijn.printList());
 
                 System.out.printf("\n Nog een dot verbinden? (j/n)");
-                /*antwoord = (String)k.nextLine().charAt(0);*/
+                if (k.nextLine().toLowerCase().equals("n")) {
+                    stopBeurt = true;
+                }
             } while(!stopBeurt);
-
             /* verwijder gebruikte dots*/
-
+            dotsConsole.verwijderGebruikteDots(lijn.getLijnDotArray());
             /* vervang verwijderde dots */
 
             /* bereken score*/
-
 
         } while (true);
 

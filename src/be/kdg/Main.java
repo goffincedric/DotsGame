@@ -20,6 +20,8 @@ import java.util.Scanner;
  * @version 1.0 5/02/2017 14:36
  */
 public class Main extends Application {
+    private Dots model;
+
     @Override
     public void start(Stage primaryStage) {
         Scanner k = new Scanner(System.in);
@@ -36,7 +38,7 @@ public class Main extends Application {
                 Level level = new Level();
                 Lijn lijn = new Lijn();
 
-                Dots model = new Dots(speler, level, lijn);
+                model = new Dots(speler, level, lijn);
                 SpelView view = new SpelView();
                 SpelViewPresenter presenter = new SpelViewPresenter(model, view);
 
@@ -56,7 +58,25 @@ public class Main extends Application {
         Application.launch(args);
     }
 
-    public void navigateTo() {
+    public void navigateTo(String naamView) {
+        switch (naamView) {
+            case "Spel":
+                SpelView view = new SpelView();
+                SpelViewPresenter presenter = new SpelViewPresenter(model, view);
+
+
+                break;
+            case "Start":
+
+                break;
+            case "Pauze":
+
+                break;
+            case "End":
+
+                break;
+
+        }
 
     }
 

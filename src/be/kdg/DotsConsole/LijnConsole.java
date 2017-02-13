@@ -27,12 +27,22 @@ public class LijnConsole extends DotsConsole {
         return lijn;
     }
 
+    public DotConsole[] getLijnDotArray () {
+        DotConsole[] dotConsoleArray = new DotConsole[lijn.size()];
+
+        for (int i = 0; i < lijn.size(); i++) {
+            DotConsole dotConsole = lijn.get(i);
+            dotConsoleArray[i] = dotConsole;
+        }
+
+        return dotConsoleArray;
+    }
+
     public void addDot(DotConsole nieuweDot) {
         if (lijn.isEmpty()) {
             lijn.add(0, nieuweDot);
         } else {
             DotConsole laatsteDot = getLaatsteDot();
-
             if (laatsteDot.getKleur().equals(nieuweDot.getKleur())) {
                 if ((laatsteDot.getKolomIndex() - 1 == nieuweDot.getKolomIndex()) || (laatsteDot.getKolomIndex() == nieuweDot.getKolomIndex()) ||
                         (lijn.get(lijn.size() - 1).getKolomIndex() + 1 == nieuweDot.getKolomIndex())) {

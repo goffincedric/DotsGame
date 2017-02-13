@@ -46,6 +46,9 @@ public class DotsConsole {
 
     public void verwijderGebruikteDots(DotConsole[] gebruikteDots) {
         for (DotConsole dot : gebruikteDots) {
+
         }
     }
+
+
 }
