@@ -12,7 +12,7 @@ public class test {
         Lijn lijn = new Lijn();
 
 
-        Dots dotsGame = new Dots(speler, level, lijn);
+        Dots dotsGame = new Dots();
 
 
         for (Kleuren kleur : Kleuren.values()) {

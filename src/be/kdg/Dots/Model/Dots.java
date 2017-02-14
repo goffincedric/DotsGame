@@ -15,13 +15,9 @@ public class Dots {
     Lijn lijn;
 
     public Dots() {
-
-    }
-
-    public Dots(Speler speler, Level level, Lijn lijn) {
-        this.speler = speler;
-        this.level = level;
-        this.lijn = lijn;
+        this.speler =  new Speler();
+        this.level = new Level();
+        this.lijn = new Lijn();
     }
 
     //Methode maken die een lijn die ingediend wordt vult met nieuwe dots

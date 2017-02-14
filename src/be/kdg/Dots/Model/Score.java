@@ -17,7 +17,6 @@ public class Score extends Dots {
 
     public Score() {
         Highscores = new HashMap<String, Integer>();
-
     }
 
     public Integer getScore() {
@@ -29,7 +28,6 @@ public class Score extends Dots {
             Highscores.put(speler.getNaam().toLowerCase(), super.lijn.bepaalScore());
         }
         if (Highscores.get(speler.getNaam().toLowerCase()) < (super.lijn.bepaalScore())) {
-
             Highscores.put(speler.getNaam().toLowerCase(), super.lijn.bepaalScore());
         }
 

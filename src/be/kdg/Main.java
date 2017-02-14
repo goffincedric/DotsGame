@@ -34,11 +34,7 @@ public class Main extends Application {
                 dotsConsole.main(new String[]{""});
                 break;
             case 2:
-                Speler speler = new Speler();
-                Level level = new Level();
-                Lijn lijn = new Lijn();
-
-                model = new Dots(speler, level, lijn);
+                model = new Dots();
                 SpelView view = new SpelView();
                 SpelViewPresenter presenter = new SpelViewPresenter(model, view);
 
@@ -57,7 +53,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         Application.launch(args);
     }
-
+/*Vervangen door 'in presenter oproepen naar een 'setRoot methode'
     public void navigateTo(String naamView) {
         switch (naamView) {
             case "Spel":
@@ -79,5 +75,5 @@ public class Main extends Application {
         }
 
     }
-
+    */
 }
