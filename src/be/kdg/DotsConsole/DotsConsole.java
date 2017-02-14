@@ -31,7 +31,6 @@ public class DotsConsole {
             }
             System.out.println("\t" + i);
             System.out.println();
-
         }
     }
 
@@ -46,7 +45,10 @@ public class DotsConsole {
 
     public void verwijderGebruikteDots(DotConsole[] gebruikteDots) {
         for (DotConsole dot : gebruikteDots) {
+            /*controleer via do while op ongebruikte dots erboven en verplaats die naar de lagere dot;*/
 
+
+            /*speelveld[dot.getRijIndex()][dot.getKolomIndex()] =*/
         }
     }
 

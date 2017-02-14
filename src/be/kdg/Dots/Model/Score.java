@@ -6,7 +6,7 @@ import java.util.HashMap;
  * @author Cédric Goffin
  * @version 1.0 5/02/2017 14:56
  */
-public class Score extends Speler {
+public class Score extends Dots {
 
     //list van HighScores (soort van hashmap met speler als key en de Score als value)
 
@@ -25,7 +25,6 @@ public class Score extends Speler {
     }
 
     public void nieuweHighscore() {
-
         if (!Highscores.containsKey(speler.getNaam().toLowerCase())) {
             Highscores.put(speler.getNaam().toLowerCase(), super.lijn.bepaalScore());
         }

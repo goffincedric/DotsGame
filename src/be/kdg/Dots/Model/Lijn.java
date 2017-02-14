@@ -8,13 +8,12 @@ import java.util.List;
  * @version 1.0 5/02/2017 14:51
  */
 
-public class Lijn extends Dots {
+public class Lijn {
     private List<Dot> lijn = new ArrayList<>();
     private int aantalDots;
     private Kleuren color;
 
     public Lijn() {
-
 
     }
 

@@ -4,7 +4,7 @@ package be.kdg.Dots.Model;
  * @author Cédric Goffin
  * @version 1.0 5/02/2017 14:50
  */
-public class Level extends Dots {
+public class Level {
     private int tijd; //in seconden
     private int targetScore;
     private int gamelevel = 1;
