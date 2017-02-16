@@ -43,8 +43,11 @@ public class DotsConsole {
         return speelveld[rij][kolom];
     }
 
-    public void verwijderGebruikteDots(DotConsole[] gebruikteDots) {
+    public void vervangGebruikteDots(DotConsole[] gebruikteDots) {
         for (DotConsole dot : gebruikteDots) {
+            /*while(this.getDotUitSpeelveld(dot.getRijIndex() - 1, dot.getKolomIndex())) {
+
+            }*/
             /*controleer via do while op ongebruikte dots erboven en verplaats die naar de lagere dot;*/
 
 

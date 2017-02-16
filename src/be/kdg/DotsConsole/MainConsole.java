@@ -15,7 +15,6 @@ public class MainConsole {
         Scanner k = new Scanner(System.in);
 
         boolean stopBeurt;
-        String antwoord = "";
         int kolom;
         int rij;
 
@@ -25,24 +24,25 @@ public class MainConsole {
 
         do {
             stopBeurt = false;
-
-            dotsConsole.printveld();
             do{
+                dotsConsole.printveld();
+
                 System.out.println();
-                System.out.println("Geef index van dot [kolom]:  ");
+                System.out.print("Geef index van dot [kolom]:  ");
                 kolom = k.nextInt();
-                System.out.println("Geef index van dot [rij]:  ");
+                System.out.print("Geef index van dot [rij]:  ");
                 rij = k.nextInt();
                 lijn.addDot(dotsConsole.getDotUitSpeelveld(rij, kolom));
                 System.out.print(lijn.printList());
 
-                System.out.printf("\n Nog een dot verbinden? (j/n)");
-                if (k.nextLine().toLowerCase().equals("n")) {
+                System.out.printf("\n\nNog een dot verbinden(j/n)? ");
+                String antwoord = k.next();
+                if (antwoord.toLowerCase().equals("n")) {
                     stopBeurt = true;
                 }
             } while(!stopBeurt);
             /* verwijder gebruikte dots*/
-            dotsConsole.verwijderGebruikteDots(lijn.getLijnDotArray());
+            dotsConsole.vervangGebruikteDots(lijn.getLijnDotArray());
             /* vervang verwijderde dots */
 
             /* bereken score*/
