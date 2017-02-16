@@ -42,9 +42,10 @@ public class Main extends Application {
                 primaryStage.setScene(new Scene(view));
                 primaryStage.show();
                 primaryStage.setResizable(false);
+
                 break;
             default:
-                System.out.println("Foute invoer, als straf krijg je de console versie 3:)");
+                System.out.println("Foute invoer, als straf krijg je de console versie:)");
                 break;
 
         }
