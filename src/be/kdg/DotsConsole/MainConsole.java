@@ -1,5 +1,8 @@
 package be.kdg.DotsConsole;
 
+import be.kdg.Dots.Model.Dot;
+import be.kdg.Dots.Model.Speler;
+
 import java.util.Scanner;
 
 
@@ -8,10 +11,14 @@ import java.util.Scanner;
  * @version 1.0 5/02/2017 14:55
  */
 public class MainConsole {
+    private static DotsConsole dotsConsole;
+    private static SpelerConsole speler;
+    private static LijnConsole lijn;
+
     public static void main(String[] args) {
-        DotsConsole dotsConsole = new DotsConsole();
-        SpelerConsole speler = new SpelerConsole();
-        LijnConsole lijn = new LijnConsole();
+        dotsConsole = new DotsConsole();
+        speler = new SpelerConsole();
+        lijn = new LijnConsole();
         Scanner k = new Scanner(System.in);
 
         boolean stopBeurt;
@@ -21,14 +28,11 @@ public class MainConsole {
         System.out.print("Wat is je naam? ");
         speler.setNaam(k.nextLine());
         System.out.println("Welkom speler: " + speler.getNaam() + "\n");
-
+        dotsConsole.printVeld();
         do {
             stopBeurt = false;
             do{
-                dotsConsole.printveld();
-
-                System.out.println();
-                System.out.print("Geef index van dot [kolom]:  ");
+                System.out.print("\nGeef index van dot [kolom]:  ");
                 kolom = k.nextInt();
                 System.out.print("Geef index van dot [rij]:  ");
                 rij = k.nextInt();
@@ -39,6 +43,8 @@ public class MainConsole {
                 String antwoord = k.next();
                 if (antwoord.toLowerCase().equals("n")) {
                     stopBeurt = true;
+                } else {
+                    dotsConsole.printVeld();
                 }
             } while(!stopBeurt);
             /* verwijder gebruikte dots*/
@@ -47,8 +53,10 @@ public class MainConsole {
 
             /* bereken score*/
 
+            /*Laat veld opnieuw zien*/
+            dotsConsole.printVeld();
         } while (true);
-
-
     }
+
+
 }

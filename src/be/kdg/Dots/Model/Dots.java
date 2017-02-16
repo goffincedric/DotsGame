@@ -19,7 +19,5 @@ public class Dots {
         this.level = new Level();
         this.lijn = new Lijn();
     }
-
-    //Methode maken die een lijn die ingediend wordt vult met nieuwe dots
 }
 

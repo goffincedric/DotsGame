@@ -5,10 +5,11 @@ package be.kdg.DotsConsole;
  * @author Cédric Goffin
  * @version 1.0 5/02/2017 14:58
  */
-public class DotsConsole {
+public class DotsConsole extends MainConsole {
     private final int MAXRIJ = 7;
     private final int MAXKOLOM = 7;
     private DotConsole[][] speelveld;
+    private int x, y;
 
     public DotsConsole() {
         speelveld = new DotConsole[MAXRIJ][MAXKOLOM];
@@ -20,7 +21,7 @@ public class DotsConsole {
         }
     }
 
-    public void printveld() {
+    public void printVeld() {
         for (int k = 0; k < 7; k++) {
             System.out.print(" " + k + "\t");
         }

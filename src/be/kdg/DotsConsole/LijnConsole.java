@@ -51,14 +51,14 @@ public class LijnConsole extends DotsConsole {
                         lijn.add(lijn.size(), nieuweDot);
                     } else {
                         System.out.println("Bollen liggen niet naast elkaar; Dot 1: (" + laatsteDot.getKolomIndex() + ", " + laatsteDot.getRijIndex() + "); Dot 2: (" +
-                                nieuweDot.getKolomIndex() + ", " + nieuweDot.getRijIndex() + ")");
+                                nieuweDot.getKolomIndex() + ", " + nieuweDot.getRijIndex() + ")\nBol niet toegevoegd.");
                     }
                 } else {
                     System.out.println("Bollen liggen niet naast elkaar; Dot 1: (" + laatsteDot.getKolomIndex() + ", " + laatsteDot.getRijIndex() + "); Dot 2: (" +
-                            nieuweDot.getKolomIndex() + ", " + nieuweDot.getRijIndex() + ")");
+                            nieuweDot.getKolomIndex() + ", " + nieuweDot.getRijIndex() + ")\nBol niet toegevoegd.");
                 }
             } else {
-                System.out.println("Bollen hebben niet dezelfde kleur; Dot 1: " + laatsteDot.getKleur() + "; Dot 2: " + nieuweDot.getKleur());
+                System.out.println("Bollen hebben niet dezelfde kleur; Dot 1: " + laatsteDot.getKleur() + "; Dot 2: " + nieuweDot.getKleur() + "\nBol niet toegevoegd.");
             }
         }
     }
