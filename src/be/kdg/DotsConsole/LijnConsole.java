@@ -7,7 +7,7 @@ import java.util.List;
  * @author Thomas Verhoeven
  * @version 1.0 6/02/2017 22:01
  */
-public class LijnConsole extends DotsConsole {
+public class LijnConsole {
 
     //vraag user naar kolom en rij
     //blijf dit doen in een loop
@@ -38,10 +38,16 @@ public class LijnConsole extends DotsConsole {
         return dotConsoleArray;
     }
 
-    public void addDot(DotConsole nieuweDot) {
+    public void addDot(DotConsole nieuweDot) throws DotsConsoleException {
         if (lijn.isEmpty()) {
             lijn.add(0, nieuweDot);
         } else {
+            for (DotConsole dot : lijn) {
+                if ((dot.getRijIndex() == nieuweDot.getRijIndex()) && (dot.getKolomIndex() == nieuweDot.getKolomIndex())) {
+                    throw new DotsConsoleException("Gekozen bol is al gebruikt in lijn.");
+                }
+            }
+
             DotConsole laatsteDot = getLaatsteDot();
             if (laatsteDot.getKleur().equals(nieuweDot.getKleur())) {
                 if ((laatsteDot.getKolomIndex() - 1 == nieuweDot.getKolomIndex()) || (laatsteDot.getKolomIndex() == nieuweDot.getKolomIndex()) ||

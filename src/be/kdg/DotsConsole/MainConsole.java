@@ -36,7 +36,13 @@ public class MainConsole {
                 kolom = k.nextInt();
                 System.out.print("Geef index van dot [rij]:  ");
                 rij = k.nextInt();
-                lijn.addDot(dotsConsole.getDotUitSpeelveld(rij, kolom));
+
+                try {
+                    lijn.addDot(dotsConsole.getDotUitSpeelveld(rij, kolom));
+                } catch () {
+
+                }
+
                 System.out.print(lijn.printList());
 
                 System.out.printf("\n\nNog een dot verbinden(j/n)? ");
@@ -58,5 +64,15 @@ public class MainConsole {
         } while (true);
     }
 
+    public static DotsConsole getDotsConsole() {
+        return dotsConsole;
+    }
 
+    public static SpelerConsole getSpeler() {
+        return speler;
+    }
+
+    public static LijnConsole getLijn() {
+        return lijn;
+    }
 }
