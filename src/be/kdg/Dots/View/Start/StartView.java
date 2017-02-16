@@ -11,7 +11,6 @@ import javafx.scene.layout.BorderPane;
  */
 public class StartView extends BorderPane {
     private Button btnStart;
-    private Image imgStart;
     private ImageView imageView;
 
 
@@ -21,8 +20,7 @@ public class StartView extends BorderPane {
     }
 
     private void initialiseNodes() {
-        imgStart = new Image("be/kdg/Dots/View/images/Start/Play.png");
-        imageView = new ImageView(imgStart);
+        imageView = new ImageView(new Image("be/kdg/Dots/View/images/Start/Play.png"));
         btnStart = new Button("", imageView);
     }
 

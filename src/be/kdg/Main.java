@@ -35,8 +35,8 @@ public class Main extends Application {
                 break;
             case 2:
                 model = new Dots();
-                SpelView view = new SpelView();
-                SpelViewPresenter presenter = new SpelViewPresenter(model, view);
+                StartView view = new StartView();
+                StartViewPresenter presenter = new StartViewPresenter(model, view);
 
                 primaryStage.setTitle("Dots");
                 primaryStage.setScene(new Scene(view));

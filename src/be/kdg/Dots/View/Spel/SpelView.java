@@ -6,6 +6,8 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 /**
@@ -14,6 +16,9 @@ import javafx.scene.layout.*;
  */
 public class SpelView extends GridPane {
     private Button[][] btns = new Button[7][7];
+    private Button pause;
+
+    private ImageView imageView;
 
     private Label scoreTekst;
     private Label score;
@@ -23,8 +28,6 @@ public class SpelView extends GridPane {
     private Label level;
     private Label timerTekst;
     private Label timer;
-    private Button pause;
-
 
     private GridPane dotsGrid;
     private GridPane topLeft;
@@ -38,26 +41,26 @@ public class SpelView extends GridPane {
 
     private void initialiseNodes() {
         initBtnsArray();
+
         this.score = new Label("200");
         this.scoreTekst = new Label("Score");
         this.targetScore = new Label("450");
         this.targetScoreTekst = new Label("Target score");
-        this.levelTekst = new Label("Level");
+        this.levelTekst = new Label("Level  ");
         this.level = new Label("2");
         this.timerTekst = new Label("Timer (in seconden):");
         this.timer = new Label("45");
+
         this.pause = new Button("Pause");
 
         this.dotsGrid = new GridPane();
         this.topLeft = new GridPane();
         this.topRight = new HBox();
         this.bottomRight = new VBox();
-        //this.setBottom(dotsfield);
-        //dotsfield.setCenter(getGrid());
+
     }
 
     private void layoutNodes() {
-
         //grid
         this.add(topLeft,0,0);
         this.add(getGrid(),0,1);
@@ -67,7 +70,6 @@ public class SpelView extends GridPane {
         this.setAlignment(Pos.CENTER);
 
         //topleft hbox
-
         this.topLeft.add(scoreTekst,0,0);
         this.topLeft.add(targetScoreTekst,1,0);
         this.topLeft.add(score,0,1);
@@ -77,9 +79,8 @@ public class SpelView extends GridPane {
         this.topRight.getChildren().addAll(levelTekst, level);
 
         //bottomRight
-
         this.bottomRight.getChildren().addAll(timerTekst, timer, pause);
-
+        this.pause.setPrefSize(80,50);
 
         for (int i = 0; i < btns.length; i++) {
             for (int j = 0; j < btns[i].length; j++) {
@@ -89,8 +90,9 @@ public class SpelView extends GridPane {
         }
     }
 
-    private Pane getGrid() {
 
+
+    private Pane getGrid() {
         for (int i = 0; i < btns.length; i++) {
             for (int j = 0; j < btns[i].length; j++) {
                 dotsGrid.add(btns[i][j], i, j);
@@ -104,7 +106,8 @@ public class SpelView extends GridPane {
             for (int j = 0; j < btns[i].length; j++) {
                 btns[i][j] = new Button();
             }
-
         }
     }
+
+
 }
