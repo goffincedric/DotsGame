@@ -10,6 +10,8 @@ public class Score extends Dots {
 
     //list van HighScores (soort van hashmap met speler als key en de Score als value)
 
+    //Score en highscore als attribuut van speler
+
     private Integer Score;
     private HashMap<String, Integer> Highscores;
     //Deze map moet worden opgeslagen
