@@ -21,7 +21,7 @@ public class StartView extends BorderPane {
     }
 
     private void initialiseNodes() {
-        imgStart = new Image("be/kdg/Dots/View/Images/Start/Play.png");
+        imgStart = new Image("be/kdg/Dots/View/Start/images/Play.png");
         imageView = new ImageView(imgStart);
         btnStart = new Button("", imageView);
     }
