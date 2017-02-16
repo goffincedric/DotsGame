@@ -22,8 +22,9 @@ public class MainConsole {
         Scanner k = new Scanner(System.in);
 
         boolean stopBeurt;
-        int kolom;
-        int rij;
+        int rij = 0;
+        int kolom = 0;
+        int nieuwRij, nieuwKolom;
 
         System.out.print("Wat is je naam? ");
         speler.setNaam(k.nextLine());
@@ -33,14 +34,16 @@ public class MainConsole {
             stopBeurt = false;
             do{
                 System.out.print("\nGeef index van dot [kolom]:  ");
-                kolom = k.nextInt();
+                nieuwKolom = k.nextInt();
                 System.out.print("Geef index van dot [rij]:  ");
-                rij = k.nextInt();
+                nieuwRij = k.nextInt();
 
                 try {
-                    lijn.addDot(dotsConsole.getDotUitSpeelveld(rij, kolom));
-                } catch () {
-
+                    lijn.addDot(dotsConsole.getDotUitSpeelveld(nieuwRij, nieuwKolom));
+                } catch (DotsConsoleException e) {
+                    System.out.println(e.getMessage());
+                    nieuwKolom = kolom;
+                    nieuwRij = rij;
                 }
 
                 System.out.print(lijn.printList());

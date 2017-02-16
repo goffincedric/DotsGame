@@ -74,9 +74,10 @@ public class LijnConsole {
     }
 
     public String printList() {
+        String lijnString = "";
         for (DotConsole dotConsole : lijn) {
-            return String.format("Kleur: " + dotConsole.getKleur() + "\nIndex [Kolom|Rij]: " + dotConsole.getKolomIndex()) + dotConsole.getRijIndex();
+            lijnString += "Kleur: " + dotConsole.getKleur() + "\nIndex [Kolom|Rij]: (" + dotConsole.getKolomIndex() + ", " + dotConsole.getRijIndex() + ")\n";
         }
-        return "";
+        return lijnString;
     }
 }
