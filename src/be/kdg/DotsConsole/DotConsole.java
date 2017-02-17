@@ -52,4 +52,14 @@ public class DotConsole {
                 ", kolomIndex=" + kolomIndex +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return o.hashCode() == this.hashCode()?true:false;
+    }
+
+    @Override
+    public int hashCode() {
+        return rijIndex ^ kolomIndex;
+    }
 }

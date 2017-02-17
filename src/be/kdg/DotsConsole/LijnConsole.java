@@ -27,6 +27,10 @@ public class LijnConsole {
         return lijn;
     }
 
+    public int getAantalDots() {
+        return aantalDots;
+    }
+
     public DotConsole[] getLijnDotArray () {
         DotConsole[] dotConsoleArray = new DotConsole[lijn.size()];
 
@@ -66,6 +70,19 @@ public class LijnConsole {
                 System.out.println("Bollen hebben niet dezelfde kleur; Dot 1: " + laatsteDot.getKleur() + "; Dot 2: " + nieuweDot.getKleur() + "\nBol niet toegevoegd.");
             }
         }
+    }
+
+    public boolean isLeeg() {
+        return lijn.isEmpty();
+    }
+
+    public DotConsole getDot(int rij, int kolom) {
+        for (DotConsole dot : lijn) {
+            if (dot.getKolomIndex() == kolom && dot.getRijIndex() == rij) {
+                return dot;
+            }
+        }
+        return null;
     }
 
     public DotConsole getLaatsteDot() {

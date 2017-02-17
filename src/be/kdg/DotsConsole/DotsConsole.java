@@ -28,7 +28,10 @@ public class DotsConsole extends MainConsole {
         System.out.printf("\n\n");
         for (int i = 0; i < speelveld.length; i++) {
             for (int j = 0; j < speelveld[i].length; j++) {
-                System.out.print("*" + speelveld[i][j].getKleur() + "\t");
+                String teken = "-";
+                teken = getLijn().getDot(i,j) == getDotUitSpeelveld(i, j)?"°":"*";
+
+                System.out.print(teken + speelveld[i][j].getKleur() + "\t");
             }
             System.out.println("\t" + i);
             System.out.println();

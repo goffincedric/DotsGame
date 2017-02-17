@@ -58,9 +58,12 @@ public class MainConsole {
             } while(!stopBeurt);
             /* verwijder gebruikte dots*/
             dotsConsole.vervangGebruikteDots(lijn.getLijnDotArray());
-            /* vervang verwijderde dots */
 
             /* bereken score*/
+            speler.setScore(speler.getScore() + lijn.getAantalDots());
+
+            /* maak lijn leeg*/
+            lijn = new LijnConsole();
 
             /*Laat veld opnieuw zien*/
             dotsConsole.printVeld();

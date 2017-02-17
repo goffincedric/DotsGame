@@ -39,10 +39,10 @@ public class Speler {
 
     public void nieuweHighscore() {
         if (!Highscores.containsKey(getNaam().toLowerCase())) {
-            Highscores.put(getNaam().toLowerCase(), super.lijn.bepaalScore());
+            Highscores.put(getNaam().toLowerCase(), this.score);
         }
-        if (Highscores.get(getNaam().toLowerCase()) < (super.lijn.bepaalScore())) {
-            Highscores.put(getNaam().toLowerCase(), super.lijn.bepaalScore());
+        if (Highscores.get(getNaam().toLowerCase()) < this.score) {
+            Highscores.put(getNaam().toLowerCase(), this.score);
         }
 
     }

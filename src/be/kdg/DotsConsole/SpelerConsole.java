@@ -6,6 +6,7 @@ package be.kdg.DotsConsole;
  */
 public class SpelerConsole {
     private String naam;
+    private int score;
 
     public SpelerConsole() {
 
@@ -17,6 +18,14 @@ public class SpelerConsole {
 
     public void setNaam(String naam) {
         this.naam = naam;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     @Override
