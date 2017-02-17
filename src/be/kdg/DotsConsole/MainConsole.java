@@ -81,4 +81,7 @@ public class MainConsole {
     public static LijnConsole getLijn() {
         return lijn;
     }
+
+
+
 }

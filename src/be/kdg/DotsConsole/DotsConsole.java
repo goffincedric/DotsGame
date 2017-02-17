@@ -9,7 +9,6 @@ public class DotsConsole extends MainConsole {
     private final int MAXRIJ = 7;
     private final int MAXKOLOM = 7;
     private DotConsole[][] speelveld;
-    private int x, y;
 
     public DotsConsole() {
         speelveld = new DotConsole[MAXRIJ][MAXKOLOM];
@@ -47,16 +46,27 @@ public class DotsConsole extends MainConsole {
         return speelveld[rij][kolom];
     }
 
-    public void vervangGebruikteDots(DotConsole[] gebruikteDots) {
+    public void vervangGebruikteDots(DotConsole[] gebruikteDots, DotConsole[][] speelveld) {
         for (DotConsole dot : gebruikteDots) {
-            /*while(this.getDotUitSpeelveld(dot.getRijIndex() - 1, dot.getKolomIndex())) {
-
-            }*/
-            /*controleer via do while op ongebruikte dots erboven en verplaats die naar de lagere dot;*/
-
-
-            /*speelveld[dot.getRijIndex()][dot.getKolomIndex()] =*/
+            this.speelveld[dot.getRijIndex()][dot.getKolomIndex()] = null;
         }
+
+        for (int i = MAXRIJ -1; i >= 0; i--) {
+            for (int j = MAXKOLOM -1; j >= 0 ; j--) {
+                if (speelveld[i][j] == null) {
+                    int rijTeller = i;
+                     do {
+                         rijTeller--;
+                     } while (speelveld[rijTeller][j] == null && rijTeller > -1);
+
+                    speelveld[i][j] = speelveld[rijTeller][j];
+                    speelveld[rijTeller][j] = null;
+
+                    /* nog niet klaar*/
+                }
+            }
+        }
+
     }
 
 
