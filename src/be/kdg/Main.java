@@ -41,8 +41,9 @@ public class Main extends Application {
                 scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Gloria+Hallelujah");
                 primaryStage.setTitle("Dots");
                 primaryStage.setScene(scene);
-                primaryStage.show();
                 primaryStage.setResizable(false);
+                primaryStage.show();
+                primaryStage.toFront();
 
                 break;
             default:
