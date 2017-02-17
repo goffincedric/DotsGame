@@ -57,7 +57,7 @@ public class MainConsole {
                 }
             } while(!stopBeurt);
             /* verwijder gebruikte dots*/
-            dotsConsole.vervangGebruikteDots(lijn.getLijnDotArray());
+           // dotsConsole.vervangGebruikteDots(lijn.getLijnDotArray());
 
             /* bereken score*/
             speler.setScore(speler.getScore() + lijn.getAantalDots());

@@ -21,12 +21,7 @@ public class StartViewPresenter{
     }
 
     private void addEventHandlers(){
-        view.getStartButton().setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
 
-            }
-        });
     }
 
     private void updateView() {
