@@ -32,9 +32,9 @@ public class DotsConsole extends MainConsole {
 
                 System.out.print(teken + speelveld[i][j].getKleur() + "\t");
             }
-            System.out.println("\t" + i);
-            System.out.println();
+            System.out.println("\t" + i + "\n");
         }
+        System.out.printf("Huidige score: %d", super.getSpeler().getScore());
     }
 
 
@@ -46,23 +46,32 @@ public class DotsConsole extends MainConsole {
         return speelveld[rij][kolom];
     }
 
-    public void vervangGebruikteDots(DotConsole[] gebruikteDots, DotConsole[][] speelveld) {
+    public void vervangGebruikteDots(DotConsole[] gebruikteDots) {
         for (DotConsole dot : gebruikteDots) {
             this.speelveld[dot.getRijIndex()][dot.getKolomIndex()] = null;
         }
 
+        int rijTeller;
+
         for (int i = MAXRIJ -1; i >= 0; i--) {
             for (int j = MAXKOLOM -1; j >= 0 ; j--) {
                 if (speelveld[i][j] == null) {
-                    int rijTeller = i;
-                     do {
-                         rijTeller--;
-                     } while (speelveld[rijTeller][j] == null && rijTeller > -1);
+                    rijTeller = i;
+                    do {
+                        rijTeller--;
+                    } while ((rijTeller == -1)?false:(speelveld[rijTeller][j] == null) && rijTeller > -1);
 
-                    speelveld[i][j] = speelveld[rijTeller][j];
-                    speelveld[rijTeller][j] = null;
-
-                    /* nog niet klaar*/
+                    switch (rijTeller) {
+                        case -1:
+                            for (int k = 0; k <= i; k++) {
+                                speelveld[k][j] = new DotConsole(k, j);
+                            }
+                            break;
+                        default:
+                            speelveld[i][j] = speelveld[rijTeller][j];
+                            speelveld[rijTeller][j] = null;
+                            break;
+                    }
                 }
             }
         }

@@ -44,6 +44,8 @@ public class MainConsole {
                     System.out.println(e.getMessage());
                     nieuwKolom = kolom;
                     nieuwRij = rij;
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("Ongeldige coördinaten, probeer opnieuw");
                 }
 
                 System.out.print(lijn.printList());
@@ -51,21 +53,26 @@ public class MainConsole {
                 System.out.printf("\n\nNog een dot verbinden(j/n)? ");
                 String antwoord = k.next();
                 if (antwoord.toLowerCase().equals("n")) {
-                    stopBeurt = true;
+                    if (lijn.getAantalDots() > 1) {
+                        stopBeurt = true;
+                    } else {
+                        dotsConsole.printVeld();
+                        System.out.println("\nLijn niet lang genoeg, minstens 2 bollen nodig");
+                    }
                 } else {
                     dotsConsole.printVeld();
                 }
             } while(!stopBeurt);
-            /* verwijder gebruikte dots*/
-           // dotsConsole.vervangGebruikteDots(lijn.getLijnDotArray());
+            /* verwijdert gebruikte dots*/
+           dotsConsole.vervangGebruikteDots(lijn.getLijnDotArray());
 
-            /* bereken score*/
+            /* berekent score*/
             speler.setScore(speler.getScore() + lijn.getAantalDots());
 
-            /* maak lijn leeg*/
+            /* maakt lijn leeg*/
             lijn = new LijnConsole();
 
-            /*Laat veld opnieuw zien*/
+            /* Laat veld opnieuw zien */
             dotsConsole.printVeld();
         } while (true);
     }
