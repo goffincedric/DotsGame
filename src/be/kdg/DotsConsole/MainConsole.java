@@ -77,10 +77,6 @@ public class MainConsole {
         } while (true);
     }
 
-    public static DotsConsole getDotsConsole() {
-        return dotsConsole;
-    }
-
     public static SpelerConsole getSpeler() {
         return speler;
     }

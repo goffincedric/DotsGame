@@ -12,25 +12,25 @@ public class Score extends Dots {
 
     //Score en highscore als attribuut van speler
 
-    private Integer Score;
-    private HashMap<String, Integer> Highscores;
+    private int Score;
+    private HashMap<String, Integer> highscores;
     //Deze map moet worden opgeslagen
 
 
     public Score() {
-        Highscores = new HashMap<String, Integer>();
+        highscores = new HashMap<String, Integer>();
     }
 
-    public Integer getScore() {
+    public int getScore() {
         return Score;
     }
 
     public void nieuweHighscore() {
-        if (!Highscores.containsKey(speler.getNaam().toLowerCase())) {
-            Highscores.put(speler.getNaam().toLowerCase(), super.lijn.bepaalScore());
+        if (!highscores.containsKey(speler.getNaam().toLowerCase())) {
+            highscores.put(speler.getNaam().toLowerCase(), super.lijn.bepaalScore());
         }
-        if (Highscores.get(speler.getNaam().toLowerCase()) < (super.lijn.bepaalScore())) {
-            Highscores.put(speler.getNaam().toLowerCase(), super.lijn.bepaalScore());
+        if (highscores.get(speler.getNaam().toLowerCase()) < (super.lijn.bepaalScore())) {
+            highscores.put(speler.getNaam().toLowerCase(), super.lijn.bepaalScore());
         }
 
     }

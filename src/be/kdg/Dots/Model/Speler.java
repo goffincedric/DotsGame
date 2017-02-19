@@ -8,7 +8,6 @@ import java.util.HashMap;
  */
 public class Speler {
     private String naam;
-    private int highScore;
     private HashMap<String, Integer> Highscores;
     private int score;
 
@@ -26,11 +25,6 @@ public class Speler {
 
     public void setNaam(String naam) {
         this.naam = naam;
-    }
-
-
-    public int getHighScore() {
-        return highScore;
     }
 
     public void setScore(int score) {
