@@ -8,11 +8,6 @@ import java.util.List;
  * @version 1.0 6/02/2017 22:01
  */
 public class LijnConsole {
-
-    //vraag user naar kolom en rij
-    //blijf dit doen in een loop
-    //vergelijk steeds de  dots
-
     private List<DotConsole> lijn;
     private int aantalDots;
     private String lijnKleur;

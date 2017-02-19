@@ -12,13 +12,13 @@ import java.util.Scanner;
  */
 public class MainConsole {
     private static DotsConsole dotsConsole;
-    private static SpelerConsole speler;
-    private static LijnConsole lijn;
+    private static SpelerConsole spelerConsole;
+    private static LijnConsole lijnConsole;
 
     public static void main(String[] args) {
         dotsConsole = new DotsConsole();
-        speler = new SpelerConsole();
-        lijn = new LijnConsole();
+        spelerConsole = new SpelerConsole();
+        lijnConsole = new LijnConsole();
         Scanner k = new Scanner(System.in);
 
         boolean stopBeurt;
@@ -27,8 +27,8 @@ public class MainConsole {
         int nieuwRij, nieuwKolom;
 
         System.out.print("Wat is je naam? ");
-        speler.setNaam(k.nextLine());
-        System.out.println("Welkom speler: " + speler.getNaam() + "\n");
+        spelerConsole.setNaam(k.nextLine());
+        System.out.println("Welkom spelerConsole: " + spelerConsole.getNaam() + "\n");
         dotsConsole.printVeld();
         do {
             stopBeurt = false;
@@ -39,7 +39,7 @@ public class MainConsole {
                 nieuwRij = k.nextInt();
 
                 try {
-                    lijn.addDot(dotsConsole.getDotUitSpeelveld(nieuwRij, nieuwKolom));
+                    lijnConsole.addDot(dotsConsole.getDotUitSpeelveld(nieuwRij, nieuwKolom));
                 } catch (DotsConsoleException e) {
                     System.out.println(e.getMessage());
                     nieuwKolom = kolom;
@@ -48,12 +48,12 @@ public class MainConsole {
                     System.out.println("Ongeldige coördinaten, probeer opnieuw");
                 }
 
-                System.out.print(lijn.printList());
+                System.out.print(lijnConsole.printList());
 
                 System.out.printf("\n\nNog een dot verbinden(j/n)? ");
                 String antwoord = k.next();
                 if (antwoord.toLowerCase().equals("n")) {
-                    if (lijn.getAantalDots() > 1) {
+                    if (lijnConsole.getAantalDots() > 1) {
                         stopBeurt = true;
                     } else {
                         dotsConsole.printVeld();
@@ -64,25 +64,25 @@ public class MainConsole {
                 }
             } while(!stopBeurt);
             /* verwijdert gebruikte dots*/
-           dotsConsole.vervangGebruikteDots(lijn.getLijnDotArray());
+           dotsConsole.vervangGebruikteDots(lijnConsole.getLijnDotArray());
 
             /* berekent score*/
-            speler.setScore(speler.getScore() + lijn.getAantalDots());
+            spelerConsole.setScore(spelerConsole.getScore() + lijnConsole.getAantalDots());
 
             /* maakt lijn leeg*/
-            lijn = new LijnConsole();
+            lijnConsole = new LijnConsole();
 
             /* Laat veld opnieuw zien */
             dotsConsole.printVeld();
         } while (true);
     }
 
-    public static SpelerConsole getSpeler() {
-        return speler;
+    public static SpelerConsole getSpelerConsole() {
+        return spelerConsole;
     }
 
-    public static LijnConsole getLijn() {
-        return lijn;
+    public static LijnConsole getLijnConsole() {
+        return lijnConsole;
     }
 
 

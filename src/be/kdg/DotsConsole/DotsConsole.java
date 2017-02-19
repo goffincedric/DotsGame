@@ -1,6 +1,8 @@
 package be.kdg.DotsConsole;
 
 
+import be.kdg.Main;
+
 /**
  * @author Cédric Goffin
  * @version 1.0 5/02/2017 14:58
@@ -28,13 +30,13 @@ public class DotsConsole extends MainConsole {
         for (int i = 0; i < speelveld.length; i++) {
             for (int j = 0; j < speelveld[i].length; j++) {
                 String teken = "-";
-                teken = getLijn().getDot(i,j) == getDotUitSpeelveld(i, j)?"°":"*";
+                teken = super.getLijnConsole().getDot(i,j) == getDotUitSpeelveld(i, j)?"°":"*";
 
                 System.out.print(teken + speelveld[i][j].getKleur() + "\t");
             }
             System.out.println("\t" + i + "\n");
         }
-        System.out.printf("Huidige score: %d", super.getSpeler().getScore());
+        System.out.printf("Huidige score: %d", super.getSpelerConsole().getScore());
     }
 
 

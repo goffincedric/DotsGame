@@ -8,7 +8,7 @@ import be.kdg.Dots.View.Spel.SpelView;
 import be.kdg.Dots.View.Spel.SpelViewPresenter;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
-import be.kdg.DotsConsole.MainConsole;
+import be.kdg.DotsConsole.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -57,27 +57,4 @@ public class Main extends Application {
     public static void main(String[] args) {
         Application.launch(args);
     }
-/*Vervangen door 'in presenter oproepen naar een 'setRoot methode'
-    public void navigateTo(String naamView) {
-        switch (naamView) {
-            case "Spel":
-                SpelView view = new SpelView();
-                SpelViewPresenter presenter = new SpelViewPresenter(model, view);
-
-
-                break;
-            case "Start":
-
-                break;
-            case "Pauze":
-
-                break;
-            case "End":
-
-                break;
-
-        }
-
-    }
-    */
 }
