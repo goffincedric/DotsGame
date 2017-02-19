@@ -13,7 +13,6 @@ public class Dot {
     private Kleuren kleur;
     private int rijIndex; //bepaalt colomindex in array of buttons;
     private int kolomIndex; //bepaalt rijindex in array of buttons;
-    private Circle shape;
     //nog niet zeker over die kolom en rijindex
 
     private static final Kleuren[] VALUES = Kleuren.values();
@@ -21,10 +20,9 @@ public class Dot {
     private static Random random = new Random();
 
     public Dot(int kolomIndex, int rijIndex) {
-        shape = new Circle();
+        this.kleur = getRandomKleur();
         this.kolomIndex = kolomIndex;
         this.rijIndex = rijIndex;
-        this.kleur = getRandomKleur();
     }
 
     public static Kleuren getRandomKleur() {
