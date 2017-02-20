@@ -11,22 +11,16 @@ import java.util.Random;
  */
 public class Dot {
     private Kleuren kleur;
-    private int rijIndex; //bepaalt colomindex in array of buttons;
-    private int kolomIndex; //bepaalt rijindex in array of buttons;
-    //nog niet zeker over die kolom en rijindex
+    private int rijIndex;
+    private int kolomIndex;
+    private Random random = new Random();
 
-    private static final Kleuren[] VALUES = Kleuren.values();
-    private static final int SIZE = VALUES.length;
-    private static Random random = new Random();
+    private static final Kleuren KLEUREN[] = Kleuren.values();
 
-    public Dot(int kolomIndex, int rijIndex) {
-        this.kleur = getRandomKleur();
+    public Dot(int rijIndex, int kolomIndex) {
+        this.kleur = KLEUREN[random.nextInt(KLEUREN.length)];
         this.kolomIndex = kolomIndex;
         this.rijIndex = rijIndex;
-    }
-
-    public static Kleuren getRandomKleur() {
-        return VALUES[random.nextInt(SIZE)];
     }
 
     public Kleuren getColor() {

@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 public enum Kleuren {
     Grijs(Color.rgb(229, 17, 73)),
     Wit(Color.rgb(226, 7, 100)),
-    //Roos(Color.rgb(360, 52, 100)),
+    Roos(Color.rgb(255, 122, 122)),
     Rood(Color.rgb(251, 67, 7)),
     Oranje(Color.rgb(251, 117, 7)),
     Geel(Color.rgb(251, 210, 7)),
@@ -19,7 +19,7 @@ public enum Kleuren {
     Cyaan(Color.rgb(12, 211, 210)),
     LichtBlauw(Color.rgb(83, 166, 214)),
     Blauw(Color.rgb(0, 135, 214)),
-    // Paars(Color.rgb(280, 71, 98)),
+    Paars(Color.rgb(190, 72, 249)),
     Beige(Color.rgb(46, 37, 76)),
     Bruin(Color.rgb(12, 69, 40));
 
