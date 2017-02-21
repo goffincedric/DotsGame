@@ -27,11 +27,10 @@ public class Score extends Dots {
 
     public void nieuweHighscore() {
         if (!highscores.containsKey(speler.getNaam().toLowerCase())) {
-            highscores.put(speler.getNaam().toLowerCase(), super.lijn.bepaalScore());
+            highscores.put(speler.getNaam().toLowerCase(), super.lijn.getAantalDots());
         }
-        if (highscores.get(speler.getNaam().toLowerCase()) < (super.lijn.bepaalScore())) {
-            highscores.put(speler.getNaam().toLowerCase(), super.lijn.bepaalScore());
+        if (highscores.get(speler.getNaam().toLowerCase()) < (super.lijn.getAantalDots())) {
+            highscores.put(speler.getNaam().toLowerCase(), super.lijn.getAantalDots());
         }
-
     }
 }

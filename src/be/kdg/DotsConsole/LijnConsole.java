@@ -26,7 +26,7 @@ public class LijnConsole {
         return aantalDots;
     }
 
-    public DotConsole[] getLijnDotArray () {
+    public DotConsole[] getLijnDotArray() {
         DotConsole[] dotConsoleArray = new DotConsole[lijn.size()];
 
         for (int i = 0; i < lijn.size(); i++) {
@@ -47,6 +47,7 @@ public class LijnConsole {
                     throw new DotsConsoleException("Gekozen bol is al gebruikt in lijn.");
                 }
             }
+
             DotConsole laatsteDot = getLaatsteDot();
             if (laatsteDot.getKleur().equals(nieuweDot.getKleur())) {
                 if ((laatsteDot.getKolomIndex() - 1 == nieuweDot.getKolomIndex()) || (laatsteDot.getKolomIndex() == nieuweDot.getKolomIndex()) ||

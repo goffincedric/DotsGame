@@ -23,20 +23,20 @@ public class Dot {
         this.rijIndex = rijIndex;
     }
 
-    public Kleuren getColor() {
+    public Kleuren getKleur() {
         return kleur;
-    }
-
-    public int getKolomIndex() {
-        return kolomIndex;
     }
 
     public int getRijIndex() {
         return rijIndex;
     }
 
-    public boolean isAangrenzend(Dot dot2) {
-        if (!this.kleur.name().equals(dot2.getColor().name())) {
+    public int getKolomIndex() {
+        return kolomIndex;
+    }
+
+    /*public boolean isAangrenzend(Dot dot2) {
+        if (!this.kleur.name().equals(dot2.getKleur().name())) {
             return false;
         }
         if ((this.kolomIndex - 1 == dot2.getKolomIndex()) || (this.kolomIndex == dot2.getKolomIndex()) || (this.kolomIndex + 1 == dot2.getKolomIndex())) {
@@ -45,7 +45,7 @@ public class Dot {
             }
         }
         return false;
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -54,5 +54,15 @@ public class Dot {
                 ", rijIndex=" + rijIndex +
                 ", kolomIndex=" + kolomIndex +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return o.hashCode()== this.hashCode()?true:false;
+    }
+
+    @Override
+    public int hashCode() {
+        return kleur.ordinal() ^ rijIndex ^ kolomIndex;
     }
 }

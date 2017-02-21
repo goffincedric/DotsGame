@@ -9,42 +9,83 @@ import java.util.List;
  */
 
 public class Lijn {
-    private List<Dot> lijn = new ArrayList<>();
+    private List<Dot> lijn;
     private int aantalDots;
-    private Kleuren color;
+    private Kleuren kleur;
 
     public Lijn() {
+        lijn = new ArrayList<>();
+        this.aantalDots = 0;
+    }
 
+    public List<Dot> getLijn() {
+        return lijn;
     }
 
     public int getAantalDots() {
         return aantalDots;
     }
 
-    public Kleuren getColor() {
-        return color;
+    public Kleuren getKleur() {
+        return kleur;
     }
 
-    public void setColor(Kleuren color) {
-        this.color = color;
+    public void setKleur(Kleuren kleur) {
+        this.kleur = kleur;
     }
 
-    public void addDot(Dot dot) {
+    public Dot[] getLijnDotArray() {
+        Dot[] dotArray = new Dot[lijn.size()];
+        return lijn.toArray(dotArray);
+    }
+
+    public void addDot(Dot nieuweDot) throws DotsException{
         if (lijn.isEmpty()) {
-            this.color = dot.getColor();
+            this.kleur = nieuweDot.getKleur();
+            lijn.add(0, nieuweDot);
+        } else {
+            for (Dot dot : lijn) {
+                if (dot.getRijIndex() == nieuweDot.getRijIndex() && dot.getKolomIndex() == nieuweDot.getKolomIndex()) {
+                    throw new DotsException("Gekozen bol is al in gebruik meet lijn");
+                }
+            }
+
+            Dot laatsteDot = getLaatsteDot();
+            if (laatsteDot.getKleur().equals(nieuweDot.getKleur())) {
+                if ((laatsteDot.getKolomIndex() - 1 == nieuweDot.getKolomIndex()) || (laatsteDot.getKolomIndex() == nieuweDot.getKolomIndex()) ||
+                        (lijn.get(lijn.size() - 1).getKolomIndex() + 1 == nieuweDot.getKolomIndex())) {
+                    if ((laatsteDot.getRijIndex() - 1 == nieuweDot.getRijIndex()) || (laatsteDot.getRijIndex() == nieuweDot.getRijIndex()) ||
+                            (laatsteDot.getRijIndex() + 1 == nieuweDot.getRijIndex())) {
+                        lijn.add(lijn.size(), nieuweDot);
+                    } else {
+                        System.out.println("Bollen liggen niet naast elkaar; Dot 1: (" + laatsteDot.getKolomIndex() + ", " + laatsteDot.getRijIndex() + "); Dot 2: (" +
+                                nieuweDot.getKolomIndex() + ", " + nieuweDot.getRijIndex() + ")\nBol niet toegevoegd.");
+                    }
+                } else {
+                    System.out.println("Bollen liggen niet naast elkaar; Dot 1: (" + laatsteDot.getKolomIndex() + ", " + laatsteDot.getRijIndex() + "); Dot 2: (" +
+                            nieuweDot.getKolomIndex() + ", " + nieuweDot.getRijIndex() + ")\nBol niet toegevoegd.");
+                }
+            }
         }
-        lijn.add(dot);
         this.aantalDots++;
     }
 
-    public void removeDot() {
-        lijn.remove(lijn.size() - 1);
-        this.aantalDots--;
+    public Dot getDot(int rij, int kolom) {
+        for (Dot dot : lijn) {
+            if (dot.getRijIndex() == rij && dot.getKolomIndex() == kolom) {
+                return dot;
+            }
+        }
+        return null;
     }
 
-    public int bepaalScore() {
-        int ScorePerBol = 1;
-        return getAantalDots() * ScorePerBol;
+    public Dot getLaatsteDot(){
+        return lijn.get(lijn.size()-1);
     }
 
+    public void removeDot(Dot dot) {
+        if (dot.equals(lijn.get(lijn.size()-1))); {
+            lijn.remove(lijn.size()-1);
+        }
+    }
 }

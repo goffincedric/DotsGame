@@ -18,8 +18,6 @@ public class Dots {
         this.speler =  new Speler();
         this.level = new Level();
         this.lijn = new Lijn();
-
-
     }
 }
 

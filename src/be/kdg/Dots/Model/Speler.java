@@ -1,6 +1,5 @@
 package be.kdg.Dots.Model;
 
-import java.util.HashMap;
 
 /**
  * @author Cédric Goffin
@@ -8,8 +7,10 @@ import java.util.HashMap;
  */
 public class Speler {
     private String naam;
-    private HashMap<String, Integer> Highscores;
     private int score;
+
+    // naar Dots ??
+    // private HashMap<String, Integer> Highscores;
 
     public Speler() {
 
@@ -23,15 +24,21 @@ public class Speler {
         return naam;
     }
 
-    public void setNaam(String naam) {
-        this.naam = naam;
+    public int getScore() {
+        return score;
     }
 
     public void setScore(int score) {
         this.score = score;
     }
 
-    public void nieuweHighscore() {
+    @Override
+    public String toString() {
+        return "Speler 1: " + this.naam;
+    }
+
+    // vervang Hashmap value naar List van int + verander bijbehorende score
+    /*public void nieuweHighscore() {
         if (!Highscores.containsKey(getNaam().toLowerCase())) {
             Highscores.put(getNaam().toLowerCase(), this.score);
         }
@@ -39,5 +46,5 @@ public class Speler {
             Highscores.put(getNaam().toLowerCase(), this.score);
         }
 
-    }
+    }*/
 }
