@@ -24,6 +24,10 @@ public class Speler {
         return naam;
     }
 
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+
     public int getScore() {
         return score;
     }

@@ -88,4 +88,12 @@ public class Lijn {
             lijn.remove(lijn.size()-1);
         }
     }
+
+    public String printList() {
+        String lijnString = "";
+        for (Dot dot : lijn) {
+            lijnString += "Kleur: " + dot.getKleur() + "\nIndex [Kolom|Rij]: (" + dot.getKolomIndex() + ", " + dot.getRijIndex() + ")\n";
+        }
+        return lijnString;
+    }
 }
