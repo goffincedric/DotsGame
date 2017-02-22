@@ -39,7 +39,7 @@ public class StartView extends BorderPane {
         btnHelp = new Button();
         btnHighScores = new Button();
         btnStart = new Button();
-        dots = new Label("DOTS");
+        dots = new Label("Dots");
 
         footer = new HBox();
         topbox = new VBox();
@@ -51,11 +51,11 @@ public class StartView extends BorderPane {
         this.setPadding(new Insets(25,0,15,0));
 
         dots.setAlignment(Pos.CENTER);
-        dots.setStyle("-fx-font-family: 'Gloria Hallelujah', cursive; -fx-font-size:60");
-
+        dots.setStyle("-fx-font-family:'VT323', monospace; -fx-font-size:80");
         btnStart.setGraphic(play);
         btnStart.setPrefSize(100, 100);
-        //btnStart.setStyle("-fx-background-color: #C70039");
+        btnStart.setStyle("-fx-focus-color: firebrick");
+
         play.setFitHeight(100);
         play.setFitWidth(100);
         play.setPreserveRatio(true);

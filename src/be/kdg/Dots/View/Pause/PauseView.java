@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 public class PauseView extends BorderPane {
 
     private Label lblPaused;
+
     public PauseView() {
         this.initialiseNodes();
         this.layoutNodes();

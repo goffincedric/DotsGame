@@ -3,7 +3,7 @@ package be.kdg.Dots.View.End;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
+
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
  * @author Cédric Goffin
  * @version 1.0 6/02/2017 13:41
  */
-public class EndView extends BorderPane {
+public class EndView extends VBox {
 
 
     private Label newHighScore;
@@ -26,7 +26,7 @@ public class EndView extends BorderPane {
     private HBox levelBox;
     private HBox scoreBox;
     private HBox buttonBox;
-    private VBox bottomBox;
+
 
     public EndView() {
         this.initialiseNodes();
@@ -44,7 +44,7 @@ public class EndView extends BorderPane {
         levelBox = new HBox();
         scoreBox = new HBox();
         buttonBox = new HBox();
-        bottomBox = new VBox();
+
 
     }
 
@@ -53,18 +53,18 @@ public class EndView extends BorderPane {
         levelBox.getChildren().addAll(levelTekst, huidigLevel);
         scoreBox.getChildren().addAll(scoreTekst, huidigeScore);
         buttonBox.getChildren().addAll(btnHome, btnRestart);
-        bottomBox.getChildren().addAll(levelBox,scoreTekst, buttonBox);
 
-        
+
         newHighScore.setAlignment(Pos.CENTER);
         levelBox.setAlignment(Pos.CENTER);
         scoreTekst.setAlignment(Pos.CENTER);
         buttonBox.setAlignment(Pos.CENTER);
-        bottomBox.setAlignment(Pos.CENTER);
+        scoreBox.setAlignment(Pos.CENTER);
 
-        this.setTop(newHighScore);
-        this.setBottom(bottomBox);
 
+        this.getChildren().addAll(newHighScore, levelBox, scoreBox, buttonBox);
+        this.setAlignment(Pos.CENTER);
+        this.setSpacing(15);
 
     }
 }

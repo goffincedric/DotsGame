@@ -37,10 +37,10 @@ public class Main extends Application {
                 break;
             case 2:
                 model = new Dots();
-                EndView view = new  EndView();
-                EndViewPresenter presenter = new EndViewPresenter(model, view);
+                StartView view = new  StartView();
+                StartViewPresenter presenter = new StartViewPresenter(model, view);
                 Scene scene = new Scene(view);
-                scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Gloria+Hallelujah");
+                scene.getStylesheets().add("https://fonts.googleapis.com/css?family=VT323");
                 primaryStage.setTitle("Dots");
                 primaryStage.setScene(scene);
                 primaryStage.setResizable(false);
