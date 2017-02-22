@@ -42,14 +42,14 @@ public class SpelView extends GridPane {
     private void initialiseNodes() {
         initBtnsArray();
 
-        this.score = new Label("200");
+        this.score = new Label("###");
         this.scoreTekst = new Label("Score");
-        this.targetScore = new Label("450");
+        this.targetScore = new Label("###");
         this.targetScoreTekst = new Label("Target score");
         this.levelTekst = new Label("Level  ");
-        this.level = new Label("2");
+        this.level = new Label("##");
         this.timerTekst = new Label("Timer (in seconden):");
-        this.timer = new Label("45");
+        this.timer = new Label("##");
 
         this.pause = new Button("Pause");
 
@@ -61,6 +61,9 @@ public class SpelView extends GridPane {
     }
 
     private void layoutNodes() {
+
+        this.setStyle("-fx-background-color: ghostwhite");
+
         //grid
         this.add(topLeft,0,0);
         this.add(getGrid(),0,1);

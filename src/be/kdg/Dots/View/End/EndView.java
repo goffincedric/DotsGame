@@ -34,11 +34,11 @@ public class EndView extends VBox {
     }
 
     private void initialiseNodes() {
-        newHighScore = new Label("10000");
+        newHighScore = new Label("####");
         levelTekst = new Label("Level: ");
         scoreTekst = new Label("Score: ");
-        huidigLevel = new Label("10");
-        huidigeScore = new Label("250");
+        huidigLevel = new Label("##");
+        huidigeScore = new Label("###");
         btnHome = new Button("Home");
         btnRestart = new Button("Restart");
         levelBox = new HBox();
@@ -49,6 +49,7 @@ public class EndView extends VBox {
     }
 
     private void layoutNodes() {
+        this.setStyle("-fx-background-color: ghostwhite");
 
         levelBox.getChildren().addAll(levelTekst, huidigLevel);
         scoreBox.getChildren().addAll(scoreTekst, huidigeScore);

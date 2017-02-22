@@ -6,6 +6,8 @@ import be.kdg.Dots.Model.Lijn;
 import be.kdg.Dots.Model.Speler;
 import be.kdg.Dots.View.End.EndView;
 import be.kdg.Dots.View.End.EndViewPresenter;
+import be.kdg.Dots.View.Pause.PauseView;
+import be.kdg.Dots.View.Pause.PauseViewPresenter;
 import be.kdg.Dots.View.Spel.SpelView;
 import be.kdg.Dots.View.Spel.SpelViewPresenter;
 import be.kdg.Dots.View.Start.StartView;
@@ -37,8 +39,8 @@ public class Main extends Application {
                 break;
             case 2:
                 model = new Dots();
-                StartView view = new  StartView();
-                StartViewPresenter presenter = new StartViewPresenter(model, view);
+                PauseView view = new  PauseView();
+                PauseViewPresenter presenter = new PauseViewPresenter(model, view);
                 Scene scene = new Scene(view);
                 scene.getStylesheets().add("https://fonts.googleapis.com/css?family=VT323");
                 primaryStage.setTitle("Dots");

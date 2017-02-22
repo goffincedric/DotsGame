@@ -54,7 +54,7 @@ public class StartView extends BorderPane {
         dots.setStyle("-fx-font-family:'VT323', monospace; -fx-font-size:80");
         btnStart.setGraphic(play);
         btnStart.setPrefSize(100, 100);
-        btnStart.setStyle("-fx-focus-color: firebrick");
+        btnStart.setStyle("-fx-focus-color: firebrick;");
 
         play.setFitHeight(100);
         play.setFitWidth(100);
