@@ -26,17 +26,16 @@ public class SpelViewPresenter {
     }
 
     private void addEventHandlers(){
-        for (Node node : view.getDotsGrid().getChildren()) {
+        /*for (Node node : view.getDotsGrid().getChildren()) {
             node.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
                     if (node instanceof Button) {
-                        new Alert(Alert.AlertType.INFORMATION, String.format("%f", GridPane.getRowIndex(node)));
-
+                        new Alert(Alert.AlertType.INFORMATION, String.format("%d", view.getDotsGrid().getRowIndex(node)));
                     }
                 }
             });
-        }
+        }*/
     }
 
     private void updateView() {
