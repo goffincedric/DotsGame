@@ -1,9 +1,18 @@
 package be.kdg;
 
 import be.kdg.Dots.Model.Dots;
+import be.kdg.Dots.Model.Level;
+import be.kdg.Dots.Model.Lijn;
+import be.kdg.Dots.Model.Speler;
+import be.kdg.Dots.View.End.EndView;
+import be.kdg.Dots.View.End.EndViewPresenter;
+import be.kdg.Dots.View.Pause.PauseView;
+import be.kdg.Dots.View.Pause.PauseViewPresenter;
 import be.kdg.Dots.View.Spel.SpelView;
 import be.kdg.Dots.View.Spel.SpelViewPresenter;
-import be.kdg.DotsConsole.MainConsole;
+import be.kdg.Dots.View.Start.StartView;
+import be.kdg.Dots.View.Start.StartViewPresenter;
+import be.kdg.DotsConsole.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -30,15 +39,16 @@ public class TestMainT extends Application {
                 break;
             case 2:
                 model = new Dots();
-                SpelView view = new SpelView();
-                SpelViewPresenter presenter = new SpelViewPresenter(model, view);
+                PauseView view = new  PauseView();
+                PauseViewPresenter presenter = new PauseViewPresenter(model, view);
                 Scene scene = new Scene(view);
-                scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Gloria+Hallelujah");
+                scene.getStylesheets().add("https://fonts.googleapis.com/css?family=VT323");
                 primaryStage.setTitle("Dots");
                 primaryStage.setScene(scene);
                 primaryStage.setResizable(false);
                 primaryStage.show();
                 primaryStage.toFront();
+
                 break;
             default:
                 System.out.println("Foute invoer, als straf krijg je de console versie:)");

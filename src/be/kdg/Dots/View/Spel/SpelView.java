@@ -93,9 +93,7 @@ public class SpelView extends GridPane {
         }
     }
 
-
-
-    private Pane getGrid() {
+    Pane getGrid() {
         for (int i = 0; i < btns.length; i++) {
             for (int j = 0; j < btns[i].length; j++) {
                 dotsGrid.add(btns[i][j], i, j);
@@ -104,7 +102,7 @@ public class SpelView extends GridPane {
         return dotsGrid;
     }
 
-  private void initBtnsArray() {
+    private void initBtnsArray() {
         for (int i = 0; i < btns.length; i++) {
             for (int j = 0; j < btns[i].length; j++) {
                 btns[i][j] = new Button();
@@ -112,5 +110,11 @@ public class SpelView extends GridPane {
         }
     }
 
+    Button[][] getBtns() {
+        return btns;
+    }
 
+    public GridPane getDotsGrid() {
+        return dotsGrid;
+    }
 }
