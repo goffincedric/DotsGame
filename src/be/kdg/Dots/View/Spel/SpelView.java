@@ -99,6 +99,7 @@ public class SpelView extends GridPane {
                 dotsGrid.add(btns[i][j], i, j);
             }
         }
+
         return dotsGrid;
     }
 
@@ -112,6 +113,10 @@ public class SpelView extends GridPane {
 
     Button[][] getBtns() {
         return btns;
+    }
+
+    public Button getButtonFromBtns(int rij, int kolom) {
+        return btns[kolom][rij];
     }
 
     public GridPane getDotsGrid() {

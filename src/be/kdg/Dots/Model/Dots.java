@@ -10,7 +10,7 @@ public class Dots {
     private int gehaaldeScore;
     private final int MAXRIJ = 7;
     private final int MAXKOLOM = 7;
-    private Dot[][] speelveld = new Dot[MAXRIJ][MAXKOLOM];
+    private Dot[][] speelveld;
 
     Speler speler;
     Level level;
@@ -20,6 +20,13 @@ public class Dots {
         this.speler =  new Speler();
         this.level = new Level();
         this.lijn = new Lijn();
+        this.speelveld = new Dot[MAXRIJ][MAXKOLOM];
+
+        for (int rij = 0; rij < MAXRIJ; rij++) {
+            for (int kolom = 0; kolom < MAXKOLOM; kolom++) {
+                speelveld[rij][kolom] = new Dot(rij, kolom);
+            }
+        }
     }
 
     public Speler getSpeler() {
@@ -33,5 +40,12 @@ public class Dots {
     public Lijn getLijn() {
         return lijn;
     }
-}
 
+    public Dot[][] getSpeelveld() {
+        return speelveld;
+    }
+
+    public Dot getDotUitSpeelveld(int rij, int kolom) {
+        return speelveld[rij][kolom];
+    }
+}

@@ -5,7 +5,7 @@ package be.kdg.Dots.Model;
  * @version 1.0 5/02/2017 14:50
  */
 public class Level {
-    public enum Moeilijkheid {
+    public static enum Moeilijkheid {
         EASY(30, 50), NORMAL(25, 75), MEDIUM(15, 80), HARD(10, 80), EXTREEM(5, 90);
 
 

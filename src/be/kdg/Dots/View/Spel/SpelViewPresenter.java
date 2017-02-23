@@ -1,10 +1,14 @@
 package be.kdg.Dots.View.Spel;
 
+import be.kdg.Dots.Model.Dot;
 import be.kdg.Dots.Model.Dots;
+import be.kdg.Dots.Model.DotsException;
+import be.kdg.Dots.Model.Kleuren;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -26,16 +30,24 @@ public class SpelViewPresenter {
     }
 
     private void addEventHandlers(){
-        /*for (Node node : view.getDotsGrid().getChildren()) {
+        for (Node node : view.getDotsGrid().getChildren()) {
             node.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    if (node instanceof Button) {
-                        new Alert(Alert.AlertType.INFORMATION, String.format("%d", view.getDotsGrid().getRowIndex(node)));
+                    try {
+                        model.getLijn().addDot(model.getDotUitSpeelveld(view.getDotsGrid().getRowIndex(node).intValue(), view.getDotsGrid().getColumnIndex(node).intValue()));
+
+                        Kleuren kleur = model.getLijn().getLijn().get(0).getKleur();
+                        view.getButtonFromBtns(view.getDotsGrid().getRowIndex(node).intValue(), view.getDotsGrid().getColumnIndex(node).intValue()).setStyle("-fx-background-color: antiquewhite");
+
+
+                    } catch (DotsException e) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+                        alert.showAndWait();
                     }
                 }
             });
-        }*/
+        }
     }
 
     private void updateView() {
