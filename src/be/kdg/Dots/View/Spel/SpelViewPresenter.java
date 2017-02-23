@@ -1,6 +1,5 @@
 package be.kdg.Dots.View.Spel;
 
-import be.kdg.Dots.Model.Dot;
 import be.kdg.Dots.Model.Dots;
 import be.kdg.Dots.Model.DotsException;
 import be.kdg.Dots.Model.Kleuren;
@@ -10,9 +9,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 
 /**
  * @author Cédric Goffin
@@ -51,7 +47,15 @@ public class SpelViewPresenter {
     }
 
     private void updateView() {
+        for (Node node : view.getGrid().getChildren()) {
 
+        }
+        
+        /*for (Button[] buttons : view.getBtns()) {
+            for (Button button : buttons) {
+                button.setStyle(String.format("-fx-background-color: rgb(%d, %d, %d)", model.));
+            }
+        }*/
     }
 
     public void addWindowEventHandlers() {
