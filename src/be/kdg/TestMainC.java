@@ -39,10 +39,13 @@ public class TestMainC extends Application {
                 break;
             case 2:
                 model = new Dots();
-                SpelView view = new SpelView();
-                SpelViewPresenter presenter = new SpelViewPresenter(model, view);
+                StartView view = new StartView();
+                StartViewPresenter presenter = new StartViewPresenter(model, view);
                 Scene scene = new Scene(view);
                 scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Raleway+Dots");
+                // scene.getStylesheets().add("be/kdg/Dots/View/images/stylesheet.css");
+                presenter.addWindowEventHandlers();
+
                 primaryStage.setTitle("Dots");
                 primaryStage.setScene(scene);
                 primaryStage.setResizable(false);
