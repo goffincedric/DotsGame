@@ -23,10 +23,12 @@ public class EndViewPresenter {
     }
 
     private void updateView() {
-
+        view.getLblHuidigeScore().setText(String.valueOf(model.getSpeler().getScore()));
+        view.getLblHuidigeScore().setText(String.valueOf(model.getLevel().getGamelevel()));
     }
 
     public void addWindowEventHandlers() {
+
 
     }
 }

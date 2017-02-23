@@ -11,6 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * @author Cédric Goffin
  * @version 1.0 6/02/2017 22:21
@@ -18,6 +21,8 @@ import javafx.scene.input.MouseEvent;
 public class SpelViewPresenter {
     private Dots model;
     private SpelView view;
+
+
 
     public SpelViewPresenter(Dots model, SpelView view) {
         this.model = model;
@@ -27,6 +32,10 @@ public class SpelViewPresenter {
     }
 
     private void addEventHandlers(){
+
+
+
+
         for (Node node : view.getDotsGrid().getChildren()) {
             node.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
@@ -63,6 +72,7 @@ public class SpelViewPresenter {
     }
 
     public void addWindowEventHandlers() {
+
 
     }
 

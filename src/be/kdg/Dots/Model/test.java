@@ -11,8 +11,11 @@ public class test {
         Level level = new Level();
         Lijn lijn = new Lijn();
 
+        speler.setNaam("Thomas");
+        level.setGamelevel(5);
+        speler.setScore(450);
 
-        Dots dotsGame = new Dots();
+
 
 
         for (Kleuren kleur : Kleuren.values()) {

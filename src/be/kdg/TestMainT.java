@@ -25,6 +25,8 @@ import java.util.Scanner;
  */
 public class TestMainT extends Application {
     private Dots model;
+    private Dots dotsGame;
+
 
     @Override
     public void start(Stage primaryStage) {
@@ -38,6 +40,7 @@ public class TestMainT extends Application {
                 dotsConsole.main(new String[]{""});
                 break;
             case 2:
+                dotsGame = new Dots();
                 model = new Dots();
                 PauseView view = new  PauseView();
                 PauseViewPresenter presenter = new PauseViewPresenter(model, view);

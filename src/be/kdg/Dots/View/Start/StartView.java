@@ -32,10 +32,10 @@ public class StartView extends BorderPane {
     }
 
     private void initialiseNodes() {
-        trophy = new ImageView(new Image("be/kdg/Dots/View/images/trophy.gif"));
+        trophy = new ImageView(new Image("be/kdg/Dots/View/images/Trophy.png"));
         logo = new ImageView(new Image("be/kdg/Dots/View/images/Logo.png"));
         play = new ImageView(new Image("be/kdg/Dots/View/images/Play.png"));
-        help = new ImageView(new Image("be/kdg/Dots/View/images/help.png"));
+        help = new ImageView(new Image("be/kdg/Dots/View/images/Help.png"));
         btnHelp = new Button();
         btnHighScores = new Button();
         btnStart = new Button();
@@ -51,6 +51,7 @@ public class StartView extends BorderPane {
         this.setPadding(new Insets(25,0,15,0));
 
         dots.setAlignment(Pos.CENTER);
+
         dots.setStyle("-fx-font-family:'VT323', monospace; -fx-font-size:80");
         btnStart.setGraphic(play);
         btnStart.setPrefSize(100, 100);

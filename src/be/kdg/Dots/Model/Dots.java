@@ -24,7 +24,7 @@ public class Dots {
     Lijn lijn;
 
     public Dots() {
-        this.speler =  new Speler();
+        this.speler = new Speler();
         this.level = new Level();
         this.lijn = new Lijn();
         this.speelveld = new Dot[MAXRIJ][MAXKOLOM];
@@ -47,6 +47,8 @@ public class Dots {
         }
     }
 
+
+    //alert to get speler naam
     public Speler getSpeler() {
         return speler;
     }

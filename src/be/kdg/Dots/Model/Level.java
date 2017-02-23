@@ -29,12 +29,12 @@ public class Level {
 
     private int tijd; //in seconden
     private int targetScore;
-    private int gamelevel = 1;
+    private int gamelevel ;
     private Moeilijkheid moeilijkheidsgraad;
 
 
     public Level() {
-
+        this.gamelevel = 1;
         this.tijd = 45;
         this.moeilijkheidsgraad = Moeilijkheid.EASY;
         this.targetScore = moeilijkheidsgraad.getStartScore();
@@ -56,6 +56,13 @@ public class Level {
 
     public Moeilijkheid getMoeilijkheidsgraad() {
         return moeilijkheidsgraad;
+    }
+
+    //test
+
+
+    public void setGamelevel(int gamelevel) {
+        this.gamelevel = gamelevel;
     }
 
     public void nextLevel() {

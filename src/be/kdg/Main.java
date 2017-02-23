@@ -15,8 +15,15 @@ import be.kdg.Dots.View.Start.StartViewPresenter;
 import be.kdg.DotsConsole.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+import javafx.scene.text.*;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.awt.*;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.Scanner;
 
 /**
@@ -25,6 +32,8 @@ import java.util.Scanner;
  */
 public class Main extends Application {
     private Dots model;
+
+
 
     @Override
     public void start(Stage primaryStage) {
@@ -38,16 +47,23 @@ public class Main extends Application {
                 dotsConsole.main(new String[]{""});
                 break;
             case 2:
+
+
                 model = new Dots();
-                PauseView view = new  PauseView();
-                PauseViewPresenter presenter = new PauseViewPresenter(model, view);
+                EndView view = new   EndView();
+                EndViewPresenter presenter = new  EndViewPresenter(model, view);
                 Scene scene = new Scene(view);
                 scene.getStylesheets().add("https://fonts.googleapis.com/css?family=VT323");
-                primaryStage.setTitle("Dots");
+               // scene.getStylesheets().add("be/kdg/Dots/View/images/stylesheet.css");
+                presenter.addWindowEventHandlers();
+
+                primaryStage.setTitle("Cubes");
                 primaryStage.setScene(scene);
                 primaryStage.setResizable(false);
                 primaryStage.show();
                 primaryStage.toFront();
+
+
 
                 break;
             default:
@@ -55,6 +71,7 @@ public class Main extends Application {
                 break;
 
         }
+
 
     }
 
