@@ -13,12 +13,9 @@ public class Dot {
     private Kleuren kleur;
     private int rijIndex;
     private int kolomIndex;
-    private Random random = new Random();
 
-    private static final Kleuren KLEUREN[] = Kleuren.values();
-
-    public Dot(int rijIndex, int kolomIndex) {
-        this.kleur = KLEUREN[random.nextInt(KLEUREN.length)];
+    public Dot(int rijIndex, int kolomIndex, Kleuren kleur) {
+        this.kleur = kleur;
         this.kolomIndex = kolomIndex;
         this.rijIndex = rijIndex;
     }

@@ -1,5 +1,6 @@
 package be.kdg.Dots.View.Spel;
 
+import be.kdg.Dots.Model.Dot;
 import be.kdg.Dots.Model.Dots;
 import be.kdg.Dots.Model.DotsException;
 import be.kdg.Dots.Model.Kleuren;
@@ -34,7 +35,7 @@ public class SpelViewPresenter {
                         model.getLijn().addDot(model.getDotUitSpeelveld(view.getDotsGrid().getRowIndex(node).intValue(), view.getDotsGrid().getColumnIndex(node).intValue()));
 
                         Kleuren kleur = model.getLijn().getLijn().get(0).getKleur();
-                        view.getButtonFromBtns(view.getDotsGrid().getRowIndex(node).intValue(), view.getDotsGrid().getColumnIndex(node).intValue()).setStyle("-fx-background-color: antiquewhite");
+                        view.getButtonFromBtns(view.getDotsGrid().getColumnIndex(node).intValue(), view.getDotsGrid().getRowIndex(node).intValue()).setStyle("-fx-background-color: antiquewhite");
 
 
                     } catch (DotsException e) {
@@ -47,8 +48,11 @@ public class SpelViewPresenter {
     }
 
     private void updateView() {
-        for (Node node : view.getGrid().getChildren()) {
-
+        for (int i = 0; i < model.getSpeelveld().length; i++) {
+            for (int j = 0; j < model.getSpeelveld().length; j++) {
+                Kleuren kleur = model.getDotUitSpeelveld(i, j).getKleur();
+                view.getButtonFromBtns(j, i).setStyle(String.format("-fx-background-color: rgb(%d, %d, %d)", kleur.getRed(), kleur.getGreen(), kleur.getBlue()));
+            }
         }
         
         /*for (Button[] buttons : view.getBtns()) {

@@ -4,6 +4,7 @@ import be.kdg.Dots.Model.Score;
 import com.sun.javafx.font.freetype.HBGlyphLayout;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -116,10 +117,12 @@ public class SpelView extends GridPane {
     }
 
     public Button getButtonFromBtns(int rij, int kolom) {
-        return btns[kolom][rij];
+        return btns[rij][kolom];
     }
 
     public GridPane getDotsGrid() {
         return dotsGrid;
     }
+
+
 }
