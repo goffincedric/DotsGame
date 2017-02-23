@@ -53,7 +53,7 @@ public class Main extends Application {
                 EndView view = new   EndView();
                 EndViewPresenter presenter = new  EndViewPresenter(model, view);
                 Scene scene = new Scene(view);
-                scene.getStylesheets().add("https://fonts.googleapis.com/css?family=VT323");
+                scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Raleway+Dots");
                // scene.getStylesheets().add("be/kdg/Dots/View/images/stylesheet.css");
                 presenter.addWindowEventHandlers();
 

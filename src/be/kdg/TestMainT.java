@@ -42,10 +42,10 @@ public class TestMainT extends Application {
             case 2:
                 dotsGame = new Dots();
                 model = new Dots();
-                PauseView view = new  PauseView();
-                PauseViewPresenter presenter = new PauseViewPresenter(model, view);
+                StartView view = new  StartView();
+                StartViewPresenter presenter = new StartViewPresenter(model, view);
                 Scene scene = new Scene(view);
-                scene.getStylesheets().add("https://fonts.googleapis.com/css?family=VT323");
+                scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Raleway+Dots");
                 primaryStage.setTitle("Dots");
                 primaryStage.setScene(scene);
                 primaryStage.setResizable(false);

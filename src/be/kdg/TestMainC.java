@@ -42,7 +42,7 @@ public class TestMainC extends Application {
                 SpelView view = new SpelView();
                 SpelViewPresenter presenter = new SpelViewPresenter(model, view);
                 Scene scene = new Scene(view);
-                scene.getStylesheets().add("https://fonts.googleapis.com/css?family=VT323");
+                scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Raleway+Dots");
                 primaryStage.setTitle("Dots");
                 primaryStage.setScene(scene);
                 primaryStage.setResizable(false);
