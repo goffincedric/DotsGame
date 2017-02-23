@@ -24,7 +24,6 @@ public class SpelView extends GridPane {
     private Label score;
     private Label targetScoreTekst;
     private Label targetScore;
-   private Label levelTekst;
     private Label level;
     private Label timerTekst;
     private Label lblTimer;
@@ -49,7 +48,6 @@ public class SpelView extends GridPane {
         this.scoreTekst = new Label("Score");
         this.targetScore = new Label("###");
         this.targetScoreTekst = new Label("Target score");
-        this.levelTekst = new Label("Level  ");
         this.level = new Label("##");
         this.timerTekst = new Label("Timer:");
         this.lblTimer = new Label("##");
@@ -89,7 +87,7 @@ public class SpelView extends GridPane {
         this.topLeft.setVgap(10);
 
         //topRight
-        this.levelBox.getChildren().addAll(levelTekst, level);
+        this.levelBox.getChildren().addAll(level);
         this.topRight.getChildren().addAll(lblSpelerNaam,levelBox);
 
 

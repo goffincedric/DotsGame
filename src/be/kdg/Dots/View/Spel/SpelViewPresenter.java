@@ -70,15 +70,10 @@ public class SpelViewPresenter {
                 view.getButtonFromBtns(j, i).setStyle(String.format("-fx-background-color: rgb(%d, %d, %d)", kleur.getRed(), kleur.getGreen(), kleur.getBlue()));
             }
         }
-        
-        /*for (Button[] buttons : view.getBtns()) {
-            for (Button button : buttons) {
-                button.setStyle(String.format("-fx-background-color: rgb(%d, %d, %d)", model.));
-            }
-        }*/
 
         view.getScore().setText(String.valueOf(model.getSpeler().getScore()));
-        view.getLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
+        String tekst = "Level  " + model.getLevel().getGamelevel();
+        view.getLevel().setText(tekst);
         view.getTargetScore().setText(String.valueOf( model.getLevel().getTargetScore()));
         view.getLblSpelerNaam().setText(String.valueOf(model.getSpeler().getNaam()));
     }
