@@ -24,7 +24,7 @@ public class SpelView extends GridPane {
     private Label score;
     private Label targetScoreTekst;
     private Label targetScore;
-    private Label levelTekst;
+   private Label levelTekst;
     private Label level;
     private Label timerTekst;
     private Label lblTimer;
@@ -32,8 +32,9 @@ public class SpelView extends GridPane {
 
     private GridPane dotsGrid;
     private GridPane topLeft;
-    private HBox topRight;
+    private VBox topRight;
     private VBox bottomRight;
+    private HBox levelBox;
 
     public SpelView() {
         this.initialiseNodes();
@@ -58,8 +59,9 @@ public class SpelView extends GridPane {
 
         this.dotsGrid = new GridPane();
         this.topLeft = new GridPane();
-        this.topRight = new HBox();
+        this.topRight = new VBox();
         this.bottomRight = new VBox();
+        this.levelBox = new HBox();
 
     }
 
@@ -85,8 +87,11 @@ public class SpelView extends GridPane {
         this.topLeft.add(targetScore,1,1);
         this.topLeft.setHgap(10);
         this.topLeft.setVgap(10);
+
         //topRight
-        this.topRight.getChildren().addAll(levelTekst, level);
+        this.levelBox.getChildren().addAll(levelTekst, level);
+        this.topRight.getChildren().addAll(lblSpelerNaam,levelBox);
+
 
         //bottomRight
         this.bottomRight.getChildren().addAll(timerTekst, lblTimer, pause);
@@ -134,5 +139,19 @@ public class SpelView extends GridPane {
         return dotsGrid;
     }
 
+    public Label getScore() {
+        return score;
+    }
 
+    public Label getTargetScore() {
+        return targetScore;
+    }
+
+    public Label getLevel() {
+        return level;
+    }
+
+    public Label getLblSpelerNaam() {
+        return lblSpelerNaam;
+    }
 }

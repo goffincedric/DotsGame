@@ -1,18 +1,18 @@
 package be.kdg.Dots.View.Spel;
 
-import be.kdg.Dots.Model.Dot;
+
 import be.kdg.Dots.Model.Dots;
 import be.kdg.Dots.Model.DotsException;
 import be.kdg.Dots.Model.Kleuren;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.MouseEvent;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.Optional;
+
 
 /**
  * @author Cédric Goffin
@@ -34,7 +34,14 @@ public class SpelViewPresenter {
     private void addEventHandlers(){
 
 
+        TextInputDialog dialogNaam = new TextInputDialog();
+        dialogNaam.setTitle("Speler");
+        dialogNaam.setContentText("Please enter your name: ");
 
+        Optional<String> result = dialogNaam.showAndWait();
+        if(result.isPresent()){
+            model.getSpeler().setNaam(result.get());
+        }
 
         for (Node node : view.getDotsGrid().getChildren()) {
             node.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -69,6 +76,11 @@ public class SpelViewPresenter {
                 button.setStyle(String.format("-fx-background-color: rgb(%d, %d, %d)", model.));
             }
         }*/
+
+        view.getScore().setText(String.valueOf(model.getSpeler().getScore()));
+        view.getLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
+        view.getTargetScore().setText(String.valueOf( model.getLevel().getTargetScore()));
+        view.getLblSpelerNaam().setText(String.valueOf(model.getSpeler().getNaam()));
     }
 
     public void addWindowEventHandlers() {
