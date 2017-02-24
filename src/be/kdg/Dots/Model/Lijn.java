@@ -41,12 +41,12 @@ public class Lijn {
 
     public void addDot(Dot nieuweDot) throws DotsException{
         if (lijn.isEmpty()) {
-            this.kleur = nieuweDot.getKleur();
             lijn.add(0, nieuweDot);
+            aantalDots++;
         } else {
             for (Dot dot : lijn) {
-                if (dot.getRijIndex() == nieuweDot.getRijIndex() && dot.getKolomIndex() == nieuweDot.getKolomIndex()) {
-                    throw new DotsException("Gekozen bol is al in gebruik meet lijn");
+                if ((dot.getRijIndex() == nieuweDot.getRijIndex()) && (dot.getKolomIndex() == nieuweDot.getKolomIndex())) {
+                    throw new DotsException("Gekozen bol is al gebruikt in lijn.");
                 }
             }
 
@@ -57,17 +57,19 @@ public class Lijn {
                     if ((laatsteDot.getRijIndex() - 1 == nieuweDot.getRijIndex()) || (laatsteDot.getRijIndex() == nieuweDot.getRijIndex()) ||
                             (laatsteDot.getRijIndex() + 1 == nieuweDot.getRijIndex())) {
                         lijn.add(lijn.size(), nieuweDot);
+                        aantalDots++;
                     } else {
-                        System.out.println("Bollen liggen niet naast elkaar; Dot 1: (" + laatsteDot.getKolomIndex() + ", " + laatsteDot.getRijIndex() + "); Dot 2: (" +
+                        throw new DotsException("Bollen liggen niet naast elkaar; Dot 1: (" + laatsteDot.getKolomIndex() + ", " + laatsteDot.getRijIndex() + "); Dot 2: (" +
                                 nieuweDot.getKolomIndex() + ", " + nieuweDot.getRijIndex() + ")\nBol niet toegevoegd.");
                     }
                 } else {
-                    System.out.println("Bollen liggen niet naast elkaar; Dot 1: (" + laatsteDot.getKolomIndex() + ", " + laatsteDot.getRijIndex() + "); Dot 2: (" +
+                    throw new DotsException("Bollen liggen niet naast elkaar; Dot 1: (" + laatsteDot.getKolomIndex() + ", " + laatsteDot.getRijIndex() + "); Dot 2: (" +
                             nieuweDot.getKolomIndex() + ", " + nieuweDot.getRijIndex() + ")\nBol niet toegevoegd.");
                 }
+            } else {
+                throw new DotsException("Bollen hebben niet dezelfde kleur; Dot 1: " + laatsteDot.getKleur() + "; Dot 2: " + nieuweDot.getKleur() + "\nBol niet toegevoegd.");
             }
         }
-        this.aantalDots++;
     }
 
     public Dot getDot(int rij, int kolom) {

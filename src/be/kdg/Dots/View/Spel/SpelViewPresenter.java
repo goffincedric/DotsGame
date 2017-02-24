@@ -13,7 +13,6 @@ import javafx.scene.input.MouseEvent;
 
 import java.util.Optional;
 
-
 /**
  * @author Cédric Goffin
  * @version 1.0 6/02/2017 22:21
@@ -21,8 +20,6 @@ import java.util.Optional;
 public class SpelViewPresenter {
     private Dots model;
     private SpelView view;
-
-
 
     public SpelViewPresenter(Dots model, SpelView view) {
         this.model = model;
@@ -32,8 +29,6 @@ public class SpelViewPresenter {
     }
 
     private void addEventHandlers(){
-
-
         TextInputDialog dialogNaam = new TextInputDialog();
         dialogNaam.setTitle("Speler");
         dialogNaam.setContentText("Please enter your name: ");
@@ -51,9 +46,7 @@ public class SpelViewPresenter {
                         model.getLijn().addDot(model.getDotUitSpeelveld(view.getDotsGrid().getRowIndex(node).intValue(), view.getDotsGrid().getColumnIndex(node).intValue()));
 
                         Kleuren kleur = model.getLijn().getLijn().get(0).getKleur();
-                        view.getButtonFromBtns(view.getDotsGrid().getColumnIndex(node).intValue(), view.getDotsGrid().getRowIndex(node).intValue()).setStyle("-fx-background-color: antiquewhite");
-
-
+                        view.getButtonFromBtns(view.getDotsGrid().getColumnIndex(node).intValue(), view.getDotsGrid().getRowIndex(node).intValue()).setStyle(String.format("-fx-effect: dropshadow(three-pass-box, darkgray, 2, 2, 0, 0); -fx-background-color: rgb(%d, %d, %d)", kleur.getRed(), kleur.getGreen(), kleur.getBlue()));
                     } catch (DotsException e) {
                         Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
                         alert.showAndWait();
