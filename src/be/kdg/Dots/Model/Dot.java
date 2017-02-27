@@ -13,11 +13,13 @@ public class Dot {
     private Kleuren kleur;
     private int rijIndex;
     private int kolomIndex;
+    private int dotNummer;
 
-    public Dot(int rijIndex, int kolomIndex, Kleuren kleur) {
+    public Dot(int rijIndex, int kolomIndex, Kleuren kleur, int dotNummer) {
         this.kleur = kleur;
         this.kolomIndex = kolomIndex;
         this.rijIndex = rijIndex;
+        this.dotNummer = dotNummer;
     }
 
     public Kleuren getKleur() {
@@ -31,18 +33,6 @@ public class Dot {
     public int getKolomIndex() {
         return kolomIndex;
     }
-
-    /*public boolean isAangrenzend(Dot dot2) {
-        if (!this.kleur.name().equals(dot2.getKleur().name())) {
-            return false;
-        }
-        if ((this.kolomIndex - 1 == dot2.getKolomIndex()) || (this.kolomIndex == dot2.getKolomIndex()) || (this.kolomIndex + 1 == dot2.getKolomIndex())) {
-            if ((this.rijIndex - 1 == dot2.getRijIndex()) || (this.rijIndex == dot2.getRijIndex()) || (this.rijIndex + 1 == dot2.getRijIndex())) {
-                return true;
-            }
-        }
-        return false;
-    }*/
 
     @Override
     public String toString() {
@@ -60,6 +50,6 @@ public class Dot {
 
     @Override
     public int hashCode() {
-        return kleur.ordinal() ^ rijIndex ^ kolomIndex;
+        return kleur.ordinal() ^ rijIndex ^ kolomIndex ^ dotNummer;
     }
 }

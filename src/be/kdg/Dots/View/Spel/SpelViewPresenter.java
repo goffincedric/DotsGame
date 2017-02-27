@@ -43,11 +43,19 @@ public class SpelViewPresenter {
                 @Override
                 public void handle(MouseEvent event) {
                     try {
-                        model.getLijn().addDot(model.getDotUitSpeelveld(view.getDotsGrid().getRowIndex(node).intValue(), view.getDotsGrid().getColumnIndex(node).intValue()));
+                        model.getLijn().addDot(model.getDotUitSpeelveld(view.getDotsGrid().getRowIndex(node), view.getDotsGrid().getColumnIndex(node)));
 
                         Kleuren kleur = model.getLijn().getLijn().get(0).getKleur();
-                        view.getButtonFromBtns(view.getDotsGrid().getColumnIndex(node).intValue(), view.getDotsGrid().getRowIndex(node).intValue()).setStyle(String.format("-fx-effect: dropshadow(three-pass-box, darkgray, 2, 2, 0, 0); -fx-background-color: rgb(%d, %d, %d)", kleur.getRed(), kleur.getGreen(), kleur.getBlue()));
+                        view.getButtonFromBtns(view.getDotsGrid().getColumnIndex(node), view.getDotsGrid().getRowIndex(node)).setStyle(
+                                String.format("-fx-effect: dropshadow(three-pass-box, darkgray, 2, 2, 0, 0); -fx-background-color: rgb(%d, %d, %d)", kleur.getRed(), kleur.getGreen(), kleur.getBlue())
+                        );
                     } catch (DotsException e) {
+                        if (!model.getLijn().getHeeftToegevoegd()) {
+                            Kleuren kleur = model.getDotUitSpeelveld(view.getDotsGrid().getRowIndex(node), view.getDotsGrid().getColumnIndex(node)).getKleur();
+                            view.getButtonFromBtns(view.getDotsGrid().getColumnIndex(node), view.getDotsGrid().getRowIndex(node)).setStyle(
+                                    String.format("-fx-background-color: rgb(%d, %d, %d)", kleur.getRed(), kleur.getGreen(), kleur.getBlue())
+                            );
+                        }
                         Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
                         alert.showAndWait();
                     }

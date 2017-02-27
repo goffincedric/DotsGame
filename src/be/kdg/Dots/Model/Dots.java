@@ -16,6 +16,7 @@ public class Dots {
     private Dot[][] speelveld;
     private static final Kleuren KLEUREN[] = Kleuren.values();
     private static int aantalKleuren;
+    private int plaatsNummer;
     private List<Kleuren> dotKleuren;
     private static Random random;
 
@@ -29,6 +30,7 @@ public class Dots {
         this.lijn = new Lijn();
         this.speelveld = new Dot[MAXRIJ][MAXKOLOM];
         this.aantalKleuren = 4;
+        this.plaatsNummer = 0;
         dotKleuren = new ArrayList<>();
         this.random = new Random();
 
@@ -42,7 +44,8 @@ public class Dots {
 
         for (int rij = 0; rij < MAXRIJ; rij++) {
             for (int kolom = 0; kolom < MAXKOLOM; kolom++) {
-                speelveld[rij][kolom] = new Dot(rij, kolom, dotKleuren.get(random.nextInt(dotKleuren.size())));
+                speelveld[rij][kolom] = new Dot(rij, kolom, dotKleuren.get(random.nextInt(dotKleuren.size())), plaatsNummer);
+                plaatsNummer++;
             }
         }
     }
@@ -59,6 +62,14 @@ public class Dots {
 
     public Lijn getLijn() {
         return lijn;
+    }
+
+    public int getPlaatsNummer() {
+        return plaatsNummer;
+    }
+
+    public void verhoogPlaatsnummer() {
+        plaatsNummer++;
     }
 
     public Dot[][] getSpeelveld() {
