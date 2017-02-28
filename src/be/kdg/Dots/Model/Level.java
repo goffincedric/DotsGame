@@ -29,7 +29,7 @@ public class Level {
 
     private int tijd; //in seconden
     private int targetScore;
-    private int gamelevel ;
+    private int gamelevel;
     private Moeilijkheid moeilijkheidsgraad;
 
 

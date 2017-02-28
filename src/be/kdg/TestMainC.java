@@ -1,15 +1,6 @@
 package be.kdg;
 
 import be.kdg.Dots.Model.Dots;
-import be.kdg.Dots.Model.Level;
-import be.kdg.Dots.Model.Lijn;
-import be.kdg.Dots.Model.Speler;
-import be.kdg.Dots.View.End.EndView;
-import be.kdg.Dots.View.End.EndViewPresenter;
-import be.kdg.Dots.View.Pause.PauseView;
-import be.kdg.Dots.View.Pause.PauseViewPresenter;
-import be.kdg.Dots.View.Spel.SpelView;
-import be.kdg.Dots.View.Spel.SpelViewPresenter;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
 import be.kdg.DotsConsole.*;

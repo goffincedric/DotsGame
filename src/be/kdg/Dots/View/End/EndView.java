@@ -57,8 +57,8 @@ public class EndView extends VBox {
     }
 
     private void layoutNodes() {
-       this.setMinSize(400,400);
-       //this.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.setMinSize(400, 400);
+        //this.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
         //this.setStyle("-fx-background-color:");
 
         levelBox.getChildren().addAll(lblLevelTekst, lblHuidigLevel);
@@ -89,11 +89,11 @@ public class EndView extends VBox {
 
         //btnHome
         btnHome.setGraphic(imgHome);
-        btnHome.setPrefSize(100,100);
+        btnHome.setPrefSize(100, 100);
 
         //btnRestart
         btnRestart.setGraphic(imgRestart);
-        btnRestart.setPrefSize(100,100);
+        btnRestart.setPrefSize(100, 100);
     }
 
     public Label getLblNewHighScore() {

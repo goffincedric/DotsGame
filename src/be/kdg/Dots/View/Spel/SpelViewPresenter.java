@@ -8,8 +8,6 @@ import be.kdg.Dots.View.End.EndView;
 import be.kdg.Dots.View.End.EndViewPresenter;
 import be.kdg.Dots.View.Pause.PauseView;
 import be.kdg.Dots.View.Pause.PauseViewPresenter;
-import be.kdg.Dots.View.Start.StartView;
-import be.kdg.Dots.View.Start.StartViewPresenter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;

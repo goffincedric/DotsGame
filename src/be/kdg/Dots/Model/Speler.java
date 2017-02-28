@@ -11,7 +11,7 @@ public class Speler {
     private String naam;
     private int totaalScore;
     private int gameScore;
-    private static final String HIGHSCORE_FILE ="Files/HighScores.txt";
+    private static final String HIGHSCORE_FILE = "Files/HighScores.txt";
 
 
     // private HashMap<String, Integer> Highscores;
@@ -62,14 +62,14 @@ public class Speler {
         return "Speler 1: " + this.naam;
     }
 
-    public void voegHighScoreToe(){
+    public void voegHighScoreToe() {
         ObjectOutputStream outputStream = null;
         ObjectInputStream inputStream = null;
 
-        try{
+        try {
 
 
-        }catch(NumberFormatException ex){
+        } catch (NumberFormatException ex) {
 
         }
     }

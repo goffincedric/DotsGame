@@ -1,29 +1,12 @@
 package be.kdg;
 
 import be.kdg.Dots.Model.Dots;
-import be.kdg.Dots.Model.Level;
-import be.kdg.Dots.Model.Lijn;
-import be.kdg.Dots.Model.Speler;
-import be.kdg.Dots.View.End.EndView;
-import be.kdg.Dots.View.End.EndViewPresenter;
-import be.kdg.Dots.View.Pause.PauseView;
-import be.kdg.Dots.View.Pause.PauseViewPresenter;
-import be.kdg.Dots.View.Spel.SpelView;
-import be.kdg.Dots.View.Spel.SpelViewPresenter;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
 import be.kdg.DotsConsole.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
-import javafx.scene.text.*;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
-import java.awt.*;
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.Scanner;
 
 /**
@@ -32,7 +15,6 @@ import java.util.Scanner;
  */
 public class Main extends Application {
     private Dots model;
-
 
 
     @Override
@@ -48,8 +30,8 @@ public class Main extends Application {
                 break;
             case 2:
                 model = new Dots();
-                StartView view = new   StartView();
-                StartViewPresenter presenter = new  StartViewPresenter(model, view);
+                StartView view = new StartView();
+                StartViewPresenter presenter = new StartViewPresenter(model, view);
                 Scene scene = new Scene(view);
                 scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Raleway+Dots");
                 primaryStage.setTitle("Dots");

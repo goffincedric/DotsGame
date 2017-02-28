@@ -1,9 +1,6 @@
 package be.kdg.Dots.Model;
 
-import javafx.scene.shape.Circle;
 
-
-import java.util.Random;
 
 /**
  * @author Cédric Goffin
@@ -50,7 +47,7 @@ public class Dot {
 
     @Override
     public boolean equals(Object o) {
-        return o.hashCode()== this.hashCode()?true:false;
+        return o.hashCode() == this.hashCode() ? true : false;
     }
 
     @Override

@@ -43,7 +43,7 @@ public class DotConsole {
 
     @Override
     public boolean equals(Object o) {
-        return o.hashCode() == this.hashCode()?true:false;
+        return o.hashCode() == this.hashCode() ? true : false;
     }
 
     @Override

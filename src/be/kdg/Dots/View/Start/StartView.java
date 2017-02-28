@@ -46,9 +46,9 @@ public class StartView extends BorderPane {
     }
 
     private void layoutNodes() {
-        this.setMinSize(750,750);
+        this.setMinSize(750, 750);
         this.setStyle("-fx-background-color: ghostwhite");
-        this.setPadding(new Insets(25,0,15,0));
+        this.setPadding(new Insets(25, 0, 15, 0));
 
         dots.setAlignment(Pos.CENTER);
 
@@ -62,13 +62,13 @@ public class StartView extends BorderPane {
         play.setPreserveRatio(true);
 
         btnHighScores.setGraphic(trophy);
-        btnHighScores.setPrefSize(50,50);
+        btnHighScores.setPrefSize(50, 50);
         trophy.setFitHeight(50);
         trophy.setFitWidth(50);
         trophy.setPreserveRatio(true);
 
         btnHelp.setGraphic(help);
-        btnHelp.setPrefSize(50,50);
+        btnHelp.setPrefSize(50, 50);
         help.setFitHeight(50);
         help.setFitWidth(50);
         trophy.setPreserveRatio(true);
@@ -82,7 +82,7 @@ public class StartView extends BorderPane {
         footer.setAlignment(Pos.CENTER);
         footer.setSpacing(650);
 
-        topbox.getChildren().addAll(dots,logo, btnStart);
+        topbox.getChildren().addAll(dots, logo, btnStart);
         topbox.setAlignment(Pos.CENTER);
         topbox.setSpacing(30.0);
 

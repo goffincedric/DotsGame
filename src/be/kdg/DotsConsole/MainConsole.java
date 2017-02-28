@@ -32,7 +32,7 @@ public class MainConsole {
         dotsConsole.printVeld();
         do {
             stopBeurt = false;
-            do{
+            do {
                 System.out.print("\nGeef index van dot [kolom]:  ");
                 nieuwKolom = k.nextInt();
                 System.out.print("Geef index van dot [rij]:  ");
@@ -62,9 +62,9 @@ public class MainConsole {
                 } else {
                     dotsConsole.printVeld();
                 }
-            } while(!stopBeurt);
+            } while (!stopBeurt);
             /* verwijdert gebruikte dots*/
-           dotsConsole.vervangGebruikteDots(lijnConsole.getLijnDotArray());
+            dotsConsole.vervangGebruikteDots(lijnConsole.getLijnDotArray());
 
             /* berekent score*/
             spelerConsole.setScore(spelerConsole.getScore() + lijnConsole.getAantalDots());
@@ -84,7 +84,6 @@ public class MainConsole {
     public static LijnConsole getLijnConsole() {
         return lijnConsole;
     }
-
 
 
 }

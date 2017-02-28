@@ -1,7 +1,6 @@
 package be.kdg.Dots.Model;
 
 import javafx.scene.paint.Color;
-
 import java.util.Random;
 
 /**

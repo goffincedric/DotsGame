@@ -1,12 +1,9 @@
 package be.kdg.Dots.View.Spel;
 
-import be.kdg.Dots.Model.Score;
-import com.sun.javafx.font.freetype.HBGlyphLayout;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
@@ -66,39 +63,39 @@ public class SpelView extends GridPane {
     }
 
     private void layoutNodes() {
-        this.setMinSize(750,750);
+        this.setMinSize(750, 750);
         this.setStyle("-fx-background-color: ghostwhite; -fx-font-size: 16; -fx-font-family: 'Ubuntu', sans-serif;");
         this.setVgap(10);
         this.setHgap(10);
         this.setStyle("");
 
         //grid
-        this.add(topLeft,0,0);
-        this.add(getGrid(),0,1);
-        this.add(topRight,1,0);
-        this.add(bottomRight,1,1);
+        this.add(topLeft, 0, 0);
+        this.add(getGrid(), 0, 1);
+        this.add(topRight, 1, 0);
+        this.add(bottomRight, 1, 1);
         //this.setGridLinesVisible(true);
         this.setAlignment(Pos.CENTER);
 
         //topleft hbox
-        this.topLeft.add(scoreTekst,0,0);
-        this.topLeft.add(targetScoreTekst,1,0);
-        this.topLeft.add(score,0,1);
-        this.topLeft.add(targetScore,1,1);
+        this.topLeft.add(scoreTekst, 0, 0);
+        this.topLeft.add(targetScoreTekst, 1, 0);
+        this.topLeft.add(score, 0, 1);
+        this.topLeft.add(targetScore, 1, 1);
         this.topLeft.setHgap(10);
         this.topLeft.setVgap(10);
 
         //topRight
         this.levelBox.getChildren().addAll(level);
-        this.topRight.getChildren().addAll(lblSpelerNaam,levelBox);
+        this.topRight.getChildren().addAll(lblSpelerNaam, levelBox);
 
 
         //bottomRight
         this.bottomRight.getChildren().addAll(timerTekst, lblTimer, pause, end);
         this.bottomRight.setAlignment(Pos.BASELINE_CENTER);
         this.bottomRight.setSpacing(10);
-        bottomRight.setPadding(new Insets(200,0,0,0));
-        this.pause.setPrefSize(80,50);
+        bottomRight.setPadding(new Insets(200, 0, 0, 0));
+        this.pause.setPrefSize(80, 50);
         this.pause.setMinSize(pause.getPrefWidth(), pause.getPrefHeight());
         this.end.setMinSize(pause.getPrefWidth(), pause.getPrefHeight());
 

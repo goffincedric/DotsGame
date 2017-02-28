@@ -74,62 +74,62 @@ public class Score extends Dots {
             return scores;
         }
 
-        private void sort(){
+        private void sort() {
             ScoreComparator comparator = new ScoreComparator();
-            Collections.sort(scores,comparator);
+            Collections.sort(scores, comparator);
         }
 
-        public void addScore(String naam, int score, int level){
+        public void addScore(String naam, int score, int level) {
             loadScoreFile();
             scores.add(new Score(naam, score, level));
             updateScoreFile();
         }
 
-        private void loadScoreFile(){
-            try{
+        private void loadScoreFile() {
+            try {
                 inputStream = new ObjectInputStream(new FileInputStream(HIGHSCORE_FILE));
                 scores = (ArrayList<Score>) inputStream.readObject();
-            }catch(FileNotFoundException e){
+            } catch (FileNotFoundException e) {
                 System.out.println("[LAAD] Kan file met Highscores niet vinden");
-            }catch(IOException e){
+            } catch (IOException e) {
                 System.out.println("[LAAD] Input/Ouput exception: " + e.getMessage());
-            }catch(ClassNotFoundException e){
+            } catch (ClassNotFoundException e) {
                 System.out.println("[LAAD] CNF Error " + e.getMessage());
             } finally {
-                try{
-                    if (outputStream != null){
+                try {
+                    if (outputStream != null) {
                         outputStream.flush();
                         outputStream.close();
                     }
-                }catch (IOException e){
+                } catch (IOException e) {
                     System.out.println("[LAAD] IO Error: " + e.getMessage());
                 }
             }
         }
 
-        public void updateScoreFile(){
-            try{
+        public void updateScoreFile() {
+            try {
                 outputStream = new ObjectOutputStream(new FileOutputStream(HIGHSCORE_FILE));
                 outputStream.writeObject(scores);
 
-            }catch(FileNotFoundException e){
+            } catch (FileNotFoundException e) {
                 System.out.println("[UPDATE] Kan file met Highscores niet vinden");
-            }catch(IOException e) {
+            } catch (IOException e) {
                 System.out.println("[UPDATE] Input/Ouput exception: " + e.getMessage());
-            }finally {
-                try{
-                    if (outputStream != null){
+            } finally {
+                try {
+                    if (outputStream != null) {
                         outputStream.flush();
                         outputStream.close();
                     }
-                }catch (IOException e){
+                } catch (IOException e) {
                     System.out.println("[UPDATE] IO Error: " + e.getMessage());
                 }
 
             }
         }
 
-        public String getHighscoreFile(){
+        public String getHighscoreFile() {
             String HighScoreString = "";
 
             ArrayList<Score> scores;
@@ -138,7 +138,7 @@ public class Score extends Dots {
             int i = 0;
             int x = scores.size();
 
-            return  HighScoreString;
+            return HighScoreString;
         }
     }
 }

@@ -63,7 +63,7 @@ public class PauseView extends VBox {
     }
 
     private void layoutNodes() {
-        this.setMinSize(400,400);
+        this.setMinSize(400, 400);
 
         this.setStyle("-fx-background-color: ghostwhite");
 
@@ -77,7 +77,7 @@ public class PauseView extends VBox {
 
         buttonBox.setSpacing(15);
 
-        this.getChildren().addAll(lblPaused,midBox, buttonBox);
+        this.getChildren().addAll(lblPaused, midBox, buttonBox);
         this.setAlignment(Pos.CENTER);
 
         buttonBox.setAlignment(Pos.CENTER);
@@ -103,7 +103,7 @@ public class PauseView extends VBox {
         btnHome.setStyle("-fx-focus-color: transparent; \n" +
                 "    -fx-background-insets: -1.4, 0, 1, 2;");
         btnHome.setGraphic(imgHome);
-        btnHome.setPrefSize(100,100);
+        btnHome.setPrefSize(100, 100);
 
         //imageView Restart
         imgRestart.setFitHeight(100);
@@ -114,10 +114,7 @@ public class PauseView extends VBox {
         btnRestart.setStyle("-fx-focus-color: transparent; \n" +
                 "    -fx-background-insets: -1.4, 0, 1, 2;");
         btnRestart.setGraphic(imgRestart);
-        btnRestart.setPrefSize(100,100);
-
-
-
+        btnRestart.setPrefSize(100, 100);
 
 
     }

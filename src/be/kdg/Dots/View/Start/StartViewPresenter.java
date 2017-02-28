@@ -7,18 +7,15 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 
 
-import java.util.Optional;
 
 /**
  * @author Cédric Goffin
  * @version 1.0 6/02/2017 22:21
  */
-public class StartViewPresenter{
+public class StartViewPresenter {
     private Dots model;
     private StartView view;
 
@@ -30,7 +27,7 @@ public class StartViewPresenter{
         updateView();
     }
 
-    private void addEventHandlers(){
+    private void addEventHandlers() {
         view.getBtnStart().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -62,7 +59,7 @@ public class StartViewPresenter{
                 ButtonType ja = new ButtonType("Ja");
                 alert.getButtonTypes().addAll(neen, ja);
                 alert.showAndWait();
-                if(alert.getResult() == null || alert.getResult().equals(neen)){
+                if (alert.getResult() == null || alert.getResult().equals(neen)) {
                     event.consume();
                 }
             }

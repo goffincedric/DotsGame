@@ -1,7 +1,6 @@
 package be.kdg.DotsConsole;
 
 
-import be.kdg.Main;
 
 /**
  * @author Cédric Goffin
@@ -30,7 +29,7 @@ public class DotsConsole extends MainConsole {
         for (int i = 0; i < speelveld.length; i++) {
             for (int j = 0; j < speelveld[i].length; j++) {
                 String teken = "-";
-                teken = super.getLijnConsole().getDot(i,j) == getDotUitSpeelveld(i, j)?"°":"*";
+                teken = super.getLijnConsole().getDot(i, j) == getDotUitSpeelveld(i, j) ? "°" : "*";
 
                 System.out.print(teken + speelveld[i][j].getKleur() + "\t");
             }
@@ -55,13 +54,13 @@ public class DotsConsole extends MainConsole {
 
         int rijTeller;
 
-        for (int i = MAXRIJ -1; i >= 0; i--) {
-            for (int j = MAXKOLOM -1; j >= 0 ; j--) {
+        for (int i = MAXRIJ - 1; i >= 0; i--) {
+            for (int j = MAXKOLOM - 1; j >= 0; j--) {
                 if (speelveld[i][j] == null) {
                     rijTeller = i;
                     do {
                         rijTeller--;
-                    } while ((rijTeller == -1)?false:(speelveld[rijTeller][j] == null) && rijTeller > -1);
+                    } while ((rijTeller == -1) ? false : (speelveld[rijTeller][j] == null) && rijTeller > -1);
 
                     switch (rijTeller) {
                         case -1:

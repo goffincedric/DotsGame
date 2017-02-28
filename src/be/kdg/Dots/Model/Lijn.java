@@ -45,11 +45,8 @@ public class Lijn {
         return heeftToegevoegd;
     }
 
-    public int bepaalScoreLijn(){
-       return getAantalDots() * 2;
-    }
 
-    public void addDot(Dot nieuweDot) throws DotsException{
+    public void addDot(Dot nieuweDot) throws DotsException {
         if (lijn.isEmpty()) {
             lijn.add(0, nieuweDot);
             aantalDots++;
@@ -58,7 +55,7 @@ public class Lijn {
 
             Dot laatsteDot = getLaatsteDot();
             if (nieuweDot.equals(laatsteDot)) {
-                lijn.remove(lijn.size()-1);
+                lijn.remove(lijn.size() - 1);
                 aantalDots--;
                 heeftToegevoegd = false;
                 throw new DotsException("Vorige dot verwijderd");
@@ -104,13 +101,14 @@ public class Lijn {
         return null;
     }
 
-    public Dot getLaatsteDot(){
-        return lijn.get(lijn.size()-1);
+    public Dot getLaatsteDot() {
+        return lijn.get(lijn.size() - 1);
     }
 
     public void removeDot(Dot dot) {
-        if (dot.equals(lijn.get(lijn.size()-1))); {
-            lijn.remove(lijn.size()-1);
+        if (dot.equals(lijn.get(lijn.size() - 1))) ;
+        {
+            lijn.remove(lijn.size() - 1);
         }
     }
 
