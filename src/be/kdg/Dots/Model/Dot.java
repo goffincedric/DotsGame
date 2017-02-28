@@ -34,7 +34,7 @@ public class Dot {
         return kolomIndex;
     }
 
-    public void setCoördinaten(int rijIndex, int kolomIndex) {
+    public void setCoordinaten(int rijIndex, int kolomIndex) {
         this.rijIndex = rijIndex;
         this.kolomIndex = kolomIndex;
     }

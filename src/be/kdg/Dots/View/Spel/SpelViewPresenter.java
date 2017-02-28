@@ -39,13 +39,13 @@ public class SpelViewPresenter {
         updateView();
     }
 
-    private void addEventHandlers(){
+    private void addEventHandlers() {
         TextInputDialog dialogNaam = new TextInputDialog();
         dialogNaam.setTitle("Speler");
         dialogNaam.setContentText("Please enter your name: ");
 
         Optional<String> result = dialogNaam.showAndWait();
-        if(result.isPresent()){
+        if (result.isPresent()) {
             model.getSpeler().setNaam(result.get());
         }
 
@@ -78,11 +78,12 @@ public class SpelViewPresenter {
 
         view.setOnKeyReleased(new EventHandler<KeyEvent>() {
             //om timer te simuleren en eventueel naar next level te gaan
-            final KeyCombination KeyControlT = new KeyCodeCombination(KeyCode.T,KeyCombination.CONTROL_DOWN);
+            final KeyCombination KeyControlT = new KeyCodeCombination(KeyCode.T, KeyCombination.CONTROL_DOWN);
+
             @Override
             public void handle(KeyEvent event) {
-                if(KeyControlT.match(event)){
-                    if(model.getSpeler().getGameScore() >= model.getLevel().getTargetScore()){
+                if (KeyControlT.match(event)) {
+                    if (model.getSpeler().getGameScore() >= model.getLevel().getTargetScore()) {
                         model.getLevel().nextLevel();
                         model.getLijn().getLijn().clear();
                         model.getSpeler().addPuntenTotaalScore(model.getSpeler().getGameScore());
@@ -93,7 +94,7 @@ public class SpelViewPresenter {
                         alert.getButtonTypes().clear();
                         alert.getButtonTypes().add(ButtonType.OK);
                         alert.showAndWait();
-                    }else{
+                    } else {
                         Alert alert = new Alert(Alert.AlertType.WARNING);
                         alert.setTitle("Failed");
                         alert.setHeaderText("Je hebt de targetscore niet bereikt, je spel wordt afgesloten");
@@ -119,21 +120,27 @@ public class SpelViewPresenter {
 
         view.setOnKeyReleased(new EventHandler<KeyEvent>() {
             //om lijn te submitten
-        final KeyCombination KeyControlD = new KeyCodeCombination(KeyCode.D,KeyCombination.CONTROL_DOWN);
+            final KeyCombination KeyControlD = new KeyCodeCombination(KeyCode.D, KeyCombination.CONTROL_DOWN);
+
             @Override
             public void handle(KeyEvent event) {
                 if (KeyControlD.match(event)) {
+                    if (model.getLijn().getAantalDots() < 2) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR, "Lijn moet minstens 2 dots bevatten!", ButtonType.OK);
+                        alert.showAndWait();
+                    } else {
                     /* verwijdert gebruikte dots*/
-                    model.vervangGebruikteDots();
+                        model.vervangGebruikteDots();
 
                     /* berekent score*/
-                    model.getSpeler().setGameScore(model.getSpeler().getGameScore() + model.getLijn().getAantalDots());
+                        model.getSpeler().setGameScore(model.getSpeler().getGameScore() + model.getLijn().getAantalDots());
 
                     /* maak lijn leeg */
-                    model.maakLijnLeeg();
+                        model.maakLijnLeeg();
 
                     /* vernieuw spelview */
-                    updateView();
+                        updateView();
+                    }
                 }
             }
         });
@@ -178,10 +185,9 @@ public class SpelViewPresenter {
         view.getScore().setText(String.valueOf(model.getSpeler().getGameScore()));
         String tekst = "Level  " + model.getLevel().getGamelevel();
         view.getLevel().setText(tekst);
-        view.getTargetScore().setText(String.valueOf( model.getLevel().getTargetScore()));
+        view.getTargetScore().setText(String.valueOf(model.getLevel().getTargetScore()));
         view.getLblSpelerNaam().setText(String.valueOf(model.getSpeler().getNaam()));
     }
-
 
 
     public void addWindowEventHandlers() {

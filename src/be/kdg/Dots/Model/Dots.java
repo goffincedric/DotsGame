@@ -115,7 +115,7 @@ public class Dots {
 
         for (int i = MAXRIJ-1; i >= 0; i--) {
             for (int j = MAXKOLOM-1; j >=0; j--) {
-                speelveld[i][j].setCoördinaten(i, j);
+                speelveld[i][j].setCoordinaten(i, j);
             }
         }
     }
