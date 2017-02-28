@@ -41,6 +41,8 @@ public class Speler {
         return "Speler 1: " + this.naam;
     }
 
+    //top 10 scores nog wegschrijven naar file
+
     // vervang Hashmap value naar List van int + verander bijbehorende score
     /*public void nieuweHighscore() {
         if (!Highscores.containsKey(getNaam().toLowerCase())) {

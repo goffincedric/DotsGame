@@ -47,8 +47,8 @@ public class EndView extends VBox {
         lblScoreTekst = new Label("Score: ");
         lblHuidigLevel = new Label("##");
         lblHuidigeScore = new Label("###");
-        btnHome = new Button("Home");
-        btnRestart = new Button("Restart");
+        btnHome = new Button();
+        btnRestart = new Button();
         levelBox = new HBox();
         scoreBox = new HBox();
         buttonBox = new HBox();

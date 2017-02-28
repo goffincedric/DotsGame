@@ -1,6 +1,11 @@
 package be.kdg.Dots.View.Pause;
 
 import be.kdg.Dots.Model.Dots;
+import be.kdg.Dots.View.Spel.SpelView;
+import be.kdg.Dots.View.Spel.SpelViewPresenter;
+import be.kdg.Dots.View.Start.StartView;
+import be.kdg.Dots.View.Start.StartViewPresenter;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -17,18 +22,43 @@ public class PauseViewPresenter {
     public PauseViewPresenter(Dots model, PauseView view) {
         this.model = model;
         this.view = view;
-
         addEventHandlers();
         updateView();
     }
 
     private void addEventHandlers() {
-        view.getBtnHome().setOnMouseClicked(new EventHandler<MouseEvent>() {
+        view.getBtnContinue().setOnAction(new EventHandler<ActionEvent>() {
             @Override
-            public void handle(MouseEvent event) {
+            public void handle(ActionEvent event) {
                 Window stage = view.getBtnHome().getScene().getWindow();
                 stage.hide();
 
+
+            }
+        });
+
+        view.getBtnHome().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                StartView startview = new StartView();
+                StartViewPresenter startviewpresenter = new StartViewPresenter(model, startview);
+                view.getScene().setRoot(startview);
+                startview.getScene().getWindow().sizeToScene();
+
+                //huidige spelview nog sluiten
+            }
+        });
+
+        view.getBtnRestart().setOnAction(new EventHandler<ActionEvent>() {
+
+            //eerst andere dingen sluiten
+          @Override
+            public void handle(ActionEvent event) {
+                SpelView spelView = new SpelView();
+                SpelViewPresenter spelViewPresenter = new SpelViewPresenter(model,spelView);
+                view.getScene().setRoot(spelView);
+                spelView.getScene().getWindow().sizeToScene();
 
             }
         });

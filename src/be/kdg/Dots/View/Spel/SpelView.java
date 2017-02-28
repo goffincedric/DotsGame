@@ -17,6 +17,7 @@ import javafx.scene.layout.*;
 public class SpelView extends GridPane {
     private Button[][] btns = new Button[7][7];
     private Button pause;
+    private Button end;
 
     private ImageView imageView;
 
@@ -54,6 +55,7 @@ public class SpelView extends GridPane {
 
 
         this.pause = new Button("Pause");
+        this.end = new Button("End");
 
         this.dotsGrid = new GridPane();
         this.topLeft = new GridPane();
@@ -92,12 +94,13 @@ public class SpelView extends GridPane {
 
 
         //bottomRight
-        this.bottomRight.getChildren().addAll(timerTekst, lblTimer, pause);
+        this.bottomRight.getChildren().addAll(timerTekst, lblTimer, pause, end);
         this.bottomRight.setAlignment(Pos.BASELINE_CENTER);
         this.bottomRight.setSpacing(10);
         bottomRight.setPadding(new Insets(200,0,0,0));
         this.pause.setPrefSize(80,50);
         this.pause.setMinSize(pause.getPrefWidth(), pause.getPrefHeight());
+        this.end.setMinSize(pause.getPrefWidth(), pause.getPrefHeight());
 
         for (int i = 0; i < btns.length; i++) {
             for (int j = 0; j < btns[i].length; j++) {
@@ -152,4 +155,14 @@ public class SpelView extends GridPane {
     public Label getLblSpelerNaam() {
         return lblSpelerNaam;
     }
+
+    public Button getPause() {
+        return pause;
+    }
+
+    public Button getEnd() {
+        return end;
+    }
+
+
 }

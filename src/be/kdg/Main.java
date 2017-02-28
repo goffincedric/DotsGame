@@ -50,8 +50,8 @@ public class Main extends Application {
 
 
                 model = new Dots();
-                EndView view = new   EndView();
-                EndViewPresenter presenter = new  EndViewPresenter(model, view);
+                StartView view = new   StartView();
+                StartViewPresenter presenter = new  StartViewPresenter(model, view);
                 Scene scene = new Scene(view);
                 scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Raleway+Dots");
                // scene.getStylesheets().add("be/kdg/Dots/View/images/stylesheet.css");

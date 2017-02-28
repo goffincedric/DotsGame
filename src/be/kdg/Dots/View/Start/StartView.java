@@ -93,4 +93,15 @@ public class StartView extends BorderPane {
     }
 
 
+    public Button getBtnStart() {
+        return btnStart;
+    }
+
+    public Button getBtnHighScores() {
+        return btnHighScores;
+    }
+
+    public Button getBtnHelp() {
+        return btnHelp;
+    }
 }

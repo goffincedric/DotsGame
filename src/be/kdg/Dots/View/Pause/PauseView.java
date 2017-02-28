@@ -142,6 +142,8 @@ public class PauseView extends VBox {
     public Button getBtnHome() {
         return btnHome;
     }
+
+
 }
 
 
