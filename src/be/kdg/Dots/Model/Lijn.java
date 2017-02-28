@@ -62,7 +62,6 @@ public class Lijn {
 
             for (Dot dot : lijn) {
                 if ((dot.getRijIndex() == nieuweDot.getRijIndex()) && (dot.getKolomIndex() == nieuweDot.getKolomIndex())) {
-                    heeftToegevoegd = false;
                     throw new DotsException("Gekozen bol is al gebruikt in lijn.");
                 }
             }

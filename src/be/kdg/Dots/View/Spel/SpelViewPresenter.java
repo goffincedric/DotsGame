@@ -71,10 +71,7 @@ public class SpelViewPresenter {
                 }
             });
         }
-
-
         //pauze view openen
-
 
         view.setOnKeyReleased(new EventHandler<KeyEvent>() {
         final KeyCombination KeyShiftD = new KeyCodeCombination(KeyCode.D,KeyCombination.CONTROL_DOWN);
@@ -91,9 +88,6 @@ public class SpelViewPresenter {
                 }
             }
         });
-
-
-
 
         view.getPause().setOnAction(new EventHandler<ActionEvent>() {
             @Override

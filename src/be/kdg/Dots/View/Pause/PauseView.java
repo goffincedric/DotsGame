@@ -14,7 +14,6 @@ import javafx.scene.layout.VBox;
  * @version 1.0 6/02/2017 13:41
  */
 public class PauseView extends VBox {
-
     private Label lblPaused;
     private Label lblScoreTekst;
     private Label lblLevelTekst;

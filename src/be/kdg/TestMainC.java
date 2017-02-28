@@ -43,9 +43,6 @@ public class TestMainC extends Application {
                 StartViewPresenter presenter = new  StartViewPresenter(model, view);
                 Scene scene = new Scene(view);
                 scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Raleway+Dots");
-                // scene.getStylesheets().add("be/kdg/Dots/View/images/stylesheet.css");
-                presenter.addWindowEventHandlers();
-
                 primaryStage.setTitle("Dots");
                 primaryStage.setScene(scene);
                 primaryStage.setResizable(false);

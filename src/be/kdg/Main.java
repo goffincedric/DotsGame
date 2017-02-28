@@ -47,23 +47,16 @@ public class Main extends Application {
                 dotsConsole.main(new String[]{""});
                 break;
             case 2:
-
-
                 model = new Dots();
                 StartView view = new   StartView();
                 StartViewPresenter presenter = new  StartViewPresenter(model, view);
                 Scene scene = new Scene(view);
                 scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Raleway+Dots");
-               // scene.getStylesheets().add("be/kdg/Dots/View/images/stylesheet.css");
-                presenter.addWindowEventHandlers();
-
-                primaryStage.setTitle("Cubes");
+                primaryStage.setTitle("Dots");
                 primaryStage.setScene(scene);
                 primaryStage.setResizable(false);
                 primaryStage.show();
                 primaryStage.toFront();
-
-
 
                 break;
             default:

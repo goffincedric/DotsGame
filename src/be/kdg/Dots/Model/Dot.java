@@ -50,6 +50,6 @@ public class Dot {
 
     @Override
     public int hashCode() {
-        return kleur.ordinal() ^ rijIndex ^ kolomIndex ^ dotNummer;
+        return kleur.ordinal() ^ dotNummer;
     }
 }

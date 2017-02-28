@@ -25,7 +25,6 @@ import java.util.Scanner;
  */
 public class TestMainT extends Application {
     private Dots model;
-    private Dots dotsGame;
 
 
     @Override
