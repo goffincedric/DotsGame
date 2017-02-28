@@ -34,6 +34,11 @@ public class Dot {
         return kolomIndex;
     }
 
+    public void setCoördinaten(int rijIndex, int kolomIndex) {
+        this.rijIndex = rijIndex;
+        this.kolomIndex = kolomIndex;
+    }
+
     @Override
     public String toString() {
         return "Dot{" +

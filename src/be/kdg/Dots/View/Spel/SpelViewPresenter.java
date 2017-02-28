@@ -124,34 +124,18 @@ public class SpelViewPresenter {
             @Override
             public void handle(KeyEvent event) {
                 if (KeyControlD.match(event)) {
-                    if(model.getLijn().getAantalDots() > 1){
-                        model.getSpeler().addPunten(model.getLijn().bepaalScoreLijn());
-                        model.getLijn().getLijn().clear();
-                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                        alert.setTitle("Punten toegekent");
-                        alert.setHeaderText("Lijn is omgezet in punten!");
-                        alert.getButtonTypes().clear();
-                        alert.getButtonTypes().add(ButtonType.OK);
-                        alert.showAndWait();
-                        //alert om aan te tonen dat next level bereikt is
+                    /* verwijdert gebruikte dots*/
+                    model.vervangGebruikteDots();
 
+                    /* berekent score*/
+                    model.getSpeler().setGameScore(model.getSpeler().getGameScore() + model.getLijn().getAantalDots());
 
-                    }else{
-                        model.getLijn().getLijn().clear();
-                        Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.setTitle("Punten niet toegekent");
-                        alert.setHeaderText("Lijn is NIET omgezet in punten! Moet minstens 2 lang zijn (selecteer nieuwe lijn)");
-                        alert.getButtonTypes().clear();
-                        alert.getButtonTypes().add(ButtonType.OK);
-                        alert.showAndWait();
+                    /* maak lijn leeg */
+                    model.maakLijnLeeg();
 
-
-
-                    }
-
+                    /* vernieuw spelview */
+                    updateView();
                 }
-
-
             }
         });
 

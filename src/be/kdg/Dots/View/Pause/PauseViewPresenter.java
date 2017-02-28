@@ -30,31 +30,26 @@ public class PauseViewPresenter {
             public void handle(ActionEvent event) {
                 Window stage = view.getBtnHome().getScene().getWindow();
                 stage.hide();
-
-
             }
         });
 
         view.getBtnHome().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
                 StartView startview = new StartView();
                 StartViewPresenter startviewpresenter = new StartViewPresenter(model, startview);
                 view.getScene().setRoot(startview);
                 startview.getScene().getWindow().sizeToScene();
-
-                //huidige spelview nog sluiten
             }
         });
 
         view.getBtnRestart().setOnAction(new EventHandler<ActionEvent>() {
 
             //eerst andere dingen sluiten
-          @Override
+            @Override
             public void handle(ActionEvent event) {
                 SpelView spelView = new SpelView();
-                SpelViewPresenter spelViewPresenter = new SpelViewPresenter(model,spelView);
+                SpelViewPresenter spelViewPresenter = new SpelViewPresenter(model, spelView);
                 view.getScene().setRoot(spelView);
                 spelView.getScene().getWindow().sizeToScene();
 

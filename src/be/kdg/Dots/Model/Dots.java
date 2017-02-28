@@ -79,4 +79,48 @@ public class Dots {
     public Dot getDotUitSpeelveld(int rij, int kolom) {
         return speelveld[rij][kolom];
     }
+
+    public void vervangGebruikteDots() {
+        Dot[] gebruikteDots = lijn.getLijnDotArray();
+
+        for (Dot dot : gebruikteDots) {
+            this.speelveld[dot.getRijIndex()][dot.getKolomIndex()] = null;
+        }
+
+        int rijTeller;
+
+        for (int i = MAXRIJ -1; i >= 0; i--) {
+            for (int j = MAXKOLOM -1; j >= 0 ; j--) {
+                if (speelveld[i][j] == null) {
+                    rijTeller = i;
+                    do {
+                        rijTeller--;
+                    } while ((rijTeller == -1)?false:(speelveld[rijTeller][j] == null) && rijTeller > -1);
+
+                    switch (rijTeller) {
+                        case -1:
+                            for (int k = 0; k <= i; k++) {
+                                speelveld[k][j] = new Dot(k, j, dotKleuren.get(random.nextInt(dotKleuren.size())), plaatsNummer);
+                                plaatsNummer++;
+                            }
+                            break;
+                        default:
+                            speelveld[i][j] = speelveld[rijTeller][j];
+                            speelveld[rijTeller][j] = null;
+                            break;
+                    }
+                }
+            }
+        }
+
+        for (int i = MAXRIJ-1; i >= 0; i--) {
+            for (int j = MAXKOLOM-1; j >=0; j--) {
+                speelveld[i][j].setCoördinaten(i, j);
+            }
+        }
+    }
+
+    public void maakLijnLeeg () {
+        lijn = new Lijn();
+    }
 }

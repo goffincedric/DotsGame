@@ -15,7 +15,7 @@ public class Speler {
 
     public Speler() {
         this.totaalScore = 0;
-        this.gameScore =0;
+        this.gameScore = 0;
     }
 
     public int getGameScore() {
