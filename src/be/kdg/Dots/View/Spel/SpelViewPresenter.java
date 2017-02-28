@@ -101,6 +101,11 @@ public class SpelViewPresenter {
                         alert.getButtonTypes().add(ButtonType.OK);
                         alert.showAndWait();
 
+
+                        model.getSpeler().setGameScore(0);
+                        model.getSpeler().setTotaalScore(0);
+                        model.getLijn().getLijn().clear();
+                        //spel opnieuw beginnen want targetscore niet gehaald
                         StartView startview = new StartView();
                         StartViewPresenter startviewpresenter = new StartViewPresenter(model, startview);
                         view.getScene().setRoot(startview);

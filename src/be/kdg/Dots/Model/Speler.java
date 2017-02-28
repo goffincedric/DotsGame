@@ -46,6 +46,10 @@ public class Speler {
         this.totaalScore = this.totaalScore + totaalScore;
     }
 
+    public void setTotaalScore(int totaalScore) {
+        this.totaalScore = totaalScore;
+    }
+
     public void addPunten(int score) {
         this.gameScore = this.gameScore + score;
     }
