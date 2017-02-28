@@ -12,7 +12,7 @@ public class Speler {
     private int totaalScore;
     private int gameScore;
     private static final String HIGHSCORE_FILE ="Files/HighScores.txt";
-    private
+
 
     // private HashMap<String, Integer> Highscores;
 
