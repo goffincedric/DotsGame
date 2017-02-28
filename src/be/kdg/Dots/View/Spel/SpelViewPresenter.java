@@ -77,7 +77,7 @@ public class SpelViewPresenter {
 
 
         view.setOnKeyReleased(new EventHandler<KeyEvent>() {
-        final KeyCombination KeyShiftD = new KeyCodeCombination(KeyCode.K,KeyCombination.CONTROL_DOWN);
+        final KeyCombination KeyShiftD = new KeyCodeCombination(KeyCode.D,KeyCombination.CONTROL_DOWN);
             @Override
             public void handle(KeyEvent event) {
                 if (KeyShiftD.match(event)) {
