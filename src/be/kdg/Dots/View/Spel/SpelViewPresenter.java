@@ -101,15 +101,14 @@ public class SpelViewPresenter {
                         alert.getButtonTypes().add(ButtonType.OK);
                         alert.showAndWait();
 
-
-                        model.getSpeler().setGameScore(0);
-                        model.getSpeler().setTotaalScore(0);
-                        model.getLijn().getLijn().clear();
-                        //spel opnieuw beginnen want targetscore niet gehaald
-                        StartView startview = new StartView();
-                        StartViewPresenter startviewpresenter = new StartViewPresenter(model, startview);
-                        view.getScene().setRoot(startview);
-                        startview.getScene().getWindow().sizeToScene();
+                        //Endview tonen
+                        EndView endview = new EndView();
+                        EndViewPresenter endViewPresenter = new EndViewPresenter(model, endview);
+                        Stage endStage = new Stage();
+                        endStage.initOwner(view.getScene().getWindow());
+                        endStage.initModality(Modality.APPLICATION_MODAL);
+                        endStage.setScene(new Scene(endview));
+                        endStage.showAndWait();
 
 
                     }
