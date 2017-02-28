@@ -45,6 +45,10 @@ public class Lijn {
         return heeftToegevoegd;
     }
 
+    public int bepaalScoreLijn(){
+       return getAantalDots() * 2;
+    }
+
     public void addDot(Dot nieuweDot) throws DotsException{
         if (lijn.isEmpty()) {
             lijn.add(0, nieuweDot);

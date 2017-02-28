@@ -7,13 +7,23 @@ package be.kdg.Dots.Model;
  */
 public class Speler {
     private String naam;
-    private int score;
+    private int totaalScore;
+    private int gameScore;
 
     // naar Dots ??
     // private HashMap<String, Integer> Highscores;
 
     public Speler() {
+        this.totaalScore = 0;
+        this.gameScore =0;
+    }
 
+    public int getGameScore() {
+        return gameScore;
+    }
+
+    public void setGameScore(int gameScore) {
+        this.gameScore = gameScore;
     }
 
     public Speler(String naam) {
@@ -28,12 +38,16 @@ public class Speler {
         this.naam = naam;
     }
 
-    public int getScore() {
-        return score;
+    public int getTotaalScore() {
+        return totaalScore;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void addPuntenTotaalScore(int totaalScore) {
+        this.totaalScore = this.totaalScore + totaalScore;
+    }
+
+    public void addPunten(int score) {
+        this.gameScore = this.gameScore + score;
     }
 
     @Override

@@ -7,8 +7,6 @@ import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Window;
 
 /**
@@ -66,7 +64,7 @@ public class PauseViewPresenter {
     }
 
     private void updateView() {
-        view.getLblScore().setText(String.valueOf(model.getSpeler().getScore()));
+        view.getLblScore().setText(String.valueOf(model.getSpeler().getTotaalScore()));
         view.getLblLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
     }
 

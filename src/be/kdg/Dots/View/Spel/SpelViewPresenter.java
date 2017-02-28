@@ -8,6 +8,8 @@ import be.kdg.Dots.View.End.EndView;
 import be.kdg.Dots.View.End.EndViewPresenter;
 import be.kdg.Dots.View.Pause.PauseView;
 import be.kdg.Dots.View.Pause.PauseViewPresenter;
+import be.kdg.Dots.View.Start.StartView;
+import be.kdg.Dots.View.Start.StartViewPresenter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -54,6 +56,7 @@ public class SpelViewPresenter {
                     try {
                         model.getLijn().addDot(model.getDotUitSpeelveld(view.getDotsGrid().getRowIndex(node), view.getDotsGrid().getColumnIndex(node)));
 
+
                         Kleuren kleur = model.getLijn().getLijn().get(0).getKleur();
                         view.getButtonFromBtns(view.getDotsGrid().getColumnIndex(node), view.getDotsGrid().getRowIndex(node)).setStyle(
                                 String.format("-fx-effect: dropshadow(three-pass-box, darkgray, 2, 2, 0, 0); -fx-background-color: rgb(%d, %d, %d)", kleur.getRed(), kleur.getGreen(), kleur.getBlue())
@@ -74,18 +77,76 @@ public class SpelViewPresenter {
         //pauze view openen
 
         view.setOnKeyReleased(new EventHandler<KeyEvent>() {
-        final KeyCombination KeyShiftD = new KeyCodeCombination(KeyCode.D,KeyCombination.CONTROL_DOWN);
+            //om timer te simuleren en eventueel naar next level te gaan
+            final KeyCombination KeyControlT = new KeyCodeCombination(KeyCode.T,KeyCombination.CONTROL_DOWN);
             @Override
             public void handle(KeyEvent event) {
-                if (KeyShiftD.match(event)) {
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setAlertType(Alert.AlertType.INFORMATION);
-                    alert.setTitle("ADD SCORE");
-                    alert.setHeaderText("het werkt");
-                    alert.getButtonTypes().clear();
-                    alert.getButtonTypes().add(ButtonType.CLOSE);
-                    alert.showAndWait();
+                if(KeyControlT.match(event)){
+                    if(model.getSpeler().getGameScore() >= model.getLevel().getTargetScore()){
+                        model.getLevel().nextLevel();
+                        model.getLijn().getLijn().clear();
+                        model.getSpeler().addPuntenTotaalScore(model.getSpeler().getGameScore());
+                        model.getSpeler().setGameScore(0);
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Next Level");
+                        alert.setHeaderText("Je gaat naar level " + model.getLevel().getGamelevel());
+                        alert.getButtonTypes().clear();
+                        alert.getButtonTypes().add(ButtonType.OK);
+                        alert.showAndWait();
+                    }else{
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Failed");
+                        alert.setHeaderText("Je hebt de targetscore niet bereikt, je spel wordt afgesloten");
+                        alert.getButtonTypes().clear();
+                        alert.getButtonTypes().add(ButtonType.OK);
+                        alert.showAndWait();
+
+                        StartView startview = new StartView();
+                        StartViewPresenter startviewpresenter = new StartViewPresenter(model, startview);
+                        view.getScene().setRoot(startview);
+                        startview.getScene().getWindow().sizeToScene();
+
+
+                    }
                 }
+
+            }
+        });
+
+        view.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            //om lijn te submitten
+        final KeyCombination KeyControlD = new KeyCodeCombination(KeyCode.D,KeyCombination.CONTROL_DOWN);
+            @Override
+            public void handle(KeyEvent event) {
+                if (KeyControlD.match(event)) {
+                    if(model.getLijn().getAantalDots() > 1){
+                        model.getSpeler().addPunten(model.getLijn().bepaalScoreLijn());
+                        model.getLijn().getLijn().clear();
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                        alert.setTitle("Punten toegekent");
+                        alert.setHeaderText("Lijn is omgezet in punten!");
+                        alert.getButtonTypes().clear();
+                        alert.getButtonTypes().add(ButtonType.OK);
+                        alert.showAndWait();
+                        //alert om aan te tonen dat next level bereikt is
+
+
+                    }else{
+                        model.getLijn().getLijn().clear();
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Punten niet toegekent");
+                        alert.setHeaderText("Lijn is NIET omgezet in punten! Moet minstens 2 lang zijn (selecteer nieuwe lijn)");
+                        alert.getButtonTypes().clear();
+                        alert.getButtonTypes().add(ButtonType.OK);
+                        alert.showAndWait();
+
+
+
+                    }
+
+                }
+
+
             }
         });
 
@@ -126,7 +187,7 @@ public class SpelViewPresenter {
             }
         }
 
-        view.getScore().setText(String.valueOf(model.getSpeler().getScore()));
+        view.getScore().setText(String.valueOf(model.getSpeler().getGameScore()));
         String tekst = "Level  " + model.getLevel().getGamelevel();
         view.getLevel().setText(tekst);
         view.getTargetScore().setText(String.valueOf( model.getLevel().getTargetScore()));
