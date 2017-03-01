@@ -49,7 +49,7 @@ public class PauseViewPresenter {
             @Override
             public void handle(ActionEvent event) {
                 SpelView spelView = new SpelView();
-                SpelViewPresenter spelViewPresenter = new SpelViewPresenter(model, spelView);
+                SpelViewPresenter spelViewPresenter = new SpelViewPresenter(new Dots(), spelView);
                 view.getScene().setRoot(spelView);
                 spelView.getScene().getWindow().sizeToScene();
 
