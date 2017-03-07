@@ -60,7 +60,9 @@ public class StartViewPresenter {
                 alert.getButtonTypes().addAll(neen, ja);
                 alert.showAndWait();
                 if (alert.getResult() == null || alert.getResult().equals(neen)) {
+
                     event.consume();
+
                 }
             }
         });
