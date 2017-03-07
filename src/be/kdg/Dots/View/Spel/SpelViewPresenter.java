@@ -8,6 +8,8 @@ import be.kdg.Dots.View.End.EndView;
 import be.kdg.Dots.View.End.EndViewPresenter;
 import be.kdg.Dots.View.Pause.PauseView;
 import be.kdg.Dots.View.Pause.PauseViewPresenter;
+import be.kdg.Dots.View.Start.StartView;
+import be.kdg.Dots.View.Start.StartViewPresenter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -75,12 +77,30 @@ public class SpelViewPresenter {
         //pauze view openen
 
         view.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            //om timer te simuleren en eventueel naar next level te gaan
+            //om lijn te submitten
+            final KeyCombination KeyControlD = new KeyCodeCombination(KeyCode.D, KeyCombination.CONTROL_DOWN);
             final KeyCombination KeyControlT = new KeyCodeCombination(KeyCode.T, KeyCombination.CONTROL_DOWN);
 
             @Override
             public void handle(KeyEvent event) {
-                if (KeyControlT.match(event)) {
+                if (KeyControlD.match(event)) {
+                    if (model.getLijn().getAantalDots() < 2) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR, "Lijn moet minstens 2 dots bevatten!", ButtonType.OK);
+                        alert.showAndWait();
+                    } else {
+                    /* verwijdert gebruikte dots*/
+                        model.vervangGebruikteDots();
+
+                    /* berekent score*/
+                        model.getSpeler().setGameScore(model.getSpeler().getGameScore() + model.getLijn().getAantalDots());
+
+                    /* maak lijn leeg */
+                        model.maakLijnLeeg();
+
+                    /* vernieuw spelview */
+                        updateView();
+                    }
+                } else if(KeyControlT.match(event)) {
                     if (model.getSpeler().getGameScore() >= model.getLevel().getTargetScore()) {
                         model.getLevel().nextLevel();
                         model.getLijn().getLijn().clear();
@@ -108,36 +128,6 @@ public class SpelViewPresenter {
                         endStage.initModality(Modality.APPLICATION_MODAL);
                         endStage.setScene(new Scene(endview));
                         endStage.showAndWait();
-
-
-                    }
-                }
-
-            }
-        });
-
-        view.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            //om lijn te submitten
-            final KeyCombination KeyControlD = new KeyCodeCombination(KeyCode.D, KeyCombination.CONTROL_DOWN);
-
-            @Override
-            public void handle(KeyEvent event) {
-                if (KeyControlD.match(event)) {
-                    if (model.getLijn().getAantalDots() < 2) {
-                        Alert alert = new Alert(Alert.AlertType.ERROR, "Lijn moet minstens 2 dots bevatten!", ButtonType.OK);
-                        alert.showAndWait();
-                    } else {
-                    /* verwijdert gebruikte dots*/
-                        model.vervangGebruikteDots();
-
-                    /* berekent score*/
-                        model.getSpeler().setGameScore(model.getSpeler().getGameScore() + model.getLijn().getAantalDots());
-
-                    /* maak lijn leeg */
-                        model.maakLijnLeeg();
-
-                    /* vernieuw spelview */
-                        updateView();
                     }
                 }
             }
@@ -153,6 +143,17 @@ public class SpelViewPresenter {
                 pauseStage.initModality(Modality.APPLICATION_MODAL);
                 pauseStage.setScene(new Scene(pauseview));
                 pauseStage.showAndWait();
+
+                if (pauseviewpresenter.getResult() == null) {
+
+                } else if (pauseviewpresenter.getResult().equals(pauseview.getBtnRestart())) {
+                    new SpelViewPresenter(new Dots(), view);
+                } else if (pauseviewpresenter.getResult().equals(pauseview.getBtnHome())) {
+                    StartView startview = new StartView();
+                    StartViewPresenter startviewpresenter = new StartViewPresenter(model, startview);
+                    view.getScene().setRoot(startview);
+                    startview.getScene().getWindow().sizeToScene();
+                }
             }
         });
 
@@ -166,6 +167,10 @@ public class SpelViewPresenter {
                 endStage.initModality(Modality.APPLICATION_MODAL);
                 endStage.setScene(new Scene(endview));
                 endStage.showAndWait();
+
+                if (endViewPresenter.getResult().equals(endview.getBtnRestart())) {
+                    new SpelViewPresenter(new Dots(), view);
+                }
             }
         });
 
