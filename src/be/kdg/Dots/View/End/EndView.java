@@ -96,6 +96,14 @@ public class EndView extends VBox {
         btnRestart.setPrefSize(100, 100);
     }
 
+    public Button getBtnHome() {
+        return btnHome;
+    }
+
+    public Button getBtnRestart() {
+        return btnRestart;
+    }
+
     public Label getLblNewHighScore() {
         return lblNewHighScore;
     }

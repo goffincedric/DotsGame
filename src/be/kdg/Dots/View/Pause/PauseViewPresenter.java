@@ -1,12 +1,11 @@
 package be.kdg.Dots.View.Pause;
 
 import be.kdg.Dots.Model.Dots;
-import be.kdg.Dots.View.Spel.SpelView;
-import be.kdg.Dots.View.Spel.SpelViewPresenter;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.stage.Window;
 
 /**
@@ -16,6 +15,7 @@ import javafx.stage.Window;
 public class PauseViewPresenter {
     private Dots model;
     private PauseView view;
+    private Button result;
 
     public PauseViewPresenter(Dots model, PauseView view) {
         this.model = model;
@@ -44,15 +44,11 @@ public class PauseViewPresenter {
         });
 
         view.getBtnRestart().setOnAction(new EventHandler<ActionEvent>() {
-
             //eerst andere dingen sluiten
             @Override
             public void handle(ActionEvent event) {
-                SpelView spelView = new SpelView();
-                SpelViewPresenter spelViewPresenter = new SpelViewPresenter(new Dots(), spelView);
-                view.getScene().setRoot(spelView);
-                spelView.getScene().getWindow().sizeToScene();
-
+                result = view.getBtnRestart();
+                view.getBtnRestart().getScene().getWindow().hide();
             }
         });
 
@@ -65,5 +61,9 @@ public class PauseViewPresenter {
 
     public void addWindowEventHandlers() {
 
+    }
+
+    public Button getResult() {
+        return result;
     }
 }
