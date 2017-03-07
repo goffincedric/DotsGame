@@ -62,6 +62,7 @@ public class StartViewPresenter {
                 if (alert.getResult() == null || alert.getResult().equals(neen)) {
 
                     event.consume();
+
                 }
             }
         });
