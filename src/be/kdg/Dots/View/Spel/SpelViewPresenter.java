@@ -11,6 +11,9 @@ import be.kdg.Dots.View.Pause.PauseView;
 import be.kdg.Dots.View.Pause.PauseViewPresenter;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -35,37 +38,11 @@ public class SpelViewPresenter {
     private SpelView view;
     private Timeline stopwatchTimeline;
 
-    TextInputDialog dialogNaam;
-
     public SpelViewPresenter(Dots model, SpelView view) {
         this.model = model;
         this.view = view;
-
-        dialogNaam = new TextInputDialog();
-
-
         addEventHandlers();
         updateView();
-        boolean naamIngegeven;
-        do {
-            naamIngegeven = false;
-            dialogNaam.setTitle("Speler");
-            dialogNaam.setContentText("Please enter your name: ");
-
-            Optional<String> result = dialogNaam.showAndWait();
-            if (result.isPresent()) {
-                if (!result.get().isEmpty()) {
-                    model.getSpeler().setNaam(result.get());
-                    naamIngegeven = true;
-                }
-            } else if (!result.isPresent()) {
-                StartView startview = new StartView();
-                StartViewPresenter startviewpresenter = new StartViewPresenter(model, startview);
-                view.getScene().setRoot(startview);
-                startview.getScene().getWindow().sizeToScene();
-            }
-        } while (!naamIngegeven);
-    }
         setupTimelineBasis();
         stopwatchTimeline.play();
 
@@ -87,15 +64,28 @@ public class SpelViewPresenter {
     private void addEventHandlers() {
 
 
-    private void addEventHandlers() {
-        dialogNaam.getEditor().lengthProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                if ((newValue.intValue() > oldValue.intValue()) && (newValue.intValue() > 20)) {
-                    dialogNaam.getEditor().setText(dialogNaam.getEditor().getText().substring(0, 20));
+        TextInputDialog dialogNaam = new TextInputDialog();
+
+        boolean naamIngegeven;
+        do {
+            naamIngegeven = false;
+            dialogNaam.setTitle("Speler");
+            dialogNaam.setContentText("Please enter your name: ");
+
+            Optional<String> result = dialogNaam.showAndWait();
+            if (result.isPresent()) {
+                if (!result.get().isEmpty()) {
+                    model.getSpeler().setNaam(result.get());
+                    naamIngegeven = true;
                 }
+            } else if (!result.isPresent()) {
+                StartView startview = new StartView();
+                StartViewPresenter startviewpresenter = new StartViewPresenter(model, startview);
+                view.getScene().setRoot(startview);
+                startview.getScene().getWindow().sizeToScene();
             }
-        });
+        } while (!naamIngegeven);
+
 
         for (Node node : view.getDotsGrid().getChildren()) {
             node.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -126,12 +116,12 @@ public class SpelViewPresenter {
 
         view.setOnKeyReleased(new EventHandler<KeyEvent>() {
             //om lijn te submitten
-            final KeyCombination KeyControlD = new KeyCodeCombination(KeyCode.D, KeyCombination.CONTROL_DOWN);
+        final KeyCombination KeySpace = new KeyCodeCombination(KeyCode.SPACE);
             final KeyCombination KeyControlT = new KeyCodeCombination(KeyCode.T, KeyCombination.CONTROL_DOWN);
 
             @Override
             public void handle(KeyEvent event) {
-                if (KeyControlD.match(event)) {
+                if (KeySpace.match(event)) {
                     if (model.getLijn().getAantalDots() < 2) {
                         Alert alert = new Alert(Alert.AlertType.ERROR, "Lijn moet minstens 2 dots bevatten!", ButtonType.OK);
                         alert.showAndWait();
@@ -257,6 +247,7 @@ public class SpelViewPresenter {
         view.getLevel().setText(tekst);
         view.getTargetScore().setText(String.valueOf(model.getLevel().getTargetScore()));
         view.getLblSpelerNaam().setText(String.valueOf(model.getSpeler().getNaam()));
+        view.getLblTimer().setText(String.format("%02d",(model.getSeconds())));
     }
 
 

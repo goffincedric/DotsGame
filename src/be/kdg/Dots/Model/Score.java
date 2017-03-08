@@ -7,7 +7,7 @@ import java.util.*;
  * @author Cédric Goffin
  * @version 1.0 5/02/2017 14:56
  */
-public class Score extends Dots implements Serializable{
+public class Score extends Dots implements Serializable {
 
 
     private int Score; //via getters krijgen in presenter
@@ -142,26 +142,26 @@ public class Score extends Dots implements Serializable{
                 x = max;
             }
             while (i < x) {
-                highscoreString += (i + 1) + ".\t" + scores.get(i).getNaam() + "\t\t" + scores.get(i).getScore() + "\t\t" + scores.get(i).getBehaaldLevel() + "\n";
+                highscoreString += String.format("%-3d. %-20s %6s %3s \n",(i + 1), scores.get(i).getNaam(), scores.get(i).getScore(), scores.get(i).getBehaaldLevel());
                 i++;
             }
             return highscoreString;
         }
 
-        public int isNewHighscore(int score){
+        public int isNewHighscore(int score) {
             ArrayList<Score> scores;
             scores = getScores();
 
             ListIterator scoreIterator = scores.listIterator(scores.size());
 
 
-            int x = scores.size()-1 ;
+            int x = scores.size() - 1;
 
-            while (x >=0){
-                if (score > scores.get(x).getBehaaldLevel()){
+            while (x >= 0) {
+                if (score > scores.get(x).getBehaaldLevel()) {
                     x--;
                     return x;
-                }else{
+                } else {
                     x--;
                     return -1;
                 }

@@ -1,25 +1,26 @@
 /*@font-face {
-    font-family: 'Raleway Dots';
-    src: url(../CSS/RalewayDots.ttf);
+    src: url("../CSS/RalewayDots.ttf");
 }
 
+
+
 .root{
-  -fx-font-family:'Raleway Dots';
+  -fx-font-family:'Raleway Dots', cursive;
     -fx-font-size: 40;
 }
 
 .label{
-    -fx-font-family:'Raleway Dots';
+    -fx-font-family:'Raleway Dots', cursive;
     -fx-font-size: 40;
 }
 
 label{
-    -fx-font-family:'Raleway Dots';
+    -fx-font-family:'Raleway Dots', cursive;
     -fx-font-size: 40;
 }
 
 
 root{
-    -fx-font-family:'Raleway Dots';
+    -fx-font-family:'Raleway Dots', cursive;
     -fx-font-size: 40;
 }*/
