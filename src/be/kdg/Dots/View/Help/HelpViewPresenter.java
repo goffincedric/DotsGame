@@ -10,6 +10,7 @@ import javafx.scene.web.WebEngine;
  * @author Cédric Goffin
  * @version 1.0 8/03/2017 11:21
  */
+
 public class HelpViewPresenter {
     private Dots model;
     private HelpView view;

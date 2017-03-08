@@ -12,8 +12,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.WindowEvent;
 
-
-
 /**
  * @author Cédric Goffin
  * @version 1.0 6/02/2017 22:21
