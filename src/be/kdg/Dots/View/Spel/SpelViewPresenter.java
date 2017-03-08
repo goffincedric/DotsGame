@@ -12,6 +12,7 @@ import be.kdg.Dots.View.Pause.PauseViewPresenter;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
 import javafx.animation.Animation;
+import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
@@ -265,7 +266,6 @@ public class SpelViewPresenter {
             alert.setHeaderText("Je gaat naar level " + model.getLevel().getGamelevel());
             alert.getButtonTypes().clear();
             alert.getButtonTypes().add(ButtonType.OK);
-            stopwatchTimeline.stop();
             alert.showAndWait();
 
             model.resetTimer();
