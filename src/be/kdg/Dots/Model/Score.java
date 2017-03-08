@@ -147,5 +147,28 @@ public class Score extends Dots implements Serializable{
             }
             return highscoreString;
         }
+
+        public int isNewHighscore(int score){
+            ArrayList<Score> scores;
+            scores = getScores();
+
+            ListIterator scoreIterator = scores.listIterator(scores.size());
+
+
+            int x = scores.size()-1 ;
+
+            while (x >=0){
+                if (score > scores.get(x).getBehaaldLevel()){
+                    x--;
+                    return x;
+                }else{
+                    x--;
+                    return -1;
+                }
+
+
+            }
+            return -1;
+        }
     }
 }

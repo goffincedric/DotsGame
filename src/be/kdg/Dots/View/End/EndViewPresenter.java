@@ -1,6 +1,7 @@
 package be.kdg.Dots.View.End;
 
 import be.kdg.Dots.Model.Dots;
+import be.kdg.Dots.Model.Score;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
 import javafx.event.ActionEvent;
@@ -19,7 +20,6 @@ public class EndViewPresenter {
     public EndViewPresenter(Dots model, EndView view) {
         this.model = model;
         this.view = view;
-
         addEventHandlers();
         updateView();
     }
@@ -45,6 +45,15 @@ public class EndViewPresenter {
     private void updateView() {
         view.getLblHuidigeScore().setText(String.valueOf(model.getSpeler().getTotaalScore()));
         view.getLblHuidigLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
+
+        Score.HighScoreManager hm = new Score.HighScoreManager();
+        int newHighscore = hm.isNewHighscore(model.getSpeler().getTotaalScore());
+        if(newHighscore>=0){
+            view.getLblNewHighScore().setText("!!!New Highscore!!!" + "\n" + "U staat op plaats " + newHighscore + " in de Top 10");
+
+        }else{
+            view.getLblNewHighScore().setText("");
+        }
     }
 
     public void addWindowEventHandlers() {

@@ -25,7 +25,6 @@ public class StartViewPresenter {
     public StartViewPresenter(Dots model, StartView view) {
         this.model = model;
         this.view = view;
-
         addEventHandlers();
         updateView();
     }
