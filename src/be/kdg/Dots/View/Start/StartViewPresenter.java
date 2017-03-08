@@ -1,6 +1,9 @@
 package be.kdg.Dots.View.Start;
 
 import be.kdg.Dots.Model.Dots;
+import be.kdg.Dots.Model.Score;
+import be.kdg.Dots.View.Help.HelpView;
+import be.kdg.Dots.View.Help.HelpViewPresenter;
 import be.kdg.Dots.View.Spel.SpelView;
 import be.kdg.Dots.View.Spel.SpelViewPresenter;
 import javafx.event.ActionEvent;
@@ -82,9 +85,7 @@ public class StartViewPresenter {
                 alert.getButtonTypes().addAll(neen, ja);
                 alert.showAndWait();
                 if (alert.getResult() == null || alert.getResult().equals(neen)) {
-
                     event.consume();
-
                 }
             }
         });

@@ -1,6 +1,9 @@
 package be.kdg.Dots.View.Help;
 
 import be.kdg.Dots.Model.Dots;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.web.WebEngine;
 
 /**
@@ -11,6 +14,7 @@ public class HelpViewPresenter {
     private Dots model;
     private HelpView view;
     private WebEngine engine;
+    private Button result;
 
     public HelpViewPresenter(Dots model, HelpView view) {
         this.model = model;
@@ -20,9 +24,20 @@ public class HelpViewPresenter {
     }
 
     private void addEventHandlers() {
+        view.getBtnHome().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                result = view.getBtnHome();
+                view.getScene().getWindow().hide();
+            }
+        });
     }
 
     private void updateView() {
+        view.getWebView();
+    }
 
+    public Button getResult() {
+        return result;
     }
 }

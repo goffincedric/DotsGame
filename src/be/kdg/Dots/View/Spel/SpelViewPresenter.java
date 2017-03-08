@@ -42,13 +42,26 @@ public class SpelViewPresenter {
 
     private void addEventHandlers() {
         TextInputDialog dialogNaam = new TextInputDialog();
-        dialogNaam.setTitle("Speler");
-        dialogNaam.setContentText("Please enter your name: ");
+        boolean naamIngegeven;
+        do {
+            naamIngegeven = false;
+            dialogNaam.setTitle("Speler");
+            dialogNaam.setContentText("Please enter your name: ");
 
-        Optional<String> result = dialogNaam.showAndWait();
-        if (result.isPresent()) {
-            model.getSpeler().setNaam(result.get());
-        }
+            Optional<String> result = dialogNaam.showAndWait();
+            if (result.isPresent()) {
+                if (!result.get().isEmpty()) {
+                    model.getSpeler().setNaam(result.get());
+                    naamIngegeven = true;
+                }
+            } else if (!result.isPresent()) {
+                StartView startview = new StartView();
+                StartViewPresenter startviewpresenter = new StartViewPresenter(model, startview);
+                view.getScene().setRoot(startview);
+                startview.getScene().getWindow().sizeToScene();
+            }
+        } while (!naamIngegeven);
+
 
         for (Node node : view.getDotsGrid().getChildren()) {
             node.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -172,15 +185,19 @@ public class SpelViewPresenter {
                 endStage.setScene(new Scene(endview));
                 endStage.showAndWait();
 
-                if (endViewPresenter.getResult().equals(endview.getBtnRestart())) {
+                if (endViewPresenter.getResult() == null) {
+
+                } else if (endViewPresenter.getResult().equals(endview.getBtnRestart())) {
                     new SpelViewPresenter(new Dots(), view);
                 } else if(endViewPresenter.getResult().equals(endview.getBtnHome())) {
                     StartView startView = new StartView();
                     StartViewPresenter startViewPresenter = new StartViewPresenter(model, startView);
                     Stage startStage = new Stage();
                     startStage.setScene(new Scene(startView));
+                    startViewPresenter.addWindowEventHandlers();
                     startStage.show();
-                    view.getScene().getWindow().hide();
+                    view.getEnd().getScene().getWindow().hide();
+                    startStage.toFront();
                 }
 
                 //score manager
