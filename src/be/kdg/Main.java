@@ -6,6 +6,7 @@ import be.kdg.Dots.View.Start.StartViewPresenter;
 import be.kdg.DotsConsole.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.util.Scanner;
 
@@ -33,6 +34,7 @@ public class Main extends Application {
                 StartView view = new StartView();
                 StartViewPresenter presenter = new StartViewPresenter(model, view);
                 Scene scene = new Scene(view);
+                Font.loadFont(getClass().getResourceAsStream("CSS/RalewayDots.ttf"),80);
                 /*scene.getStylesheets().add("be/kdg/Dots/CSS/css.css");*/
                 primaryStage.setTitle("Dots");
                 primaryStage.setScene(scene);
