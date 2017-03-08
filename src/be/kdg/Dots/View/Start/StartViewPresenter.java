@@ -45,7 +45,6 @@ public class StartViewPresenter {
                 HelpViewPresenter helpViewPresenter = new HelpViewPresenter(model, helpView);
                 view.getScene().setRoot(helpView);
                 helpView.getScene().getWindow().sizeToScene();
-
             }
         });
         //Naar spelview
