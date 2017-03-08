@@ -164,4 +164,8 @@ public class SpelView extends GridPane {
     public Label getTimerTekst() {
         return timerTekst;
     }
+
+    public Label getLblTimer() {
+        return lblTimer;
+    }
 }

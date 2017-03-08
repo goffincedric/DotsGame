@@ -34,6 +34,7 @@ public class Main extends Application {
                 StartViewPresenter presenter = new StartViewPresenter(model, view);
                 Scene scene = new Scene(view);
                 /*Font.loadFont(getClass().getResourceAsStream("CSS/RalewayDots.ttf"),80);*/
+                scene.getStylesheets().add("CSS/css.css");
                 primaryStage.setTitle("Dots");
                 primaryStage.setScene(scene);
                 primaryStage.setResizable(false);

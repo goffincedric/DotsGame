@@ -11,6 +11,9 @@ import be.kdg.Dots.View.Pause.PauseView;
 import be.kdg.Dots.View.Pause.PauseViewPresenter;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -22,6 +25,7 @@ import javafx.scene.input.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import javafx.util.Duration;
 
 import java.util.Optional;
 
@@ -32,15 +36,34 @@ import java.util.Optional;
 public class SpelViewPresenter {
     private Dots model;
     private SpelView view;
+    private Timeline stopwatchTimeline;
 
     public SpelViewPresenter(Dots model, SpelView view) {
         this.model = model;
         this.view = view;
         addEventHandlers();
         updateView();
+        setupTimelineBasis();
+        stopwatchTimeline.play();
+
+    }
+
+
+    private void setupTimelineBasis() {
+        stopwatchTimeline = new Timeline(new KeyFrame(
+                Duration.millis(this.model.getTickDurationMillis()), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                model.tick();
+                updateView();
+            }
+        }));
+        stopwatchTimeline.setCycleCount(Animation.INDEFINITE);
     }
 
     private void addEventHandlers() {
+
+
         TextInputDialog dialogNaam = new TextInputDialog();
         boolean naamIngegeven;
         do {
@@ -223,6 +246,7 @@ public class SpelViewPresenter {
         view.getLevel().setText(tekst);
         view.getTargetScore().setText(String.valueOf(model.getLevel().getTargetScore()));
         view.getLblSpelerNaam().setText(String.valueOf(model.getSpeler().getNaam()));
+        view.getLblTimer().setText(String.format("%02d",(model.getSeconds())));
     }
 
 

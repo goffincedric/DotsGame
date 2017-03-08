@@ -21,6 +21,10 @@ public class Dots {
     private List<Kleuren> dotKleuren;
     private static Random random;
 
+    private static final int START_TICK_DURATION_MILLIS = 1000;
+    private int seconds;
+    private int tickDurationMillis;
+
     Speler speler;
     Level level;
     Lijn lijn;
@@ -36,6 +40,9 @@ public class Dots {
         dotKleuren = new ArrayList<>();
         this.random = new Random();
 
+        this.tickDurationMillis = START_TICK_DURATION_MILLIS;
+        this.seconds = 45;
+
         for (int i = 0; i < aantalKleuren; i++) {
             Kleuren kleur;
             do {
@@ -50,6 +57,25 @@ public class Dots {
                 plaatsNummer++;
             }
         }
+    }
+
+    public void tick() {
+        this.seconds--;
+        if(this.seconds <0){
+            this.seconds=0;
+        }
+    }
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public void reset() {
+        this.seconds = 45;
+        this.tickDurationMillis -= 100;
+    }
+
+    public int getTickDurationMillis() {
+        return tickDurationMillis;
     }
 
 
