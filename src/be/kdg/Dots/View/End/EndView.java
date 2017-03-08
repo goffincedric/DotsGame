@@ -14,7 +14,6 @@ import javafx.scene.layout.*;
  */
 public class EndView extends VBox {
 
-
     private Label lblNewHighScore;
     private Label lblLevelTekst;
     private Label lblScoreTekst;
@@ -52,14 +51,10 @@ public class EndView extends VBox {
         levelBox = new HBox();
         scoreBox = new HBox();
         buttonBox = new HBox();
-
-
     }
 
     private void layoutNodes() {
         this.setMinSize(400, 400);
-        //this.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
-        //this.setStyle("-fx-background-color:");
 
         levelBox.getChildren().addAll(lblLevelTekst, lblHuidigLevel);
         scoreBox.getChildren().addAll(lblScoreTekst, lblHuidigeScore);
@@ -67,6 +62,7 @@ public class EndView extends VBox {
 
 
         lblNewHighScore.setAlignment(Pos.CENTER);
+        lblNewHighScore.setStyle("-fx-text-alignment: center");
         levelBox.setAlignment(Pos.CENTER);
         lblScoreTekst.setAlignment(Pos.CENTER);
         buttonBox.setAlignment(Pos.CENTER);
@@ -94,6 +90,9 @@ public class EndView extends VBox {
         //btnRestart
         btnRestart.setGraphic(imgRestart);
         btnRestart.setPrefSize(100, 100);
+
+        //buttonBox
+        buttonBox.setSpacing(15);
     }
 
     public Button getBtnHome() {
