@@ -7,7 +7,7 @@ import java.util.*;
  * @author Cédric Goffin
  * @version 1.0 5/02/2017 14:56
  */
-public class Score extends Dots {
+public class Score extends Dots implements Serializable{
 
 
     private int Score; //via getters krijgen in presenter
@@ -33,7 +33,7 @@ public class Score extends Dots {
         return BehaaldLevel;
     }
 
-    public class ScoreComparator implements Comparator<Score> {
+    public static class ScoreComparator implements Comparator<Score> {
         public int compare(Score score1, Score score2) {
             int sc1 = score1.getScore();
             int sc2 = score2.getScore();
@@ -57,9 +57,9 @@ public class Score extends Dots {
     }
 
 
-    public class HighScoreManager {
+    public static class HighScoreManager {
         private ArrayList<Score> scores;
-        private static final String HIGHSCORE_FILE = "Files/HighScores.txt";
+        private static final String HIGHSCORE_FILE = "HighScores.dat";
 
         ObjectInputStream inputStream = null;
         ObjectOutputStream outputStream = null;
@@ -129,16 +129,23 @@ public class Score extends Dots {
             }
         }
 
-        public String getHighscoreFile() {
-            String HighScoreString = "";
+        public String getHighscoreString() {
+            String highscoreString = "";
+            int max = 10;
 
             ArrayList<Score> scores;
             scores = getScores();
 
             int i = 0;
             int x = scores.size();
-
-            return HighScoreString;
+            if (x > max) {
+                x = max;
+            }
+            while (i < x) {
+                highscoreString += (i + 1) + ".\t" + scores.get(i).getNaam() + "\t\t" + scores.get(i).getScore() + "\t\t" + scores.get(i).getBehaaldLevel() + "\n";
+                i++;
+            }
+            return highscoreString;
         }
     }
 }

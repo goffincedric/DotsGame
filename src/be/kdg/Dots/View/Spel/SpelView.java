@@ -161,5 +161,7 @@ public class SpelView extends GridPane {
         return end;
     }
 
-
+    public Label getTimerTekst() {
+        return timerTekst;
+    }
 }

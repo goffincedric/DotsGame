@@ -37,6 +37,7 @@ public class Main extends Application {
                 primaryStage.setTitle("Dots");
                 primaryStage.setScene(scene);
                 primaryStage.setResizable(false);
+                presenter.addWindowEventHandlers();
                 primaryStage.show();
                 primaryStage.toFront();
 

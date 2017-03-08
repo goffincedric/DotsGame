@@ -4,6 +4,7 @@ package be.kdg.Dots.View.Spel;
 import be.kdg.Dots.Model.Dots;
 import be.kdg.Dots.Model.DotsException;
 import be.kdg.Dots.Model.Kleuren;
+import be.kdg.Dots.Model.Score;
 import be.kdg.Dots.View.End.EndView;
 import be.kdg.Dots.View.End.EndViewPresenter;
 import be.kdg.Dots.View.Pause.PauseView;
@@ -93,6 +94,7 @@ public class SpelViewPresenter {
 
                     /* berekent score*/
                         model.getSpeler().setGameScore(model.getSpeler().getGameScore() + model.getLijn().getAantalDots());
+                        model.getSpeler().addPuntenTotaalScore(model.getLijn().getAantalDots());
 
                     /* maak lijn leeg */
                         model.maakLijnLeeg();
@@ -106,6 +108,8 @@ public class SpelViewPresenter {
                         model.getLijn().getLijn().clear();
                         model.getSpeler().addPuntenTotaalScore(model.getSpeler().getGameScore());
                         model.getSpeler().setGameScore(0);
+                        view.getLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
+                        view.getScore().setText(String.valueOf(model.getSpeler().getGameScore()));
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Next Level");
                         alert.setHeaderText("Je gaat naar level " + model.getLevel().getGamelevel());
@@ -178,6 +182,11 @@ public class SpelViewPresenter {
                     startStage.show();
                     view.getScene().getWindow().hide();
                 }
+
+                //score manager
+
+                Score.HighScoreManager hm = new Score.HighScoreManager();
+                hm.addScore(model.getSpeler().getNaam(),model.getSpeler().getTotaalScore(),model.getLevel().getGamelevel());
             }
         });
 

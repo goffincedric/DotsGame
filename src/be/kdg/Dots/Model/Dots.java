@@ -3,6 +3,7 @@ package be.kdg.Dots.Model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Timer;
 
 
 /**
@@ -23,6 +24,7 @@ public class Dots {
     Speler speler;
     Level level;
     Lijn lijn;
+
 
     public Dots() {
         this.speler = new Speler();
@@ -123,4 +125,6 @@ public class Dots {
     public void maakLijnLeeg () {
         lijn = new Lijn();
     }
+
+
 }
