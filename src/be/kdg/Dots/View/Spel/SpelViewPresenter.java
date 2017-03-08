@@ -235,9 +235,9 @@ public class SpelViewPresenter {
                 alert.setContentText("Wil je dit zeker?");
                 alert.setTitle("Opgelet!");
                 alert.getButtonTypes().clear();
-                ButtonType neen = new ButtonType("Neen");
                 ButtonType ja = new ButtonType("Ja");
-                alert.getButtonTypes().addAll(neen, ja);
+                ButtonType neen = new ButtonType("Neen");
+                alert.getButtonTypes().addAll(ja, neen);
                 alert.showAndWait();
                 if (alert.getResult() == null || alert.getResult().equals(neen)) {
                     event.consume();

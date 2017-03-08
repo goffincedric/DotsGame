@@ -6,8 +6,6 @@ import be.kdg.Dots.View.Start.StartViewPresenter;
 import be.kdg.DotsConsole.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.util.Scanner;
 

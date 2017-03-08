@@ -1,5 +1,6 @@
 package be.kdg.Dots.View.Help;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,18 +24,18 @@ public class HelpView extends BorderPane {
 
     private void initialiseNodes() {
         this.webView = new WebView();
+        this.btnHome = new Button();
         this.home = new ImageView(new Image("be/kdg/Dots/View/images/Home.png"));
     }
 
     private void layoutNodes() {
-        this.setCenter(webView);
-        this.setBottom(btnHome);
-
-
+        this.setTop(webView);
+        this.setCenter(btnHome);
         btnHome.setPrefSize(50, 50);
         home.setFitHeight(50);
         home.setFitWidth(50);
         home.setPreserveRatio(true);
+
         btnHome.setGraphic(home);
     }
 
