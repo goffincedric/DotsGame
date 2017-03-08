@@ -52,7 +52,7 @@ public class StartView extends BorderPane {
 
         dots.setAlignment(Pos.CENTER);
 
-        dots.setStyle("-fx-font-family:''Raleway Dots', cursive; -fx-font-size:80");
+        dots.setStyle("-fx-font-family:'Raleway Dots';");
         btnStart.setGraphic(play);
         btnStart.setPrefSize(100, 100);
         btnStart.setStyle("-fx-focus-color: firebrick;");
