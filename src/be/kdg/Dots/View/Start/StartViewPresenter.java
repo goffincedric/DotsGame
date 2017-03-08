@@ -1,6 +1,8 @@
 package be.kdg.Dots.View.Start;
 
 import be.kdg.Dots.Model.Dots;
+import be.kdg.Dots.View.Help.HelpView;
+import be.kdg.Dots.View.Help.HelpViewPresenter;
 import be.kdg.Dots.View.Spel.SpelView;
 import be.kdg.Dots.View.Spel.SpelViewPresenter;
 import javafx.event.ActionEvent;
@@ -9,12 +11,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.WindowEvent;
 
-
-
 /**
  * @author Cédric Goffin
  * @version 1.0 6/02/2017 22:21
  */
+
 public class StartViewPresenter {
     private Dots model;
     private StartView view;
@@ -35,6 +36,17 @@ public class StartViewPresenter {
                 SpelViewPresenter spelviewpresenter = new SpelViewPresenter(model, spelview);
                 view.getScene().setRoot(spelview);
                 spelview.getScene().getWindow().sizeToScene();
+            }
+        });
+
+        view.getBtnHelp().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                HelpView helpView = new HelpView();
+                HelpViewPresenter helpViewPresenter = new HelpViewPresenter(model, helpView);
+                view.getScene().setRoot(helpView);
+                helpView.getScene().getWindow().sizeToScene();
+
             }
         });
         //Naar spelview

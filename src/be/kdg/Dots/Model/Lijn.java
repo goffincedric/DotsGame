@@ -87,7 +87,7 @@ public class Lijn {
                 }
             } else {
                 heeftToegevoegd = false;
-                throw new DotsException("Bollen hebben niet dezelfde kleur; Dot 1: " + laatsteDot.getKleur() + "; Dot 2: " + nieuweDot.getKleur() + "\nBol niet toegevoegd.");
+                throw new DotsException("Bollen hebben niet dezelfde kleur; Dot 1: " + laatsteDot.getKleur().name() + "; Dot 2: " + nieuweDot.getKleur().name() + "\nBol niet toegevoegd.");
             }
         }
     }

@@ -170,6 +170,13 @@ public class SpelViewPresenter {
 
                 if (endViewPresenter.getResult().equals(endview.getBtnRestart())) {
                     new SpelViewPresenter(new Dots(), view);
+                } else if(endViewPresenter.getResult().equals(endview.getBtnHome())) {
+                    StartView startView = new StartView();
+                    StartViewPresenter startViewPresenter = new StartViewPresenter(model, startView);
+                    Stage startStage = new Stage();
+                    startStage.setScene(new Scene(startView));
+                    startStage.show();
+                    view.getScene().getWindow().hide();
                 }
             }
         });

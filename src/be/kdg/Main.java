@@ -33,7 +33,7 @@ public class Main extends Application {
                 StartView view = new StartView();
                 StartViewPresenter presenter = new StartViewPresenter(model, view);
                 Scene scene = new Scene(view);
-                scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Raleway+Dots");
+                /*scene.getStylesheets().add("be/kdg/Dots/CSS/css.css");*/
                 primaryStage.setTitle("Dots");
                 primaryStage.setScene(scene);
                 primaryStage.setResizable(false);
