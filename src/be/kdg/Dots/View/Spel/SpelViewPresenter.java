@@ -11,6 +11,8 @@ import be.kdg.Dots.View.Pause.PauseView;
 import be.kdg.Dots.View.Pause.PauseViewPresenter;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -33,15 +35,17 @@ public class SpelViewPresenter {
     private Dots model;
     private SpelView view;
 
+    TextInputDialog dialogNaam;
+
     public SpelViewPresenter(Dots model, SpelView view) {
         this.model = model;
         this.view = view;
+
+        dialogNaam = new TextInputDialog();
+
         addEventHandlers();
         updateView();
-    }
 
-    private void addEventHandlers() {
-        TextInputDialog dialogNaam = new TextInputDialog();
         boolean naamIngegeven;
         do {
             naamIngegeven = false;
@@ -61,7 +65,17 @@ public class SpelViewPresenter {
                 startview.getScene().getWindow().sizeToScene();
             }
         } while (!naamIngegeven);
+    }
 
+    private void addEventHandlers() {
+        dialogNaam.getEditor().lengthProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                if ((newValue.intValue() > oldValue.intValue()) && (newValue.intValue() > 20)) {
+                    dialogNaam.getEditor().setText(dialogNaam.getEditor().getText().substring(0, 20));
+                }
+            }
+        });
 
         for (Node node : view.getDotsGrid().getChildren()) {
             node.setOnMouseClicked(new EventHandler<MouseEvent>() {
