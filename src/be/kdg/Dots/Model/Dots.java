@@ -21,6 +21,10 @@ public class Dots {
     private List<Kleuren> dotKleuren;
     private static Random random;
 
+    private static final int START_TICK_DURATION_MILLIS = 1000;
+    private int seconds;
+    private int tickDurationMillis;
+
     Speler speler;
     Level level;
     Lijn lijn;
@@ -35,6 +39,9 @@ public class Dots {
         this.plaatsNummer = 0;
         dotKleuren = new ArrayList<>();
         this.random = new Random();
+
+        this.tickDurationMillis = START_TICK_DURATION_MILLIS;
+        this.seconds = 45;
 
         for (int i = 0; i < aantalKleuren; i++) {
             Kleuren kleur;
@@ -52,8 +59,6 @@ public class Dots {
         }
     }
 
-
-    //alert to get speler naam
     public Speler getSpeler() {
         return speler;
     }
@@ -126,5 +131,46 @@ public class Dots {
         lijn = new Lijn();
     }
 
+    public void resetSpel() {
+        this.lijn = new Lijn();
+        this.speelveld = new Dot[MAXRIJ][MAXKOLOM];
 
+        dotKleuren = new ArrayList<>();
+
+        this.plaatsNummer = 0;
+        this.tickDurationMillis = START_TICK_DURATION_MILLIS;
+        this.seconds = 45;
+
+        for (int i = 0; i < aantalKleuren; i++) {
+            Kleuren kleur;
+            do {
+                kleur = KLEUREN[random.nextInt(KLEUREN.length)];
+            } while (dotKleuren.contains(kleur));
+            dotKleuren.add(kleur);
+        }
+
+        for (int rij = 0; rij < MAXRIJ; rij++) {
+            for (int kolom = 0; kolom < MAXKOLOM; kolom++) {
+                speelveld[rij][kolom] = new Dot(rij, kolom, dotKleuren.get(random.nextInt(dotKleuren.size())), plaatsNummer);
+                plaatsNummer++;
+            }
+        }
+    }
+
+    public void tick() {
+        this.seconds--;
+    }
+
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public void resetTimer() {
+        this.seconds = 45;
+        this.tickDurationMillis -= 100;
+    }
+
+    public int getTickDurationMillis() {
+        return tickDurationMillis;
+    }
 }

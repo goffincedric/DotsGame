@@ -48,7 +48,7 @@ public class SpelView extends GridPane {
         this.targetScoreTekst = new Label("Target score");
         this.level = new Label("##");
         this.timerTekst = new Label("Timer:");
-        this.lblTimer = new Label("##");
+        this.lblTimer = new Label("45");
 
 
         this.pause = new Button("Pause");
@@ -163,5 +163,9 @@ public class SpelView extends GridPane {
 
     public Label getTimerTekst() {
         return timerTekst;
+    }
+
+    public Label getLblTimer() {
+        return lblTimer;
     }
 }
