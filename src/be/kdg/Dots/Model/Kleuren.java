@@ -10,19 +10,19 @@ import java.util.Random;
 
 public enum Kleuren {
     Grijs(Color.rgb(229, 17, 73)),
-    Wit(Color.rgb(226, 7, 100)),
+    Wit(Color.rgb(237, 241, 255)),
     Roos(Color.rgb(255, 122, 122)),
     Rood(Color.rgb(251, 67, 7)),
     Oranje(Color.rgb(251, 117, 7)),
     Geel(Color.rgb(251, 210, 7)),
-    Groen(Color.rgb(100, 92, 66)),
-    LichtGroen(Color.rgb(100, 92, 82)),
+    Groen(Color.rgb(52, 135, 10)),
+    LichtGroen(Color.rgb(86, 191, 34)),
     Cyaan(Color.rgb(12, 211, 210)),
     LichtBlauw(Color.rgb(83, 166, 214)),
     Blauw(Color.rgb(0, 135, 214)),
     Paars(Color.rgb(190, 72, 249)),
-    Beige(Color.rgb(46, 37, 76)),
-    Bruin(Color.rgb(12, 69, 40));
+    Beige(Color.rgb(193, 177, 122)),
+    Bruin(Color.rgb(135, 60, 41));
 
     private Color color;
     private Random random = new Random();

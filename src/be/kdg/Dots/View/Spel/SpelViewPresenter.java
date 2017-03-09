@@ -107,7 +107,11 @@ public class SpelViewPresenter {
                                     String.format("-fx-background-color: rgb(%d, %d, %d)", kleur.getRed(), kleur.getGreen(), kleur.getBlue())
                             );
                         }
-                        alert = new Alert(Alert.AlertType.INFORMATION, e.getMessage(), ButtonType.OK);
+                        alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Fout");
+                        alert.setHeaderText(e.getMessage());
+                        alert.getButtonTypes().clear();
+                        alert.getButtonTypes().add(ButtonType.OK);
                         alert.showAndWait();
                     }
                 }
@@ -123,7 +127,11 @@ public class SpelViewPresenter {
             public void handle(KeyEvent event) {
                 if (KeySpace.match(event)) {
                     if (model.getLijn().getAantalDots() < 2) {
-                        alert = new Alert(Alert.AlertType.ERROR, "Lijn moet minstens 2 dots bevatten!", ButtonType.OK);
+                        alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Fout");
+                        alert.setHeaderText("Lijn moet minstens 2 dots bevatten!");
+                        alert.getButtonTypes().clear();
+                        alert.getButtonTypes().add(ButtonType.OK);
                         alert.showAndWait();
                     } else {
                     /* verwijdert gebruikte dots*/
