@@ -22,6 +22,7 @@ public class StartView extends BorderPane {
     private ImageView help;
     private Button btnHighScores;
     private Button btnHelp;
+    private Button btnSettings;
     private Label dots;
     private HBox footer;
     private VBox topbox;
@@ -38,6 +39,7 @@ public class StartView extends BorderPane {
         help = new ImageView(new Image("be/kdg/Dots/View/images/Help.png"));
         btnHelp = new Button();
         btnHighScores = new Button();
+        btnSettings = new Button("Settings");
         btnStart = new Button();
         dots = new Label("Dots");
 
@@ -73,14 +75,16 @@ public class StartView extends BorderPane {
         help.setFitWidth(50);
         trophy.setPreserveRatio(true);
 
+        btnSettings.setPrefSize(50,50);
+
         logo.setFitHeight(200);
         logo.setFitWidth(200);
         logo.setPreserveRatio(true);
 
 
-        footer.getChildren().addAll(btnHighScores, btnHelp);
+        footer.getChildren().addAll(btnHighScores, btnSettings, btnHelp);
         footer.setAlignment(Pos.CENTER);
-        footer.setSpacing(650);
+        footer.setSpacing(400);
 
         topbox.getChildren().addAll(dots, logo, btnStart);
         topbox.setAlignment(Pos.CENTER);
@@ -104,4 +108,9 @@ public class StartView extends BorderPane {
     public Button getBtnHelp() {
         return btnHelp;
     }
+
+    public Button getBtnSettings() {
+        return btnSettings;
+    }
 }
+

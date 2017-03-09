@@ -41,6 +41,13 @@ public class Level {
 
     }
 
+    public void setMoeilijkheidsgraad(Moeilijkheid moeilijkheidsgraad) {
+        this.moeilijkheidsgraad = moeilijkheidsgraad;
+    }
+
+    public void setTargetScore(int targetScore) {
+        this.targetScore = targetScore;
+    }
 
     public int getTargetScore() {
         return targetScore;
