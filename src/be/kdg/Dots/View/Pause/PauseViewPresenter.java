@@ -1,8 +1,6 @@
 package be.kdg.Dots.View.Pause;
 
 import be.kdg.Dots.Model.Dots;
-import be.kdg.Dots.View.Start.StartView;
-import be.kdg.Dots.View.Start.StartViewPresenter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;

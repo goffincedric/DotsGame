@@ -1,7 +1,6 @@
 package be.kdg.Dots.View.Start;
 
 import be.kdg.Dots.Model.Dots;
-import be.kdg.Dots.Model.Level;
 import be.kdg.Dots.Model.Score;
 import be.kdg.Dots.View.Help.HelpView;
 import be.kdg.Dots.View.Help.HelpViewPresenter;

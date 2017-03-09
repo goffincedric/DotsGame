@@ -23,14 +23,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.*;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
-import java.io.File;
 import java.util.Optional;
 
 /**
@@ -42,22 +39,22 @@ public class SpelViewPresenter {
     private SpelView view;
     TextInputDialog dialogNaam;
     Alert alert;
-    String musicFile;
 
-    Media sound;
-    MediaPlayer mediaPlayer;
-
+    Alert endAlert;
 
     private Timeline stopwatchTimeline;
 
     public SpelViewPresenter(Dots model, SpelView view) {
         this.model = model;
         this.view = view;
-        musicFile = "be/kdg/Dots/View/images/test.mp3";
-        sound = new Media("file:///E:/OOPROG/DotsGame/src/be/kdg/Dots/View/images/test.mp3");
-        mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+
         dialogNaam = new TextInputDialog();
+
+        endAlert = new Alert(Alert.AlertType.INFORMATION);
+        endAlert.setTitle("Next Level");
+        endAlert.setHeaderText("Je gaat naar level " + model.getLevel().getGamelevel());
+        endAlert.getButtonTypes().clear();
+        endAlert.getButtonTypes().add(ButtonType.OK);
 
         boolean naamIngegeven;
         do {
@@ -96,6 +93,13 @@ public class SpelViewPresenter {
                 if ((newValue.intValue() > oldValue.intValue()) && (newValue.intValue() > 20)) {
                     dialogNaam.getEditor().setText(dialogNaam.getEditor().getText().substring(0, 20));
                 }
+            }
+        });
+
+        stopwatchTimeline.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                endStatus();
             }
         });
 
@@ -262,8 +266,12 @@ public class SpelViewPresenter {
                 if (model.getSeconds() == 0) {
 
                 } else {
-                    model.tick();
-                    view.getLblTimer().setText(String.format("%02d", (model.getSeconds())));
+                    if (endAlert.isShowing()) {
+                        view.getLblTimer().setText("45");
+                    } else {
+                        model.tick();
+                        view.getLblTimer().setText(String.format("%02d", (model.getSeconds())));
+                    }
                 }
             }
         }));
@@ -280,12 +288,7 @@ public class SpelViewPresenter {
             view.getLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
             view.getScore().setText(String.valueOf(model.getSpeler().getGameScore()));
 
-            alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Next Level");
-            alert.setHeaderText("Je gaat naar level " + model.getLevel().getGamelevel());
-            alert.getButtonTypes().clear();
-            alert.getButtonTypes().add(ButtonType.OK);
-            alert.showAndWait();
+            endAlert.show();
             stopwatchTimeline.play();
 
             updateView();
