@@ -43,6 +43,7 @@ public class Level {
 
     public void setMoeilijkheidsgraad(Moeilijkheid moeilijkheidsgraad) {
         this.moeilijkheidsgraad = moeilijkheidsgraad;
+        setTargetScore(moeilijkheidsgraad.getStartScore());
     }
 
     public void setTargetScore(int targetScore) {
