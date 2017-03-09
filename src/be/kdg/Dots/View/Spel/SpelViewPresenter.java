@@ -12,8 +12,11 @@ import be.kdg.Dots.View.Pause.PauseViewPresenter;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
 import javafx.animation.Animation;
+import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -38,33 +41,16 @@ public class SpelViewPresenter {
     private SpelView view;
     private Timeline stopwatchTimeline;
 
+    TextInputDialog dialogNaam;
+
     public SpelViewPresenter(Dots model, SpelView view) {
         this.model = model;
         this.view = view;
+
+        dialogNaam = new TextInputDialog();
+
         addEventHandlers();
         updateView();
-        setupTimelineBasis();
-        stopwatchTimeline.play();
-
-    }
-
-
-    private void setupTimelineBasis() {
-        stopwatchTimeline = new Timeline(new KeyFrame(
-                Duration.millis(this.model.getTickDurationMillis()), new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                model.tick();
-                updateView();
-            }
-        }));
-        stopwatchTimeline.setCycleCount(Animation.INDEFINITE);
-    }
-
-    private void addEventHandlers() {
-
-
-        TextInputDialog dialogNaam = new TextInputDialog();
 
         boolean naamIngegeven;
         do {
@@ -86,6 +72,19 @@ public class SpelViewPresenter {
             }
         } while (!naamIngegeven);
 
+        setupTimelineBasis();
+        stopwatchTimeline.play();
+    }
+
+    private void addEventHandlers() {
+        dialogNaam.getEditor().lengthProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                if ((newValue.intValue() > oldValue.intValue()) && (newValue.intValue() > 20)) {
+                    dialogNaam.getEditor().setText(dialogNaam.getEditor().getText().substring(0, 20));
+                }
+            }
+        });
 
         for (Node node : view.getDotsGrid().getChildren()) {
             node.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -93,7 +92,6 @@ public class SpelViewPresenter {
                 public void handle(MouseEvent event) {
                     try {
                         model.getLijn().addDot(model.getDotUitSpeelveld(view.getDotsGrid().getRowIndex(node), view.getDotsGrid().getColumnIndex(node)));
-
 
                         Kleuren kleur = model.getLijn().getLijn().get(0).getKleur();
                         view.getButtonFromBtns(view.getDotsGrid().getColumnIndex(node), view.getDotsGrid().getRowIndex(node)).setStyle(
@@ -112,11 +110,10 @@ public class SpelViewPresenter {
                 }
             });
         }
-        //pauze view openen
 
         view.setOnKeyReleased(new EventHandler<KeyEvent>() {
             //om lijn te submitten
-        final KeyCombination KeySpace = new KeyCodeCombination(KeyCode.SPACE);
+            final KeyCombination KeySpace = new KeyCodeCombination(KeyCode.D, KeyCombination.CONTROL_DOWN);
             final KeyCombination KeyControlT = new KeyCodeCombination(KeyCode.T, KeyCombination.CONTROL_DOWN);
 
             @Override
@@ -139,37 +136,8 @@ public class SpelViewPresenter {
                     /* vernieuw spelview */
                         updateView();
                     }
-                } else if(KeyControlT.match(event)) {
-                    if (model.getSpeler().getGameScore() >= model.getLevel().getTargetScore()) {
-                        model.getLevel().nextLevel();
-                        model.getLijn().getLijn().clear();
-                        model.getSpeler().addPuntenTotaalScore(model.getSpeler().getGameScore());
-                        model.getSpeler().setGameScore(0);
-                        view.getLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
-                        view.getScore().setText(String.valueOf(model.getSpeler().getGameScore()));
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Next Level");
-                        alert.setHeaderText("Je gaat naar level " + model.getLevel().getGamelevel());
-                        alert.getButtonTypes().clear();
-                        alert.getButtonTypes().add(ButtonType.OK);
-                        alert.showAndWait();
-                    } else {
-                        Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.setTitle("Failed");
-                        alert.setHeaderText("Je hebt de targetscore niet bereikt, je spel wordt afgesloten");
-                        alert.getButtonTypes().clear();
-                        alert.getButtonTypes().add(ButtonType.OK);
-                        alert.showAndWait();
-
-                        //Endview tonen
-                        EndView endview = new EndView();
-                        EndViewPresenter endViewPresenter = new EndViewPresenter(model, endview);
-                        Stage endStage = new Stage();
-                        endStage.initOwner(view.getScene().getWindow());
-                        endStage.initModality(Modality.APPLICATION_MODAL);
-                        endStage.setScene(new Scene(endview));
-                        endStage.showAndWait();
-                    }
+                } else if (KeyControlT.match(event)) {
+                    endStatus();
                 }
             }
         });
@@ -177,6 +145,8 @@ public class SpelViewPresenter {
         view.getPause().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                stopwatchTimeline.stop();
+
                 PauseView pauseview = new PauseView();
                 PauseViewPresenter pauseviewpresenter = new PauseViewPresenter(model, pauseview);
                 Stage pauseStage = new Stage();
@@ -186,9 +156,11 @@ public class SpelViewPresenter {
                 pauseStage.showAndWait();
 
                 if (pauseviewpresenter.getResult() == null) {
-
+                    stopwatchTimeline.play();
+                } else if(pauseviewpresenter.getResult().equals(pauseview.getBtnContinue())) {
+                    stopwatchTimeline.play();
                 } else if (pauseviewpresenter.getResult().equals(pauseview.getBtnRestart())) {
-                    new SpelViewPresenter(new Dots(), view);
+                    resetSpel();
                 } else if (pauseviewpresenter.getResult().equals(pauseview.getBtnHome())) {
                     StartView startview = new StartView();
                     StartViewPresenter startviewpresenter = new StartViewPresenter(model, startview);
@@ -201,6 +173,8 @@ public class SpelViewPresenter {
         view.getEnd().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                stopwatchTimeline.stop();
+
                 EndView endview = new EndView();
                 EndViewPresenter endViewPresenter = new EndViewPresenter(model, endview);
                 Stage endStage = new Stage();
@@ -212,8 +186,8 @@ public class SpelViewPresenter {
                 if (endViewPresenter.getResult() == null) {
 
                 } else if (endViewPresenter.getResult().equals(endview.getBtnRestart())) {
-                    new SpelViewPresenter(new Dots(), view);
-                } else if(endViewPresenter.getResult().equals(endview.getBtnHome())) {
+                    resetSpel();
+                } else if (endViewPresenter.getResult().equals(endview.getBtnHome())) {
                     StartView startView = new StartView();
                     StartViewPresenter startViewPresenter = new StartViewPresenter(model, startView);
                     Stage startStage = new Stage();
@@ -225,9 +199,8 @@ public class SpelViewPresenter {
                 }
 
                 //score manager
-
                 Score.HighScoreManager hm = new Score.HighScoreManager();
-                hm.addScore(model.getSpeler().getNaam(),model.getSpeler().getTotaalScore(),model.getLevel().getGamelevel());
+                hm.addScore(model.getSpeler().getNaam(), model.getSpeler().getTotaalScore(), model.getLevel().getGamelevel());
             }
         });
 
@@ -247,9 +220,7 @@ public class SpelViewPresenter {
         view.getLevel().setText(tekst);
         view.getTargetScore().setText(String.valueOf(model.getLevel().getTargetScore()));
         view.getLblSpelerNaam().setText(String.valueOf(model.getSpeler().getNaam()));
-        view.getLblTimer().setText(String.format("%02d",(model.getSeconds())));
     }
-
 
     public void addWindowEventHandlers() {
         view.getScene().getWindow().setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -269,8 +240,94 @@ public class SpelViewPresenter {
                 }
             }
         });
-
     }
 
+    private void setupTimelineBasis() {
+        stopwatchTimeline = new Timeline(new KeyFrame(Duration.millis(this.model.getTickDurationMillis()), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (model.getSeconds() == 0) {
+                    endStatus();
+                } else {
+                    model.tick();
+                    view.getLblTimer().setText(String.format("%02d", (model.getSeconds())));
+                }
+            }
+        }));
+        stopwatchTimeline.setCycleCount(Animation.INDEFINITE);
+    }
 
+    private void endStatus() {
+        if (model.getSpeler().getGameScore() >= model.getLevel().getTargetScore()) {
+            stopwatchTimeline.stop();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Next Level");
+            alert.setHeaderText("Je gaat naar level " + model.getLevel().getGamelevel());
+            alert.getButtonTypes().clear();
+            alert.getButtonTypes().add(ButtonType.OK);
+            alert.showAndWait();
+
+            model.resetTimer();
+            model.getLevel().nextLevel();
+            model.resetSpel();
+            model.getSpeler().addPuntenTotaalScore(model.getSpeler().getGameScore());
+            model.getSpeler().setGameScore(0);
+            view.getLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
+            view.getScore().setText(String.valueOf(model.getSpeler().getGameScore()));
+
+            stopwatchTimeline.play();
+
+            updateView();
+        } else {
+            endGame();
+        }
+    }
+
+    private void endGame() {
+        stopwatchTimeline.stop();
+
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Einde spel");
+        alert.setHeaderText("Je hebt de targetscore niet bereikt, je spel wordt afgesloten");
+        alert.getButtonTypes().clear();
+        alert.getButtonTypes().add(ButtonType.OK);
+        alert.showAndWait();
+
+        //Endview tonen
+        EndView endview = new EndView();
+        EndViewPresenter endViewPresenter = new EndViewPresenter(model, endview);
+        Stage endStage = new Stage();
+        endStage.initOwner(view.getScene().getWindow());
+        endStage.initModality(Modality.APPLICATION_MODAL);
+        endStage.setScene(new Scene(endview));
+        endStage.showAndWait();
+
+        if (endViewPresenter.getResult() == null) {
+
+        } else if (endViewPresenter.getResult().equals(endview.getBtnRestart())) {
+            resetSpel();
+        } else if (endViewPresenter.getResult().equals(endview.getBtnHome())) {
+            StartView startView = new StartView();
+            StartViewPresenter startViewPresenter = new StartViewPresenter(model, startView);
+            Stage startStage = new Stage();
+            startStage.setScene(new Scene(startView));
+            startViewPresenter.addWindowEventHandlers();
+            startStage.show();
+            view.getEnd().getScene().getWindow().hide();
+            startStage.toFront();
+        }
+        //score manager
+        Score.HighScoreManager hm = new Score.HighScoreManager();
+        hm.addScore(model.getSpeler().getNaam(), model.getSpeler().getTotaalScore(), model.getLevel().getGamelevel());
+    }
+
+    private void resetSpel() {
+        stopwatchTimeline.stop();
+
+        SpelView nieuwView = new SpelView();
+        SpelViewPresenter nieuwPresenter = new SpelViewPresenter(new Dots(), nieuwView);
+
+        view.getScene().setRoot(nieuwView);
+    }
 }
