@@ -87,15 +87,6 @@ public class SpelViewPresenter {
             }
         });
 
-        stopwatchTimeline.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
-                endStatus();
-            }
-        });
-        updateView();
-
         for (Node node : view.getDotsGrid().getChildren()) {
             node.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
@@ -172,10 +163,14 @@ public class SpelViewPresenter {
                 } else if (pauseviewpresenter.getResult().equals(pauseview.getBtnRestart())) {
                     resetSpel();
                 } else if (pauseviewpresenter.getResult().equals(pauseview.getBtnHome())) {
-                    StartView startview = new StartView();
-                    StartViewPresenter startviewpresenter = new StartViewPresenter(model, startview);
-                    view.getScene().setRoot(startview);
-                    startview.getScene().getWindow().sizeToScene();
+                    StartView startView = new StartView();
+                    StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
+                    Stage startStage = new Stage();
+                    startStage.setScene(new Scene(startView));
+                    startViewPresenter.addWindowEventHandlers();
+                    startStage.show();
+                    view.getEnd().getScene().getWindow().hide();
+                    startStage.toFront();
                 }
             }
         });
@@ -197,7 +192,7 @@ public class SpelViewPresenter {
                     resetSpel();
                 } else if (endViewPresenter.getResult().equals(endview.getBtnHome())) {
                     StartView startView = new StartView();
-                    StartViewPresenter startViewPresenter = new StartViewPresenter(model, startView);
+                    StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
                     Stage startStage = new Stage();
                     startStage.setScene(new Scene(startView));
                     startViewPresenter.addWindowEventHandlers();
@@ -211,15 +206,9 @@ public class SpelViewPresenter {
                 hm.addScore(model.getSpeler().getNaam(), model.getSpeler().getTotaalScore(), model.getLevel().getGamelevel());
             }
         });
-
-
     }
 
     private void updateView() {
-        /*if (stopwatchTimeline.getStatus().equals(Animation.Status.STOPPED)) {
-            endStatus();
-        }*/
-
         for (int i = 0; i < model.getSpeelveld().length; i++) {
             for (int j = 0; j < model.getSpeelveld().length; j++) {
                 Kleuren kleur = model.getDotUitSpeelveld(i, j).getKleur();
@@ -259,14 +248,14 @@ public class SpelViewPresenter {
             @Override
             public void handle(ActionEvent event) {
                 if (model.getSeconds() == 0) {
-                    endStatus();
+
                 } else {
                     model.tick();
                     view.getLblTimer().setText(String.format("%02d", (model.getSeconds())));
                 }
             }
         }));
-        stopwatchTimeline.setCycleCount(Animation.INDEFINITE);
+        stopwatchTimeline.setCycleCount(45);
     }
 
     private void endStatus() {
@@ -284,11 +273,7 @@ public class SpelViewPresenter {
             alert.setHeaderText("Je gaat naar level " + model.getLevel().getGamelevel());
             alert.getButtonTypes().clear();
             alert.getButtonTypes().add(ButtonType.OK);
-            Alert alert2 = new Alert(Alert.AlertType.INFORMATION, stopwatchTimeline.getStatus().name());
-            alert2.show();
             alert.showAndWait();
-
-            stopwatchTimeline.stop();
             stopwatchTimeline.play();
 
             updateView();

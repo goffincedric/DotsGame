@@ -36,10 +36,8 @@ public class PauseViewPresenter {
         view.getBtnHome().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                StartView startview = new StartView();
-                StartViewPresenter startviewpresenter = new StartViewPresenter(model, startview);
-                view.getScene().setRoot(startview);
-                startview.getScene().getWindow().sizeToScene();
+                result = view.getBtnHome();
+                view.getBtnHome().getScene().getWindow().hide();
             }
         });
 
