@@ -142,7 +142,7 @@ public class Score extends Dots implements Serializable {
                 x = max;
             }
             while (i < x) {
-                highscoreString += String.format("%-3d. %-20s %6s %3s \n",(i + 1), scores.get(i).getNaam(), scores.get(i).getScore(), scores.get(i).getBehaaldLevel());
+                highscoreString += String.format("%3d.\t%-25s%-6s%-3s%n",(i + 1), scores.get(i).getNaam(), scores.get(i).getScore(), scores.get(i).getBehaaldLevel());
                 i++;
             }
             return highscoreString;
@@ -155,7 +155,7 @@ public class Score extends Dots implements Serializable {
             ListIterator scoreIterator = scores.listIterator(scores.size());
 
 
-            int x = scores.size() - 1;
+            int x = 9;
 
             while (x >= 0) {
                 if (score > scores.get(x).getBehaaldLevel()) {
