@@ -25,7 +25,7 @@ import javafx.stage.WindowEvent;
 public class StartViewPresenter {
     private Dots model;
     private StartView view;
-    private Level.Moeilijkheid moeilijkheidStart;
+   // private Level.Moeilijkheid moeilijkheidStart;
 
 
     public StartViewPresenter(Dots model, StartView view) {
@@ -41,8 +41,8 @@ public class StartViewPresenter {
             public void handle(ActionEvent event) {
                 SpelView spelview = new SpelView();
                 SpelViewPresenter spelviewpresenter = new SpelViewPresenter(model, spelview);
-                model.getLevel().setMoeilijkheidsgraad(moeilijkheidStart);
-                model.getLevel().setTargetScore(moeilijkheidStart.getStartScore());
+               // model.getLevel().setMoeilijkheidsgraad(moeilijkheidStart);
+                //model.getLevel().setTargetScore(moeilijkheidStart.getStartScore());
                 view.getScene().setRoot(spelview);
                 spelview.getScene().getWindow().sizeToScene();
                 spelviewpresenter.addWindowEventHandlers();
@@ -83,7 +83,7 @@ public class StartViewPresenter {
                 settingStage.initModality(Modality.APPLICATION_MODAL);
                 settingStage.setScene(new Scene(settingView));
                 settingStage.showAndWait();
-                moeilijkheidStart = settingViewPresenter.getMoeilijkheid();
+                //moeilijkheidStart = settingViewPresenter.getMoeilijkheid();
             }
         });
     }

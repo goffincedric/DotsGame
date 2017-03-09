@@ -11,7 +11,6 @@ import be.kdg.Dots.View.Pause.PauseView;
 import be.kdg.Dots.View.Pause.PauseViewPresenter;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
-import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
@@ -24,11 +23,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.util.Optional;
 
 /**
@@ -40,13 +42,21 @@ public class SpelViewPresenter {
     private SpelView view;
     TextInputDialog dialogNaam;
     Alert alert;
+    String musicFile;
+
+    Media sound;
+    MediaPlayer mediaPlayer;
+
 
     private Timeline stopwatchTimeline;
 
     public SpelViewPresenter(Dots model, SpelView view) {
         this.model = model;
         this.view = view;
-
+        musicFile = "be/kdg/Dots/View/images/test.mp3";
+        sound = new Media("file:///E:/OOPROG/DotsGame/src/be/kdg/Dots/View/images/test.mp3");
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
         dialogNaam = new TextInputDialog();
 
         boolean naamIngegeven;
@@ -72,9 +82,11 @@ public class SpelViewPresenter {
 
         setupTimelineBasis();
         stopwatchTimeline.play();
-        addEventHandlers();
 
+        addEventHandlers();
         updateView();
+
+
     }
 
     private void addEventHandlers() {

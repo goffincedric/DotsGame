@@ -17,15 +17,18 @@ import javafx.scene.layout.VBox;
 public class StartView extends BorderPane {
     private Button btnStart;
     private ImageView play;
+    private ImageView naam;
     private ImageView logo;
     private ImageView trophy;
     private ImageView help;
     private Button btnHighScores;
     private Button btnHelp;
     private Button btnSettings;
-    private Label dots;
+
     private HBox footer;
     private VBox topbox;
+
+
 
     public StartView() {
         initialiseNodes();
@@ -33,7 +36,9 @@ public class StartView extends BorderPane {
     }
 
     private void initialiseNodes() {
+        naam = new ImageView(new Image("be/kdg/Dots/View/images/Untitled.png"));
         trophy = new ImageView(new Image("be/kdg/Dots/View/images/Trophy.png"));
+
         logo = new ImageView(new Image("be/kdg/Dots/View/images/Logo.png"));
         play = new ImageView(new Image("be/kdg/Dots/View/images/Play.png"));
         help = new ImageView(new Image("be/kdg/Dots/View/images/Help.png"));
@@ -41,20 +46,21 @@ public class StartView extends BorderPane {
         btnHighScores = new Button();
         btnSettings = new Button("Settings");
         btnStart = new Button();
-        dots = new Label("Dots");
+
 
         footer = new HBox();
         topbox = new VBox();
+
     }
 
     private void layoutNodes() {
         this.setMinSize(750, 750);
-        this.setStyle("-fx-background-color: ghostwhite");
+        this.setStyle("-fx-background-color: white");
         this.setPadding(new Insets(25, 0, 15, 0));
 
-        dots.setAlignment(Pos.CENTER);
+        //dots.setAlignment(Pos.CENTER);
 
-        dots.setStyle("-fx-font-family:'Raleway Dots';");
+
         btnStart.setGraphic(play);
         btnStart.setPrefSize(100, 100);
         btnStart.setStyle("-fx-focus-color: firebrick;");
@@ -82,13 +88,18 @@ public class StartView extends BorderPane {
         logo.setPreserveRatio(true);
 
 
+
+
+
         footer.getChildren().addAll(btnHighScores, btnSettings, btnHelp);
         footer.setAlignment(Pos.CENTER);
         footer.setSpacing(400);
 
-        topbox.getChildren().addAll(dots, logo, btnStart);
+        topbox.getChildren().addAll(naam, btnStart,logo);
         topbox.setAlignment(Pos.CENTER);
         topbox.setSpacing(30.0);
+
+
 
 
         setTop(topbox);
