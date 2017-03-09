@@ -11,6 +11,7 @@ import be.kdg.Dots.View.Pause.PauseView;
 import be.kdg.Dots.View.Pause.PauseViewPresenter;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
@@ -38,9 +39,7 @@ public class SpelViewPresenter {
     private Dots model;
     private SpelView view;
     TextInputDialog dialogNaam;
-    Alert alert;
-
-    Alert endAlert;
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
     private Timeline stopwatchTimeline;
 
@@ -49,12 +48,6 @@ public class SpelViewPresenter {
         this.view = view;
 
         dialogNaam = new TextInputDialog();
-
-        endAlert = new Alert(Alert.AlertType.INFORMATION);
-        endAlert.setTitle("Next Level");
-        endAlert.setHeaderText("Je gaat naar level " + model.getLevel().getGamelevel());
-        endAlert.getButtonTypes().clear();
-        endAlert.getButtonTypes().add(ButtonType.OK);
 
         boolean naamIngegeven;
         do {
@@ -96,13 +89,6 @@ public class SpelViewPresenter {
             }
         });
 
-        stopwatchTimeline.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                endStatus();
-            }
-        });
-
         for (Node node : view.getDotsGrid().getChildren()) {
             node.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
@@ -121,7 +107,11 @@ public class SpelViewPresenter {
                                     String.format("-fx-background-color: rgb(%d, %d, %d)", kleur.getRed(), kleur.getGreen(), kleur.getBlue())
                             );
                         }
-                        alert = new Alert(Alert.AlertType.INFORMATION, e.getMessage(), ButtonType.OK);
+                        alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Fout");
+                        alert.setHeaderText(e.getMessage());
+                        alert.getButtonTypes().clear();
+                        alert.getButtonTypes().add(ButtonType.OK);
                         alert.showAndWait();
                     }
                 }
@@ -136,7 +126,11 @@ public class SpelViewPresenter {
                 if (event.getCode() == KeyCode.ENTER) {
 
                     if (model.getLijn().getAantalDots() < 2) {
-                        alert = new Alert(Alert.AlertType.ERROR, "Lijn moet minstens 2 dots bevatten!", ButtonType.OK);
+                        alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Fout");
+                        alert.setHeaderText("Lijn moet minstens 2 dots bevatten!");
+                        alert.getButtonTypes().clear();
+                        alert.getButtonTypes().add(ButtonType.OK);
                         alert.showAndWait();
                     } else {
                     /* verwijdert gebruikte dots*/
@@ -249,6 +243,7 @@ public class SpelViewPresenter {
         view.getLevel().setText(tekst);
         view.getTargetScore().setText(String.valueOf(model.getLevel().getTargetScore()));
         view.getLblSpelerNaam().setText(String.valueOf(model.getSpeler().getNaam()));
+        view.getLblTimer().setText(String.format("%02d", model.getSeconds()));
     }
 
     public void addWindowEventHandlers() {
@@ -275,22 +270,21 @@ public class SpelViewPresenter {
         stopwatchTimeline = new Timeline(new KeyFrame(Duration.millis(this.model.getTickDurationMillis()), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if (model.getSeconds() == 0) {
-
-                } else {
-                    if (endAlert.isShowing()) {
-                        view.getLblTimer().setText("45");
-                    } else {
+                if (model.getSeconds() != 0) {
+                    if (!alert.isShowing()) {
                         model.tick();
-                        view.getLblTimer().setText(String.format("%02d", (model.getSeconds())));
                     }
+                    view.getLblTimer().setText(String.format("%02d", model.getSeconds()));
+                } else {
+                    endStatus();
                 }
             }
         }));
-        stopwatchTimeline.setCycleCount(45);
+        stopwatchTimeline.setCycleCount(Animation.INDEFINITE);
     }
 
     private void endStatus() {
+        stopwatchTimeline.stop();
         if (model.getSpeler().getGameScore() >= model.getLevel().getTargetScore()) {
             model.resetTimer();
             model.getLevel().nextLevel();
@@ -300,7 +294,12 @@ public class SpelViewPresenter {
             view.getLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
             view.getScore().setText(String.valueOf(model.getSpeler().getGameScore()));
 
-            endAlert.show();
+            alert.setTitle("Next Level");
+            alert.setHeaderText("Je gaat naar level " + model.getLevel().getGamelevel());
+            alert.getButtonTypes().clear();
+            alert.getButtonTypes().add(ButtonType.OK);
+            alert.show();
+
             stopwatchTimeline.play();
 
             updateView();
