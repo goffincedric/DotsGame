@@ -49,7 +49,7 @@ public class EndViewPresenter {
         Score.HighScoreManager hm = new Score.HighScoreManager();
         int newHighscore = hm.isNewHighscore(model.getSpeler().getTotaalScore());
         if(newHighscore>=0){
-            view.getLblNewHighScore().setText("!!!New Highscore!!!" + "\n" + "U staat op plaats " + newHighscore + " in de Top 10");
+            view.getLblNewHighScore().setText("!!!New Highscore!!!" + "\n" + "U staat op plaats " + newHighscore + " in de Top 10\nUw score: " + model.getSpeler().getTotaalScore());
 
         }else{
             view.getLblNewHighScore().setText("");

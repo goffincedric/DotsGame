@@ -35,6 +35,7 @@ public class StartViewPresenter {
                 SpelViewPresenter spelviewpresenter = new SpelViewPresenter(model, spelview);
                 view.getScene().setRoot(spelview);
                 spelview.getScene().getWindow().sizeToScene();
+                spelviewpresenter.addWindowEventHandlers();
             }
         });
 

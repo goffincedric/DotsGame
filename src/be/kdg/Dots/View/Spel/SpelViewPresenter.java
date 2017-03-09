@@ -12,7 +12,6 @@ import be.kdg.Dots.View.Pause.PauseViewPresenter;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
 import javafx.animation.Animation;
-import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
@@ -39,18 +38,16 @@ import java.util.Optional;
 public class SpelViewPresenter {
     private Dots model;
     private SpelView view;
-    private Timeline stopwatchTimeline;
-
     TextInputDialog dialogNaam;
+    Alert alert;
+
+    private Timeline stopwatchTimeline;
 
     public SpelViewPresenter(Dots model, SpelView view) {
         this.model = model;
         this.view = view;
 
         dialogNaam = new TextInputDialog();
-
-        addEventHandlers();
-        updateView();
 
         boolean naamIngegeven;
         do {
@@ -59,9 +56,10 @@ public class SpelViewPresenter {
             dialogNaam.setContentText("Please enter your name: ");
 
             Optional<String> result = dialogNaam.showAndWait();
+
             if (result.isPresent()) {
                 if (!result.get().isEmpty()) {
-                    model.getSpeler().setNaam(result.get());
+                    this.model.getSpeler().setNaam(result.get());
                     naamIngegeven = true;
                 }
             } else if (!result.isPresent()) {
@@ -74,6 +72,9 @@ public class SpelViewPresenter {
 
         setupTimelineBasis();
         stopwatchTimeline.play();
+        addEventHandlers();
+
+        updateView();
     }
 
     private void addEventHandlers() {
@@ -85,6 +86,15 @@ public class SpelViewPresenter {
                 }
             }
         });
+
+        stopwatchTimeline.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                endStatus();
+            }
+        });
+        updateView();
 
         for (Node node : view.getDotsGrid().getChildren()) {
             node.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -104,7 +114,7 @@ public class SpelViewPresenter {
                                     String.format("-fx-background-color: rgb(%d, %d, %d)", kleur.getRed(), kleur.getGreen(), kleur.getBlue())
                             );
                         }
-                        Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+                        alert = new Alert(Alert.AlertType.INFORMATION, e.getMessage(), ButtonType.OK);
                         alert.showAndWait();
                     }
                 }
@@ -120,7 +130,7 @@ public class SpelViewPresenter {
             public void handle(KeyEvent event) {
                 if (KeySpace.match(event)) {
                     if (model.getLijn().getAantalDots() < 2) {
-                        Alert alert = new Alert(Alert.AlertType.ERROR, "Lijn moet minstens 2 dots bevatten!", ButtonType.OK);
+                        alert = new Alert(Alert.AlertType.ERROR, "Lijn moet minstens 2 dots bevatten!", ButtonType.OK);
                         alert.showAndWait();
                     } else {
                     /* verwijdert gebruikte dots*/
@@ -173,8 +183,6 @@ public class SpelViewPresenter {
         view.getEnd().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                stopwatchTimeline.stop();
-
                 EndView endview = new EndView();
                 EndViewPresenter endViewPresenter = new EndViewPresenter(model, endview);
                 Stage endStage = new Stage();
@@ -208,6 +216,10 @@ public class SpelViewPresenter {
     }
 
     private void updateView() {
+        /*if (stopwatchTimeline.getStatus().equals(Animation.Status.STOPPED)) {
+            endStatus();
+        }*/
+
         for (int i = 0; i < model.getSpeelveld().length; i++) {
             for (int j = 0; j < model.getSpeelveld().length; j++) {
                 Kleuren kleur = model.getDotUitSpeelveld(i, j).getKleur();
@@ -226,7 +238,7 @@ public class SpelViewPresenter {
         view.getScene().getWindow().setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert = new Alert(Alert.AlertType.WARNING);
                 alert.setHeaderText("Hierdoor stop je het spel zonder te saven!");
                 alert.setContentText("Wil je dit zeker?");
                 alert.setTitle("Opgelet!");
@@ -259,15 +271,6 @@ public class SpelViewPresenter {
 
     private void endStatus() {
         if (model.getSpeler().getGameScore() >= model.getLevel().getTargetScore()) {
-            stopwatchTimeline.stop();
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Next Level");
-            alert.setHeaderText("Je gaat naar level " + model.getLevel().getGamelevel());
-            alert.getButtonTypes().clear();
-            alert.getButtonTypes().add(ButtonType.OK);
-            alert.showAndWait();
-
             model.resetTimer();
             model.getLevel().nextLevel();
             model.resetSpel();
@@ -276,6 +279,16 @@ public class SpelViewPresenter {
             view.getLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
             view.getScore().setText(String.valueOf(model.getSpeler().getGameScore()));
 
+            alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Next Level");
+            alert.setHeaderText("Je gaat naar level " + model.getLevel().getGamelevel());
+            alert.getButtonTypes().clear();
+            alert.getButtonTypes().add(ButtonType.OK);
+            Alert alert2 = new Alert(Alert.AlertType.INFORMATION, stopwatchTimeline.getStatus().name());
+            alert2.show();
+            alert.showAndWait();
+
+            stopwatchTimeline.stop();
             stopwatchTimeline.play();
 
             updateView();
@@ -285,9 +298,7 @@ public class SpelViewPresenter {
     }
 
     private void endGame() {
-        stopwatchTimeline.stop();
-
-        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Einde spel");
         alert.setHeaderText("Je hebt de targetscore niet bereikt, je spel wordt afgesloten");
         alert.getButtonTypes().clear();
