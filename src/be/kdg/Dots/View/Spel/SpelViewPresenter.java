@@ -35,6 +35,7 @@ import java.util.Optional;
  * @author Cédric Goffin
  * @version 1.0 6/02/2017 22:21
  */
+
 public class SpelViewPresenter {
     private Dots model;
     private SpelView view;
