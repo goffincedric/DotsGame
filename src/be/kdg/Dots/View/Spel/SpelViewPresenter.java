@@ -128,14 +128,13 @@ public class SpelViewPresenter {
             });
         }
 
-        view.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            //om lijn te submitten
-            final KeyCombination KeySpace = new KeyCodeCombination(KeyCode.D, KeyCombination.CONTROL_DOWN);
-            final KeyCombination KeyControlT = new KeyCodeCombination(KeyCode.T, KeyCombination.CONTROL_DOWN);
 
+
+        view.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if (KeySpace.match(event)) {
+                if (event.getCode() == KeyCode.ENTER) {
+
                     if (model.getLijn().getAantalDots() < 2) {
                         alert = new Alert(Alert.AlertType.ERROR, "Lijn moet minstens 2 dots bevatten!", ButtonType.OK);
                         alert.showAndWait();
@@ -153,11 +152,24 @@ public class SpelViewPresenter {
                     /* vernieuw spelview */
                         updateView();
                     }
-                } else if (KeyControlT.match(event)) {
-                    endStatus();
                 }
             }
-        });
+    });
+
+
+
+
+            view.setOnKeyReleased(new EventHandler<KeyEvent>() {
+                //om lijn te submitten
+                final KeyCombination KeyControlT = new KeyCodeCombination(KeyCode.T, KeyCombination.CONTROL_DOWN);
+
+                @Override
+                public void handle(KeyEvent event) {
+                    if (KeyControlT.match(event)) {
+                        endStatus();
+                    }
+                }
+            });
 
         view.getPause().setOnAction(new EventHandler<ActionEvent>() {
             @Override
