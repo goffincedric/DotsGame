@@ -46,11 +46,10 @@ public class EndViewPresenter {
 
         Score.HighScoreManager hm = new Score.HighScoreManager();
         int newHighscore = hm.isNewHighscore(model.getSpeler().getTotaalScore());
-        if(newHighscore>=0){
-            view.getLblNewHighScore().setText("!!!New Highscore!!!" + "\n" + "U staat op plaats " + newHighscore + " in de Top 10\nUw score: " + model.getSpeler().getTotaalScore());
-
+        if(newHighscore+1>=0 && newHighscore+1 <= 10){
+            view.getLblNewHighScore().setText("!!!New Highscore!!!" + "\n" + "U staat op plaats " + newHighscore+1 + " in de Top 10\nUw score: " + model.getSpeler().getTotaalScore());
         }else{
-            view.getLblNewHighScore().setText("");
+            view.getLblNewHighScore().setText("U heeft niet genoeg punten om in de top 10 te staan.");
         }
     }
 

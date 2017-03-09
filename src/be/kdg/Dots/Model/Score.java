@@ -155,18 +155,18 @@ public class Score extends Dots implements Serializable {
             ListIterator scoreIterator = scores.listIterator(scores.size());
 
 
-            int x = 9;
+            int x = scores.size()-1;
 
             while (x >= 0) {
-                if (score > scores.get(x).getBehaaldLevel()) {
+                if (scores.size() == 0) {
+                    return 1;
+                } else if (score > scores.get(x).getBehaaldLevel()) {
                     x--;
                     return x;
                 } else {
                     x--;
                     return -1;
                 }
-
-
             }
             return -1;
         }

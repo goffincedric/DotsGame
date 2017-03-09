@@ -14,6 +14,7 @@ import be.kdg.Dots.View.Start.StartViewPresenter;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -90,6 +91,7 @@ public class SpelViewPresenter {
             }
         });
 
+
         for (Node node : view.getDotsGrid().getChildren()) {
             node.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
@@ -99,7 +101,7 @@ public class SpelViewPresenter {
 
                         Kleuren kleur = model.getLijn().getLijn().get(0).getKleur();
                         view.getButtonFromBtns(view.getDotsGrid().getColumnIndex(node), view.getDotsGrid().getRowIndex(node)).setStyle(
-                                String.format("-fx-effect: dropshadow(three-pass-box, darkgray, 2, 2, 0, 0); -fx-background-color: rgb(%d, %d, %d)", kleur.getRed(), kleur.getGreen(), kleur.getBlue())
+                                String.format("-fx-effect: dropshadow(three-pass-box, black, 3, 3, 0, 0); -fx-background-color: rgb(%d, %d, %d)", kleur.getRed(), kleur.getGreen(), kleur.getBlue())
                         );
                     } catch (DotsException e) {
                         if (!model.getLijn().getHeeftToegevoegd()) {
@@ -118,8 +120,6 @@ public class SpelViewPresenter {
                 }
             });
         }
-
-
 
         view.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -149,22 +149,19 @@ public class SpelViewPresenter {
                     }
                 }
             }
-    });
+        });
 
+        view.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            //om lijn te submitten
+            final KeyCombination KeyControlT = new KeyCodeCombination(KeyCode.T, KeyCombination.CONTROL_DOWN);
 
-
-
-            view.setOnKeyReleased(new EventHandler<KeyEvent>() {
-                //om lijn te submitten
-                final KeyCombination KeyControlT = new KeyCodeCombination(KeyCode.T, KeyCombination.CONTROL_DOWN);
-
-                @Override
-                public void handle(KeyEvent event) {
-                    if (KeyControlT.match(event)) {
-                        endStatus();
-                    }
+            @Override
+            public void handle(KeyEvent event) {
+                if (KeyControlT.match(event)) {
+                    endStatus();
                 }
-            });
+            }
+        });
 
         view.getPause().setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -310,12 +307,12 @@ public class SpelViewPresenter {
     }
 
     private void endGame() {
-        alert = new Alert(Alert.AlertType.WARNING);
+        /*alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Einde spel");
         alert.setHeaderText("Je hebt de targetscore niet bereikt, je spel wordt afgesloten");
         alert.getButtonTypes().clear();
         alert.getButtonTypes().add(ButtonType.OK);
-        alert.showAndWait();
+        alert.show();*/
 
         //Endview tonen
         EndView endview = new EndView();
@@ -324,25 +321,38 @@ public class SpelViewPresenter {
         endStage.initOwner(view.getScene().getWindow());
         endStage.initModality(Modality.APPLICATION_MODAL);
         endStage.setScene(new Scene(endview));
-        endStage.showAndWait();
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                endStage.showAndWait();
 
-        if (endViewPresenter.getResult() == null) {
+                if (endViewPresenter.getResult() == null) {
+                    StartView startView = new StartView();
+                    StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
+                    Stage startStage = new Stage();
+                    startStage.setScene(new Scene(startView));
+                    startViewPresenter.addWindowEventHandlers();
+                    startStage.show();
+                    view.getEnd().getScene().getWindow().hide();
+                    startStage.toFront();
+                } else if (endViewPresenter.getResult().equals(endview.getBtnRestart())) {
+                    resetSpel();
+                } else if (endViewPresenter.getResult().equals(endview.getBtnHome())) {
+                    StartView startView = new StartView();
+                    StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
+                    Stage startStage = new Stage();
+                    startStage.setScene(new Scene(startView));
+                    startViewPresenter.addWindowEventHandlers();
+                    startStage.show();
+                    view.getEnd().getScene().getWindow().hide();
+                    startStage.toFront();
+                }
+                //score manager
+                Score.HighScoreManager hm = new Score.HighScoreManager();
+                hm.addScore(model.getSpeler().getNaam(), model.getSpeler().getTotaalScore(), model.getLevel().getGamelevel());
+            }
+        });
 
-        } else if (endViewPresenter.getResult().equals(endview.getBtnRestart())) {
-            resetSpel();
-        } else if (endViewPresenter.getResult().equals(endview.getBtnHome())) {
-            StartView startView = new StartView();
-            StartViewPresenter startViewPresenter = new StartViewPresenter(model, startView);
-            Stage startStage = new Stage();
-            startStage.setScene(new Scene(startView));
-            startViewPresenter.addWindowEventHandlers();
-            startStage.show();
-            view.getEnd().getScene().getWindow().hide();
-            startStage.toFront();
-        }
-        //score manager
-        Score.HighScoreManager hm = new Score.HighScoreManager();
-        hm.addScore(model.getSpeler().getNaam(), model.getSpeler().getTotaalScore(), model.getLevel().getGamelevel());
     }
 
     private void resetSpel() {
