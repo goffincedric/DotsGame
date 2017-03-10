@@ -125,7 +125,6 @@ public class SpelViewPresenter {
             @Override
             public void handle(KeyEvent event) {
                 if (event.getCode() == KeyCode.ENTER) {
-
                     if (model.getLijn().getAantalDots() < 2) {
                         alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Fout");
@@ -147,18 +146,6 @@ public class SpelViewPresenter {
                     /* vernieuw spelview */
                         updateView();
                     }
-                }
-            }
-        });
-
-        view.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            //om lijn te submitten
-            final KeyCombination KeyControlT = new KeyCodeCombination(KeyCode.T, KeyCombination.CONTROL_DOWN);
-
-            @Override
-            public void handle(KeyEvent event) {
-                if (KeyControlT.match(event)) {
-                    endStatus();
                 }
             }
         });
@@ -198,32 +185,8 @@ public class SpelViewPresenter {
         view.getEnd().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                EndView endview = new EndView();
-                EndViewPresenter endViewPresenter = new EndViewPresenter(model, endview);
-                Stage endStage = new Stage();
-                endStage.initOwner(view.getScene().getWindow());
-                endStage.initModality(Modality.APPLICATION_MODAL);
-                endStage.setScene(new Scene(endview));
-                endStage.showAndWait();
-
-                if (endViewPresenter.getResult() == null) {
-
-                } else if (endViewPresenter.getResult().equals(endview.getBtnRestart())) {
-                    resetSpel();
-                } else if (endViewPresenter.getResult().equals(endview.getBtnHome())) {
-                    StartView startView = new StartView();
-                    StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
-                    Stage startStage = new Stage();
-                    startStage.setScene(new Scene(startView));
-                    startViewPresenter.addWindowEventHandlers();
-                    startStage.show();
-                    view.getEnd().getScene().getWindow().hide();
-                    startStage.toFront();
-                }
-
-                //score manager
-                Score.HighScoreManager hm = new Score.HighScoreManager();
-                hm.addScore(model.getSpeler().getNaam(), model.getSpeler().getTotaalScore(), model.getLevel().getGamelevel());
+                stopwatchTimeline.stop();
+                endGame();
             }
         });
     }
@@ -307,7 +270,6 @@ public class SpelViewPresenter {
     }
 
     private void endGame() {
-
         //Endview tonen
         EndView endview = new EndView();
         EndViewPresenter endViewPresenter = new EndViewPresenter(model, endview);
