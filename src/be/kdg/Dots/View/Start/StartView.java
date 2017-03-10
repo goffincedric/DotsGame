@@ -3,7 +3,6 @@ package be.kdg.Dots.View.Start;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -28,8 +27,6 @@ public class StartView extends BorderPane {
     private HBox footer;
     private VBox topbox;
 
-
-
     public StartView() {
         initialiseNodes();
         layoutNodes();
@@ -47,19 +44,14 @@ public class StartView extends BorderPane {
         btnSettings = new Button("Settings");
         btnStart = new Button();
 
-
         footer = new HBox();
         topbox = new VBox();
-
     }
 
     private void layoutNodes() {
         this.setMinSize(750, 750);
         this.setStyle("-fx-background-color: white");
         this.setPadding(new Insets(25, 0, 15, 0));
-
-        //dots.setAlignment(Pos.CENTER);
-
 
         btnStart.setGraphic(play);
         btnStart.setPrefSize(100, 100);
@@ -87,15 +79,14 @@ public class StartView extends BorderPane {
         logo.setFitWidth(200);
         logo.setPreserveRatio(true);
 
-
-
-
-
         footer.getChildren().addAll(btnHighScores, btnSettings, btnHelp);
         footer.setAlignment(Pos.CENTER);
         footer.setSpacing(400);
 
-        topbox.getChildren().addAll(naam, btnStart,logo);
+        topbox.getChildren().add(naam);
+        topbox.getChildren().add(btnStart);
+        topbox.getChildren().add(logo);
+
         topbox.setAlignment(Pos.CENTER);
         topbox.setSpacing(30.0);
 

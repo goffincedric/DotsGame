@@ -54,11 +54,6 @@ public class EndViewPresenter {
         }
     }
 
-
-    public void addWindowEventHandlers() {
-
-    }
-
     public Button getResult() {
         return result;
     }

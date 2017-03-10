@@ -1,7 +1,6 @@
 package be.kdg.Dots.Model;
 
 import javafx.scene.paint.Color;
-import java.util.Random;
 
 /**
  * @author Cédric Goffin
@@ -25,7 +24,6 @@ public enum Kleuren {
     Bruin(Color.rgb(135, 60, 41));
 
     private Color color;
-    private Random random = new Random();
 
     Kleuren(Color color) {
         this.color = color;
