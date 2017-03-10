@@ -307,12 +307,6 @@ public class SpelViewPresenter {
     }
 
     private void endGame() {
-        /*alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Einde spel");
-        alert.setHeaderText("Je hebt de targetscore niet bereikt, je spel wordt afgesloten");
-        alert.getButtonTypes().clear();
-        alert.getButtonTypes().add(ButtonType.OK);
-        alert.show();*/
 
         //Endview tonen
         EndView endview = new EndView();
