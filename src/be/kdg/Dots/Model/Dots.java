@@ -10,7 +10,7 @@ import java.util.Random;
  * @version 1.0 5/02/2017 14:32
  */
 public class Dots {
-    private int gehaaldeScore;
+
     private final int MAXRIJ = 7;
     private final int MAXKOLOM = 7;
     private Dot[][] speelveld;

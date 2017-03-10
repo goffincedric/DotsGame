@@ -129,6 +129,8 @@ public class Score extends Dots implements Serializable {
             }
         }
 
+        //scores herschrijven
+
         public String getHighscoreString() {
             String highscoreString = "";
             int max = 10;
@@ -151,22 +153,23 @@ public class Score extends Dots implements Serializable {
         public int isNewHighscore(int score) {
             ArrayList<Score> scores;
             scores = getScores();
+            int x;
 
-            ListIterator scoreIterator = scores.listIterator(scores.size());
 
-
-            int x = scores.size()-1;
+            if(scores.size() <= 9){
+                x=scores.size()-1;
+            }else{
+                x=9;
+            }
 
             while (x >= 0) {
-                if (scores.size() == 0) {
-                    return 1;
-                } else if (score > scores.get(x).getBehaaldLevel()) {
+                if (score > scores.get(x).getScore()) {
                     x--;
-                    return x;
                 } else {
-                    x--;
-                    return -1;
+                    return x+2;
                 }
+
+
             }
             return -1;
         }

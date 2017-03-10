@@ -49,41 +49,12 @@ public class Speler {
         this.totaalScore = this.totaalScore + totaalScore;
     }
 
-    public void setTotaalScore(int totaalScore) {
-        this.totaalScore = totaalScore;
-    }
 
-    public void addPunten(int score) {
-        this.gameScore = this.gameScore + score;
-    }
 
     @Override
     public String toString() {
         return "Speler 1: " + this.naam;
     }
 
-    public void voegHighScoreToe() {
-        ObjectOutputStream outputStream = null;
-        ObjectInputStream inputStream = null;
 
-        try {
-
-
-        } catch (NumberFormatException ex) {
-
-        }
-    }
-
-    //top 10 scores nog wegschrijven naar file
-
-    // vervang Hashmap value naar List van int + verander bijbehorende score
-    /*public void nieuweHighscore() {
-        if (!Highscores.containsKey(getNaam().toLowerCase())) {
-            Highscores.put(getNaam().toLowerCase(), this.score);
-        }
-        if (Highscores.get(getNaam().toLowerCase()) < this.score) {
-            Highscores.put(getNaam().toLowerCase(), this.score);
-        }
-
-    }*/
 }

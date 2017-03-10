@@ -250,7 +250,6 @@ public class SpelViewPresenter {
             model.resetTimer();
             model.getLevel().nextLevel();
             model.resetSpel();
-            model.getSpeler().addPuntenTotaalScore(model.getSpeler().getGameScore());
             model.getSpeler().setGameScore(0);
             view.getLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
             view.getScore().setText(String.valueOf(model.getSpeler().getGameScore()));
