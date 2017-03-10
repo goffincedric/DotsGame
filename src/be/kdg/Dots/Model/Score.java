@@ -1,7 +1,9 @@
 package be.kdg.Dots.Model;
 
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * @author Cédric Goffin
@@ -37,13 +39,11 @@ public class Score extends Dots implements Serializable {
         public int compare(Score score1, Score score2) {
             int sc1 = score1.getScore();
             int sc2 = score2.getScore();
-
             if (sc1 > sc2) {
                 return -1;
-
             } else if (sc1 > sc2) {
                 return +1;
-            } else {
+            } else if (sc1 == sc2) {
                 if (score1.getBehaaldLevel() > score2.getBehaaldLevel()) {
                     return -1;
                 } else if (score1.getBehaaldLevel() < score2.getBehaaldLevel()) {
@@ -51,8 +51,8 @@ public class Score extends Dots implements Serializable {
                 } else {
                     return 0;
                 }
-
             }
+            return 0;
         }
     }
 
@@ -130,6 +130,8 @@ public class Score extends Dots implements Serializable {
         }
 
         //scores herschrijven
+        ///alles level hoger is dan komt hij hoger
+
 
         public String getHighscoreString() {
             String highscoreString = "";
