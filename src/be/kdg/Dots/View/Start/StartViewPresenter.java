@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 /**
- * @author Cédric Goffin
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 22:21
  */
 public class StartViewPresenter {

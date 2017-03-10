@@ -3,7 +3,7 @@ package be.kdg.DotsConsole;
 import java.util.Random;
 
 /**
- * @author Thomas Verhoeven
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 21:32
  */
 public class DotConsole {

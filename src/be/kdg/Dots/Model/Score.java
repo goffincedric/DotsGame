@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 /**
- * @author Cédric Goffin
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 5/02/2017 14:56
  */
 public class Score extends Dots implements Serializable {

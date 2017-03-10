@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 /**
- * @author Cédric Goffin
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 8/03/2017 11:21
  */
 

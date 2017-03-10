@@ -3,14 +3,12 @@ package be.kdg;
 import be.kdg.Dots.Model.Dots;
 import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
-import be.kdg.DotsConsole.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.util.Scanner;
 
 /**
- * @author Cédric Goffin
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 5/02/2017 14:36
  */
 public class Main extends Application {

@@ -11,7 +11,7 @@ import javafx.stage.Window;
 import static be.kdg.Dots.Model.Level.Moeilijkheid.*;
 
 /**
- * @author Thomas Verhoeven
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 9/03/2017 10:49
  */
 public class SettingViewPresenter {

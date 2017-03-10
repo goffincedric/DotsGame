@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Thomas Verhoeven
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 22:01
  */
 public class LijnConsole {

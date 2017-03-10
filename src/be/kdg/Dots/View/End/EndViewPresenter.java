@@ -7,7 +7,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
 /**
- * @author Cédric Goffin
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 22:21
  */
 public class EndViewPresenter {

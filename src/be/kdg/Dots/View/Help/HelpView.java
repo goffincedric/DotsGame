@@ -1,6 +1,5 @@
 package be.kdg.Dots.View.Help;
 
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -8,7 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.web.WebView;
 
 /**
- * @author Cédric Goffin
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 8/03/2017 11:21
  */
 

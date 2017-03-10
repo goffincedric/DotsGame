@@ -3,7 +3,7 @@ package be.kdg.Dots.Model;
 
 
 /**
- * @author Cédric Goffin
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 5/02/2017 14:50
  */
 public class Dot {

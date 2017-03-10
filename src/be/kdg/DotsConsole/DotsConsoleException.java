@@ -1,7 +1,7 @@
 package be.kdg.DotsConsole;
 
 /**
- * @author Cédric Goffin
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 16/02/2017 10:25
  */
 public class DotsConsoleException extends Exception {

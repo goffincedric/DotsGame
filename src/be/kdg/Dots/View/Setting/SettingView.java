@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
 /**
- * @author Thomas Verhoeven
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 9/03/2017 10:49
  */
 public class SettingView extends VBox{

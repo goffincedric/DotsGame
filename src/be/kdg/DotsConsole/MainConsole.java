@@ -1,13 +1,10 @@
 package be.kdg.DotsConsole;
 
-import be.kdg.Dots.Model.Dot;
-import be.kdg.Dots.Model.Speler;
-
 import java.util.Scanner;
 
 
 /**
- * @author Cédric Goffin
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 5/02/2017 14:55
  */
 public class MainConsole {

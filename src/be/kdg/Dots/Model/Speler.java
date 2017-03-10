@@ -1,10 +1,8 @@
 package be.kdg.Dots.Model;
 
 
-import java.io.*;
-
 /**
- * @author Cédric Goffin
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 5/02/2017 14:56
  */
 public class Speler {

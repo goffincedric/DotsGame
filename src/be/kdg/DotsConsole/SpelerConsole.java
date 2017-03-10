@@ -1,7 +1,7 @@
 package be.kdg.DotsConsole;
 
 /**
- * @author Thomas Verhoeven
+ * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 21:27
  */
 public class SpelerConsole {
