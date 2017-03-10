@@ -19,7 +19,20 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Scanner k = new Scanner(System.in);
+        model = new Dots();
+        StartView view = new StartView();
+        StartViewPresenter presenter = new StartViewPresenter(model, view);
+        Scene scene = new Scene(view);
+                /*Font.loadFont(getClass().getResourceAsStream("CSS/RalewayDots.ttf"),80);*/
+        scene.getStylesheets().add("CSS/css.css");
+        primaryStage.setTitle("Dots");
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
+        presenter.addWindowEventHandlers();
+        primaryStage.show();
+        primaryStage.toFront();
+
+        /*Scanner k = new Scanner(System.in);
         System.out.printf("Kies een versie:\nConsole: 1\nGrafisch: 2\n\nGeef uw keuze in: ");
 
         switch (k.nextInt()) {
@@ -33,7 +46,6 @@ public class Main extends Application {
                 StartView view = new StartView();
                 StartViewPresenter presenter = new StartViewPresenter(model, view);
                 Scene scene = new Scene(view);
-                /*Font.loadFont(getClass().getResourceAsStream("CSS/RalewayDots.ttf"),80);*/
                 scene.getStylesheets().add("CSS/css.css");
                 primaryStage.setTitle("Dots");
                 primaryStage.setScene(scene);
@@ -47,7 +59,7 @@ public class Main extends Application {
                 System.out.println("Foute invoer, als straf krijg je de console versie:)");
                 break;
 
-        }
+        }*/
 
 
     }
