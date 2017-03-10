@@ -57,7 +57,7 @@ public class SpelViewPresenter {
         do {
             naamIngegeven = false;
             dialogNaam.setTitle("Speler");
-            dialogNaam.setContentText("Please enter your name: ");
+            dialogNaam.setHeaderText("Geef uw naam in: ");
 
             Optional<String> result = dialogNaam.showAndWait();
 
@@ -67,10 +67,9 @@ public class SpelViewPresenter {
                     naamIngegeven = true;
                 }
             } else if (!result.isPresent()) {
-                StartView startview = new StartView();
-                StartViewPresenter startviewpresenter = new StartViewPresenter(model, startview);
-                view.getScene().setRoot(startview);
-                startview.getScene().getWindow().sizeToScene();
+                StartView startView = new StartView();
+                StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
+                view.getScene().setRoot(startView);
             }
         } while (!naamIngegeven);
 

@@ -13,6 +13,8 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -38,13 +40,17 @@ public class StartViewPresenter {
         view.getBtnStart().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                SpelView spelview = new SpelView();
-                SpelViewPresenter spelviewpresenter = new SpelViewPresenter(model, spelview);
-               // model.getLevel().setMoeilijkheidsgraad(moeilijkheidStart);
-                //model.getLevel().setTargetScore(moeilijkheidStart.getStartScore());
-                view.getScene().setRoot(spelview);
-                spelview.getScene().getWindow().sizeToScene();
-                spelviewpresenter.addWindowEventHandlers();
+                try {
+                    SpelView spelview = new SpelView();
+                    SpelViewPresenter spelviewpresenter = new SpelViewPresenter(model, spelview);
+                    view.getScene().setRoot(spelview);
+                    spelview.getScene().getWindow().sizeToScene();
+                    spelviewpresenter.addWindowEventHandlers();
+                    // model.getLevel().setMoeilijkheidsgraad(moeilijkheidStart);
+                    //model.getLevel().setTargetScore(moeilijkheidStart.getStartScore());
+                } catch (NullPointerException e) {
+                    event.consume();
+                }
             }
         });
 
@@ -66,9 +72,10 @@ public class StartViewPresenter {
                 Score.HighScoreManager hm = new Score.HighScoreManager();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Highscores TOP 10");
-                alert.setHeaderText("Dit zijn de top 10 speler");
+                alert.setHeaderText("Dit zijn de top 10 spelers");
                 alert.setContentText(hm.getHighscoreString());
-                alert.showAndWait();
+                alert.getDialogPane().setStyle("-fx-font-family: 'Lucida Console'");
+                alert.show();
             }
         });
 

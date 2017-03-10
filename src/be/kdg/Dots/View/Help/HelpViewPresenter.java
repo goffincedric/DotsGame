@@ -35,6 +35,6 @@ public class HelpViewPresenter {
     }
 
     private void updateView() {
-        view.getWebView().getEngine().load(getClass().getResource("Help.html").toExternalForm());
+        view.getWebView().getEngine().load(getClass().getResource("Help/Help.html").toExternalForm());
     }
 }
