@@ -5,6 +5,7 @@ import be.kdg.Dots.Model.Level;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
 
 import static be.kdg.Dots.Model.Level.Moeilijkheid.*;
@@ -23,8 +24,6 @@ public class SettingViewPresenter {
     public SettingViewPresenter(Dots model, SettingView view) {
         this.model = model;
         this.view = view;
-
-
         addEventHandlers();
         updateView();
     }
@@ -42,42 +41,36 @@ public class SettingViewPresenter {
         view.getBtnEasy().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                moeilijkheid = EASY;
+                model.getLevel().setMoeilijkheidsgraad(Level.Moeilijkheid.EASY);
             }
         });
-
 
 
         view.getBtnNormal().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                moeilijkheid = NORMAL;
-                result = view.getBtnNormal();
+                model.getLevel().setMoeilijkheidsgraad(Level.Moeilijkheid.NORMAL);
             }
         });
 
         view.getBtnMedium().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                moeilijkheid = MEDIUM;
-                result = view.getBtnMedium();
+                model.getLevel().setMoeilijkheidsgraad(Level.Moeilijkheid.MEDIUM);
             }
         });
 
         view.getBtnHard().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                moeilijkheid = HARD;
-                result = view.getBtnHard();
+                model.getLevel().setMoeilijkheidsgraad(Level.Moeilijkheid.HARD);
             }
         });
 
-        view.getBtnExtreem().setOnAction(new EventHandler<ActionEvent>() {
+        view.getBtnExtreem().setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(ActionEvent event) {
-                moeilijkheid = Level.Moeilijkheid.EXTREEM;
-                result = view.getBtnExtreem();
-
+            public void handle(MouseEvent event) {
+                model.getLevel().setMoeilijkheidsgraad(Level.Moeilijkheid.EXTREEM);
             }
         });
     }

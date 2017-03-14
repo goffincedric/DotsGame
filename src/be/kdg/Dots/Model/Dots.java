@@ -28,7 +28,6 @@ public class Dots {
     Level level;
     Lijn lijn;
 
-
     public Dots() {
         this.speler = new Speler();
         this.level = new Level();

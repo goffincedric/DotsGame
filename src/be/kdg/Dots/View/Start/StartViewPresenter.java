@@ -89,7 +89,6 @@ public class StartViewPresenter {
                 settingStage.initModality(Modality.APPLICATION_MODAL);
                 settingStage.setScene(new Scene(settingView));
                 settingStage.showAndWait();
-                //moeilijkheidStart = settingViewPresenter.getMoeilijkheid();
             }
         });
     }
