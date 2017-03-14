@@ -20,7 +20,7 @@ public class EndViewPresenter {
         this.view = view;
         addEventHandlers();
         updateView();
-        view.getScene().getStylesheets().add("be/kdg/Dots/stylesheets/stylesheet.css");
+        //view.getScene().getStylesheets().add("be/kdg/Dots/stylesheets/stylesheet.css");
     }
 
     private void addEventHandlers() {

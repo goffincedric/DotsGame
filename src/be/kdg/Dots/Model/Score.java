@@ -1,8 +1,6 @@
 package be.kdg.Dots.Model;
 
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -92,7 +90,7 @@ public class Score extends Dots implements Serializable {
 
         private void loadScoreFile() {
             try {
-                inputStream = new ObjectInputStream(new FileInputStream(HIGHSCORE_FILE));
+                inputStream = new ObjectInputStream(new FileInputStream("E:" + File.separator + "OOPROG" + File.separator + "DotsGame" + File.separator + "src" + File.separator + "be" + File.separator + "kdg" + File.separator + "Dots" + File.separator + "View" + File.separator + "images"));
                 scores = (ArrayList<Score>) inputStream.readObject();
             } catch (FileNotFoundException e) {
                 System.out.println("[LAAD] Kan file met Highscores niet vinden");
@@ -114,7 +112,7 @@ public class Score extends Dots implements Serializable {
 
         public void updateScoreFile() {
             try {
-                outputStream = new ObjectOutputStream(new FileOutputStream(HIGHSCORE_FILE));
+                outputStream = new ObjectOutputStream(new FileOutputStream("E:" + File.separator + "OOPROG" + File.separator + "DotsGame" + File.separator + "src" + File.separator + "be" + File.separator + "kdg" + File.separator + "Dots" + File.separator + "View" + File.separator + "images"));
                 outputStream.writeObject(scores);
 
             } catch (FileNotFoundException e) {
