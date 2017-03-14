@@ -79,8 +79,6 @@ public class SpelViewPresenter {
 
         addEventHandlers();
         updateView();
-
-
     }
 
     private void addEventHandlers() {
