@@ -56,7 +56,7 @@ public class EndView extends VBox {
     private void layoutNodes() {
 
         this.setStyle("-fx-font: 16px Consolas; -fx-background-color: ghostwhite;");
-        this.setMinSize(400, 400);
+        this.setMinSize(500, 500);
 
         levelBox.getChildren().addAll(lblLevelTekst, lblHuidigLevel);
         scoreBox.getChildren().addAll(lblScoreTekst, lblHuidigeScore);

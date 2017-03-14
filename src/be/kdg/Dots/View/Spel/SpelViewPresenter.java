@@ -51,11 +51,9 @@ public class SpelViewPresenter {
     private Timeline stopwatchTimeline;
     Properties p = new Properties(System.getProperties());
 
-
-    String musicFile = p.getProperty("user.dir") + File.separator + "src" + File.separator + "be" + File.separator + "kdg" + File.separator + "Dots" + File.separator + "images" + File.separator + "sound.mp3";
+    String musicFile = p.getProperty("user.dir") + File.separator + "src" + File.separator + "be" + File.separator + "kdg" + File.separator + "Dots" + File.separator + "sounds" + File.separator + "sound.mp3";
     Media sound = new Media(new File(musicFile).toURI().toString());
     MediaPlayer mediaPlayer = new MediaPlayer(sound);
-
 
     //home dir
     public SpelViewPresenter(Dots model, SpelView view) {
@@ -289,6 +287,7 @@ public class SpelViewPresenter {
             updateView();
         } else {
             endGame();
+
         }
     }
 
