@@ -1,9 +1,12 @@
 package be.kdg.Dots.Model;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Properties;
 
 /**
  * @author Cédric Goffin & Thomas Verhoeven
@@ -59,13 +62,15 @@ public class Score extends Dots implements Serializable {
 
     public static class HighScoreManager {
         private ArrayList<Score> scores;
-        private static final String HIGHSCORE_FILE = "/be/kdg/HighScores.dat";
+        Properties properties = System.getProperties();
+        private static String HIGHSCORE_FILE;
 
         ObjectInputStream inputStream = null;
         ObjectOutputStream outputStream = null;
 
         public HighScoreManager() {
             scores = new ArrayList<Score>();
+            HIGHSCORE_FILE = properties.getProperty("user.home") + File.separator + "HighScores.dat";
         }
 
         public ArrayList<Score> getScores() {
