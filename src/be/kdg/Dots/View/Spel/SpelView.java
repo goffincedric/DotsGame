@@ -66,8 +66,12 @@ public class SpelView extends GridPane {
     }
 
     private void layoutNodes() {
+        this.setStyle("-fx-background-color: ghostwhite;");
+        topLeft.setStyle(" -fx-font: 22px Consolas;");
+        topRight.setStyle("-fx-font: 22px Consolas;");
+        lblTimer.setStyle("-fx-font: 22px Consolas;");
+        timerTekst.setStyle("-fx-font: 22px Consolas;");
         this.setMinSize(750, 750);
-        this.setStyle("-fx-background-color: ghostwhite; -fx-font-size: 16; -fx-font-family: 'Ubuntu', sans-serif;");
         this.setVgap(10);
         this.setHgap(10);
         this.setStyle("");

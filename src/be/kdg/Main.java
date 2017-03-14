@@ -21,7 +21,6 @@ public class Main extends Application {
         StartView view = new StartView();
         StartViewPresenter presenter = new StartViewPresenter(model, view);
         Scene scene = new Scene(view);
-        scene.getStylesheets().add("be/kdg/Dots/stylesheets/stylesheet.css");
         primaryStage.setTitle("Dots");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);

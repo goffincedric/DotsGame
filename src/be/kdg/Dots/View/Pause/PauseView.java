@@ -65,7 +65,7 @@ public class PauseView extends VBox {
     private void layoutNodes() {
         this.setMinSize(400, 400);
 
-        this.setStyle("-fx-background-color: ghostwhite");
+        this.setStyle("-fx-background-color: ghostwhite; -fx-font: 18px Consolas;");
 
         buttonBox.getChildren().addAll(btnContinue, btnRestart, btnHome);
         scoreBox.getChildren().addAll(lblScoreTekst, lblScore);
