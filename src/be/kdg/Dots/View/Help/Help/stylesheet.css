@@ -1,0 +1,31 @@
+html {
+    font-family: Arial, monospace;
+
+}
+
+p {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+h5 {
+    font-size: 1.2em;
+    margin-bottom: 2px;
+}
+
+a {
+    text-decoration: underline;
+    color: darkblue;
+}
+
+#credits {
+    text-align: center;
+}
+

@@ -2,9 +2,11 @@ package be.kdg.Dots.View.Setting;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 /**
  * @author Cédric Goffin & Thomas Verhoeven
@@ -19,6 +21,9 @@ public class SettingView extends VBox{
     Button btnExtreem;
     Button btnHome;
     Button btnSound;
+
+    Label lblSettings;
+
 
     ImageView imgHome;
     ImageView imgSoundOff;
@@ -41,16 +46,28 @@ public class SettingView extends VBox{
         imgSoundOff = new ImageView(new Image("be/kdg/Dots/images/mute.png"));
         imgSoundOn = new ImageView(new Image("be/kdg/Dots/images/soundon.png"));
 
+        lblSettings = new Label("Settings");
+
 
     }
 
     private void layoutNodes() {
         this.setMinSize(750, 750);
-        this.setStyle("-fx-background-color: ghostwhite; -fx-font-size: 16; -fx-font-family: 'Ubuntu', sans-serif;");
+        this.setStyle("-fx-background-color: ghostwhite; -fx-font-size: 16;");
         this.setAlignment(Pos.CENTER);
-        this.getChildren().addAll(btnEasy, btnNormal, btnMedium, btnHard, btnExtreem, btnSound, btnHome);
-        this.setSpacing(15);
+        this.getChildren().add(lblSettings);
+        this.getChildren().add(btnEasy);
+        this.getChildren().add(btnNormal);
+        this.getChildren().add(btnMedium);
+        this.getChildren().add(btnHard);
+        this.getChildren().add(btnExtreem);
+        this.getChildren().add(btnSound);
+        this.getChildren().add(btnHome);
+        // this.getChildren().addAll(lblSettings, btnEasy, btnNormal, btnMedium, btnHard, btnExtreem, btnSound, btnHome);
+        this.setSpacing(20);
 
+        lblSettings.setStyle("-fx-font: 40px Consolas;");
+        lblSettings.setTextFill(Color.BLACK);
         btnHome.setGraphic(imgHome);
         btnSound.setGraphic(imgSoundOff);
 
