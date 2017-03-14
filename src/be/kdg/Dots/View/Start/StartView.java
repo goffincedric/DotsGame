@@ -15,14 +15,8 @@ import javafx.scene.layout.VBox;
  */
 public class StartView extends BorderPane {
     private Button btnStart;
-    private ImageView play;
-    private ImageView naam;
-    private ImageView logo;
-    private ImageView trophy;
-    private ImageView help;
-    private Button btnHighScores;
-    private Button btnHelp;
-    private Button btnSettings;
+    private ImageView play, naam, logo, trophy, help, settings;
+    private Button btnHighScores, btnHelp, btnSettings;
 
     private HBox footer;
     private VBox topbox;
@@ -39,9 +33,10 @@ public class StartView extends BorderPane {
         logo = new ImageView(new Image("be/kdg/Dots/View/images/Logo.png"));
         play = new ImageView(new Image("be/kdg/Dots/View/images/Play.png"));
         help = new ImageView(new Image("be/kdg/Dots/View/images/Help.png"));
+        settings = new ImageView(new Image("be/kdg/Dots/View/images/Settings.png"));
         btnHelp = new Button();
         btnHighScores = new Button();
-        btnSettings = new Button("Settings");
+        btnSettings = new Button();
         btnStart = new Button();
 
         footer = new HBox();
@@ -73,7 +68,10 @@ public class StartView extends BorderPane {
         help.setFitWidth(50);
         trophy.setPreserveRatio(true);
 
+        settings.setFitHeight(50);
+        settings.setFitWidth(50);
         btnSettings.setPrefSize(50,50);
+        btnSettings.setGraphic(settings);
 
         logo.setFitHeight(200);
         logo.setFitWidth(200);
@@ -89,9 +87,6 @@ public class StartView extends BorderPane {
 
         topbox.setAlignment(Pos.CENTER);
         topbox.setSpacing(30.0);
-
-
-
 
         setTop(topbox);
 
