@@ -11,12 +11,9 @@ import java.util.Properties;
  * @version 1.0 5/02/2017 14:56
  */
 public class Score extends Dots implements Serializable {
-
-
     private int Score; //via getters krijgen in presenter
     private String Naam;
     private int BehaaldLevel;
-
 
     public Score(String naam, int score, int level) {
         this.Naam = naam;
@@ -90,7 +87,7 @@ public class Score extends Dots implements Serializable {
 
         private void loadScoreFile() {
             try {
-                inputStream = new ObjectInputStream(new FileInputStream("E:" + File.separator + "OOPROG" + File.separator + "DotsGame" + File.separator + "src" + File.separator + "be" + File.separator + "kdg" + File.separator + "Dots" + File.separator + "View" + File.separator + "images"));
+                inputStream = new ObjectInputStream(new FileInputStream(HIGHSCORE_FILE));
                 scores = (ArrayList<Score>) inputStream.readObject();
             } catch (FileNotFoundException e) {
                 System.out.println("[LAAD] Kan file met Highscores niet vinden");
@@ -112,7 +109,7 @@ public class Score extends Dots implements Serializable {
 
         public void updateScoreFile() {
             try {
-                outputStream = new ObjectOutputStream(new FileOutputStream("E:" + File.separator + "OOPROG" + File.separator + "DotsGame" + File.separator + "src" + File.separator + "be" + File.separator + "kdg" + File.separator + "Dots" + File.separator + "View" + File.separator + "images"));
+                outputStream = new ObjectOutputStream(new FileOutputStream(HIGHSCORE_FILE));
                 outputStream.writeObject(scores);
 
             } catch (FileNotFoundException e) {

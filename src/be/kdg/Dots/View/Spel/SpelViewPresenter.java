@@ -103,6 +103,8 @@ public class SpelViewPresenter {
                         view.getButtonFromBtns(view.getDotsGrid().getColumnIndex(node), view.getDotsGrid().getRowIndex(node)).setStyle(
                                 String.format("-fx-effect: dropshadow(three-pass-box, black, 3, 3, 0, 0); -fx-background-color: rgb(%d, %d, %d)", kleur.getRed(), kleur.getGreen(), kleur.getBlue())
                         );
+
+                        view.setStyle(String.format("-fx-background-color: rgba(%d, %d, %d, 0.3); -fx-transition: 0.5s;", kleur.getRed(), kleur.getGreen(), kleur.getBlue()));
                     } catch (DotsException e) {
                         if (!model.getLijn().getHeeftToegevoegd()) {
                             Kleuren kleur = model.getDotUitSpeelveld(view.getDotsGrid().getRowIndex(node), view.getDotsGrid().getColumnIndex(node)).getKleur();
