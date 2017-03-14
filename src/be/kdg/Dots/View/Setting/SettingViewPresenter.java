@@ -39,6 +39,7 @@ public class SettingViewPresenter {
             @Override
             public void handle(ActionEvent event) {
                 model.getLevel().setMoeilijkheidsgraad(Level.Moeilijkheid.EASY);
+                view.getBtnEasy().setStyle("-fx-base:#7FFF00");
             }
         });
 
@@ -46,6 +47,7 @@ public class SettingViewPresenter {
             @Override
             public void handle(ActionEvent event) {
                 model.getLevel().setMoeilijkheidsgraad(Level.Moeilijkheid.NORMAL);
+                view.getBtnNormal().setStyle("-fx-base:#7FFF00");
             }
         });
 
@@ -53,6 +55,7 @@ public class SettingViewPresenter {
             @Override
             public void handle(ActionEvent event) {
                 model.getLevel().setMoeilijkheidsgraad(Level.Moeilijkheid.MEDIUM);
+                view.getBtnMedium().setStyle("-fx-base:#7FFF00");
             }
         });
 
@@ -60,6 +63,7 @@ public class SettingViewPresenter {
             @Override
             public void handle(ActionEvent event) {
                 model.getLevel().setMoeilijkheidsgraad(Level.Moeilijkheid.HARD);
+                view.getBtnHard().setStyle("-fx-base:#7FFF00");
             }
         });
 
@@ -67,6 +71,7 @@ public class SettingViewPresenter {
             @Override
             public void handle(ActionEvent event) {
                 model.getLevel().setMoeilijkheidsgraad(Level.Moeilijkheid.EXTREEM);
+                view.getBtnExtreem().setStyle("-fx-base:#7FFF00");
             }
         });
 
@@ -92,15 +97,4 @@ public class SettingViewPresenter {
     private void updateView() {
     }
 
-    public Boolean getSound() {
-        return sound;
-    }
-
-    public Button getResult() {
-        return result;
-    }
-
-    public Level.Moeilijkheid getMoeilijkheid() {
-        return moeilijkheid;
-    }
 }
