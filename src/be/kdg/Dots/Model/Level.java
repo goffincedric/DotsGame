@@ -7,7 +7,7 @@ package be.kdg.Dots.Model;
 
 public class Level {
     public static enum Moeilijkheid {
-        EASY(30, 50), NORMAL(25, 75), MEDIUM(15, 80), HARD(10, 80), EXTREEM(5, 90);
+        EASY(30, 50), NORMAL(25, 75), MEDIUM(15, 80), HARD(10, 80), EXTREEM(8, 90);
 
         private double moeilijkheid;
         private int startScore;

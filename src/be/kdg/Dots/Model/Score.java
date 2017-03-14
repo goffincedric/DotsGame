@@ -130,7 +130,7 @@ public class Score extends Dots implements Serializable {
         }
 
         public String getHighscoreString() {
-            String highscoreString = "";
+            String highscoreString = String.format("Plaats\t%-25s%-6s%-3s%n%n", "Spelernaam", "Score", "Level");
             int max = 10;
 
             ArrayList<Score> scores;
