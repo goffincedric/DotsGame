@@ -4,10 +4,10 @@ package be.kdg.Dots.Model;
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 5/02/2017 14:50
  */
+
 public class Level {
     public static enum Moeilijkheid {
         EASY(30, 50), NORMAL(25, 75), MEDIUM(15, 80), HARD(10, 80), EXTREEM(5, 90);
-
 
         private double moeilijkheid;
         private int startScore;
@@ -26,12 +26,10 @@ public class Level {
         }
     }
 
-
-    private int tijd; //in seconden
+    private int tijd;
     private int targetScore;
     private int gamelevel;
     private Moeilijkheid moeilijkheidsgraad;
-
 
     public Level() {
         this.gamelevel = 1;

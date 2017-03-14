@@ -13,7 +13,9 @@ import javafx.scene.layout.VBox;
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 13:41
  */
+
 public class PauseView extends VBox {
+
     private Label lblPaused;
     private Label lblScoreTekst;
     private Label lblLevelTekst;
@@ -39,11 +41,9 @@ public class PauseView extends VBox {
     }
 
     private void initialiseNodes() {
-
         imgContinue = new ImageView(new Image("be/kdg/Dots/images/Play.png"));
         imgHome = new ImageView(new Image("be/kdg/Dots/images/Home.png"));
         imgRestart = new ImageView(new Image("be/kdg/Dots/images/Restart.png"));
-
 
         lblPaused = new Label("Game Paused");
         lblScoreTekst = new Label("Score:");
@@ -58,14 +58,12 @@ public class PauseView extends VBox {
         scoreBox = new VBox();
         levelBox = new VBox();
         midBox = new HBox();
-
-
     }
 
     private void layoutNodes() {
         this.setMinSize(400, 400);
 
-        this.setStyle("-fx-background-color: ghostwhite; -fx-font: 18px Consolas;");
+        this.setStyle("-fx-background-color: ghostwhite; -fx-font: 16px Consolas;");
 
         buttonBox.getChildren().addAll(btnContinue, btnRestart, btnHome);
         scoreBox.getChildren().addAll(lblScoreTekst, lblScore);
@@ -89,8 +87,7 @@ public class PauseView extends VBox {
         imgContinue.setPreserveRatio(true);
 
         //btnContinue
-        btnContinue.setStyle("-fx-focus-color: transparent; \n" +
-                "    -fx-background-insets: -1.4, 0, 1, 2;");
+
         btnContinue.setGraphic(imgContinue);
         btnContinue.setPrefSize(100, 100);
 
@@ -100,8 +97,7 @@ public class PauseView extends VBox {
         imgHome.setPreserveRatio(true);
 
         //btnHome
-        btnHome.setStyle("-fx-focus-color: transparent; \n" +
-                "    -fx-background-insets: -1.4, 0, 1, 2;");
+
         btnHome.setGraphic(imgHome);
         btnHome.setPrefSize(100, 100);
 
@@ -111,11 +107,8 @@ public class PauseView extends VBox {
         imgRestart.setPreserveRatio(true);
 
         //btnRestart
-        btnRestart.setStyle("-fx-focus-color: transparent; \n" +
-                "    -fx-background-insets: -1.4, 0, 1, 2;");
         btnRestart.setGraphic(imgRestart);
         btnRestart.setPrefSize(100, 100);
-
 
     }
 

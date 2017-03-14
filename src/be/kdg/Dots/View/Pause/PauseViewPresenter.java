@@ -47,16 +47,11 @@ public class PauseViewPresenter {
                 view.getBtnRestart().getScene().getWindow().hide();
             }
         });
-
     }
 
     private void updateView() {
         view.getLblScore().setText(String.valueOf(model.getSpeler().getTotaalScore()));
         view.getLblLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
-    }
-
-    public void addWindowEventHandlers() {
-
     }
 
     public Button getResult() {

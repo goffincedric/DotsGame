@@ -11,14 +11,14 @@ import java.util.Properties;
  * @version 1.0 5/02/2017 14:56
  */
 public class Score extends Dots implements Serializable {
-    private int Score; //via getters krijgen in presenter
+    private int Score;
     private String Naam;
     private int BehaaldLevel;
 
     public Score(String naam, int score, int level) {
         this.Naam = naam;
         this.Score = score;
-        this.BehaaldLevel = level; //getLevel().getGamelevel()
+        this.BehaaldLevel = level;
     }
 
     public int getScore() {
@@ -128,10 +128,6 @@ public class Score extends Dots implements Serializable {
 
             }
         }
-
-        //scores herschrijven
-        ///alles level hoger is dan komt hij hoger
-
 
         public String getHighscoreString() {
             String highscoreString = "";

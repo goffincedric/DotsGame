@@ -23,10 +23,12 @@ public class Dots {
     private static final int START_TICK_DURATION_MILLIS = 1000;
     private int seconds;
     private int tickDurationMillis;
+    private Boolean sound;
 
-    Speler speler;
-    Level level;
-    Lijn lijn;
+    private Speler speler;
+    private Level level;
+    private Lijn lijn;
+
 
     public Dots() {
         this.speler = new Speler();
@@ -37,6 +39,7 @@ public class Dots {
         this.plaatsNummer = 0;
         dotKleuren = new ArrayList<>();
         this.random = new Random();
+        sound = false;
 
         this.tickDurationMillis = START_TICK_DURATION_MILLIS;
         this.seconds = 45;
@@ -55,6 +58,14 @@ public class Dots {
                 plaatsNummer++;
             }
         }
+    }
+
+    public Boolean getSound() {
+        return sound;
+    }
+
+    public void setSound(Boolean sound) {
+        this.sound = sound;
     }
 
     public Speler getSpeler() {

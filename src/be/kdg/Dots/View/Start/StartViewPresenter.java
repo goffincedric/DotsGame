@@ -13,8 +13,6 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -26,8 +24,6 @@ import javafx.stage.WindowEvent;
 public class StartViewPresenter {
     private Dots model;
     private StartView view;
-   // private Level.Moeilijkheid moeilijkheidStart;
-
 
     public StartViewPresenter(Dots model, StartView view) {
         this.model = model;
@@ -46,8 +42,6 @@ public class StartViewPresenter {
                     view.getScene().setRoot(spelview);
                     spelview.getScene().getWindow().sizeToScene();
                     spelviewpresenter.addWindowEventHandlers();
-                    // model.getLevel().setMoeilijkheidsgraad(moeilijkheidStart);
-                    //model.getLevel().setTargetScore(moeilijkheidStart.getStartScore());
                 } catch (NullPointerException e) {
                     event.consume();
                 }
@@ -63,8 +57,6 @@ public class StartViewPresenter {
                 helpView.getScene().getWindow().sizeToScene();
             }
         });
-        //Naar spelview
-        //spel (timer) pas starten na dat promt is ingevult
 
         view.getBtnHighScores().setOnAction(new EventHandler<ActionEvent>() {
             @Override

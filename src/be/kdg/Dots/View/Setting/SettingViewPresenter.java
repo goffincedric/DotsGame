@@ -5,10 +5,7 @@ import be.kdg.Dots.Model.Level;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
-
-import static be.kdg.Dots.Model.Level.Moeilijkheid.*;
 
 /**
  * @author Cédric Goffin & Thomas Verhoeven
@@ -19,6 +16,7 @@ public class SettingViewPresenter {
     private SettingView view;
     private Button result;
     private Level.Moeilijkheid moeilijkheid;
+    private Boolean sound = false;
 
 
     public SettingViewPresenter(Dots model, SettingView view) {
@@ -37,14 +35,12 @@ public class SettingViewPresenter {
             }
         });
 
-
         view.getBtnEasy().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 model.getLevel().setMoeilijkheidsgraad(Level.Moeilijkheid.EASY);
             }
         });
-
 
         view.getBtnNormal().setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -67,15 +63,37 @@ public class SettingViewPresenter {
             }
         });
 
-        view.getBtnExtreem().setOnMouseClicked(new EventHandler<MouseEvent>() {
+        view.getBtnExtreem().setOnAction(new EventHandler<ActionEvent>() {
             @Override
-            public void handle(MouseEvent event) {
+            public void handle(ActionEvent event) {
                 model.getLevel().setMoeilijkheidsgraad(Level.Moeilijkheid.EXTREEM);
+            }
+        });
+
+        view.getBtnSound().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                sound = !sound;
+                if (sound) {
+                    view.getBtnSound().setGraphic(view.getImgSoundOn());
+                    sound = true;
+                    model.setSound(true);
+                } else {
+                    view.getBtnSound().setGraphic(view.getImgSoundOff());
+                    sound = false;
+                    model.setSound(false);
+
+                }
+
             }
         });
     }
 
     private void updateView() {
+    }
+
+    public Boolean getSound() {
+        return sound;
     }
 
     public Button getResult() {

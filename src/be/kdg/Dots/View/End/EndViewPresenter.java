@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 22:21
  */
+
 public class EndViewPresenter {
     private Dots model;
     private EndView view;
@@ -46,7 +47,6 @@ public class EndViewPresenter {
 
         Score.HighScoreManager hm = new Score.HighScoreManager();
         int newHighscore = hm.isNewHighscore(model.getSpeler().getTotaalScore());
-
 
         if(newHighscore >=0 && newHighscore <=10){
             view.getLblNewHighScore().setText("!!!New Highscore!!!" + "\n" + "U staat op plaats " + newHighscore + " in de Top 10\n");

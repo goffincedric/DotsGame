@@ -27,12 +27,16 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.util.Optional;
+import java.util.Properties;
 
 /**
  * @author Cédric Goffin & Thomas Verhoeven
@@ -44,14 +48,19 @@ public class SpelViewPresenter {
     private SpelView view;
     TextInputDialog dialogNaam;
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
-
     private Timeline stopwatchTimeline;
+    Properties p = new Properties(System.getProperties());
 
+
+    String musicFile = p.getProperty("user.dir") + File.separator + "src" + File.separator + "be" + File.separator + "kdg" + File.separator + "Dots" + File.separator + "images" + File.separator + "sound.mp3";
+    Media sound = new Media(new File(musicFile).toURI().toString());
+    MediaPlayer mediaPlayer = new MediaPlayer(sound);
+
+
+    //home dir
     public SpelViewPresenter(Dots model, SpelView view) {
         this.model = model;
         this.view = view;
-
         dialogNaam = new TextInputDialog();
 
         boolean naamIngegeven;
@@ -135,6 +144,17 @@ public class SpelViewPresenter {
                         alert.getButtonTypes().add(ButtonType.OK);
                         alert.showAndWait();
                     } else {
+
+                        if (model.getSound()) {
+                            mediaPlayer.setStartTime(Duration.ZERO);
+                            mediaPlayer.seek(Duration.ZERO);
+                            mediaPlayer.play();
+                        }
+
+
+
+
+
                     /* verwijdert gebruikte dots*/
                         model.vervangGebruikteDots();
 
@@ -149,10 +169,12 @@ public class SpelViewPresenter {
                         updateView();
                     }
                 }
+
             }
         });
 
-        view.getPause().setOnAction(new EventHandler<ActionEvent>() {
+
+        view.getBtnPause().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 stopwatchTimeline.stop();
@@ -178,13 +200,13 @@ public class SpelViewPresenter {
                     startStage.setScene(new Scene(startView));
                     startViewPresenter.addWindowEventHandlers();
                     startStage.show();
-                    view.getEnd().getScene().getWindow().hide();
+                    view.getBtnEnd().getScene().getWindow().hide();
                     startStage.toFront();
                 }
             }
         });
 
-        view.getEnd().setOnAction(new EventHandler<ActionEvent>() {
+        view.getBtnEnd().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 stopwatchTimeline.stop();
@@ -201,10 +223,10 @@ public class SpelViewPresenter {
             }
         }
 
-        view.getScore().setText(String.valueOf(model.getSpeler().getGameScore()));
+        view.getLblScore().setText(String.valueOf(model.getSpeler().getGameScore()));
         String tekst = "Level  " + model.getLevel().getGamelevel();
-        view.getLevel().setText(tekst);
-        view.getTargetScore().setText(String.valueOf(model.getLevel().getTargetScore()));
+        view.getLblLevel().setText(tekst);
+        view.getLblTargetScore().setText(String.valueOf(model.getLevel().getTargetScore()));
         view.getLblSpelerNaam().setText(String.valueOf(model.getSpeler().getNaam()));
         view.getLblTimer().setText(String.format("%02d", model.getSeconds()));
     }
@@ -253,8 +275,8 @@ public class SpelViewPresenter {
             model.getLevel().nextLevel();
             model.resetSpel();
             model.getSpeler().setGameScore(0);
-            view.getLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
-            view.getScore().setText(String.valueOf(model.getSpeler().getGameScore()));
+            view.getLblLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
+            view.getLblScore().setText(String.valueOf(model.getSpeler().getGameScore()));
 
             alert.setTitle("Next Level");
             alert.setHeaderText("Je gaat naar level " + model.getLevel().getGamelevel());
@@ -290,7 +312,7 @@ public class SpelViewPresenter {
                     startStage.setScene(new Scene(startView));
                     startViewPresenter.addWindowEventHandlers();
                     startStage.show();
-                    view.getEnd().getScene().getWindow().hide();
+                    view.getBtnEnd().getScene().getWindow().hide();
                     startStage.toFront();
                 } else if (endViewPresenter.getResult().equals(endview.getBtnRestart())) {
                     resetSpel();
@@ -301,7 +323,7 @@ public class SpelViewPresenter {
                     startStage.setScene(new Scene(startView));
                     startViewPresenter.addWindowEventHandlers();
                     startStage.show();
-                    view.getEnd().getScene().getWindow().hide();
+                    view.getBtnEnd().getScene().getWindow().hide();
                     startStage.toFront();
                 }
                 //score manager
@@ -314,10 +336,8 @@ public class SpelViewPresenter {
 
     private void resetSpel() {
         stopwatchTimeline.stop();
-
         SpelView nieuwView = new SpelView();
         SpelViewPresenter nieuwPresenter = new SpelViewPresenter(new Dots(), nieuwView);
-
         view.getScene().setRoot(nieuwView);
     }
 

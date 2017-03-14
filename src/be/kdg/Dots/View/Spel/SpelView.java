@@ -16,17 +16,17 @@ import javafx.scene.layout.VBox;
  */
 public class SpelView extends GridPane {
     private Button[][] btns = new Button[7][7];
-    private Button pause;
-    private Button end;
+    private Button btnPause;
+    private Button btnEnd;
 
     private ImageView imageView;
 
-    private Label scoreTekst;
-    private Label score;
-    private Label targetScoreTekst;
-    private Label targetScore;
-    private Label level;
-    private Label timerTekst;
+    private Label lblScoreTekst;
+    private Label lblScore;
+    private Label lblTargetScoreTekst;
+    private Label lblTargetScore;
+    private Label lblLevel;
+    private Label lblTimerTekst;
     private Label lblTimer;
     private Label lblSpelerNaam;
 
@@ -45,24 +45,22 @@ public class SpelView extends GridPane {
         initBtnsArray();
 
         this.lblSpelerNaam = new Label("########");
-        this.score = new Label("###");
-        this.scoreTekst = new Label("Score");
-        this.targetScore = new Label("###");
-        this.targetScoreTekst = new Label("Target score");
-        this.level = new Label("##");
-        this.timerTekst = new Label("Timer:");
+        this.lblScore = new Label("###");
+        this.lblScoreTekst = new Label("Score");
+        this.lblTargetScore = new Label("###");
+        this.lblTargetScoreTekst = new Label("Target score");
+        this.lblLevel = new Label("##");
+        this.lblTimerTekst = new Label("Timer:");
         this.lblTimer = new Label("45");
 
-
-        this.pause = new Button("Pause");
-        this.end = new Button("End");
+        this.btnPause = new Button("Pause");
+        this.btnEnd = new Button("End");
 
         this.dotsGrid = new GridPane();
         this.topLeft = new GridPane();
         this.topRight = new VBox();
         this.bottomRight = new VBox();
         this.levelBox = new HBox();
-
     }
 
     private void layoutNodes() {
@@ -70,7 +68,7 @@ public class SpelView extends GridPane {
         topLeft.setStyle(" -fx-font: 22px Consolas;");
         topRight.setStyle("-fx-font: 22px Consolas;");
         lblTimer.setStyle("-fx-font: 22px Consolas;");
-        timerTekst.setStyle("-fx-font: 22px Consolas;");
+        lblTimerTekst.setStyle("-fx-font: 22px Consolas;");
         this.setMinSize(750, 750);
         this.setVgap(10);
         this.setHgap(10);
@@ -85,26 +83,26 @@ public class SpelView extends GridPane {
         this.setAlignment(Pos.CENTER);
 
         //topleft hbox
-        this.topLeft.add(scoreTekst, 0, 0);
-        this.topLeft.add(targetScoreTekst, 1, 0);
-        this.topLeft.add(score, 0, 1);
-        this.topLeft.add(targetScore, 1, 1);
+        this.topLeft.add(lblScoreTekst, 0, 0);
+        this.topLeft.add(lblTargetScoreTekst, 1, 0);
+        this.topLeft.add(lblScore, 0, 1);
+        this.topLeft.add(lblTargetScore, 1, 1);
         this.topLeft.setHgap(10);
         this.topLeft.setVgap(10);
 
         //topRight
-        this.levelBox.getChildren().addAll(level);
+        this.levelBox.getChildren().addAll(lblLevel);
         this.topRight.getChildren().addAll(lblSpelerNaam, levelBox);
 
 
         //bottomRight
-        this.bottomRight.getChildren().addAll(timerTekst, lblTimer, pause, end);
+        this.bottomRight.getChildren().addAll(lblTimerTekst, lblTimer, btnPause, btnEnd);
         this.bottomRight.setAlignment(Pos.BASELINE_CENTER);
         this.bottomRight.setSpacing(10);
         bottomRight.setPadding(new Insets(200, 0, 0, 0));
-        this.pause.setPrefSize(80, 50);
-        this.pause.setMinSize(pause.getPrefWidth(), pause.getPrefHeight());
-        this.end.setMinSize(pause.getPrefWidth(), pause.getPrefHeight());
+        this.btnPause.setPrefSize(80, 50);
+        this.btnPause.setMinSize(btnPause.getPrefWidth(), btnPause.getPrefHeight());
+        this.btnEnd.setMinSize(btnPause.getPrefWidth(), btnPause.getPrefHeight());
 
         for (int i = 0; i < btns.length; i++) {
             for (int j = 0; j < btns[i].length; j++) {
@@ -132,10 +130,6 @@ public class SpelView extends GridPane {
         }
     }
 
-    Button[][] getBtns() {
-        return btns;
-    }
-
     public Button getButtonFromBtns(int rij, int kolom) {
         return btns[rij][kolom];
     }
@@ -144,32 +138,28 @@ public class SpelView extends GridPane {
         return dotsGrid;
     }
 
-    public Label getScore() {
-        return score;
+    public Label getLblScore() {
+        return lblScore;
     }
 
-    public Label getTargetScore() {
-        return targetScore;
+    public Label getLblTargetScore() {
+        return lblTargetScore;
     }
 
-    public Label getLevel() {
-        return level;
+    public Label getLblLevel() {
+        return lblLevel;
     }
 
     public Label getLblSpelerNaam() {
         return lblSpelerNaam;
     }
 
-    public Button getPause() {
-        return pause;
+    public Button getBtnPause() {
+        return btnPause;
     }
 
-    public Button getEnd() {
-        return end;
-    }
-
-    public Label getTimerTekst() {
-        return timerTekst;
+    public Button getBtnEnd() {
+        return btnEnd;
     }
 
     public Label getLblTimer() {

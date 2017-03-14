@@ -29,11 +29,11 @@ public class StartView extends BorderPane {
     private void initialiseNodes() {
         naam = new ImageView(new Image("be/kdg/Dots/images/Untitled.png"));
         trophy = new ImageView(new Image("be/kdg/Dots/images/Trophy.png"));
-
         logo = new ImageView(new Image("be/kdg/Dots/images/Logo.png"));
         play = new ImageView(new Image("be/kdg/Dots/images/Play.png"));
         help = new ImageView(new Image("be/kdg/Dots/images/Help.png"));
         settings = new ImageView(new Image("be/kdg/Dots/images/Settings.png"));
+
         btnHelp = new Button();
         btnHighScores = new Button();
         btnSettings = new Button();
@@ -89,7 +89,6 @@ public class StartView extends BorderPane {
         topbox.setSpacing(30.0);
 
         setTop(topbox);
-
         setBottom(footer);
     }
 

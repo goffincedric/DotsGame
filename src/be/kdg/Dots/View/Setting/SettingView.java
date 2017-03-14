@@ -18,8 +18,11 @@ public class SettingView extends VBox{
     Button btnHard;
     Button btnExtreem;
     Button btnHome;
+    Button btnSound;
 
     ImageView imgHome;
+    ImageView imgSoundOff;
+    ImageView imgSoundOn;
 
     public SettingView(){
         initialiseNodes();
@@ -33,24 +36,35 @@ public class SettingView extends VBox{
         btnHard = new Button("HARD");
         btnExtreem = new Button("EXTREEM");
         btnHome = new Button();
+        btnSound = new Button();
         imgHome = new ImageView(new Image("be/kdg/Dots/images/Home.png"));
+        imgSoundOff = new ImageView(new Image("be/kdg/Dots/images/mute.png"));
+        imgSoundOn = new ImageView(new Image("be/kdg/Dots/images/soundon.png"));
+
 
     }
 
     private void layoutNodes() {
         this.setMinSize(750, 750);
         this.setStyle("-fx-background-color: ghostwhite; -fx-font-size: 16; -fx-font-family: 'Ubuntu', sans-serif;");
-
         this.setAlignment(Pos.CENTER);
-
-        this.getChildren().addAll(btnEasy,btnNormal,btnMedium, btnHard,btnExtreem, btnHome);
+        this.getChildren().addAll(btnEasy, btnNormal, btnMedium, btnHard, btnExtreem, btnSound, btnHome);
         this.setSpacing(15);
 
         btnHome.setGraphic(imgHome);
+        btnSound.setGraphic(imgSoundOff);
+
+        imgSoundOn.setFitHeight(50);
+        imgSoundOn.setFitWidth(50);
+        imgSoundOn.setPreserveRatio(true);
+
+        imgSoundOff.setFitHeight(50);
+        imgSoundOff.setFitWidth(50);
+        imgSoundOff.setPreserveRatio(true);
+
         imgHome.setFitHeight(100);
         imgHome.setFitWidth(100);
         imgHome.setPreserveRatio(true);
-
     }
 
     public Button getBtnEasy() {
@@ -75,5 +89,17 @@ public class SettingView extends VBox{
 
     public Button getBtnHome() {
         return btnHome;
+    }
+
+    public Button getBtnSound() {
+        return btnSound;
+    }
+
+    public ImageView getImgSoundOff() {
+        return imgSoundOff;
+    }
+
+    public ImageView getImgSoundOn() {
+        return imgSoundOn;
     }
 }

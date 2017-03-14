@@ -55,21 +55,20 @@ public class EndView extends VBox {
 
     private void layoutNodes() {
 
-        this.setStyle("-fx-font: 18px Consolas; -fx-background-color: ghostwhite;");
+        this.setStyle("-fx-font: 16px Consolas; -fx-background-color: ghostwhite;");
         this.setMinSize(400, 400);
 
         levelBox.getChildren().addAll(lblLevelTekst, lblHuidigLevel);
         scoreBox.getChildren().addAll(lblScoreTekst, lblHuidigeScore);
         buttonBox.getChildren().addAll(btnHome, btnRestart);
 
-
         lblNewHighScore.setAlignment(Pos.CENTER);
         lblNewHighScore.setStyle("-fx-text-alignment: center");
-        levelBox.setAlignment(Pos.CENTER);
+
         lblScoreTekst.setAlignment(Pos.CENTER);
+        levelBox.setAlignment(Pos.CENTER);
         buttonBox.setAlignment(Pos.CENTER);
         scoreBox.setAlignment(Pos.CENTER);
-
 
         this.getChildren().addAll(lblNewHighScore, levelBox, scoreBox, buttonBox);
         this.setAlignment(Pos.CENTER);
