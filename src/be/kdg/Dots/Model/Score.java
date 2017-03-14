@@ -59,7 +59,7 @@ public class Score extends Dots implements Serializable {
 
     public static class HighScoreManager {
         private ArrayList<Score> scores;
-        private static final String HIGHSCORE_FILE = "HighScores.dat";
+        private static final String HIGHSCORE_FILE = "/be/kdg/HighScores.dat";
 
         ObjectInputStream inputStream = null;
         ObjectOutputStream outputStream = null;
