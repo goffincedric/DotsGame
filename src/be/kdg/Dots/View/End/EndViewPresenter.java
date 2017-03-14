@@ -20,6 +20,7 @@ public class EndViewPresenter {
         this.view = view;
         addEventHandlers();
         updateView();
+        view.getScene().getStylesheets().add("be/kdg/Dots/stylesheets/stylesheet.css");
     }
 
     private void addEventHandlers() {
@@ -46,7 +47,8 @@ public class EndViewPresenter {
 
         Score.HighScoreManager hm = new Score.HighScoreManager();
         int newHighscore = hm.isNewHighscore(model.getSpeler().getTotaalScore());
-        // if(newHighscore+1>=0 && newHighscore+1 <= 10){
+
+
         if(newHighscore >=0 && newHighscore <=10){
             view.getLblNewHighScore().setText("!!!New Highscore!!!" + "\n" + "U staat op plaats " + newHighscore + " in de Top 10\n");
         }else{

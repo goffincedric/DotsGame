@@ -18,6 +18,7 @@ public class PauseViewPresenter {
     public PauseViewPresenter(Dots model, PauseView view) {
         this.model = model;
         this.view = view;
+        view.getScene().getStylesheets().add("be/kdg/Dots/stylesheets/stylesheet.css");
         addEventHandlers();
         updateView();
     }

@@ -45,6 +45,7 @@ public class SpelViewPresenter {
     TextInputDialog dialogNaam;
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
+
     private Timeline stopwatchTimeline;
 
     public SpelViewPresenter(Dots model, SpelView view) {
@@ -319,4 +320,6 @@ public class SpelViewPresenter {
 
         view.getScene().setRoot(nieuwView);
     }
+
+
 }

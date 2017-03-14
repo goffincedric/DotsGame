@@ -24,7 +24,7 @@ public class HelpView extends BorderPane {
     private void initialiseNodes() {
         this.webView = new WebView();
         this.btnHome = new Button();
-        this.home = new ImageView(new Image("be/kdg/Dots/View/images/Home.png"));
+        this.home = new ImageView(new Image("be/kdg/Dots/images/Home.png"));
     }
 
     private void layoutNodes() {

@@ -2,6 +2,8 @@ package be.kdg.Dots.View.Setting;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 /**
@@ -10,14 +12,14 @@ import javafx.scene.layout.VBox;
  */
 public class SettingView extends VBox{
 
-
-
     Button btnEasy;
     Button btnNormal;
     Button btnMedium;
     Button btnHard;
     Button btnExtreem;
     Button btnHome;
+
+    ImageView imgHome;
 
     public SettingView(){
         initialiseNodes();
@@ -30,7 +32,8 @@ public class SettingView extends VBox{
         btnMedium = new Button("MEDIUM");
         btnHard = new Button("HARD");
         btnExtreem = new Button("EXTREEM");
-        btnHome = new Button("Home");
+        btnHome = new Button();
+        imgHome = new ImageView(new Image("be/kdg/Dots/images/Home.png"));
 
     }
 
@@ -42,6 +45,11 @@ public class SettingView extends VBox{
 
         this.getChildren().addAll(btnEasy,btnNormal,btnMedium, btnHard,btnExtreem, btnHome);
         this.setSpacing(15);
+
+        btnHome.setGraphic(imgHome);
+        imgHome.setFitHeight(100);
+        imgHome.setFitWidth(100);
+        imgHome.setPreserveRatio(true);
 
     }
 

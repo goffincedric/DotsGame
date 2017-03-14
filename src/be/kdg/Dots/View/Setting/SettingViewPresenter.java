@@ -5,7 +5,6 @@ import be.kdg.Dots.Model.Level;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
 
 import static be.kdg.Dots.Model.Level.Moeilijkheid.*;
@@ -24,6 +23,8 @@ public class SettingViewPresenter {
     public SettingViewPresenter(Dots model, SettingView view) {
         this.model = model;
         this.view = view;
+
+
         addEventHandlers();
         updateView();
     }
@@ -37,12 +38,14 @@ public class SettingViewPresenter {
             }
         });
 
-        view.getBtnExtreem().setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+        view.getBtnEasy().setOnAction(new EventHandler<ActionEvent>() {
             @Override
-            public void handle(MouseEvent event) {
-                moeilijkheid = EXTREEM;
+            public void handle(ActionEvent event) {
+                moeilijkheid = EASY;
             }
         });
+
 
 
         view.getBtnNormal().setOnAction(new EventHandler<ActionEvent>() {
@@ -68,9 +71,8 @@ public class SettingViewPresenter {
                 result = view.getBtnHard();
             }
         });
-    }
 
-        /*view.getBtnExtreem().setOnAction(new EventHandler<ActionEvent>() {
+        view.getBtnExtreem().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 moeilijkheid = Level.Moeilijkheid.EXTREEM;
@@ -78,7 +80,7 @@ public class SettingViewPresenter {
 
             }
         });
-    }*/
+    }
 
     private void updateView() {
     }
