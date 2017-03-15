@@ -5,6 +5,7 @@ import be.kdg.Dots.View.Start.StartView;
 import be.kdg.Dots.View.Start.StartViewPresenter;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -26,6 +27,7 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         presenter.addWindowEventHandlers();
         primaryStage.show();
+        primaryStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
         primaryStage.toFront();
 
         /*Scanner k = new Scanner(System.in);

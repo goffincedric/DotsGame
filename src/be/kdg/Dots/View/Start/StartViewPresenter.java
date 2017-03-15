@@ -13,6 +13,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -77,6 +78,7 @@ public class StartViewPresenter {
                 SettingView settingView = new SettingView();
                 SettingViewPresenter settingViewPresenter = new SettingViewPresenter(model, settingView);
                 Stage settingStage = new Stage();
+                settingStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
                 settingStage.initOwner(view.getScene().getWindow());
                 settingStage.initModality(Modality.APPLICATION_MODAL);
                 settingStage.setScene(new Scene(settingView));

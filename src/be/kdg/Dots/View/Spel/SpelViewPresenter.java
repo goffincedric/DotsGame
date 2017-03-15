@@ -24,6 +24,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -149,10 +150,6 @@ public class SpelViewPresenter {
                             mediaPlayer.play();
                         }
 
-
-
-
-
                     /* verwijdert gebruikte dots*/
                         model.vervangGebruikteDots();
 
@@ -269,6 +266,21 @@ public class SpelViewPresenter {
     private void endStatus() {
         stopwatchTimeline.stop();
         if (model.getSpeler().getGameScore() >= model.getLevel().getTargetScore()) {
+            if (model.getLijn().getAantalDots() >= 2) {
+                /* verwijdert gebruikte dots*/
+                model.vervangGebruikteDots();
+
+                    /* berekent score*/
+                model.getSpeler().setGameScore(model.getSpeler().getGameScore() + model.getLijn().getAantalDots());
+                model.getSpeler().addPuntenTotaalScore(model.getLijn().getAantalDots());
+
+                    /* maak lijn leeg */
+                model.maakLijnLeeg();
+
+                    /* vernieuw spelview */
+                updateView();
+            }
+
             model.resetTimer();
             model.getLevel().nextLevel();
             model.resetSpel();
@@ -296,6 +308,7 @@ public class SpelViewPresenter {
         EndView endview = new EndView();
         EndViewPresenter endViewPresenter = new EndViewPresenter(model, endview);
         Stage endStage = new Stage();
+        endStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
         endStage.initOwner(view.getScene().getWindow());
         endStage.initModality(Modality.APPLICATION_MODAL);
         endStage.setScene(new Scene(endview));
@@ -308,6 +321,7 @@ public class SpelViewPresenter {
                     StartView startView = new StartView();
                     StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
                     Stage startStage = new Stage();
+                    startStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
                     startStage.setScene(new Scene(startView));
                     startViewPresenter.addWindowEventHandlers();
                     startStage.show();
@@ -319,6 +333,7 @@ public class SpelViewPresenter {
                     StartView startView = new StartView();
                     StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
                     Stage startStage = new Stage();
+                    startStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
                     startStage.setScene(new Scene(startView));
                     startViewPresenter.addWindowEventHandlers();
                     startStage.show();
