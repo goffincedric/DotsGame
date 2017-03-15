@@ -26,9 +26,9 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         presenter.addWindowEventHandlers();
-        primaryStage.show();
         primaryStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
         primaryStage.toFront();
+        primaryStage.show();
 
         /*Scanner k = new Scanner(System.in);
         System.out.printf("Kies een versie:\nConsole: 1\nGrafisch: 2\n\nGeef uw keuze in: ");

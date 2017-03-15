@@ -35,7 +35,10 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
+import javax.sound.sampled.*;
 import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Optional;
 import java.util.Properties;
 
@@ -51,10 +54,6 @@ public class SpelViewPresenter {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     private Timeline stopwatchTimeline;
     Properties p = new Properties(System.getProperties());
-
-    String musicFile = p.getProperty("user.dir") + File.separator + "src" + File.separator + "be" + File.separator + "kdg" + File.separator + "Dots" + File.separator + "sounds" + File.separator + "sound.mp3";
-    Media sound = new Media(new File(musicFile).toURI().toString());
-    MediaPlayer mediaPlayer = new MediaPlayer(sound);
 
     //home dir
     public SpelViewPresenter(Dots model, SpelView view) {
@@ -145,9 +144,17 @@ public class SpelViewPresenter {
                     } else {
 
                         if (model.getSound()) {
+                            try {
+                            String musicFile = getClass().getResource("sound.mp3").toURI().toString();
+                            Media media = new Media(musicFile);
+                            MediaPlayer mediaPlayer = new MediaPlayer(media);
+
                             mediaPlayer.setStartTime(Duration.ZERO);
                             mediaPlayer.seek(Duration.ZERO);
                             mediaPlayer.play();
+                            } catch (URISyntaxException e) {
+                                e.printStackTrace();
+                            }
                         }
 
                     /* verwijdert gebruikte dots*/

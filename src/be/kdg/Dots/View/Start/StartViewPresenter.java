@@ -45,6 +45,9 @@ public class StartViewPresenter {
                     spelviewpresenter.addWindowEventHandlers();
                 } catch (NullPointerException e) {
                     event.consume();
+                } catch (Exception e) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION, e.getMessage());
+                    alert.show();
                 }
             }
         });
