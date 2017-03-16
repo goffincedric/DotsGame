@@ -15,7 +15,6 @@ import javafx.scene.layout.VBox;
  */
 
 public class PauseView extends VBox {
-
     private Label lblPaused;
     private Label lblScoreTekst;
     private Label lblLevelTekst;
@@ -131,7 +130,6 @@ public class PauseView extends VBox {
     public Button getBtnHome() {
         return btnHome;
     }
-
 
 }
 

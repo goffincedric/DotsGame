@@ -30,14 +30,12 @@ public class EndView extends VBox {
     private ImageView imgHome;
     private ImageView imgRestart;
 
-
     public EndView() {
         this.initialiseNodes();
         this.layoutNodes();
     }
 
     private void initialiseNodes() {
-
         imgHome = new ImageView(new Image("be/kdg/Dots/images/Home.png"));
         imgRestart = new ImageView(new Image("be/kdg/Dots/images/Restart.png"));
 
@@ -54,7 +52,6 @@ public class EndView extends VBox {
     }
 
     private void layoutNodes() {
-
         this.setStyle("-fx-font: 16px Consolas; -fx-background-color: ghostwhite;");
         this.setMinSize(500, 500);
 

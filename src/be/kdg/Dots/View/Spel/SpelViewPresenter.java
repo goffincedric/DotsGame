@@ -35,12 +35,8 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
-import javax.sound.sampled.*;
-import java.io.File;
-import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Optional;
-import java.util.Properties;
 
 /**
  * @author Cédric Goffin & Thomas Verhoeven
@@ -53,9 +49,7 @@ public class SpelViewPresenter {
     TextInputDialog dialogNaam;
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     private Timeline stopwatchTimeline;
-    Properties p = new Properties(System.getProperties());
 
-    //home dir
     public SpelViewPresenter(Dots model, SpelView view) {
         this.model = model;
         this.view = view;
@@ -276,7 +270,6 @@ public class SpelViewPresenter {
             if (model.getLijn().getAantalDots() >= 2) {
                 /* verwijdert gebruikte dots*/
                 model.vervangGebruikteDots();
-
                     /* berekent score*/
                 model.getSpeler().setGameScore(model.getSpeler().getGameScore() + model.getLijn().getAantalDots());
                 model.getSpeler().addPuntenTotaalScore(model.getLijn().getAantalDots());
@@ -361,6 +354,4 @@ public class SpelViewPresenter {
         SpelViewPresenter nieuwPresenter = new SpelViewPresenter(new Dots(), nieuwView);
         view.getScene().setRoot(nieuwView);
     }
-
-
 }

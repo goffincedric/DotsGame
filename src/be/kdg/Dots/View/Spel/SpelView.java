@@ -90,7 +90,6 @@ public class SpelView extends GridPane {
         this.levelBox.getChildren().addAll(lblLevel);
         this.topRight.getChildren().addAll(lblSpelerNaam, levelBox);
 
-
         //bottomRight
         this.bottomRight.getChildren().addAll(lblTimerTekst, lblTimer, btnPause, btnEnd);
         this.bottomRight.setAlignment(Pos.BASELINE_CENTER);
@@ -161,7 +160,5 @@ public class SpelView extends GridPane {
     public Label getLblTimer() {
         return lblTimer;
     }
-
-
 }
 

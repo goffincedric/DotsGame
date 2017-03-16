@@ -13,7 +13,6 @@ import javafx.scene.paint.Color;
  * @version 1.0 9/03/2017 10:49
  */
 public class SettingView extends VBox{
-
     Button btnEasy;
     Button btnNormal;
     Button btnMedium;
@@ -23,7 +22,6 @@ public class SettingView extends VBox{
     Button btnSound;
 
     Label lblSettings;
-
 
     ImageView imgHome;
     ImageView imgSoundOff;
@@ -43,12 +41,10 @@ public class SettingView extends VBox{
         btnHome = new Button();
         btnSound = new Button();
         imgHome = new ImageView(new Image("be/kdg/Dots/images/Home.png"));
-        imgSoundOff = new ImageView(new Image("be/kdg/Dots/images/mute.png"));
-        imgSoundOn = new ImageView(new Image("be/kdg/Dots/images/soundon.png"));
+        imgSoundOff = new ImageView(new Image("be/kdg/Dots/images/Mute.png"));
+        imgSoundOn = new ImageView(new Image("be/kdg/Dots/images/Soundon.png"));
 
         lblSettings = new Label("Settings");
-
-
     }
 
     private void layoutNodes() {
@@ -63,7 +59,6 @@ public class SettingView extends VBox{
         this.getChildren().add(btnExtreem);
         this.getChildren().add(btnSound);
         this.getChildren().add(btnHome);
-        // this.getChildren().addAll(lblSettings, btnEasy, btnNormal, btnMedium, btnHard, btnExtreem, btnSound, btnHome);
         this.setSpacing(20);
 
         lblSettings.setStyle("-fx-font: 40px Consolas;");

@@ -27,7 +27,7 @@ public class StartView extends BorderPane {
     }
 
     private void initialiseNodes() {
-        naam = new ImageView(new Image("be/kdg/Dots/images/Untitled.png"));
+        naam = new ImageView(new Image("be/kdg/Dots/images/Name.png"));
         trophy = new ImageView(new Image("be/kdg/Dots/images/Trophy.png"));
         logo = new ImageView(new Image("be/kdg/Dots/images/Logo.png"));
         play = new ImageView(new Image("be/kdg/Dots/images/Play.png"));
