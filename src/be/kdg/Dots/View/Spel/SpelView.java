@@ -4,7 +4,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -18,8 +17,6 @@ public class SpelView extends GridPane {
     private Button[][] btns = new Button[7][7];
     private Button btnPause;
     private Button btnEnd;
-
-    private ImageView imageView;
 
     private Label lblScoreTekst;
     private Label lblScore;
@@ -43,7 +40,6 @@ public class SpelView extends GridPane {
 
     private void initialiseNodes() {
         initBtnsArray();
-
         this.lblSpelerNaam = new Label("########");
         this.lblScore = new Label("###");
         this.lblScoreTekst = new Label("Score");
@@ -165,4 +161,7 @@ public class SpelView extends GridPane {
     public Label getLblTimer() {
         return lblTimer;
     }
+
+
 }
+

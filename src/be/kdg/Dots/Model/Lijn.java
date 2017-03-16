@@ -28,14 +28,6 @@ public class Lijn {
         return aantalDots;
     }
 
-    public Kleuren getKleur() {
-        return kleur;
-    }
-
-    public void setKleur(Kleuren kleur) {
-        this.kleur = kleur;
-    }
-
     public Dot[] getLijnDotArray() {
         Dot[] dotArray = new Dot[lijn.size()];
         return lijn.toArray(dotArray);
@@ -105,18 +97,4 @@ public class Lijn {
         return lijn.get(lijn.size() - 1);
     }
 
-    public void removeDot(Dot dot) {
-        if (dot.equals(lijn.get(lijn.size() - 1))) ;
-        {
-            lijn.remove(lijn.size() - 1);
-        }
-    }
-
-    public String printList() {
-        String lijnString = "";
-        for (Dot dot : lijn) {
-            lijnString += "Kleur: " + dot.getKleur() + "\nIndex [Kolom|Rij]: (" + dot.getKolomIndex() + ", " + dot.getRijIndex() + ")\n";
-        }
-        return lijnString;
-    }
 }

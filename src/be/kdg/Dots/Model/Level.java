@@ -46,10 +46,6 @@ public class Level {
         this.targetScore = moeilijkheidsgraad.getStartScore();
     }
 
-    public void setTargetScore(int targetScore) {
-        this.targetScore = targetScore;
-    }
-
     public int getTargetScore() {
         return targetScore;
     }
@@ -64,10 +60,6 @@ public class Level {
 
     public Moeilijkheid getMoeilijkheidsgraad() {
         return moeilijkheidsgraad;
-    }
-
-    public void setGamelevel(int gamelevel) {
-        this.gamelevel = gamelevel;
     }
 
     public void nextLevel() {

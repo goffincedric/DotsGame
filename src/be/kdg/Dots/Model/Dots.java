@@ -80,14 +80,6 @@ public class Dots {
         return lijn;
     }
 
-    public int getPlaatsNummer() {
-        return plaatsNummer;
-    }
-
-    public void verhoogPlaatsnummer() {
-        plaatsNummer++;
-    }
-
     public Dot[][] getSpeelveld() {
         return speelveld;
     }
