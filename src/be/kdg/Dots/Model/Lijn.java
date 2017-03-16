@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Dit is de klasse waar alle gebruikte dots in een lijn in gestoken worden.
+ *
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 5/02/2017 14:51
  */
-
 public class Lijn {
     private List<Dot> lijn;
     private int aantalDots;
@@ -37,7 +38,10 @@ public class Lijn {
         return heeftToegevoegd;
     }
 
-
+    /**
+     * @param nieuweDot De dot die toegevoegd wordt aan de lijn.
+     * @throws DotsException De exception die gethrowed wordt als de nieuwe dot niet aan de voorwaarden voldoet.
+     */
     public void addDot(Dot nieuweDot) throws DotsException {
         if (lijn.isEmpty()) {
             lijn.add(0, nieuweDot);

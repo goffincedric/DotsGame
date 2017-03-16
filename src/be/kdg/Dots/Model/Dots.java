@@ -6,11 +6,12 @@ import java.util.Random;
 
 
 /**
+ * Dit is de klasse van waar alle spel mechanics beheerd worden.
+ *
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 5/02/2017 14:32
  */
 public class Dots {
-
     private final int MAXRIJ = 7;
     private final int MAXKOLOM = 7;
     private Dot[][] speelveld;
@@ -28,7 +29,6 @@ public class Dots {
     private Speler speler;
     private Level level;
     private Lijn lijn;
-
 
     public Dots() {
         this.speler = new Speler();
@@ -88,6 +88,9 @@ public class Dots {
         return speelveld[rij][kolom];
     }
 
+    /**
+     * Deze methode verwijderd de dots die gebruikt zijn in de lijn en vervangt deze door nieuw gegenereerde dots.
+     */
     public void vervangGebruikteDots() {
         Dot[] gebruikteDots = lijn.getLijnDotArray();
 
@@ -128,10 +131,17 @@ public class Dots {
         }
     }
 
+
+    /**
+     * Deze methode vervangt de oude lijn door een nieuw object van de klasse Lijn
+     */
     public void maakLijnLeeg () {
         lijn = new Lijn();
     }
 
+    /**
+     * Deze methode reset het spel door alle attributen in de klasse Dots opnieuw aan te maken.
+     */
     public void resetSpel() {
         this.lijn = new Lijn();
         this.speelveld = new Dot[MAXRIJ][MAXKOLOM];
@@ -158,6 +168,9 @@ public class Dots {
         }
     }
 
+    /**
+     * Zie de animation in de klasse SpelPresenter.
+     */
     public void tick() {
         this.seconds--;
     }
