@@ -3,10 +3,12 @@ package be.kdg.Dots.Model;
 import javafx.scene.paint.Color;
 
 /**
+ * Deze enum bevat alle kleuren die gebruikt kunnen worden in het spel.
+ * Elke kleur bevat een hard-coded rgb waarde die gebruikt wordt in de klasse SpelView om de dots op het veld een kleur te geven.
+ *
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 5/02/2017 14:50
  */
-
 public enum Kleuren {
     Grijs(Color.rgb(154, 160, 186)),
     Donkergrijs(Color.rgb(73, 88, 103)),
