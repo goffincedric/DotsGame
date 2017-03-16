@@ -48,7 +48,7 @@ public class EndViewPresenter {
         Score.HighScoreManager hm = new Score.HighScoreManager();
         int newHighscore = hm.isNewHighscore(model.getSpeler().getTotaalScore());
 
-        if(newHighscore >=0 && newHighscore <=10){
+        if(newHighscore <=10){
             view.getLblNewHighScore().setText("!!!New Highscore!!!" + "\n" + "U staat op plaats " + newHighscore + " in de Top 10\n");
         }else{
             view.getLblNewHighScore().setText("U heeft niet genoeg punten om in de top 10 te staan.");
