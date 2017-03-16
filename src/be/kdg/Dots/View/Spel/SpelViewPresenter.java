@@ -320,29 +320,11 @@ public class SpelViewPresenter {
             public void run() {
                 endStage.showAndWait();
                 if (endViewPresenter.getResult() == null) {
-                    StartView startView = new StartView();
-                    StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
-                    Stage startStage = new Stage();
-                    startStage.getIcons().add(new Image("be/kdg/Dots/Images/Logo.png"));
-                    startStage.setTitle("Dots");
-                    startStage.setScene(new Scene(startView));
-                    startViewPresenter.addWindowEventHandlers();
-                    startStage.show();
-                    view.getBtnEnd().getScene().getWindow().hide();
-                    startStage.toFront();
+                    newStartView();
                 } else if (endViewPresenter.getResult().equals(endview.getBtnRestart())) {
                     resetSpel();
                 } else if (endViewPresenter.getResult().equals(endview.getBtnHome())) {
-                    StartView startView = new StartView();
-                    StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
-                    Stage startStage = new Stage();
-                    startStage.getIcons().add(new Image("be/kdg/Dots/Images/Logo.png"));
-                    startStage.setTitle("Dots");
-                    startStage.setScene(new Scene(startView));
-                    startViewPresenter.addWindowEventHandlers();
-                    startStage.show();
-                    view.getBtnEnd().getScene().getWindow().hide();
-                    startStage.toFront();
+                    newStartView();
                 }
                 //score manager
                 Score.HighScoreManager hm = new Score.HighScoreManager();
@@ -352,6 +334,18 @@ public class SpelViewPresenter {
 
     }
 
+    private void newStartView() {
+        StartView startView = new StartView();
+        StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
+        Stage startStage = new Stage();
+        startStage.getIcons().add(new Image("be/kdg/Dots/Images/Logo.png"));
+        startStage.setTitle("Dots");
+        startStage.setScene(new Scene(startView));
+        startViewPresenter.addWindowEventHandlers();
+        startStage.show();
+        view.getBtnEnd().getScene().getWindow().hide();
+        startStage.toFront();
+    }
     private void resetSpel() {
         stopwatchTimeline.stop();
         SpelView nieuwView = new SpelView();
