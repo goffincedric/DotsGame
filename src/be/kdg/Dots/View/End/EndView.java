@@ -36,8 +36,8 @@ public class EndView extends VBox {
     }
 
     private void initialiseNodes() {
-        imgHome = new ImageView(new Image("be/kdg/Dots/images/Home.png"));
-        imgRestart = new ImageView(new Image("be/kdg/Dots/images/Restart.png"));
+        imgHome = new ImageView(new Image("be/kdg/Dots/Images/Home.png"));
+        imgRestart = new ImageView(new Image("be/kdg/Dots/Images/Restart.png"));
 
         lblNewHighScore = new Label("####");
         lblLevelTekst = new Label("Level: ");

@@ -177,7 +177,7 @@ public class SpelViewPresenter {
                 PauseView pauseview = new PauseView();
                 PauseViewPresenter pauseviewpresenter = new PauseViewPresenter(model, pauseview);
                 Stage pauseStage = new Stage();
-                pauseStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
+                pauseStage.getIcons().add(new Image("be/kdg/Dots/Images/Logo.png"));
                 pauseStage.setTitle("Dots");
                 pauseStage.initOwner(view.getScene().getWindow());
                 pauseStage.initModality(Modality.APPLICATION_MODAL);
@@ -195,7 +195,7 @@ public class SpelViewPresenter {
                     StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
                     Stage startStage = new Stage();
                     pauseStage.setTitle("Dots");
-                    startStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
+                    startStage.getIcons().add(new Image("be/kdg/Dots/Images/Logo.png"));
                     startStage.setScene(new Scene(startView));
                     startViewPresenter.addWindowEventHandlers();
                     startStage.show();
@@ -310,7 +310,7 @@ public class SpelViewPresenter {
         EndView endview = new EndView();
         EndViewPresenter endViewPresenter = new EndViewPresenter(model, endview);
         Stage endStage = new Stage();
-        endStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
+        endStage.getIcons().add(new Image("be/kdg/Dots/Images/Logo.png"));
         endStage.setTitle("Dots");
         endStage.initOwner(view.getScene().getWindow());
         endStage.initModality(Modality.APPLICATION_MODAL);
@@ -323,7 +323,7 @@ public class SpelViewPresenter {
                     StartView startView = new StartView();
                     StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
                     Stage startStage = new Stage();
-                    startStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
+                    startStage.getIcons().add(new Image("be/kdg/Dots/Images/Logo.png"));
                     startStage.setTitle("Dots");
                     startStage.setScene(new Scene(startView));
                     startViewPresenter.addWindowEventHandlers();
@@ -336,7 +336,7 @@ public class SpelViewPresenter {
                     StartView startView = new StartView();
                     StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
                     Stage startStage = new Stage();
-                    startStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
+                    startStage.getIcons().add(new Image("be/kdg/Dots/Images/Logo.png"));
                     startStage.setTitle("Dots");
                     startStage.setScene(new Scene(startView));
                     startViewPresenter.addWindowEventHandlers();

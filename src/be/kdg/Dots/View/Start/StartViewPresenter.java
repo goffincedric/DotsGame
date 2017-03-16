@@ -81,7 +81,7 @@ public class StartViewPresenter {
                 SettingView settingView = new SettingView();
                 SettingViewPresenter settingViewPresenter = new SettingViewPresenter(model, settingView);
                 Stage settingStage = new Stage();
-                settingStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
+                settingStage.getIcons().add(new Image("be/kdg/Dots/Images/Logo.png"));
                 settingStage.setTitle("Dots");
                 settingStage.initOwner(view.getScene().getWindow());
                 settingStage.initModality(Modality.APPLICATION_MODAL);

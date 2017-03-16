@@ -26,7 +26,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         presenter.addWindowEventHandlers();
-        primaryStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
+        primaryStage.getIcons().add(new Image("be/kdg/Dots/Images/Logo.png"));
         primaryStage.toFront();
         primaryStage.show();
     }

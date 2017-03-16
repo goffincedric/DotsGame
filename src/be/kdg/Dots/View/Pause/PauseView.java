@@ -40,9 +40,9 @@ public class PauseView extends VBox {
     }
 
     private void initialiseNodes() {
-        imgContinue = new ImageView(new Image("be/kdg/Dots/images/Play.png"));
-        imgHome = new ImageView(new Image("be/kdg/Dots/images/Home.png"));
-        imgRestart = new ImageView(new Image("be/kdg/Dots/images/Restart.png"));
+        imgContinue = new ImageView(new Image("be/kdg/Dots/Images/Play.png"));
+        imgHome = new ImageView(new Image("be/kdg/Dots/Images/Home.png"));
+        imgRestart = new ImageView(new Image("be/kdg/Dots/Images/Restart.png"));
 
         lblPaused = new Label("Game Paused");
         lblScoreTekst = new Label("Score:");

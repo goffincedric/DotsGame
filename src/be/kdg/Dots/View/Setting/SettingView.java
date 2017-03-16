@@ -40,9 +40,9 @@ public class SettingView extends VBox{
         btnExtreem = new Button("EXTREEM");
         btnHome = new Button();
         btnSound = new Button();
-        imgHome = new ImageView(new Image("be/kdg/Dots/images/Home.png"));
-        imgSoundOff = new ImageView(new Image("be/kdg/Dots/images/Mute.png"));
-        imgSoundOn = new ImageView(new Image("be/kdg/Dots/images/Soundon.png"));
+        imgHome = new ImageView(new Image("be/kdg/Dots/Images/Home.png"));
+        imgSoundOff = new ImageView(new Image("be/kdg/Dots/Images/Mute.png"));
+        imgSoundOn = new ImageView(new Image("be/kdg/Dots/Images/Soundon.png"));
 
         lblSettings = new Label("Settings");
     }
