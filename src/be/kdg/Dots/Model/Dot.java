@@ -10,6 +10,14 @@ public class Dot {
     private int kolomIndex;
     private int dotNummer;
 
+
+    /**
+     *
+     * @param rijIndex De rij-index van de dot op het grid
+     * @param kolomIndex De kolom-index
+     * @param kleur
+     * @param dotNummer
+     */
     public Dot(int rijIndex, int kolomIndex, Kleuren kleur, int dotNummer) {
         this.kleur = kleur;
         this.kolomIndex = kolomIndex;

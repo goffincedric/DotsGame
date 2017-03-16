@@ -136,7 +136,6 @@ public class SpelViewPresenter {
                         alert.getButtonTypes().add(ButtonType.OK);
                         alert.showAndWait();
                     } else {
-
                         if (model.getSound()) {
                             try {
                             String musicFile = getClass().getResource("sound.mp3").toURI().toString();
@@ -178,6 +177,8 @@ public class SpelViewPresenter {
                 PauseView pauseview = new PauseView();
                 PauseViewPresenter pauseviewpresenter = new PauseViewPresenter(model, pauseview);
                 Stage pauseStage = new Stage();
+                pauseStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
+                pauseStage.setTitle("Dots");
                 pauseStage.initOwner(view.getScene().getWindow());
                 pauseStage.initModality(Modality.APPLICATION_MODAL);
                 pauseStage.setScene(new Scene(pauseview));
@@ -193,6 +194,8 @@ public class SpelViewPresenter {
                     StartView startView = new StartView();
                     StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
                     Stage startStage = new Stage();
+                    pauseStage.setTitle("Dots");
+                    startStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
                     startStage.setScene(new Scene(startView));
                     startViewPresenter.addWindowEventHandlers();
                     startStage.show();
@@ -267,7 +270,7 @@ public class SpelViewPresenter {
     private void endStatus() {
         stopwatchTimeline.stop();
         if (model.getSpeler().getGameScore() >= model.getLevel().getTargetScore()) {
-            if (model.getLijn().getAantalDots() >= 2) {
+            if (model.getLijn().getLijn().size() >= 2) {
                 /* verwijdert gebruikte dots*/
                 model.vervangGebruikteDots();
                     /* berekent score*/
@@ -299,7 +302,6 @@ public class SpelViewPresenter {
             updateView();
         } else {
             endGame();
-
         }
     }
 
@@ -309,6 +311,7 @@ public class SpelViewPresenter {
         EndViewPresenter endViewPresenter = new EndViewPresenter(model, endview);
         Stage endStage = new Stage();
         endStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
+        endStage.setTitle("Dots");
         endStage.initOwner(view.getScene().getWindow());
         endStage.initModality(Modality.APPLICATION_MODAL);
         endStage.setScene(new Scene(endview));
@@ -316,12 +319,12 @@ public class SpelViewPresenter {
             @Override
             public void run() {
                 endStage.showAndWait();
-
                 if (endViewPresenter.getResult() == null) {
                     StartView startView = new StartView();
                     StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
                     Stage startStage = new Stage();
                     startStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
+                    startStage.setTitle("Dots");
                     startStage.setScene(new Scene(startView));
                     startViewPresenter.addWindowEventHandlers();
                     startStage.show();
@@ -334,6 +337,7 @@ public class SpelViewPresenter {
                     StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
                     Stage startStage = new Stage();
                     startStage.getIcons().add(new Image("be/kdg/Dots/images/Logo.png"));
+                    startStage.setTitle("Dots");
                     startStage.setScene(new Scene(startView));
                     startViewPresenter.addWindowEventHandlers();
                     startStage.show();
