@@ -24,7 +24,6 @@ public class Main extends Application {
         Scene scene = new Scene(view);
         primaryStage.setTitle("Dots");
         primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
         presenter.addWindowEventHandlers();
         primaryStage.getIcons().add(new Image("be/kdg/Dots/Images/Logo.png"));
         primaryStage.toFront();

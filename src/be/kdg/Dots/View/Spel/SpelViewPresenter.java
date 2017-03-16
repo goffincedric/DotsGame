@@ -194,7 +194,7 @@ public class SpelViewPresenter {
                     StartView startView = new StartView();
                     StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
                     Stage startStage = new Stage();
-                    pauseStage.setTitle("Dots");
+                    startStage.setTitle("Dots");
                     startStage.getIcons().add(new Image("be/kdg/Dots/Images/Logo.png"));
                     startStage.setScene(new Scene(startView));
                     startViewPresenter.addWindowEventHandlers();
