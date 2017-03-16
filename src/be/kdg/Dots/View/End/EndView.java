@@ -13,7 +13,9 @@ import javafx.scene.layout.VBox;
  * @version 1.0 6/02/2017 13:41
  */
 public class EndView extends VBox {
-
+    /**
+     *
+     */
     private Label lblNewHighScore;
     private Label lblLevelTekst;
     private Label lblScoreTekst;
@@ -30,6 +32,9 @@ public class EndView extends VBox {
     private ImageView imgHome;
     private ImageView imgRestart;
 
+    /**
+     * TEsTESTES
+     */
     public EndView() {
         this.initialiseNodes();
         this.layoutNodes();
@@ -51,7 +56,10 @@ public class EndView extends VBox {
         buttonBox = new HBox();
     }
 
+
     private void layoutNodes() {
+
+
         this.setStyle("-fx-font: 16px Consolas; -fx-background-color: ghostwhite;");
         this.setMinSize(500, 500);
 

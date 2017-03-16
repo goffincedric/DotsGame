@@ -169,7 +169,7 @@ public class Score extends Dots implements Serializable {
 
 
             }
-            return -1;
+            return x + 2;
         }
     }
 }
