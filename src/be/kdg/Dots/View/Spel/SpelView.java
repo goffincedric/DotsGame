@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 
 /**
  * De spelview, hier draait heel het spel, dit is de spelomgeving. De gebruiker speelt in deze view door middel van de vierkantjes in het grid te selecteren.
+ *
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 13:40
  */
