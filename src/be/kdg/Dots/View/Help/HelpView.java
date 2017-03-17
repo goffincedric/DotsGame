@@ -7,6 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.web.WebView;
 
 /**
+ * De helpview geeft de gebruiker informatie over het spel en over hoe het gespeeld moet worden. Hierbij wordt gebruik gemaakt van een webview.
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 8/03/2017 11:21
  */

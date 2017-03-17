@@ -54,7 +54,8 @@ public class Lijn {
                 lijn.remove(lijn.size() - 1);
                 aantalDots--;
                 heeftToegevoegd = false;
-                throw new DotsException("Vorige dot verwijderd");
+                throw new DotsException();
+                // throw new DotsException("Vorige dot verwijderd");
             }
 
             for (Dot dot : lijn) {

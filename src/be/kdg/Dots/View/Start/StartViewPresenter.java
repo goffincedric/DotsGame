@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 /**
+ * Deze presenter zorgt voor de samenwerking tussen het model en de Startview.
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 22:21
  */

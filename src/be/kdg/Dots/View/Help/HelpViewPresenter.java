@@ -7,6 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 /**
+ * Deze presenter zorgt voor de samenwerking tussen het model en de Helpview.
+ * In deze view wordt er niet echt gebruik gemaakt van het model maar wel van de EventHandlers.
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 8/03/2017 11:21
  */

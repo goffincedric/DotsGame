@@ -9,6 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 /**
+ * In de settingsview worden enkele regelbare settings getoont. Zoals de moeilijk, of de mogelijkheid tot het gebruiken van geluid tijdens het spel, dit gebeurd allemaal via knoppen.
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 9/03/2017 10:49
  */

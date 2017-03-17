@@ -39,6 +39,7 @@ import java.net.URISyntaxException;
 import java.util.Optional;
 
 /**
+ * Deze presenter zorgt voor de samenwerking tussen het model en de Spelview.
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 22:21
  */
@@ -129,6 +130,7 @@ public class SpelViewPresenter {
             public void handle(KeyEvent event) {
                 if (event.getCode() == KeyCode.ENTER) {
                     if (model.getLijn().getAantalDots() < 2) {
+
                         alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Fout");
                         alert.setHeaderText("Lijn moet minstens 2 dots bevatten!");
@@ -250,6 +252,10 @@ public class SpelViewPresenter {
         });
     }
 
+    /**
+     * Hier wordt de timeline op gebouwd.
+     * Waneer de timer afloopt zal naar de methode endStatus() gegaan worden.
+     */
     private void setupTimelineBasis() {
         stopwatchTimeline = new Timeline(new KeyFrame(Duration.millis(this.model.getTickDurationMillis()), new EventHandler<ActionEvent>() {
             @Override
@@ -267,6 +273,12 @@ public class SpelViewPresenter {
         stopwatchTimeline.setCycleCount(Animation.INDEFINITE);
     }
 
+    /**
+     * Als de timer afloopt wordt deze methode opgeroepen.
+     * Er wordt gekeken of je de targetscore van jouw level bereikt hebt.
+     * Als dit zo is worden je gebruikte dots verwijderd, je gamescore wordt toevoegd aan je totaalscore.
+     * En de timer wordt gereset. Je zal naar het volgende level gaan.
+     */
     private void endStatus() {
         stopwatchTimeline.stop();
         if (model.getSpeler().getGameScore() >= model.getLevel().getTargetScore()) {
@@ -305,6 +317,10 @@ public class SpelViewPresenter {
         }
     }
 
+    /**
+     * Hier in deze methode wordt de EndView opgeroepen.
+     * Ook wordt highscore bepaald. Waneer je in de top 10 komt wordt je plaats getoont samen met je score en behaaldlevel.
+     */
     private void endGame() {
         //Endview tonen
         EndView endview = new EndView();
@@ -334,6 +350,9 @@ public class SpelViewPresenter {
 
     }
 
+    /**
+     * In deze methode wordt er een nieuwe StartView gemaakt wanneer deze wordt opgeroepen.
+     */
     private void newStartView() {
         StartView startView = new StartView();
         StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
@@ -346,6 +365,10 @@ public class SpelViewPresenter {
         view.getBtnEnd().getScene().getWindow().hide();
         startStage.toFront();
     }
+
+    /**
+     * Wanneer je het spel opnieuw laat starten wordt er een nieuwe spelview gemaakt die de oude vervangt.
+     */
     private void resetSpel() {
         stopwatchTimeline.stop();
         SpelView nieuwView = new SpelView();

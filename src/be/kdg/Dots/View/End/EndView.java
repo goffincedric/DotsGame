@@ -9,13 +9,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 /**
+ * Deze view wordt getoont wanneer een speler op de end-knop duwt of wanneer de timer afgaat en hij de targetscore niet bereikt heeft.
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 13:41
  */
 public class EndView extends VBox {
-    /**
-     *
-     */
+
     private Label lblNewHighScore;
     private Label lblLevelTekst;
     private Label lblScoreTekst;
@@ -32,9 +31,7 @@ public class EndView extends VBox {
     private ImageView imgHome;
     private ImageView imgRestart;
 
-    /**
-     * TEsTESTES
-     */
+
     public EndView() {
         this.initialiseNodes();
         this.layoutNodes();

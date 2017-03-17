@@ -10,6 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 /**
+ * De spelview, hier draait heel het spel, dit is de spelomgeving. De gebruiker speelt in deze view door middel van de vierkantjes in het grid te selecteren.
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 13:40
  */
@@ -107,6 +108,11 @@ public class SpelView extends GridPane {
         }
     }
 
+    /**
+     * Hier worden de buttons uit de btnsArray toegevoegd aan de gridpane.
+     *
+     * @return Het gridpain met de dots wordt gereturnd zodat deze kan uitgeprint worden.
+     */
     Pane getGrid() {
         for (int i = 0; i < btns.length; i++) {
             for (int j = 0; j < btns[i].length; j++) {
@@ -117,6 +123,9 @@ public class SpelView extends GridPane {
         return dotsGrid;
     }
 
+    /**
+     * Hier wordt de array met 49 buttons geïnitilaiseerd. 7 verticaal en 7 horizontaal.
+     */
     private void initBtnsArray() {
         for (int i = 0; i < btns.length; i++) {
             for (int j = 0; j < btns[i].length; j++) {

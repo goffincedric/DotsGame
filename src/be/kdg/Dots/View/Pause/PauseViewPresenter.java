@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Window;
 
 /**
+ * Deze presenter zorgt voor de samenwerking tussen het model en de PauseView.
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 22:21
  */

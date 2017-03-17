@@ -7,6 +7,8 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
 /**
+ * Deze presenter zorgt voor de samenwerking tussen het model en de EndView.
+ * Hier worden de scores, level en eventuele highscores getoont.
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 22:21
  */
@@ -22,6 +24,7 @@ public class EndViewPresenter {
         addEventHandlers();
         updateView();
     }
+
 
     private void addEventHandlers() {
         view.getBtnRestart().setOnAction(new EventHandler<ActionEvent>() {

@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Window;
 
 /**
+ * Deze presenter zorgt voor de samenwerking tussen het model en de SettingView.
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 9/03/2017 10:49
  */

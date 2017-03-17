@@ -10,6 +10,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 /**
+ * De PauseView wordt opgeroepen wanneer de gebruiker het spel pauseert door op de pause-knop te drukken. Hier wordt zijn huidig level en huidige score getoont.
+ * Hij krijgt ook de mogelijkheid om het spel te stoppen, te hervatten of om opnieuw te starten.
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 13:41
  */

@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 /**
+ * Deze view wordt getoont wanneer het spelstart. Het is het hoofdscherm. Hier laat je het spelstarte, bekijk je de highscores, pas je de settings aan of roep je de helpfunctie op.
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 6/02/2017 13:41
  */

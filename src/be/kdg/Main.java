@@ -9,6 +9,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
+ * Hier wordt de applicatie gelaunched.
+ * De startview wordt aangemaakt en aan een scene toegoevoegd. Deze scene wordt toegevoegd aan een nieuwe stage die dan getoont wordt.
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 5/02/2017 14:36
  */
