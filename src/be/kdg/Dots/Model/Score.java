@@ -7,6 +7,8 @@ import java.util.Comparator;
 import java.util.Properties;
 
 /**
+ * Dit is de klasse die de highscores beheerd.
+ *
  * @author Cédric Goffin & Thomas Verhoeven
  * @version 1.0 5/02/2017 14:56
  */
@@ -15,6 +17,12 @@ public class Score extends Dots implements Serializable {
     private String Naam;
     private int BehaaldLevel;
 
+    /**
+     *
+     * @param naam De spelernaam waarvan de score word opgeslaan.
+     * @param score De score van de speler die word opgeslaan.
+     * @param level Het level van de speler warvan de score word opgeslaan
+     */
     public Score(String naam, int score, int level) {
         this.Naam = naam;
         this.Score = score;
@@ -33,6 +41,9 @@ public class Score extends Dots implements Serializable {
         return BehaaldLevel;
     }
 
+    /**
+     * Een inner class die opgegeven scores vergelijkt.
+     */
     public static class ScoreComparator implements Comparator<Score> {
         public int compare(Score score1, Score score2) {
             int sc1 = score1.getScore();
@@ -54,7 +65,9 @@ public class Score extends Dots implements Serializable {
         }
     }
 
-
+    /**
+     * Een inner class die alle highscores beheerd.
+     */
     public static class HighScoreManager {
         private ArrayList<Score> scores;
         Properties properties = System.getProperties();
@@ -66,7 +79,6 @@ public class Score extends Dots implements Serializable {
         public HighScoreManager() {
             scores = new ArrayList<Score>();
             HIGHSCORE_FILE = properties.getProperty("user.dir") + File.separator + "HighScores.dat";
-
         }
 
         public ArrayList<Score> getScores() {
@@ -80,12 +92,22 @@ public class Score extends Dots implements Serializable {
             Collections.sort(scores, comparator);
         }
 
+        /**
+         * Deze methode voegt een score toe aan de highscoresfile.
+         *
+         * @param naam De spelernaam waarvan de score word opgeslaan.
+         * @param score De score van de speler die word opgeslaan.
+         * @param level Het level van de speler warvan de score word opgeslaan
+         */
         public void addScore(String naam, int score, int level) {
             loadScoreFile();
             scores.add(new Score(naam, score, level));
             updateScoreFile();
         }
 
+        /**
+         * Een methode die de highscorefile ophaalt en inlaad in het programma.
+         */
         private void loadScoreFile() {
             try {
                 inputStream = new ObjectInputStream(new FileInputStream(HIGHSCORE_FILE));
@@ -108,6 +130,9 @@ public class Score extends Dots implements Serializable {
             }
         }
 
+        /**
+         * Een methode die de opgegeven score van de addScore()-methode toevoegt aan de highscorefile.
+         */
         public void updateScoreFile() {
             try {
                 outputStream = new ObjectOutputStream(new FileOutputStream(HIGHSCORE_FILE));
@@ -130,6 +155,9 @@ public class Score extends Dots implements Serializable {
             }
         }
 
+        /**
+         * Een methode die een string terugggeeft die de top 10 highscores bevat.
+         */
         public String getHighscoreString() {
             String highscoreString = String.format("Plaats\t%-25s%-6s%-3s%n%n", "Spelernaam", "Score", "Level");
             int max = 10;
@@ -149,6 +177,11 @@ public class Score extends Dots implements Serializable {
             return highscoreString;
         }
 
+        /**
+         * Een methode die kijkt of de opgegeven score een plaats in de top 10 heeft.
+         *
+         * @param score
+         */
         public int isNewHighscore(int score) {
             ArrayList<Score> scores;
             scores = getScores();
