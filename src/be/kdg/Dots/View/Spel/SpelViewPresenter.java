@@ -350,6 +350,7 @@ public class SpelViewPresenter {
 
     }
 
+
     /**
      * In deze methode wordt er een nieuwe StartView gemaakt wanneer deze wordt opgeroepen.
      */
