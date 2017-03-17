@@ -78,7 +78,7 @@ public class Score extends Dots implements Serializable {
 
         public HighScoreManager() {
             scores = new ArrayList<Score>();
-            HIGHSCORE_FILE = properties.getProperty("user.dir") + File.separator + "HighScores.dat";
+            HIGHSCORE_FILE = properties.getProperty("user.home") + File.separator + "HighScores.dat";
         }
 
         public ArrayList<Score> getScores() {

@@ -119,7 +119,9 @@ public class SpelViewPresenter {
                         alert.setHeaderText(e.getMessage());
                         alert.getButtonTypes().clear();
                         alert.getButtonTypes().add(ButtonType.OK);
-                        alert.showAndWait();
+                        if (!e.getMessage().equals(null)) {
+                            alert.showAndWait();
+                        }
                     }
                 }
             });
@@ -331,10 +333,13 @@ public class SpelViewPresenter {
         endStage.initOwner(view.getScene().getWindow());
         endStage.initModality(Modality.APPLICATION_MODAL);
         endStage.setScene(new Scene(endview));
+        endStage.showAndWait();
+        //score manager
+        Score.HighScoreManager hm = new Score.HighScoreManager();
+        hm.addScore(model.getSpeler().getNaam(), model.getSpeler().getTotaalScore(), model.getLevel().getGamelevel());
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                endStage.showAndWait();
                 if (endViewPresenter.getResult() == null) {
                     newStartView();
                 } else if (endViewPresenter.getResult().equals(endview.getBtnRestart())) {
@@ -342,9 +347,6 @@ public class SpelViewPresenter {
                 } else if (endViewPresenter.getResult().equals(endview.getBtnHome())) {
                     newStartView();
                 }
-                //score manager
-                Score.HighScoreManager hm = new Score.HighScoreManager();
-                hm.addScore(model.getSpeler().getNaam(), model.getSpeler().getTotaalScore(), model.getLevel().getGamelevel());
             }
         });
 
@@ -356,12 +358,14 @@ public class SpelViewPresenter {
      */
     private void newStartView() {
         StartView startView = new StartView();
-        StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
+        Dots startModel = new Dots();
+        StartViewPresenter startViewPresenter = new StartViewPresenter(startModel, startView);
         Stage startStage = new Stage();
         startStage.getIcons().add(new Image("be/kdg/Dots/Images/Logo.png"));
         startStage.setTitle("Dots");
         startStage.setScene(new Scene(startView));
         startViewPresenter.addWindowEventHandlers();
+        startModel.getLevel().setMoeilijkheidsgraad(model.getLevel().getMoeilijkheidsgraad());
         startStage.show();
         view.getBtnEnd().getScene().getWindow().hide();
         startStage.toFront();
