@@ -159,7 +159,7 @@ public class Score extends Dots implements Serializable {
          * Een methode die een string terugggeeft die de top 10 highscores bevat.
          */
         public String getHighscoreString() {
-            String highscoreString = String.format("Plaats\t%-25s%-6s%-3s%n%n", "Spelernaam", "Score", "Level");
+            String highscoreString = String.format("Plaats\t%-14s%-13s%-6s%-3s%n%n", "Spelernaam", "Moeilijkheid", "Score", "Level");
             int max = 10;
 
             ArrayList<Score> scores;
@@ -171,7 +171,7 @@ public class Score extends Dots implements Serializable {
                 x = max;
             }
             while (i < x) {
-                highscoreString += String.format("%3d.\t%-25s%-6s%-3s%n",(i + 1), scores.get(i).getNaam(), scores.get(i).getScore(), scores.get(i).getBehaaldLevel());
+                highscoreString += String.format("%3d.\t%-14s%-13s%-6s%-3s%n",(i + 1), scores.get(i).getNaam(), scores.get(i).getLevel().getMoeilijkheidsgraad().name(), scores.get(i).getScore(), scores.get(i).getBehaaldLevel());
                 i++;
             }
             return highscoreString;

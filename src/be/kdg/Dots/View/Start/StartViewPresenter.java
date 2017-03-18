@@ -72,6 +72,7 @@ public class StartViewPresenter {
                 alert.setHeaderText("Dit zijn de top 10 spelers");
                 alert.setContentText(hm.getHighscoreString());
                 alert.getDialogPane().setStyle("-fx-font-family: 'Lucida Console'");
+                alert.setWidth(200);
                 alert.show();
             }
         });

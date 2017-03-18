@@ -87,7 +87,7 @@ public class SpelViewPresenter {
         dialogNaam.getEditor().lengthProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                if ((newValue.intValue() > oldValue.intValue()) && (newValue.intValue() > 20)) {
+                if ((newValue.intValue() > oldValue.intValue()) && (newValue.intValue() > 12)) {
                     dialogNaam.getEditor().setText(dialogNaam.getEditor().getText().substring(0, 20));
                 }
             }
@@ -119,7 +119,7 @@ public class SpelViewPresenter {
                         alert.setHeaderText(e.getMessage());
                         alert.getButtonTypes().clear();
                         alert.getButtonTypes().add(ButtonType.OK);
-                        if (!e.getMessage().equals(null)) {
+                        if (e.getMessage() != null) {
                             alert.showAndWait();
                         }
                     }
