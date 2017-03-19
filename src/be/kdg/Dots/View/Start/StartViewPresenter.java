@@ -43,8 +43,6 @@ public class StartViewPresenter {
         view.getBtnStart().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                boolean keuzeAanwezig = false;
-
                 List<String> choices = new ArrayList<>();
                 choices.add("Classic mode");
                 choices.add("Moves mode");
@@ -92,10 +90,8 @@ public class StartViewPresenter {
                             infinityAlert.show();
                             break;
                     }
-                } else if (result == null) {
-
                 } else {
-
+                    event.consume();
                 }
             }
         });

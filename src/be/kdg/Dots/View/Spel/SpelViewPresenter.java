@@ -76,6 +76,7 @@ public class SpelViewPresenter {
             }
         } while (!naamIngegeven);
 
+        addEventHandlers();
 
         switch (model.getSpelModus()) {
             case Classic:
@@ -89,7 +90,6 @@ public class SpelViewPresenter {
                 break;
         }
 
-        addEventHandlers();
         updateView();
     }
 
@@ -181,7 +181,6 @@ public class SpelViewPresenter {
 
             }
         });
-
 
         view.getBtnPause().setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -402,7 +401,7 @@ public class SpelViewPresenter {
         view.movesLayout();
     }
 
-    private void  infinityViewConfig() {
+    private void infinityViewConfig() {
 
 
         view.infinityLayout();

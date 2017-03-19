@@ -14,16 +14,12 @@ import java.util.Random;
 public class Dots {
     public enum SpelModus {
         Classic, Moves, Infinity;
-
-        SpelModus() {
-
-        }
     }
 
     private final int MAXRIJ = 7;
     private final int MAXKOLOM = 7;
     private Dot[][] speelveld;
-    private static final Kleuren KLEUREN[] = Kleuren.values();
+    private static Kleuren kleuren[] = Kleuren.values();
     private static int aantalKleuren;
     private static Random random;
     private static SpelModus spelModus;
@@ -53,13 +49,7 @@ public class Dots {
         this.tickDurationMillis = START_TICK_DURATION_MILLIS;
         this.seconds = 45;
 
-        for (int i = 0; i < aantalKleuren; i++) {
-            Kleuren kleur;
-            do {
-                 kleur = KLEUREN[random.nextInt(KLEUREN.length)];
-            } while (dotKleuren.contains(kleur));
-            dotKleuren.add(kleur);
-        }
+        gereneerDotKleuren();
 
         for (int rij = 0; rij < MAXRIJ; rij++) {
             for (int kolom = 0; kolom < MAXKOLOM; kolom++) {
@@ -105,6 +95,16 @@ public class Dots {
         Dots.spelModus = spelModus;
     }
 
+    public void gereneerDotKleuren() {
+        for (int i = 0; i < aantalKleuren; i++) {
+            Kleuren kleur;
+            do {
+                kleur = kleuren[random.nextInt(kleuren.length)];
+            } while (dotKleuren.contains(kleur));
+            dotKleuren.add(kleur);
+        }
+    }
+
     /**
      * Deze methode verwijderd de dots die gebruikt zijn in de lijn en vervangt deze door nieuw gegenereerde dots.
      */
@@ -148,6 +148,10 @@ public class Dots {
         }
     }
 
+    public void checkLijnMogelijkheid() {
+
+    }
+
 
     /**
      * Deze methode vervangt de oude lijn door een nieuw object van de klasse Lijn
@@ -162,20 +166,12 @@ public class Dots {
     public void resetSpel() {
         this.lijn = new Lijn();
         this.speelveld = new Dot[MAXRIJ][MAXKOLOM];
-
         dotKleuren = new ArrayList<>();
-
         this.plaatsNummer = 0;
         this.tickDurationMillis = START_TICK_DURATION_MILLIS;
         this.seconds = 45;
 
-        for (int i = 0; i < aantalKleuren; i++) {
-            Kleuren kleur;
-            do {
-                kleur = KLEUREN[random.nextInt(KLEUREN.length)];
-            } while (dotKleuren.contains(kleur));
-            dotKleuren.add(kleur);
-        }
+        gereneerDotKleuren();
 
         for (int rij = 0; rij < MAXRIJ; rij++) {
             for (int kolom = 0; kolom < MAXKOLOM; kolom++) {
