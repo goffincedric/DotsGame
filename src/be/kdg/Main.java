@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 public class Main extends Application {
     private Dots model;
 
-
     @Override
     public void start(Stage primaryStage) {
         model = new Dots();

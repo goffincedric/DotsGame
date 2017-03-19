@@ -11,7 +11,7 @@ public class Level {
      * Dit is de enum waarin alle moeilijkheden staan.
      * Elke moeilijkheid bevat een getal dat als het in de moeilijkheidsformule gestoken wordt, de targetscore exponentieel meer of minder verhoogt per volgend level.
      */
-    public static enum Moeilijkheid {
+    public enum Moeilijkheid {
         EASY(30, 50), NORMAL(25, 75), MEDIUM(15, 80), HARD(10, 80), EXTREEM(8, 90);
 
         private double moeilijkheid;

@@ -13,10 +13,15 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * Deze presenter zorgt voor de samenwerking tussen het model en de Startview.
@@ -38,17 +43,59 @@ public class StartViewPresenter {
         view.getBtnStart().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                try {
-                    SpelView spelview = new SpelView();
-                    SpelViewPresenter spelviewpresenter = new SpelViewPresenter(model, spelview);
-                    view.getScene().setRoot(spelview);
-                    spelview.getScene().getWindow().sizeToScene();
-                    spelviewpresenter.addWindowEventHandlers();
-                } catch (NullPointerException e) {
-                    event.consume();
-                } catch (Exception e) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION, e.getMessage());
-                    alert.show();
+                boolean keuzeAanwezig = false;
+
+                List<String> choices = new ArrayList<>();
+                choices.add("Classic mode");
+                choices.add("Moves mode");
+                choices.add("Infinity mode");
+
+                ChoiceDialog<String> dialog = new ChoiceDialog<>("Classic mode", choices);
+                dialog.setTitle("Spelmodus");
+                dialog.setHeaderText("Kies een spelmodus");
+                dialog.setContentText("Kies de spelmodus die je wil spelen:");
+
+                Optional<String> result = dialog.showAndWait();
+
+                if (result.isPresent()){
+                    switch (result.get()) {
+                        case "Classic mode":
+                            try {
+                                model.setSpelModus(Dots.SpelModus.Classic);
+
+                                SpelView spelview = new SpelView();
+                                SpelViewPresenter spelviewpresenter = new SpelViewPresenter(model, spelview);
+                                view.getScene().setRoot(spelview);
+                                spelview.getScene().getWindow().sizeToScene();
+                                spelviewpresenter.addWindowEventHandlers();
+                            } catch (NullPointerException e) {
+                                event.consume();
+                            } catch (Exception e) {
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION, e.getMessage());
+                                alert.show();
+                            }
+                            break;
+                        case  "Moves mode":
+                            Alert movesAlert = new Alert(Alert.AlertType.INFORMATION);
+                            movesAlert.setTitle("Coming soon");
+                            movesAlert.setHeaderText("Moves mode is nog niet beschikbaar");
+                            movesAlert.getButtonTypes().clear();
+                            movesAlert.getButtonTypes().add(ButtonType.OK);
+                            movesAlert.show();
+                            break;
+                        case "Infinity mode":
+                            Alert infinityAlert = new Alert(Alert.AlertType.INFORMATION);
+                            infinityAlert.setTitle("Coming soon");
+                            infinityAlert.setHeaderText("Infinity mode is nog niet beschikbaar");
+                            infinityAlert.getButtonTypes().clear();
+                            infinityAlert.getButtonTypes().add(ButtonType.OK);
+                            infinityAlert.show();
+                            break;
+                    }
+                } else if (result == null) {
+
+                } else {
+
                 }
             }
         });
@@ -93,10 +140,6 @@ public class StartViewPresenter {
         });
     }
 
-    private void updateView() {
-
-    }
-
     public void addWindowEventHandlers() {
         view.getScene().getWindow().setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
@@ -115,5 +158,24 @@ public class StartViewPresenter {
                 }
             }
         });
+    }
+
+    private void updateView() {
+
+    }
+
+    private void startNieuwSpel() {
+        try {
+            SpelView spelview = new SpelView();
+            SpelViewPresenter spelviewpresenter = new SpelViewPresenter(model, spelview);
+            view.getScene().setRoot(spelview);
+            spelview.getScene().getWindow().sizeToScene();
+            spelviewpresenter.addWindowEventHandlers();
+        } catch (NullPointerException e) {
+
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, e.getMessage());
+            alert.show();
+        }
     }
 }

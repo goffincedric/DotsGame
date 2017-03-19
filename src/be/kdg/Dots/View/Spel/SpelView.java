@@ -120,7 +120,6 @@ public class SpelView extends GridPane {
                 dotsGrid.add(btns[i][j], i, j);
             }
         }
-
         return dotsGrid;
     }
 
@@ -135,40 +134,52 @@ public class SpelView extends GridPane {
         }
     }
 
-    public Button getButtonFromBtns(int rij, int kolom) {
+    Button getButtonFromBtns(int rij, int kolom) {
         return btns[rij][kolom];
     }
 
-    public GridPane getDotsGrid() {
+    GridPane getDotsGrid() {
         return dotsGrid;
     }
 
-    public Label getLblScore() {
+    Label getLblScore() {
         return lblScore;
     }
 
-    public Label getLblTargetScore() {
+    Label getLblTargetScore() {
         return lblTargetScore;
     }
 
-    public Label getLblLevel() {
+    Label getLblLevel() {
         return lblLevel;
     }
 
-    public Label getLblSpelerNaam() {
+    Label getLblSpelerNaam() {
         return lblSpelerNaam;
     }
 
-    public Button getBtnPause() {
+    Button getBtnPause() {
         return btnPause;
     }
 
-    public Button getBtnEnd() {
+    Button getBtnEnd() {
         return btnEnd;
     }
 
-    public Label getLblTimer() {
+    Label getLblTimer() {
         return lblTimer;
+    }
+
+    public void movesLayout() {
+
+    }
+
+    public void infinityLayout() {
+        lblTargetScoreTekst.setVisible(false);
+        lblTargetScore.setVisible(false);
+        lblLevel.setVisible(false);
+        lblTimerTekst.setVisible(false);
+        lblTimer.setVisible(false);
     }
 }
 

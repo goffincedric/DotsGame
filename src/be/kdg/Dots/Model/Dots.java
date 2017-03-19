@@ -12,14 +12,23 @@ import java.util.Random;
  * @version 1.0 5/02/2017 14:32
  */
 public class Dots {
+    public enum SpelModus {
+        Classic, Moves, Infinity;
+
+        SpelModus() {
+
+        }
+    }
+
     private final int MAXRIJ = 7;
     private final int MAXKOLOM = 7;
     private Dot[][] speelveld;
     private static final Kleuren KLEUREN[] = Kleuren.values();
     private static int aantalKleuren;
+    private static Random random;
+    private static SpelModus spelModus;
     private int plaatsNummer;
     private List<Kleuren> dotKleuren;
-    private static Random random;
 
     private static final int START_TICK_DURATION_MILLIS = 1000;
     private int seconds;
@@ -35,10 +44,10 @@ public class Dots {
         this.level = new Level();
         this.lijn = new Lijn();
         this.speelveld = new Dot[MAXRIJ][MAXKOLOM];
-        this.aantalKleuren = 4;
+        aantalKleuren = 4;
         this.plaatsNummer = 0;
         dotKleuren = new ArrayList<>();
-        this.random = new Random();
+        random = new Random();
         sound = false;
 
         this.tickDurationMillis = START_TICK_DURATION_MILLIS;
@@ -86,6 +95,14 @@ public class Dots {
 
     public Dot getDotUitSpeelveld(int rij, int kolom) {
         return speelveld[rij][kolom];
+    }
+
+    public static SpelModus getSpelModus() {
+        return spelModus;
+    }
+
+    public static void setSpelModus(SpelModus spelModus) {
+        Dots.spelModus = spelModus;
     }
 
     /**

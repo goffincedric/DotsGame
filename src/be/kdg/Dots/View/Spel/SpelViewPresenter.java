@@ -76,8 +76,18 @@ public class SpelViewPresenter {
             }
         } while (!naamIngegeven);
 
-        setupTimelineBasis();
-        stopwatchTimeline.play();
+
+        switch (model.getSpelModus()) {
+            case Classic:
+                classicViewConfig();
+                break;
+            case Moves:
+                movesViewConfig();
+                break;
+            case Infinity:
+                infinityViewConfig();
+                break;
+        }
 
         addEventHandlers();
         updateView();
@@ -379,5 +389,22 @@ public class SpelViewPresenter {
         SpelView nieuwView = new SpelView();
         SpelViewPresenter nieuwPresenter = new SpelViewPresenter(new Dots(), nieuwView);
         view.getScene().setRoot(nieuwView);
+    }
+
+    private void classicViewConfig() {
+        setupTimelineBasis();
+        stopwatchTimeline.play();
+    }
+
+    private void movesViewConfig() {
+
+
+        view.movesLayout();
+    }
+
+    private void  infinityViewConfig() {
+
+
+        view.infinityLayout();
     }
 }
