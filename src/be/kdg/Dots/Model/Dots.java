@@ -22,7 +22,7 @@ public class Dots {
     private static Kleuren kleuren[] = Kleuren.values();
     private static int aantalKleuren;
     private static Random random;
-    private static SpelModus spelModus;
+    private SpelModus spelModus;
     private int plaatsNummer;
     private List<Kleuren> dotKleuren;
 
@@ -87,12 +87,12 @@ public class Dots {
         return speelveld[rij][kolom];
     }
 
-    public static SpelModus getSpelModus() {
+    public SpelModus getSpelModus() {
         return spelModus;
     }
 
-    public static void setSpelModus(SpelModus spelModus) {
-        Dots.spelModus = spelModus;
+    public void setSpelModus(SpelModus spelModus) {
+        this.spelModus = spelModus;
     }
 
     public void gereneerDotKleuren() {

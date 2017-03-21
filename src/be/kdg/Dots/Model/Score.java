@@ -16,6 +16,7 @@ public class Score extends Dots implements Serializable {
     private int Score;
     private String Naam;
     private int BehaaldLevel;
+    private SpelModus spelModus;
 
     /**
      *
@@ -23,10 +24,11 @@ public class Score extends Dots implements Serializable {
      * @param score De score van de speler die word opgeslaan.
      * @param level Het level van de speler warvan de score word opgeslaan
      */
-    public Score(String naam, int score, int level) {
+    public Score(String naam, int score, int level, SpelModus spelModus) {
         this.Naam = naam;
         this.Score = score;
         this.BehaaldLevel = level;
+        this.spelModus = spelModus;
     }
 
     public int getScore() {
@@ -39,6 +41,10 @@ public class Score extends Dots implements Serializable {
 
     public int getBehaaldLevel() {
         return BehaaldLevel;
+    }
+
+    public SpelModus getSpelModus() {
+        return spelModus;
     }
 
     /**
@@ -99,9 +105,9 @@ public class Score extends Dots implements Serializable {
          * @param score De score van de speler die word opgeslaan.
          * @param level Het level van de speler warvan de score word opgeslaan
          */
-        public void addScore(String naam, int score, int level) {
+        public void addScore(String naam, int score, int level, SpelModus spelModus) {
             loadScoreFile();
-            scores.add(new Score(naam, score, level));
+            scores.add(new Score(naam, score, level, spelModus));
             updateScoreFile();
         }
 
@@ -159,7 +165,7 @@ public class Score extends Dots implements Serializable {
          * Een methode die een string terugggeeft die de top 10 highscores bevat.
          */
         public String getHighscoreString() {
-            String highscoreString = String.format("Plaats\t%-14s%-13s%-6s%-3s%n%n", "Spelernaam", "Moeilijkheid", "Score", "Level");
+            String highscoreString = String.format("Plaats\t%-15s%-10s%-15s%-8s%-5s%n%n", "Spelernaam", "Spelmodus", "Moeilijkheid", "Score", "Level");
             int max = 10;
 
             ArrayList<Score> scores;
@@ -171,7 +177,7 @@ public class Score extends Dots implements Serializable {
                 x = max;
             }
             while (i < x) {
-                highscoreString += String.format("%3d.\t%-14s%-13s%-6s%-3s%n",(i + 1), scores.get(i).getNaam(), scores.get(i).getLevel().getMoeilijkheidsgraad().name(), scores.get(i).getScore(), scores.get(i).getBehaaldLevel());
+                highscoreString += String.format("%3d.\t%-15s%-10s%-15s%-8s%-5s%n", (i + 1), scores.get(i).getNaam(), scores.get(i).getSpelModus().name(), scores.get(i).getLevel().getMoeilijkheidsgraad().name(), scores.get(i).getScore(), scores.get(i).getBehaaldLevel());
                 i++;
             }
             return highscoreString;
@@ -200,8 +206,6 @@ public class Score extends Dots implements Serializable {
                 } else {
                     return x+2;
                 }
-
-
             }
             return x + 2;
         }

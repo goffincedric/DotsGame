@@ -82,12 +82,20 @@ public class StartViewPresenter {
                             movesAlert.show();
                             break;
                         case "Infinity mode":
-                            Alert infinityAlert = new Alert(Alert.AlertType.INFORMATION);
+                            model.setSpelModus(Dots.SpelModus.Infinity);
+
+                            SpelView spelview = new SpelView();
+                            SpelViewPresenter spelviewpresenter = new SpelViewPresenter(model, spelview);
+                            view.getScene().setRoot(spelview);
+                            spelview.getScene().getWindow().sizeToScene();
+                            spelviewpresenter.addWindowEventHandlers();
+
+                            /*Alert infinityAlert = new Alert(Alert.AlertType.INFORMATION);
                             infinityAlert.setTitle("Coming soon");
                             infinityAlert.setHeaderText("Infinity mode is nog niet beschikbaar");
                             infinityAlert.getButtonTypes().clear();
                             infinityAlert.getButtonTypes().add(ButtonType.OK);
-                            infinityAlert.show();
+                            infinityAlert.show();*/
                             break;
                     }
                 } else {
@@ -114,8 +122,8 @@ public class StartViewPresenter {
                 alert.setTitle("Highscores TOP 10");
                 alert.setHeaderText("Dit zijn de top 10 spelers");
                 alert.setContentText(hm.getHighscoreString());
-                alert.getDialogPane().setStyle("-fx-font-family: 'Lucida Console'");
-                alert.setWidth(200);
+                alert.getDialogPane().setStyle("-fx-font-family: 'Lucida Console'; -fx-min-width: 500px; -fx-text-alignment: center;");
+                alert.setResizable(true);
                 alert.show();
             }
         });

@@ -124,12 +124,12 @@ public class SpelViewPresenter {
                                     String.format("-fx-background-color: rgb(%d, %d, %d)", kleur.getRed(), kleur.getGreen(), kleur.getBlue())
                             );
                         }
-                        alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Fout");
-                        alert.setHeaderText(e.getMessage());
-                        alert.getButtonTypes().clear();
-                        alert.getButtonTypes().add(ButtonType.OK);
                         if (e.getMessage() != null) {
+                            alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Fout");
+                            alert.setHeaderText(e.getMessage());
+                            alert.getButtonTypes().clear();
+                            alert.getButtonTypes().add(ButtonType.OK);
                             alert.showAndWait();
                         }
                     }
@@ -221,7 +221,9 @@ public class SpelViewPresenter {
         view.getBtnEnd().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                stopwatchTimeline.stop();
+                if (model.getSpelModus().equals(Dots.SpelModus.Classic)) {
+                    stopwatchTimeline.stop();
+                }
                 endGame();
             }
         });
@@ -345,7 +347,7 @@ public class SpelViewPresenter {
         endStage.showAndWait();
         //score manager
         Score.HighScoreManager hm = new Score.HighScoreManager();
-        hm.addScore(model.getSpeler().getNaam(), model.getSpeler().getTotaalScore(), model.getLevel().getGamelevel());
+        hm.addScore(model.getSpeler().getNaam(), model.getSpeler().getTotaalScore(), model.getLevel().getGamelevel(), model.getSpelModus());
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -358,7 +360,6 @@ public class SpelViewPresenter {
                 }
             }
         });
-
     }
 
 
@@ -397,12 +398,10 @@ public class SpelViewPresenter {
 
     private void movesViewConfig() {
 
-
         view.movesLayout();
     }
 
     private void infinityViewConfig() {
-
 
         view.infinityLayout();
     }
