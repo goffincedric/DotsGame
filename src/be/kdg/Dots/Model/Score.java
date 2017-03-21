@@ -177,7 +177,12 @@ public class Score extends Dots implements Serializable {
                 x = max;
             }
             while (i < x) {
-                highscoreString += String.format("%3d.\t%-15s%-10s%-15s%-8s%-5s%n", (i + 1), scores.get(i).getNaam(), scores.get(i).getSpelModus().name(), scores.get(i).getLevel().getMoeilijkheidsgraad().name(), scores.get(i).getScore(), scores.get(i).getBehaaldLevel());
+                if (scores.get(i).getSpelModus().equals(SpelModus.Classic)) {
+                    highscoreString += String.format("%3d.\t%-15s%-10s%-15s%-8s%-5s%n", (i + 1), scores.get(i).getNaam(), scores.get(i).getSpelModus().name(), scores.get(i).getLevel().getMoeilijkheidsgraad().name(), scores.get(i).getScore(), scores.get(i).getBehaaldLevel());
+                } else {
+                    highscoreString += String.format("%3d.\t%-15s%-10s%-15s%-8s%-5s%n", (i + 1), scores.get(i).getNaam(), scores.get(i).getSpelModus().name(), "N.v.t.", scores.get(i).getScore(), "N.v.t.");
+                }
+
                 i++;
             }
             return highscoreString;
