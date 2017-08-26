@@ -73,6 +73,9 @@ public class SpelViewPresenter {
                 StartView startView = new StartView();
                 StartViewPresenter startViewPresenter = new StartViewPresenter(new Dots(), startView);
                 view.getScene().setRoot(startView);
+                startView.getScene().getWindow().sizeToScene();
+                startViewPresenter.addWindowEventHandlers();
+                return;
             }
         } while (!naamIngegeven);
 
@@ -387,8 +390,10 @@ public class SpelViewPresenter {
     private void resetSpel() {
         stopwatchTimeline.stop();
         SpelView nieuwView = new SpelView();
-        SpelViewPresenter nieuwPresenter = new SpelViewPresenter(new Dots(), nieuwView);
         view.getScene().setRoot(nieuwView);
+        nieuwView.getScene().getWindow().sizeToScene();
+        SpelViewPresenter nieuwPresenter = new SpelViewPresenter(new Dots(), nieuwView);
+        nieuwPresenter.addWindowEventHandlers();
     }
 
     private void classicViewConfig() {
