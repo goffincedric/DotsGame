@@ -27,6 +27,8 @@ public class SpelView extends GridPane {
     private Label lblLevel;
     private Label lblTimerTekst;
     private Label lblTimer;
+    private Label lblMovesTekst;
+    private Label lblMoves;
     private Label lblSpelerNaam;
 
     private GridPane dotsGrid;
@@ -43,13 +45,15 @@ public class SpelView extends GridPane {
     private void initialiseNodes() {
         initBtnsArray();
         this.lblSpelerNaam = new Label("########");
-        this.lblScore = new Label("###");
+        this.lblScore = new Label("0");
         this.lblScoreTekst = new Label("Score");
         this.lblTargetScore = new Label("###");
         this.lblTargetScoreTekst = new Label("Target score");
-        this.lblLevel = new Label("##");
+        this.lblLevel = new Label("01");
         this.lblTimerTekst = new Label("Timer:");
         this.lblTimer = new Label("45");
+        this.lblMovesTekst = new Label("Moves:");
+        this.lblMoves = new Label("##");
 
         this.btnPause = new Button("Pause");
         this.btnEnd = new Button("End");
@@ -65,8 +69,6 @@ public class SpelView extends GridPane {
         this.setStyle("-fx-background-color: ghostwhite;");
         topLeft.setStyle(" -fx-font: 22px Consolas;");
         topRight.setStyle("-fx-font: 22px Consolas;");
-        lblTimer.setStyle("-fx-font: 22px Consolas;");
-        lblTimerTekst.setStyle("-fx-font: 22px Consolas;");
         this.setMinSize(750, 750);
         this.setVgap(10);
         this.setHgap(10);
@@ -82,9 +84,7 @@ public class SpelView extends GridPane {
 
         //topleft hbox
         this.topLeft.add(lblScoreTekst, 0, 0);
-        this.topLeft.add(lblTargetScoreTekst, 1, 0);
         this.topLeft.add(lblScore, 0, 1);
-        this.topLeft.add(lblTargetScore, 1, 1);
         this.topLeft.setHgap(10);
         this.topLeft.setVgap(10);
 
@@ -93,7 +93,7 @@ public class SpelView extends GridPane {
         this.topRight.getChildren().addAll(lblSpelerNaam, levelBox);
 
         //bottomRight
-        this.bottomRight.getChildren().addAll(lblTimerTekst, lblTimer, btnPause, btnEnd);
+        this.bottomRight.getChildren().addAll(lblTimerTekst, lblTimer, lblMovesTekst, lblMoves, btnPause, btnEnd);
         this.bottomRight.setAlignment(Pos.BASELINE_CENTER);
         this.bottomRight.setSpacing(10);
         bottomRight.setPadding(new Insets(200, 0, 0, 0));
@@ -170,16 +170,35 @@ public class SpelView extends GridPane {
         return lblTimer;
     }
 
-    public void movesLayout() {
-
+    public Label getLblMoves() {
+        return lblMoves;
     }
 
-    public void infinityLayout() {
+    void classicLayout() {
+        lblTimer.setStyle("-fx-font: 22px Consolas;");
+        lblTimerTekst.setStyle("-fx-font: 22px Consolas;");
+
+        lblMoves.setVisible(false);
+        lblMovesTekst.setVisible(false);
+
+        //topleft hbox
+        this.topLeft.add(lblTargetScoreTekst, 1, 0);
+        this.topLeft.add(lblTargetScore, 1, 1);
+    }
+
+    void movesLayout() {
+        lblMoves.setStyle("-fx-font: 22px Consolas;");
+        lblMovesTekst.setStyle("-fx-font: 22px Consolas;");
+    }
+
+    void infinityLayout() {
         lblTargetScoreTekst.setVisible(false);
         lblTargetScore.setVisible(false);
         lblLevel.setVisible(false);
         lblTimerTekst.setVisible(false);
         lblTimer.setVisible(false);
+        lblMovesTekst.setVisible(false);
+        lblMoves.setVisible(false);
     }
 }
 

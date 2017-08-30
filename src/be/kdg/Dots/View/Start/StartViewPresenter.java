@@ -58,46 +58,22 @@ public class StartViewPresenter {
                 if (result.isPresent()){
                     switch (result.get()) {
                         case "Classic mode":
-                            try {
-                                model.setSpelModus(Dots.SpelModus.Classic);
-
-                                SpelView spelview = new SpelView();
-                                SpelViewPresenter spelviewpresenter = new SpelViewPresenter(model, spelview);
-                                view.getScene().setRoot(spelview);
-                                spelview.getScene().getWindow().sizeToScene();
-                                spelviewpresenter.addWindowEventHandlers();
-                            } catch (NullPointerException e) {
-                                event.consume();
-                            } catch (Exception e) {
-                                Alert alert = new Alert(Alert.AlertType.INFORMATION, e.getMessage());
-                                alert.show();
-                            }
+                            model.setSpelModus(Dots.SpelModus.Classic);
                             break;
-                        case  "Moves mode":
-                            Alert movesAlert = new Alert(Alert.AlertType.INFORMATION);
-                            movesAlert.setTitle("Coming soon");
-                            movesAlert.setHeaderText("Moves mode is nog niet beschikbaar");
-                            movesAlert.getButtonTypes().clear();
-                            movesAlert.getButtonTypes().add(ButtonType.OK);
-                            movesAlert.show();
+                        case "Moves mode":
+                            model.setSpelModus(Dots.SpelModus.Moves);
                             break;
                         case "Infinity mode":
                             model.setSpelModus(Dots.SpelModus.Infinity);
-
-                            SpelView spelview = new SpelView();
-                            SpelViewPresenter spelviewpresenter = new SpelViewPresenter(model, spelview);
-                            view.getScene().setRoot(spelview);
-                            spelview.getScene().getWindow().sizeToScene();
-                            spelviewpresenter.addWindowEventHandlers();
-
-                            /*Alert infinityAlert = new Alert(Alert.AlertType.INFORMATION);
-                            infinityAlert.setTitle("Coming soon");
-                            infinityAlert.setHeaderText("Infinity mode is nog niet beschikbaar");
-                            infinityAlert.getButtonTypes().clear();
-                            infinityAlert.getButtonTypes().add(ButtonType.OK);
-                            infinityAlert.show();*/
                             break;
                     }
+
+                    SpelView spelview = new SpelView();
+                    SpelViewPresenter spelviewpresenter = new SpelViewPresenter(model, spelview);
+                    view.getScene().setRoot(spelview);
+                    spelview.getScene().getWindow().sizeToScene();
+                    spelviewpresenter.addWindowEventHandlers();
+
                 } else {
                     event.consume();
                 }
@@ -117,14 +93,33 @@ public class StartViewPresenter {
         view.getBtnHighScores().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Score.HighScoreManager hm = new Score.HighScoreManager();
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Highscores TOP 10");
-                alert.setHeaderText("Dit zijn de top 10 spelers");
-                alert.setContentText(hm.getHighscoreString());
-                alert.getDialogPane().setStyle("-fx-font-family: 'Lucida Console'; -fx-min-width: 500px; -fx-text-alignment: center;");
-                alert.setResizable(true);
-                alert.show();
+                List<String> choices = new ArrayList<>();
+                choices.add("Classic mode");
+                choices.add("Moves mode");
+                choices.add("Infinity mode");
+
+                ChoiceDialog<String> dialog = new ChoiceDialog<>("Classic mode", choices);
+                dialog.setTitle("Highscores");
+                dialog.setHeaderText("Kies een spelmodus");
+                dialog.setContentText("Kies de spelmodus waarvan je de highscores wil zien:");
+
+                Optional<String> result = dialog.showAndWait();
+
+                if (result.isPresent()){
+                    switch (result.get()) {
+                        case "Classic mode":
+                            showHighscoresPerMode(Dots.SpelModus.Classic);
+                            break;
+                        case "Moves mode":
+                            showHighscoresPerMode(Dots.SpelModus.Moves);
+                            break;
+                        case "Infinity mode":
+                            showHighscoresPerMode(Dots.SpelModus.Infinity);
+                            break;
+                    }
+                } else {
+                    event.consume();
+                }
             }
         });
 
@@ -181,5 +176,17 @@ public class StartViewPresenter {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, e.getMessage());
             alert.show();
         }
+    }
+
+    private void showHighscoresPerMode(Dots.SpelModus spelModus) {
+        Score.HighScoreManager hm = new Score.HighScoreManager();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Highscores TOP 10");
+        alert.setHeaderText("Dit zijn de top 10 spelers");
+        alert.setContentText(hm.getHighscoreStringPerMode(spelModus));
+        alert.getDialogPane().setStyle("-fx-font-family: 'Lucida Console'; -fx-min-width: 500px; -fx-text-alignment: center;");
+        alert.setResizable(true);
+        alert.show();
     }
 }

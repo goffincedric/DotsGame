@@ -162,7 +162,7 @@ public class Score extends Dots implements Serializable {
         }
 
         /**
-         * Een methode die een string terugggeeft die de top 10 highscores bevat.
+         * Een methode die een string teruggeeft die de top 10 highscores bevat.
          */
         public String getHighscoreString() {
             String highscoreString = String.format("Plaats\t%-15s%-10s%-15s%-8s%-5s%n%n", "Spelernaam", "Spelmodus", "Moeilijkheid", "Score", "Level");
@@ -181,6 +181,48 @@ public class Score extends Dots implements Serializable {
                     highscoreString += String.format("%3d.\t%-15s%-10s%-15s%-8s%-5s%n", (i + 1), scores.get(i).getNaam(), scores.get(i).getSpelModus().name(), scores.get(i).getLevel().getMoeilijkheidsgraad().name(), scores.get(i).getScore(), scores.get(i).getBehaaldLevel());
                 } else {
                     highscoreString += String.format("%3d.\t%-15s%-10s%-15s%-8s%-5s%n", (i + 1), scores.get(i).getNaam(), scores.get(i).getSpelModus().name(), "N.v.t.", scores.get(i).getScore(), "N.v.t.");
+                }
+
+                i++;
+            }
+            return highscoreString;
+        }
+
+        /**
+         * Een methode die een string teruggeeft die de top 10 highscores bevat voor een opgegeven spelmodus.
+         */
+        public String getHighscoreStringPerMode(SpelModus spelModus) {
+            String highscoreString;
+            int max = 10;
+
+            switch (spelModus) {
+                case Classic:
+                    highscoreString = String.format("Plaats\t%-15s%-10s%-15s%-8s%-5s%n%n", "Spelernaam", "Spelmodus", "Moeilijkheid", "Score", "Level");
+                    break;
+                default:
+                    highscoreString = String.format("Plaats\t%-15s%-10s%-8s%n%n", "Spelernaam", "Spelmodus", "Score");
+                    break;
+            }
+
+            ArrayList<Score> scores;
+            scores = getScores();
+
+            int i = 0;
+            int x = scores.size();
+            if (x > max) {
+                x = max;
+            }
+            while (i < x) {
+                if (scores.get(i).getSpelModus().equals(spelModus)) {
+                    if (scores.get(i).getSpelModus().equals(SpelModus.Classic)) {
+                        highscoreString = highscoreString.concat(
+                                String.format("%3d.\t%-15s%-10s%-15s%-8s%-5s%n", (i + 1), scores.get(i).getNaam(), scores.get(i).getSpelModus().name(), scores.get(i).getLevel().getMoeilijkheidsgraad().name(), scores.get(i).getScore(), scores.get(i).getBehaaldLevel())
+                        );
+                    } else {
+                        highscoreString = highscoreString.concat(
+                                String.format("%3d.\t%-15s%-10s%-8s%n", (i + 1), scores.get(i).getNaam(), scores.get(i).getSpelModus().name(), scores.get(i).getScore())
+                        );
+                    }
                 }
 
                 i++;

@@ -31,6 +31,8 @@ public class Dots {
     private int tickDurationMillis;
     private Boolean sound;
 
+    private int movesCounter;
+
     private Speler speler;
     private Level level;
     private Lijn lijn;
@@ -48,6 +50,7 @@ public class Dots {
 
         this.tickDurationMillis = START_TICK_DURATION_MILLIS;
         this.seconds = 45;
+        this.movesCounter = 30;
 
         gereneerDotKleuren();
 
@@ -93,6 +96,14 @@ public class Dots {
 
     public void setSpelModus(SpelModus spelModus) {
         this.spelModus = spelModus;
+    }
+
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public int getMovesCounter() {
+        return movesCounter;
     }
 
     public void gereneerDotKleuren() {
@@ -168,8 +179,6 @@ public class Dots {
         this.speelveld = new Dot[MAXRIJ][MAXKOLOM];
         dotKleuren = new ArrayList<>();
         this.plaatsNummer = 0;
-        this.tickDurationMillis = START_TICK_DURATION_MILLIS;
-        this.seconds = 45;
 
         gereneerDotKleuren();
 
@@ -179,6 +188,20 @@ public class Dots {
                 plaatsNummer++;
             }
         }
+
+        switch (spelModus) {
+            case Classic:
+                this.tickDurationMillis = START_TICK_DURATION_MILLIS;
+                this.seconds = 45;
+                break;
+            case Moves:
+                this.movesCounter = 30;
+                break;
+        }
+    }
+
+    public void moveSubmitted() {
+        this.movesCounter--;
     }
 
     /**
@@ -186,10 +209,6 @@ public class Dots {
      */
     public void tick() {
         this.seconds--;
-    }
-
-    public int getSeconds() {
-        return seconds;
     }
 
     public void resetTimer() {

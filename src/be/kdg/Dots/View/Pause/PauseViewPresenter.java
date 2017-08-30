@@ -52,7 +52,12 @@ public class PauseViewPresenter {
 
     private void updateView() {
         view.getLblScore().setText(String.valueOf(model.getSpeler().getTotaalScore()));
-        view.getLblLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
+        if (model.getSpelModus().equals(Dots.SpelModus.Classic)) {
+            view.getLblLevel().setText(String.valueOf(model.getLevel().getGamelevel()));
+        } else {
+            view.getLblLevel().setVisible(false);
+        }
+
     }
 
     public Button getResult() {
